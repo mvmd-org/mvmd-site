@@ -12,7 +12,7 @@ const config: Config = {
 
   // Set the production url of your site here
   url: 'https://mvmd-org.github.io',
-  baseUrl: '/mvmd-site/',
+  baseUrl: '/',
   organizationName: 'mvmd-org',
   projectName: 'mvmd-site',
 
