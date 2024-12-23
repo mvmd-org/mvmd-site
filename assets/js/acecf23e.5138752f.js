@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmvmd_site=self.webpackChunkmvmd_site||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/mvmd-site/blog","blogTitle":"Blog","authorsListPath":"/mvmd-site/blog/authors"}')}}]);

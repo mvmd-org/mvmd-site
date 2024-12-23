@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmvmd_site=self.webpackChunkmvmd_site||[]).push([[2873],{9522:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/mvmd-site/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
