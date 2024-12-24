@@ -1,7 +1,7 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  docs: [
+  tutorialSidebar: [
     'intro',
     {
       type: 'category',
@@ -10,7 +10,7 @@ const sidebars: SidebarsConfig = {
         'standards/overview',
         'standards/general-metadata',
         'standards/3d-virtual-world',
-        'standards/geospatial',
+        'standards/geospacial',
         'standards/media-content',
       ],
     },

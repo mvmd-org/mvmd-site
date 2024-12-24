@@ -21,6 +21,6 @@ The Metaverse Metadata Directory (MVMD) is a comprehensive resource that:
 
 ## Getting Started
 
-1. Browse our [Standards Registry](/docs/standards/overview)
-2. Follow our [Implementation Guide](/docs/implementation/getting-started)
-3. Try our [Developer Tools](/docs/tools/validation)
+1. Browse our [Standards Registry](/standards/overview)
+2. Follow our [Implementation Guide](/implementation/getting-started)
+3. Try our [Developer Tools](/tools/validation)
