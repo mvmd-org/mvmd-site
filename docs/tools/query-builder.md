@@ -1,17 +1,11 @@
+<!-- Path: /docs/tools/query-builder.md -->
 ---
 sidebar_position: 3
 ---
 
 # Query Builder
 
-The MVMD Query Builder helps you construct metadata queries using a visual interface or programmatic APIs.
-
-## Interactive Query Builder
-
-The interactive query builder provides a visual interface for:
-- Constructing complex queries
-- Testing query results
-- Generating query code
+The MVMD Query Builder helps you construct metadata queries using a visual interface or programmatic APIs. This tool supports complex queries across all metadata profiles and standards.
 
 ## Query Types
 
@@ -20,20 +14,21 @@ Simple text-based search across all metadata fields.
 
 ```graphql
 {
-  search(query: "avatar", type: "3DModel") {
+  search(query: "office chair", type: "3DModel") {
     results {
       name
       description
       contentUrl
+      creator {
+        name
+      }
     }
   }
 }
 ```
 
-### Advanced Filters
-
-#### Property Filters
-Filter by specific metadata properties.
+### Property Filters
+Filter by specific metadata properties:
 
 ```graphql
 {
@@ -41,128 +36,73 @@ Filter by specific metadata properties.
     filter: {
       type: "3DModel"
       properties: [
-        { key: "format", value: "glTF" }
-        { key: "license", value: "CC-BY" }
+        { key: "encodingFormat", value: "model/gltf-binary" }
+        { key: "gltf:materials.name", value: "Metal" }
       ]
     }
   ) {
     results {
       name
       contentUrl
-    }
-  }
-}
-```
-
-#### Spatial Queries
-Search based on spatial relationships.
-
-```graphql
-{
-  nearby(
-    location: {
-      lat: 37.7749
-      lon: -122.4194
-    }
-    radius: "10km"
-  ) {
-    results {
-      name
-      distance
-    }
-  }
-}
-```
-
-## Supported Query Operations
-
-### 1. Text Search
-- Full-text search across metadata fields
-- Field-specific text search
-- Fuzzy matching support
-
-### 2. Comparison Operations
-- Equals (`eq`)
-- Not equals (`ne`)
-- Greater than (`gt`)
-- Less than (`lt`)
-- Contains (`contains`)
-- Starts with (`startsWith`)
-
-### 3. Logical Operations
-- AND
-- OR
-- NOT
-
-### 4. Range Queries
-```graphql
-{
-  search(
-    filter: {
-      dateCreated: {
-        gte: "2024-01-01"
-        lte: "2024-12-31"
+      gltf:materials {
+        name
+        pbrMetallicRoughness {
+          baseColorFactor
+        }
       }
     }
-  ) {
-    results {
-      name
-      dateCreated
-    }
   }
 }
 ```
 
-### 5. Aggregations
-```graphql
-{
-  aggregate(
-    groupBy: "creator"
-    metrics: ["count", "avgRating"]
-  ) {
-    results {
-      key
-      count
-      avgRating
-    }
-  }
-}
-```
+## Query Operations
 
-## Query Examples
+### Comparison Operators
+- `eq`: Equals
+- `ne`: Not equals
+- `gt`: Greater than
+- `lt`: Less than
+- `gte`: Greater than or equal
+- `lte`: Less than or equal
+- `contains`: Contains substring
+- `startsWith`: Starts with
+- `in`: Value in array
+- `regex`: Regular expression match
 
-### Find Assets by Creator
+Example:
 ```graphql
 {
   search(
     filter: {
-      creator: "studio-name"
-      type: "Environment"
+      dateCreated: { gte: "2024-01-01" }
+      maximumAttendeeCapacity: { gt: 100 }
     }
-    sort: { field: "dateCreated", order: DESC }
-    limit: 10
   ) {
     results {
       name
-      description
       dateCreated
+      maximumAttendeeCapacity
     }
   }
 }
 ```
 
-### Complex Property Search
+### Logical Operators
+- `AND`: All conditions must match
+- `OR`: Any condition must match
+- `NOT`: Condition must not match
+
+Example:
 ```graphql
 {
   search(
     filter: {
       AND: [
         { type: "3DModel" },
-        { format: "glTF" },
-        {
+        { 
           OR: [
-            { license: "CC-BY" },
-            { license: "CC-BY-SA" }
+            { "gltf:materials.name": "Metal" },
+            { "gltf:materials.name": "Glass" }
           ]
         }
       ]
@@ -170,44 +110,23 @@ Search based on spatial relationships.
   ) {
     results {
       name
-      contentUrl
-      license
+      gltf:materials {
+        name
+      }
     }
   }
 }
 ```
 
-### Spatial Search with Properties
-```graphql
-{
-  nearby(
-    location: { lat: 37.7749, lon: -122.4194 }
-    radius: "10km"
-    filter: {
-      type: "Environment"
-      properties: [
-        { key: "capacity", value: { gt: 100 } }
-      ]
-    }
-  ) {
-    results {
-      name
-      distance
-      capacity
-    }
-  }
-}
-```
-
-## Using Query Results
+## Advanced Features
 
 ### Pagination
-All queries support pagination using `limit` and `offset`:
+Control result size and position:
 
 ```graphql
 {
   search(
-    query: "avatar"
+    query: "chair"
     limit: 20
     offset: 40
   ) {
@@ -223,28 +142,52 @@ All queries support pagination using `limit` and `offset`:
 }
 ```
 
-### Result Formatting
-Control the output format using field selection:
+### Field Selection
+Control which fields to return:
 
 ```graphql
 {
-  search(query: "avatar") {
+  search(query: "conference room") {
     results {
       # Basic fields
       name
       description
       
-      # Nested metadata
-      metadata {
-        dimensions
-        materials
+      # Technical details
+      gltf:materials {
+        name
+        pbrMetallicRoughness
       }
       
-      # Related assets
-      related {
-        name
-        type
+      # Spatial properties
+      spatialCoverage {
+        box
+        height
       }
+      
+      # Capacity info
+      maximumAttendeeCapacity
+    }
+  }
+}
+```
+
+### Aggregations
+Perform calculations on query results:
+
+```graphql
+{
+  aggregate(
+    groupBy: "creator.name"
+    metrics: [
+      { type: "count", name: "totalAssets" },
+      { type: "avg", field: "maximumAttendeeCapacity", name: "avgCapacity" }
+    ]
+  ) {
+    results {
+      key
+      totalAssets
+      avgCapacity
     }
   }
 }
@@ -252,22 +195,149 @@ Control the output format using field selection:
 
 ## Best Practices
 
-1. **Query Optimization**
-    - Use specific field queries instead of full-text search when possible
-    - Limit result fields to those needed
-    - Use pagination for large result sets
+### 1. Query Optimization
+- Use specific field queries instead of full-text search
+- Request only needed fields
+- Use pagination for large result sets
+- Apply appropriate filters early
 
-2. **Error Handling**
-    - Always check for error responses
-    - Implement retry logic for failed queries
-    - Handle pagination properly
+### 2. Performance Considerations
+- Limit result size appropriately
+- Use indexed fields when possible
+- Avoid deep nested queries
+- Consider caching frequent queries
 
-3. **Caching**
-    - Cache frequently used queries
-    - Implement cache invalidation strategies
-    - Use ETags for response caching
+### 3. Error Handling
+```graphql
+{
+  search(query: "chair") {
+    results {
+      name
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+```
 
-4. **Rate Limiting**
-    - Stay within API rate limits
-    - Implement request throttling
-    - Monitor API usage
+## Common Query Patterns
+
+### Find Assets by Creator
+```graphql
+{
+  search(
+    filter: {
+      creator: { name: "Virtual Furnishings Inc." }
+      type: "3DModel"
+    }
+    sort: { field: "dateCreated", order: DESC }
+    limit: 10
+  ) {
+    results {
+      name
+      description
+      dateCreated
+    }
+  }
+}
+```
+
+### Search Environment Features
+```graphql
+{
+  search(
+    filter: {
+      type: "Place"
+      amenityFeature: {
+        name: "presentationScreen"
+        value: true
+      }
+    }
+  ) {
+    results {
+      name
+      maximumAttendeeCapacity
+      amenityFeature {
+        name
+        value
+      }
+    }
+  }
+}
+```
+
+### Find Compatible Assets
+```graphql
+{
+  search(
+    filter: {
+      AND: [
+        { type: "3DModel" },
+        { encodingFormat: "model/gltf-binary" },
+        { 
+          OR: [
+            { license: "https://creativecommons.org/licenses/by/4.0/" },
+            { license: "https://creativecommons.org/licenses/by-sa/4.0/" }
+          ]
+        }
+      ]
+    }
+  ) {
+    results {
+      name
+      contentUrl
+      license
+    }
+  }
+}
+```
+
+## Using Query Results
+
+### Result Format
+```json
+{
+  "data": {
+    "search": {
+      "results": [
+        {
+          "name": "Office Chair",
+          "contentUrl": "https://example.com/models/chair.glb"
+        }
+      ],
+      "pageInfo": {
+        "totalResults": 42,
+        "hasNextPage": true,
+        "nextOffset": 20
+      }
+    }
+  }
+}
+```
+
+### Error Format
+```json
+{
+  "data": {
+    "search": {
+      "results": [],
+      "errors": [
+        {
+          "field": "filter.dateCreated",
+          "message": "Invalid date format",
+          "code": "INVALID_FORMAT"
+        }
+      ]
+    }
+  }
+}
+```
+
+## Next Steps
+
+- Review [API Reference](./api-reference.md) for programmatic access
+- See [Validation](./validation.md) for ensuring metadata quality
+- Check [Basic Profile](/implementation/metadata-profiles/basic-profile.md) for core metadata fields

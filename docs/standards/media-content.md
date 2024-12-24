@@ -1,3 +1,4 @@
+<!-- Path: /docs/standards/media-content.md -->
 ---
 sidebar_position: 5
 ---

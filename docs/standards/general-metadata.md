@@ -1,3 +1,4 @@
+<!-- Path: /docs/standards/general-metadata.md -->
 ---
 sidebar_position: 2
 ---
@@ -29,9 +30,6 @@ Key Features
 ### Graph-based data representation
 Namespace support
 Context-based data mapping
-
-### Dublin Core
-A standardized set of metadata terms for digital resource description.
 
 ### Key Features
 - Simple, standardized vocabulary
