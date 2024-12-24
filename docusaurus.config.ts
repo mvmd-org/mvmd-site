@@ -11,7 +11,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://mvmd-org.github.io',
+  url: 'https://mvmd.org',
   baseUrl: '/',
   organizationName: 'mvmd-org',
   projectName: 'mvmd-site',
@@ -57,9 +57,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Metaverse Metadata Directory',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'MVMD Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -71,7 +71,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/mvmd',
           label: 'GitHub',
           position: 'right',
         },
@@ -93,16 +93,8 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
               label: 'X',
-              href: 'https://x.com/docusaurus',
+              href: 'https://x.com/sumsettech',
             },
           ],
         },
