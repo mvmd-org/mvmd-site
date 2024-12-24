@@ -71,7 +71,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/mvmd',
+          href: 'https://github.com/mvmd-org',
           label: 'GitHub',
           position: 'right',
         },
@@ -94,7 +94,7 @@ const config: Config = {
           items: [
             {
               label: 'X',
-              href: 'https://x.com/sumsettech',
+              href: 'https://x.com/mvmd_org',
             },
           ],
         },
@@ -107,12 +107,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/mvmd-org',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Metaverse Metadata Directory`,
     },
     prism: {
       theme: prismThemes.github,
