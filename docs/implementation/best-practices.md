@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/best-practices.md -->
 ---
 sidebar_position: 3
 ---

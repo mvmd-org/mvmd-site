@@ -1,4 +1,3 @@
-<!-- Path: /docs/standards/general-metadata.md -->
 ---
 sidebar_position: 2
 ---

@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/metadata-profiles/basic-profile.md -->
 ---
 sidebar_position: 1
 ---

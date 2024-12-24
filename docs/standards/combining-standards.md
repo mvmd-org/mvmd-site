@@ -1,4 +1,3 @@
-<!-- Path: /docs/standards/combining-standards.md -->
 ---
 sidebar_position: 6
 ---

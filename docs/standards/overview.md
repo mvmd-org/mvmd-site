@@ -1,4 +1,3 @@
-<!-- Path: /docs/standards/overview.md -->
 ---
 sidebar_position: 1
 ---

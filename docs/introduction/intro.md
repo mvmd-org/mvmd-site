@@ -1,4 +1,3 @@
-<!-- Path: /docs/introduction/intro.md -->
 ---
 sidebar_position: 1
 ---

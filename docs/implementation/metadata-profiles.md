@@ -1,5 +1,3 @@
-<!-- Path: /docs/implementation/metadata-profiles.md -->
-<!-- Original file that should be split into the specific profiles in the /docs/implementation/metadata-profiles/ directory -->
 ---
 sidebar_position: 2
 ---

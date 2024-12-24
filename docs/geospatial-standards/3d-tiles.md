@@ -1,4 +1,3 @@
-<!-- Path: /docs/geospatial-standards/3d-tiles.md -->
 ---
 sidebar_position: 2
 ---

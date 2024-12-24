@@ -1,4 +1,3 @@
-<!-- Path: /docs/3d-standards/x3d.md -->
 ---
 sidebar_position: 3
 ---

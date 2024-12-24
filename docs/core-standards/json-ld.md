@@ -1,4 +1,3 @@
-<!-- Path: /docs/core-standards/json-ld.md -->
 ---
 sidebar_position: 2
 ---

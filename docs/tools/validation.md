@@ -1,5 +1,4 @@
-<!-- Path: /docs/tools/validation.md -->
----
+~~~~---
 sidebar_position: 1
 ---
 

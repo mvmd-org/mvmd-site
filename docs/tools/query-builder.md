@@ -1,4 +1,3 @@
-<!-- Path: /docs/tools/query-builder.md -->
 ---
 sidebar_position: 3
 ---

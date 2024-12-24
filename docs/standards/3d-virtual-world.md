@@ -1,4 +1,3 @@
-<!-- Path: /docs/standards/3d-virtual-world.md -->
 ---
 sidebar_position: 3
 ---

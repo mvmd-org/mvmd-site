@@ -1,4 +1,3 @@
-<!-- Path: /docs/3d-standards/gltf.md -->
 ---
 sidebar_position: 1
 ---

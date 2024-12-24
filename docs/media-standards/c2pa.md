@@ -1,4 +1,3 @@
-<!-- Path: /docs/media-standards/c2pa.md -->
 ---
 sidebar_position: 1
 ---

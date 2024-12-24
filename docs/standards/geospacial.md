@@ -1,4 +1,3 @@
-<!-- Path: /docs/standards/geospacial.md -->
 ---
 sidebar_position: 4
 ---

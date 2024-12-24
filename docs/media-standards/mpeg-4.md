@@ -1,4 +1,3 @@
-<!-- Path: /docs/media-standards/mpeg-4.md -->
 ---
 sidebar_position: 2
 ---

@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/metadata-profiles/avatar-profile.md -->
 ---
 sidebar_position: 3
 ---

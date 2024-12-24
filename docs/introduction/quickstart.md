@@ -1,4 +1,3 @@
-<!-- Path: /docs/introduction/quickstart.md -->
 ---
 sidebar_position: 3
 ---

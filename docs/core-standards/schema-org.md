@@ -1,4 +1,3 @@
-<!-- Path: /docs/core-standards/schema-org.md -->
 ---
 sidebar_position: 1
 ---

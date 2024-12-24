@@ -1,4 +1,3 @@
-<!-- Path: /docs/3d-standards/usd.md -->
 ---
 sidebar_position: 2
 ---

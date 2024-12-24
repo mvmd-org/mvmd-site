@@ -1,4 +1,3 @@
-<!-- Path: /docs/tools/api-reference.md -->
 ---
 sidebar_position: 2
 ---

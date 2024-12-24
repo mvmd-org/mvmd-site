@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/metadata-profiles/environment-profile.md -->
 ---
 sidebar_position: 4
 ---

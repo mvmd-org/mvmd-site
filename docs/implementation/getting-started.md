@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/getting-started.md -->
 ---
 sidebar_position: 1
 ---

@@ -1,4 +1,3 @@
-<!-- Path: /docs/implementation/metadata-profiles/3d-object-profile.md -->
 ---
 sidebar_position: 2
 ---

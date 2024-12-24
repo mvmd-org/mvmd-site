@@ -1,4 +1,3 @@
-<!-- Path: /docs/introduction/concepts.md -->
 ---
 sidebar_position: 2
 ---
