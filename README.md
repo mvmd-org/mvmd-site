@@ -48,7 +48,7 @@ Open your browser to http://localhost:3000 to preview the changes.
     npm run build
 
 #### Deploy the site:
-
+    npm run build
     npm run deploy
 
 This command:
