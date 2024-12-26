@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Standards Registry Overview
+# Overview
 
-The MVMD Standards Registry catalogs metadata standards essential for describing and managing Metaverse assets. Each standard serves specific purposes while maintaining interoperability through JSON-LD.
+The MVMD Standards is a catalog of metadata standards essential for describing and managing metaverse assets. Each standard serves specific purposes while maintaining interoperability through JSON-LD.
 
 ## Core Metadata Standards
 

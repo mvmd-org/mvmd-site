@@ -7,48 +7,63 @@ const sidebars: SidebarsConfig = {
             label: 'Introduction',
             items: [
                 'introduction/intro',
-                'introduction/concepts',
                 'introduction/quickstart',
             ],
         },
         {
             type: 'category',
-            label: 'Standards Registry',
+            label: 'Core Concepts',
+            items: [
+                'core-concepts/metadata-fundamentals',
+                'core-concepts/file-organization',
+                'core-concepts/embedding-and-reference',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Standards',
             items: [
                 'standards/overview',
                 {
                     type: 'category',
-                    label: 'Core Standards',
+                    label: 'Schema',
                     items: [
-                        'core-standards/schema-org',
-                        'core-standards/json-ld',
+                        'standards/schema/schema-org',
+                        'standards/schema/json-ld',
                     ],
                 },
                 {
                     type: 'category',
-                    label: '3D Standards',
+                    label: '3D Assets',
                     items: [
-                        '3d-standards/gltf',
-                        '3d-standards/usd',
-                        '3d-standards/x3d',
+                        'standards/3d-assets/gltf',
+                        'standards/3d-assets/usd',
+                        'standards/3d-assets/x3d',
                     ],
                 },
                 {
                     type: 'category',
-                    label: 'Geospatial Standards',
+                    label: 'Geospatial',
                     items: [
-                        'geospatial-standards/citygml',
-                        'geospatial-standards/3d-tiles',
+                        'standards/geospatial/cityjson',
+                        'standards/geospatial/3d-tiles',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trust and Provenance',
+                    items: [
+                        'standards/trust/c2pa',
                     ],
                 },
                 {
                     type: 'category',
                     label: 'Media Standards',
                     items: [
-                        'media-standards/c2pa',
-                        'media-standards/mpeg-4',
+                        'standards/media/mpeg-4',
                     ],
                 },
+                'standards/future-profiles',
             ],
         },
         {
@@ -60,10 +75,31 @@ const sidebars: SidebarsConfig = {
                     type: 'category',
                     label: 'Metadata Profiles',
                     items: [
-                        'implementation/metadata-profiles/basic-profile',
-                        'implementation/metadata-profiles/3d-object-profile',
-                        'implementation/metadata-profiles/avatar-profile',
-                        'implementation/metadata-profiles/environment-profile',
+                        'implementation/profiles/basic-profile',
+                        'implementation/profiles/wearables-profile',
+                        'implementation/profiles/avatar-profile',
+                        'implementation/profiles/3d-model-profile',
+                        'implementation/profiles/scene-profile',
+                        'implementation/profiles/equipable-profile',
+                        'implementation/profiles/interactables-profile',
+                        'implementation/profiles/future-profiles',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'NFT Integration',
+                    items: [
+                        'implementation/nft/concepts',
+                        'implementation/nft/examples',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Composable Assets',
+                    items: [
+                        'implementation/composable/concepts',
+                        'implementation/composable/schema-parts',
+                        'implementation/composable/assembly-patterns',
                     ],
                 },
                 'implementation/best-practices',
@@ -82,7 +118,6 @@ const sidebars: SidebarsConfig = {
             type: 'category',
             label: 'Community',
             items: [
-                'community/supporters',
                 {
                     type: 'category',
                     label: 'Supporting Organizations',
@@ -91,6 +126,8 @@ const sidebars: SidebarsConfig = {
                         'community/supporters/nftr-pro',
                     ],
                 },
+                'community/become-supporter',
+                'community/contributors',
             ],
         },
     ],
