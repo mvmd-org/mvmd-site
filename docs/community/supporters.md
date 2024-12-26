@@ -9,17 +9,15 @@ The Metaverse Metadata Directory (MVMD) is supported by organizations committed 
 
 ## Current Supporters
 
-### [SumSet Tech](/community/supporters/sumset-tech)
-[![SumSet Tech](https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png)](/community/supporters/sumset-tech)
+## [SumSet Tech](/community/supporters/sumset-tech)
 
-Building the tech behind your experiences
+### Building the tech behind your experiences
 
 SumSet Tech specializes in creating bespoke turnkey solutions leveraging blockchain, web3, and spatial computing technologies. [Learn more →](/community/supporters/sumset-tech)
 
-### [NFTr.pro](/community/supporters/nftr-pro)
-[![NFTr.pro](https://nftr.pro/wp-content/uploads/2024/02/nftr-logo.png)](/community/supporters/nftr-pro)
+## [NFTr.pro](/community/supporters/nftr-pro)
 
-NFT tools for creators, by creators
+### NFT tools for creators, by creators
 
 NFTr.pro provides comprehensive tools for minting, trading, and interacting with NFTs on the Chia blockchain. [Learn more →](/community/supporters/nftr-pro)
 
