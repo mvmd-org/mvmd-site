@@ -1,41 +1,80 @@
-# Website
+# Metaverse Metadata Directory
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Welcome to the Metaverse Metadata Directory repository! This project is built using Docusaurus 2, a modern static site generator.
+Table of Contents
 
-### Installation
+- Overview
+- Prerequisites
+- Updating the Documentation
+- Building and Deploying
+- Custom Domain
+- Troubleshooting
+- Helpful Resources
 
-```
-$ yarn
-```
+## Overview
 
-### Local Development
+This repository powers the Metaverse Metadata Directory website: mvmd.org. It serves as a central hub for discovering and implementing metadata standards for Metaverse assets.
+Prerequisites
 
-```
-$ yarn start
-```
+Before making changes, ensure you have the following tools installed:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+- Node.js (v16.x recommended)
+- npm (comes with Node.js)
+- Git
 
-### Build
+## Updating the Documentation
 
-```
-$ yarn build
-```
+#### Clone the repository:
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+    git clone https://github.com/mvmd-org/mvmd-site.git
+    cd mvmd-site
 
-### Deployment
+#### Make changes to the documentation:
 
-Using SSH:
+    Add or update files in the docs/ directory.
+    Adjust the sidebar structure in sidebars.ts if necessary.
 
-```
-$ USE_SSH=true yarn deploy
-```
+#### Test your changes locally:
 
-Not using SSH:
+    npm install
+    npm run start
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Open your browser to http://localhost:3000 to preview the changes.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Building and Deploying
+
+#### Build the site:
+
+    npm run build
+
+#### Deploy the site:
+
+    npm run deploy
+
+This command:
+    Builds the site (if not already built).
+    Pushes the build/ folder to the gh-pages branch of the repository.
+
+Wait a few minutes for GitHub Pages to process the changes. The site will be live at mvmd.org.
+
+## Custom Domain
+
+The site uses a custom domain, mvmd.org. The custom domain is defined in the CNAME file located in the static/ folder. This file is automatically included in the build and deployed with the site.
+Troubleshooting
+
+#### Deployment Fails:
+Ensure the GITHUB_TOKEN is correctly configured if deploying via GitHub Actions.
+Run the deploy command with additional logging:
+
+DEBUG=* npm run deploy
+
+#### Changes Not Reflecting:
+Verify the gh-pages branch has been updated.
+Check the GitHub Pages settings to ensure the correct source branch is selected.
+
+#### Custom Domain Issues:
+- Ensure the DNS records for mvmd.org are correctly configured.
+- Verify the CNAME file is present in the gh-pages branch.
+
+
+If you have questions or encounter issues, please open an issue in this repository or contact the maintainers.

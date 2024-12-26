@@ -2,11 +2,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
   title: 'Metaverse Metadata Directory',
-  tagline: 'Building Bridges Across Realities: Standards for the Metaverse',
+  tagline: 'Your central hub for discovering and implementing metadata standards for Metaverse assets',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -33,7 +31,7 @@ const config: Config = {
           editUrl: 'https://github.com/mvmd-org/mvmd-site/edit/main/',
           routeBasePath: '/',
         },
-        blog: false, // Change: Disable blog since it's causing errors
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -54,7 +52,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Documentation', // Change: Update label to match content
+          label: 'Documentation',
         },
         {
           href: 'https://github.com/mvmd-org',
@@ -94,7 +92,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Metaverse Metadata Directory`,
+      copyright: `Version 0.1 - Copyright © ${new Date().getFullYear()} Metaverse Metadata Directory`,
     },
     prism: {
       theme: prismThemes.github,
