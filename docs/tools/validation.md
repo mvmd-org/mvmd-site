@@ -1,326 +1,175 @@
----
-sidebar_position: 1
----
+# Validating Metadata
 
-# Validation Guide
+At present, the primary tool for validating MVMD metadata is the Schema.org Validator ([https://validator.schema.org/](https://validator.schema.org/)). This guide explains how to use the validator effectively with MVMD metadata.
 
-This guide covers how to validate Metaverse metadata against MVMD standards and profiles.
+Note: In the future, MVMD will provide dedicated validation tools that handle namespaced properties, file attachments, and cross-references between files. This guide will be updated when those tools become available.
 
-## Core Validation Rules
+## Using the Schema.org Validator
 
-### Context Validation
+### Step 1: Prepare Your Metadata
 
-✅ Valid Context:
+Before validation, ensure your metadata:
+- Has a properly defined `@context`
+- Uses valid Schema.org types
+- Includes all required properties
+- Uses proper JSON-LD formatting
+
+Example of properly formatted metadata:
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/"
   },
-  "@type": "3DModel"
+  "@type": "ImageObject",
+  "name": "Asset Preview",
+  "description": "Preview image of 3D asset",
+  "contentUrl": "https://example.com/preview.jpg",
+  "encodingFormat": "image/jpeg"
 }
 ```
 
-❌ Invalid Context:
-```json
-{
-  "@context": "schema.org",
-  "@type": "3DModel"
-}
-```
+### Step 2: Visit the Validator
 
-### Type Validation
+1. Go to [https://validator.schema.org/](https://validator.schema.org/)
+2. Choose the "Validate" tab
+3. Select JSON-LD as the format
 
-✅ Valid Type:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Asset Name"
-}
-```
+### Step 3: Validate Your Metadata
 
-❌ Invalid Type:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "Model",  // Unknown type
-  "name": "Asset Name"
-}
-```
-
-### Required Properties
-
-✅ Valid Required Properties:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Asset Name",
-  "description": "Asset description",
-  "creator": {
-    "@type": "Organization",
-    "name": "Creator Name"
-  },
-  "contentUrl": "https://example.com/asset.glb"
-}
-```
-
-❌ Invalid Required Properties:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Asset Name"
-  // Missing required description, creator, contentUrl
-}
-```
-
-## Property Type Validation
-
-### String Properties
-
-✅ Valid String:
-```json
-{
-  "name": "Asset Name",
-  "description": "Detailed description of the asset"
-}
-```
-
-❌ Invalid String:
-```json
-{
-  "name": ["Asset", "Name"],  // Should be string, not array
-  "description": 12345  // Should be string, not number
-}
-```
-
-### Number Properties
-
-✅ Valid Numbers:
-```json
-{
-  "gltf:transform": {
-    "scale": [1.0, 1.0, 1.0],
-    "translation": [0, 0.45, 0]
-  }
-}
-```
-
-❌ Invalid Numbers:
-```json
-{
-  "gltf:transform": {
-    "scale": ["1", "1", "1"],  // Should be numbers, not strings
-    "translation": "0,0.45,0"  // Should be array of numbers
-  }
-}
-```
-
-### URL Properties
-
-✅ Valid URLs:
-```json
-{
-  "contentUrl": "https://example.com/asset.glb",
-  "thumbnailUrl": "https://example.com/thumb.jpg",
-  "license": "https://creativecommons.org/licenses/by/4.0/"
-}
-```
-
-❌ Invalid URLs:
-```json
-{
-  "contentUrl": "/asset.glb",  // Must be absolute URL
-  "thumbnailUrl": "thumb.jpg", // Must be absolute URL
-  "license": "CC-BY"  // Must be URL
-}
-```
-
-## Standard-Specific Validation
-
-### glTF Properties
-
-✅ Valid glTF:
-```json
-{
-  "gltf:transform": {
-    "scale": [1.0, 1.0, 1.0],
-    "rotation": [0, 0, 0, 1],
-    "translation": [0, 0.45, 0]
-  },
-  "gltf:materials": [{
-    "name": "Material",
-    "pbrMetallicRoughness": {
-      "baseColorFactor": [1.0, 1.0, 1.0, 1.0],
-      "metallicFactor": 0.5,
-      "roughnessFactor": 0.5
-    }
-  }]
-}
-```
-
-❌ Invalid glTF:
-```json
-{
-  "gltf:transform": {
-    "scale": [1.0],  // Must be 3 values
-    "rotation": [0, 0, 0],  // Must be 4 values (quaternion)
-    "translation": "0,0,0"  // Must be array
-  }
-}
-```
-
-### Spatial Properties
-
-✅ Valid Spatial:
-```json
-{
-  "spatialCoverage": {
-    "@type": "GeoShape",
-    "box": "0,0,100,100",
-    "elevation": 0
-  },
-  "maximumAttendeeCapacity": 500
-}
-```
-
-❌ Invalid Spatial:
-```json
-{
-  "spatialCoverage": {
-    "box": [-1, -1, 100, 100],  // Must be string, non-negative
-    "elevation": "ground"  // Must be number
-  },
-  "maximumAttendeeCapacity": -10  // Must be positive
-}
-```
-
-## Profile Validation
-
-### Basic Profile
-
-✅ Valid Basic Profile:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Asset Name",
-  "description": "Asset description",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "MVMD-ID",
-    "value": "asset-2024-001"
-  },
-  "creator": {
-    "@type": "Organization",
-    "name": "Creator Name"
-  },
-  "contentUrl": "https://example.com/asset.glb",
-  "encodingFormat": "model/gltf-binary"
-}
-```
-
-### 3D Object Profile
-
-✅ Valid 3D Object Profile:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "3DModel",
-  // Basic profile properties...
-  "gltf:transform": {
-    "scale": [1.0, 1.0, 1.0],
-    "rotation": [0, 0, 0, 1],
-    "translation": [0, 0, 0]
-  }
-}
-```
-
-### Environment Profile
-
-✅ Valid Environment Profile:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
-  },
-  "@type": "Place",
-  // Basic profile properties...
-  "maximumAttendeeCapacity": 100,
-  "spatialCoverage": {
-    "@type": "GeoShape",
-    "box": "0,0,100,100"
-  }
-}
-```
+1. Paste your metadata into the validator
+2. Click "Validate"
+3. Review the results
+4. Address any validation errors
 
 ## Common Validation Issues
 
-1. **Missing Required Properties**
-    - Always include all required properties
-    - Check profile-specific requirements
-    - Validate nested required properties
+### 1. Missing Required Properties
 
-2. **Invalid Property Types**
-    - Use correct data types
-    - Check array lengths
-    - Validate number ranges
-
-3. **URL Issues**
-    - Use absolute URLs
-    - Include proper protocols
-    - Verify URL format
-
-4. **Namespace Problems**
-    - Define all used namespaces
-    - Use proper namespace prefixes
-    - Avoid mixing namespaces
-
-## Using the Validator
-
-### Basic Validation
-```bash
-curl -X POST https://validator.mvmd.org/validate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "profile": "3DObject",
-    "metadata": {
-      "@context": "https://schema.org/",
-      "@type": "3DModel"
-      // ...
-    }
-  }'
-```
-
-### Response Format
+Error:
 ```json
 {
-  "valid": false,
-  "errors": [
-    {
-      "property": "name",
-      "message": "Required property missing",
-      "severity": "error"
-    }
-  ],
-  "warnings": [
-    {
-      "property": "thumbnailUrl",
-      "message": "Recommended property missing",
-      "severity": "warning"
-    }
-  ]
+  "@context": "https://schema.org/",
+  "@type": "ImageObject"
 }
 ```
 
+Fix:
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "ImageObject",
+  "name": "Asset Name",
+  "contentUrl": "https://example.com/image.jpg"
+}
+```
+
+### 2. Invalid Type Values
+
+Error:
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "3DAsset",
+  "name": "Example Asset"
+}
+```
+
+Fix:
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "3DModel",
+  "name": "Example Asset"
+}
+```
+
+### 3. Incorrect Property Types
+
+Error:
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "ImageObject",
+  "name": "Asset Name",
+  "contentUrl": 12345
+}
+```
+
+Fix:
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "ImageObject",
+  "name": "Asset Name",
+  "contentUrl": "https://example.com/image.jpg"
+}
+```
+
+## Handling Namespaced Properties
+
+The Schema.org validator will ignore properties from other namespaces. For example:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "3DModel",
+  "name": "Example Model",
+  "gltf:asset": {
+    "version": "2.0"
+  }
+}
+```
+
+The `gltf:asset` property will be ignored during validation. This is expected behavior until MVMD's dedicated validation tools are available.
+
+## Best Practices
+
+1. **Validate Core Properties First**
+   - Start with basic Schema.org properties
+   - Ensure all required fields are present
+   - Use correct property types
+   - Fix any validation errors
+
+2. **Document Namespaced Properties**
+   - Keep track of non-Schema.org properties
+   - Document their requirements
+   - Plan for future validation
+   - Follow standard specifications
+
+3. **Regular Validation**
+   - Validate during development
+   - Check after updates
+   - Monitor for changes
+   - Keep documentation current
+
+## Future MVMD Validation
+
+The upcoming MVMD validation tools will provide:
+
+1. **Complete Validation**
+   - Schema.org compliance
+   - Namespace validation
+   - File attachment verification
+   - Cross-reference checking
+
+2. **Extended Features**
+   - Profile-specific validation
+   - Custom rule sets
+   - Batch validation
+   - Automated testing
+
+3. **Integration Support**
+   - API access
+   - CI/CD integration
+   - Development tools
+   - Validation reports
+
 ## Next Steps
 
-- Review [Profile Documentation](/metadata-profiles/basic-profile.md) for requirements
-- See [Best Practices](/implementation/best-practices.md) for guidance
-- Check [API Reference](./api-reference.md) for validation API details
+1. Review [Metadata Fundamentals](/implementation/metadata-fundamentals.md)
+2. Check [Best Practices](/implementation/best-practices.md)
+3. Explore [Profile Requirements](/implementation/metadata-profiles/basic-profile.md)

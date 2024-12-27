@@ -1,56 +1,61 @@
----
-sidebar_position: 2
----
-
 # Using Schema.org hasPart
 
-This guide covers implementing the Schema.org hasPart property for composable assets in the Metaverse.
+The Schema.org `hasPart` property provides a powerful foundation for defining relationships between components in composable assets. This guide explains how to effectively implement component relationships while maintaining Schema.org compatibility.
 
-## Basic Implementation
+## Basic Component Relationships
 
-### Simple Part Reference
+The `hasPart` property enables you to define clear relationships between assets and their components. Here's how to implement basic component references:
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
-  "name": "Compound Object",
+  "name": "Simple Component Assembly",
   "hasPart": {
     "@type": "3DModel",
-    "name": "Component",
+    "name": "Sub Component",
     "contentUrl": "https://example.com/component.glb"
   }
 }
 ```
 
-### Multiple Parts
+When working with multiple components, use an array of parts:
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
-  "name": "Complex Object",
+  "name": "Multi-Component Assembly",
   "hasPart": [
     {
       "@type": "3DModel",
-      "name": "Part A",
-      "contentUrl": "https://example.com/part-a.glb"
+      "name": "Component A",
+      "contentUrl": "https://example.com/component-a.glb"
     },
     {
       "@type": "3DModel",
-      "name": "Part B",
-      "contentUrl": "https://example.com/part-b.glb"
+      "name": "Component B",
+      "contentUrl": "https://example.com/component-b.glb"
     }
   ]
 }
 ```
 
-## Advanced Usage
+## Component Hierarchies
 
-### Nested Components
+Complex assets often require nested component structures. Use `hasPart` recursively to create hierarchical relationships:
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
-  "name": "Nested Assembly",
+  "name": "Nested Component Structure",
   "hasPart": [
     {
       "@type": "3DModel",
@@ -67,12 +72,17 @@ This guide covers implementing the Schema.org hasPart property for composable as
 }
 ```
 
-### Component Relations
+## Component References
+
+Use `@id` to create referenceable components that can be linked to from other parts of your metadata:
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
-  "name": "Related Components",
+  "name": "Referenced Components",
   "hasPart": [
     {
       "@type": "3DModel",
@@ -89,11 +99,15 @@ This guide covers implementing the Schema.org hasPart property for composable as
 }
 ```
 
-## Complete Example
+## Complete Implementation Example
+
+Here's a comprehensive example showing how to implement a complex modular asset:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
   "name": "Modular Vehicle",
   "description": "Customizable vehicle with interchangeable parts",
@@ -110,157 +124,119 @@ This guide covers implementing the Schema.org hasPart property for composable as
       "@id": "#chassis",
       "name": "Vehicle Chassis",
       "contentUrl": "https://example.com/parts/chassis.glb",
-      "required": true,
-      "attachmentPoints": [
-        {
-          "id": "front_wheels",
-          "type": "wheel",
-          "count": 2
-        },
-        {
-          "id": "rear_wheels",
-          "type": "wheel",
-          "count": 2
-        },
-        {
-          "id": "body",
-          "type": "body",
-          "count": 1
-        }
-      ]
+      "additionalProperty": {
+        "@type": "PropertyValue",
+        "propertyID": "required",
+        "value": true,
+        "attachmentPoints": [
+          {
+            "id": "front_wheels",
+            "type": "wheel",
+            "count": 2
+          },
+          {
+            "id": "rear_wheels",
+            "type": "wheel",
+            "count": 2
+          },
+          {
+            "id": "body",
+            "type": "body",
+            "count": 1
+          }
+        ]
+      }
     },
     {
       "@type": "3DModel",
       "@id": "#body",
       "name": "Vehicle Body",
       "contentUrl": "https://example.com/parts/body.glb",
-      "required": true,
-      "attachesTo": "chassis",
-      "variants": [
-        {
-          "id": "sport",
-          "name": "Sport Body",
-          "contentUrl": "https://example.com/parts/body-sport.glb"
-        },
-        {
-          "id": "utility",
-          "name": "Utility Body",
-          "contentUrl": "https://example.com/parts/body-utility.glb"
-        }
-      ]
-    },
-    {
-      "@type": "3DModel",
-      "@id": "#wheels",
-      "name": "Wheel Set",
-      "contentUrl": "https://example.com/parts/wheels.glb",
-      "required": true,
-      "count": 4,
-      "attachesTo": ["front_wheels", "rear_wheels"],
-      "variants": [
-        {
-          "id": "street",
-          "name": "Street Wheels",
-          "contentUrl": "https://example.com/parts/wheels-street.glb"
-        },
-        {
-          "id": "offroad",
-          "name": "Off-road Wheels",
-          "contentUrl": "https://example.com/parts/wheels-offroad.glb"
-        }
-      ]
-    }
-  ],
-  
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "assemblyRules",
-      "value": {
-        "required": ["chassis", "body", "wheels"],
-        "optional": ["accessories"],
-        "constraints": {
-          "maxAccessories": 5,
-          "compatibilityRules": [
+      "additionalProperty": {
+        "@type": "PropertyValue",
+        "propertyID": "configuration",
+        "value": {
+          "required": true,
+          "attachesTo": "chassis",
+          "variants": [
             {
-              "if": "body.sport",
-              "then": "wheels.street"
+              "id": "sport",
+              "name": "Sport Body",
+              "contentUrl": "https://example.com/parts/body-sport.glb"
             },
             {
-              "if": "body.utility",
-              "then": "wheels.offroad"
+              "id": "utility",
+              "name": "Utility Body",
+              "contentUrl": "https://example.com/parts/body-utility.glb"
             }
           ]
         }
       }
     }
-  ]
+  ],
+  
+  "additionalProperty": {
+    "@type": "PropertyValue",
+    "propertyID": "assemblyRules",
+    "value": {
+      "required": ["chassis", "body"],
+      "optional": ["accessories"],
+      "constraints": {
+        "maxAccessories": 5,
+        "compatibilityRules": [
+          {
+            "if": "body.sport",
+            "then": "wheels.street"
+          },
+          {
+            "if": "body.utility",
+            "then": "wheels.offroad"
+          }
+        ]
+      }
+    }
+  }
 }
 ```
+
+## Validation Requirements
+
+For proper Schema.org compliance and functionality, ensure:
+
+### Component Properties
+- Each component has a valid @type
+- Required identifiers are present
+- URLs are properly formatted
+- References are valid
+
+### Relationship Properties
+- Proper nesting structure
+- Valid reference links
+- Complete dependency chains
+- Proper constraint definitions
 
 ## Best Practices
 
-1. **Structure Design**
-    - Clear hierarchy
-    - Logical grouping
-    - Proper references
-    - Complete definitions
-    - Version control
+1. **Component Organization**
+   - Create clear hierarchies
+   - Use meaningful identifiers
+   - Group related components
+   - Define explicit relationships
 
-2. **Relationship Management**
-    - Clear dependencies
-    - Proper constraints
-    - Versioning support
-    - Update handling
-    - Conflict resolution
+2. **Reference Management**
+   - Use consistent ID patterns
+   - Document dependencies clearly
+   - Validate references
+   - Handle missing references gracefully
 
 3. **Implementation Details**
-    - Efficient loading
-    - Resource management
-    - Error handling
-    - State tracking
-    - Performance optimization
-
-4. **Documentation**
-    - Clear component roles
-    - Assembly instructions
-    - Constraint documentation
-    - Update procedures
-    - Troubleshooting guides
-
-## Common Issues
-
-### Version Conflicts
-```json
-{
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Component",
-      "version": "2.0",
-      "requires": {
-        "otherComponent": ">=1.5"
-      }
-    }
-  ]
-}
-```
-
-### Missing Dependencies
-```json
-{
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Component",
-      "requires": ["#missing-component"]
-    }
-  ]
-}
-```
+   - Follow Schema.org patterns
+   - Use proper property types
+   - Include complete metadata
+   - Document constraints clearly
 
 ## Next Steps
 
-- Review [Assembly Patterns](./assembly-patterns.md) for implementation examples
-- See [Composable Concepts](./concepts.md) for theoretical background
-- Check [Validation Tools](/tools/validation.md) for testing
+- Review Assembly Patterns documentation for implementation examples
+- Explore Composable Concepts for theoretical background
+- Use Validation Tools to verify your metadata structure

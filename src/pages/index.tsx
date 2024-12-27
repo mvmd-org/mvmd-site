@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { Book, Code2, Network, FileCheck } from 'lucide-react';
+import {Book, Code2, Network, FileCheck} from 'lucide-react';
 
-const SupporterCard = ({ name, url, description, profileUrl, logo }) => {
+const SupporterCard = ({name, url, description, profileUrl, logo}) => {
     return (
         <div className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden">
             <Link to={profileUrl} className="block p-6">
@@ -84,7 +84,7 @@ export default function Home(): JSX.Element {
         <Layout
             title={siteConfig.title}
             description="Metaverse Metadata Directory - Your central hub for discovering and implementing metadata standards for Metaverse assets">
-            <HomepageHeader />
+            <HomepageHeader/>
 
             <main>
                 {/* Key Features */}
@@ -93,22 +93,22 @@ export default function Home(): JSX.Element {
                         <h2 className="text-3xl font-bold text-center mb-16">What You Can Do</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                             <FeatureCard
-                                icon={<Book className="w-8 h-8 text-blue-600" />}
+                                icon={<Book className="w-8 h-8 text-blue-600"/>}
                                 title="Browse Standards"
                                 description="Explore our curated registry of metadata standards for the Metaverse"
                             />
                             <FeatureCard
-                                icon={<Code2 className="w-8 h-8 text-blue-600" />}
+                                icon={<Code2 className="w-8 h-8 text-blue-600"/>}
                                 title="Implement Profiles"
                                 description="Use our pre-defined profiles for common asset types and scenarios"
                             />
                             <FeatureCard
-                                icon={<FileCheck className="w-8 h-8 text-blue-600" />}
+                                icon={<FileCheck className="w-8 h-8 text-blue-600"/>}
                                 title="Validate Metadata"
                                 description="Ensure your metadata meets industry standards with our validation tools"
                             />
                             <FeatureCard
-                                icon={<Network className="w-8 h-8 text-blue-600" />}
+                                icon={<Network className="w-8 h-8 text-blue-600"/>}
                                 title="Connect Assets"
                                 description="Create interoperable connections between virtual assets and environments"
                             />
@@ -125,18 +125,18 @@ export default function Home(): JSX.Element {
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <SupporterCard
-                                name="Sum Set Tech"
-                                url="https://sumset.tech"
-                                description="Building the tech behind your experiences"
-                                profileUrl="/community/supporters/sumset-tech"
-                                logo="https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png"
-                            />
-                            <SupporterCard
                                 name="NFTr.pro"
                                 url="https://nftr.pro"
                                 description="NFT tools for creators, by creators"
                                 profileUrl="/community/supporters/nftr-pro"
                                 logo="https://nftr.pro/wp-content/uploads/2024/02/nftr-logo.png"
+                            />
+                            <SupporterCard
+                                name="SumSetTech"
+                                url="https://sumset.tech"
+                                description="Building the tech behind your experiences"
+                                profileUrl="/community/supporters/sumset-tech"
+                                logo="https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png"
                             />
                         </div>
                         <div className="text-center mt-12">

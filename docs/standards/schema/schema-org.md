@@ -4,10 +4,80 @@ sidebar_position: 1
 
 # Schema.org Standard
 
-Schema.org is a collaborative initiative launched by major search engines—Google, Bing, Yahoo!, and Yandex—to create and support a common set of schemas for structured data markup on web pages. These schemas enable webmasters to embed structured data into their websites, enhancing search engine understanding and improving the display of search results with rich snippets.
-Schema.org
+Schema.org provides a robust, extensible vocabulary for describing digital assets and experiences. As an open-source collaborative project, Schema.org continuously evolves to meet emerging needs across industries and use cases. Its flexible structure allows for rich descriptions of any type of digital content, while its standardized format ensures consistent interpretation across platforms. The vocabulary's regular updates and community-driven development make it an ideal foundation for future-proof metadata implementations, particularly in rapidly evolving spaces like the Metaverse.
 
 For detailed information, you can refer to the official Schema.org website: [Schema.org](https://schema.org/)
+
+
+## Fundamental Concepts
+
+### Context (@context)
+
+The `@context` field defines the vocabulary and rules for interpreting metadata. It can be specified in two ways:
+
+#### 1. String Format
+The simplest form, using Schema.org as the sole vocabulary:
+```json
+"@context": "https://schema.org/",
+```
+
+#### 2. Object Format
+A more detailed form that allows multiple namespaces:
+```json
+"@context": {
+    "@vocab": "https://schema.org/",
+    "gltf": "https://www.khronos.org/gltf/"
+},
+```
+
+The object format is particularly useful when combining Schema.org with other standards or adding custom vocabularies.
+
+### Type Declaration (@type)
+
+The `@type` field defines what the asset is within the Schema.org vocabulary. Every metadata object must have a valid Schema.org type.
+
+#### Key Points About Types
+- Must be a valid type defined in Schema.org
+- Determines which properties are valid for the object
+- Some types have restrictions on their property usage
+- Different types support different relationship patterns
+
+#### Common Types for Metaverse Assets
+
+1. **CreativeWork**
+    - Most versatile base type
+    - Supports rich relationships and descriptions
+    - Ideal for complex digital assets
+
+2. **MediaObject and Subtypes**
+    - **3DModel**: Three-dimensional representations
+    - **AudioObject**: Sound files and audio content
+    - **DataDownload**: Downloadable data files
+    - **ImageObject**: Image files and visual content
+    - **MusicVideoObject**: Musical video content
+    - **TextObject**: Text-based content
+    - **VideoObject**: Video content and animations
+
+3. **VirtualLocation**
+    - Specific to virtual environments
+    - Describes locations in digital spaces
+    - Suitable for metaverse environments
+
+4. **SoftwareApplication**
+    - Applications and tools
+    - Interactive experiences
+    - Digital utilities
+
+5. **DigitalDocument**
+    - Documentation
+    - Digital files
+    - Text-based resources
+
+6. **LearningResource**
+    - **Course**: Educational courses
+    - **Quiz**: Assessment materials
+    - **Syllabus**: Learning plans
+
 
 ## Core Types for Metaverse Assets
 

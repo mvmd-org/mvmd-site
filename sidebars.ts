@@ -60,7 +60,6 @@ const sidebars: SidebarsConfig = {
                         'standards/trust/c2pa',
                     ],
                 },
-                'standards/future-profiles',
             ],
         },
         {
@@ -104,11 +103,9 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'Developer Tools',
+            label: 'Tools',
             items: [
                 'tools/validation',
-                'tools/api-reference',
-                'tools/query-builder',
             ],
         },
         {
@@ -119,8 +116,8 @@ const sidebars: SidebarsConfig = {
                     type: 'category',
                     label: 'Supporting Organizations',
                     items: [
-                        'community/supporters/sumset-tech',
                         'community/supporters/nftr-pro',
+                        'community/supporters/sumset-tech',
                     ],
                 },
                 'community/become-supporter',

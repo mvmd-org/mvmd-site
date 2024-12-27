@@ -1,17 +1,17 @@
 ---
-title: SumSet Tech
-sidebar_label: SumSet Tech
+title: SumSetTech
+sidebar_label: SumSetTech
 ---
 
-# SumSet Tech
+# SumSetTech
 
-![SumSet Tech](https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png)
+![SumSetTech](https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png)
 
-[SumSet Tech](https://sumset.tech) is a technology company specializing in creating bespoke turnkey solutions by leveraging blockchain, web3, and spatial computing technologies.
+[SumSetTech](https://sumset.tech) is a technology company specializing in creating bespoke turnkey solutions by leveraging blockchain, web3, and spatial computing technologies.
 
 ## About
 
-SumSet Tech stands at the forefront of digital innovation, providing comprehensive solutions that bridge the gap between traditional technology and emerging digital frontiers. Their expertise spans multiple cutting-edge domains:
+SumSetTech stands at the forefront of digital innovation, providing comprehensive solutions that bridge the gap between traditional technology and emerging digital frontiers. Their expertise spans multiple cutting-edge domains:
 
 - Blockchain Technology
 - Web3 Integration
@@ -22,7 +22,7 @@ SumSet Tech stands at the forefront of digital innovation, providing comprehensi
 ## Core Offerings
 
 ### Digital Experience Development
-SumSet Tech creates innovative and influential digital experiences, focusing on:
+SumSetTech creates innovative and influential digital experiences, focusing on:
 - White-label NFT platforms
 - Immersive web3 gaming experiences
 - Custom blockchain solutions
@@ -35,7 +35,7 @@ Their technology stack includes:
 
 ## Contribution to MVMD
 
-As a supporter of the Metaverse Metadata Directory, SumSet Tech brings valuable expertise in:
+As a supporter of the Metaverse Metadata Directory, SumSetTech brings valuable expertise in:
 - Metaverse development standards
 - Digital asset implementation
 - Web3 infrastructure optimization
