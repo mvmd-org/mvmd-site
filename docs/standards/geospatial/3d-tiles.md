@@ -4,7 +4,10 @@ sidebar_position: 2
 
 # 3D Tiles Standard
 
-3D Tiles provides an optimized format for streaming massive 3D geospatial datasets in the Metaverse. This guide covers how to implement 3D Tiles metadata for efficient delivery of large-scale environments.
+3D Tiles is an open specification designed for streaming and rendering massive heterogeneous 3D geospatial datasets. Developed by Cesium and adopted as an Open Geospatial Consortium (OGC) Community Standard, 3D Tiles enables efficient visualization and interaction with large-scale 3D data, including photogrammetry, 3D buildings, BIM/CAD models, and point clouds.
+Open Geospatial Consortium
+
+For detailed information, you can refer to the official 3D Tiles Specification: [3D Tiles Specification](https://docs.ogc.org/cs/22-025r4/22-025r4.html)
 
 ## Core Properties
 
@@ -14,7 +17,7 @@ sidebar_position: 2
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "3dtiles": "https://www.ogc.org/standards/3dtiles/"
+    "3dtiles": "https://docs.ogc.org/cs/22-025r4/22-025r4.html"
   },
   "@type": "Dataset",
   "name": "City District",
@@ -69,7 +72,7 @@ sidebar_position: 2
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "3dtiles": "https://www.ogc.org/standards/3dtiles/"
+    "3dtiles": "https://docs.ogc.org/cs/22-025r4/22-025r4.html"
   },
   "@type": "Dataset",
   "name": "Virtual City District",
@@ -249,7 +252,7 @@ sidebar_position: 2
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "3dtiles": "https://www.ogc.org/standards/3dtiles/",
+    "3dtiles": "https://docs.ogc.org/cs/22-025r4/22-025r4.html",
     "citygml": "http://www.opengis.net/citygml/2.0"
   },
   "@type": "Dataset",
@@ -276,7 +279,7 @@ sidebar_position: 2
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "3dtiles": "https://www.ogc.org/standards/3dtiles/",
+    "3dtiles": "https://docs.ogc.org/cs/22-025r4/22-025r4.html",
     "usd": "https://openusd.org/ns/"
   },
   "@type": "Dataset",

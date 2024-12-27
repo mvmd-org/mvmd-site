@@ -4,7 +4,10 @@ sidebar_position: 1
 
 # C2PA Standard
 
-The Coalition for Content Provenance and Authenticity (C2PA) standard provides a framework for verifying the authenticity and origin of Metaverse assets. This documentation covers how to implement C2PA claims and provenance tracking in your metadata.
+The [Coalition for Content Provenance and Authenticity](https://c2pa.org/) (C2PA) is an open, technical standards body addressing the prevalence of misleading information online through the development of technical standards for certifying the source and history (provenance) of digital content. The C2PA standard enables content creators, publishers, and consumers to trace the origin and modifications of media assets, thereby enhancing trust and transparency in digital media.
+C2PA
+
+For detailed information, you can refer to the official C2PA Technical Specification: [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html)
 
 ## Core Properties
 
@@ -14,7 +17,7 @@ The Coalition for Content Provenance and Authenticity (C2PA) standard provides a
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "c2pa": "https://c2pa.org/statements/"
+    "c2pa": "https://c2pa.org/specifications/specifications/2.1/"
   },
   "@type": "3DModel",
   "name": "Verified Asset",
@@ -70,7 +73,7 @@ The Coalition for Content Provenance and Authenticity (C2PA) standard provides a
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "c2pa": "https://c2pa.org/statements/"
+    "c2pa": "https://c2pa.org/specifications/specifications/2.1/"
   },
   "@type": "3DModel",
   "name": "Verified Character Model",
@@ -231,7 +234,7 @@ The Coalition for Content Provenance and Authenticity (C2PA) standard provides a
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "c2pa": "https://c2pa.org/statements/",
+    "c2pa": "https://c2pa.org/specifications/specifications/2.1/",
     "gltf": "https://www.khronos.org/gltf/"
   },
   "@type": "3DModel",
@@ -258,7 +261,7 @@ The Coalition for Content Provenance and Authenticity (C2PA) standard provides a
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "c2pa": "https://c2pa.org/statements/",
+    "c2pa": "https://c2pa.org/specifications/specifications/2.1/",
     "usd": "https://openusd.org/ns/"
   },
   "@type": "Place",

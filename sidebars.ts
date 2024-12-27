@@ -39,6 +39,10 @@ const sidebars: SidebarsConfig = {
                         'standards/3d-assets/gltf',
                         'standards/3d-assets/usd',
                         'standards/3d-assets/x3d',
+                        'standards/3d-assets/fbx',
+                        'standards/3d-assets/vrm',
+                        'standards/3d-assets/openxr',
+                        'standards/3d-assets/collada'
                     ],
                 },
                 {
@@ -54,13 +58,6 @@ const sidebars: SidebarsConfig = {
                     label: 'Trust and Provenance',
                     items: [
                         'standards/trust/c2pa',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Media Standards',
-                    items: [
-                        'standards/media/mpeg-4',
                     ],
                 },
                 'standards/future-profiles',

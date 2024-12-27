@@ -4,7 +4,10 @@ sidebar_position: 3
 
 # X3D Standard
 
-X3D (Extensible 3D) provides standards for web-based 3D graphics and interactive content in the Metaverse. This guide covers how to implement X3D metadata for web-compatible 3D assets and scenes.
+X3D (Extensible 3D) is a royalty-free, open standards file format and run-time architecture for representing and communicating 3D scenes and objects. Developed by the Web3D Consortium, X3D serves as the successor to the Virtual Reality Modeling Language (VRML), offering enhanced features and extensibility for real-time interactive 3D graphics on the web.
+Web3D
+
+For detailed information, you can refer to the official X3D specifications: [X3D Specifications](https://www.web3d.org/standards/number/19775-1)
 
 ## Core Properties
 
@@ -14,7 +17,7 @@ X3D (Extensible 3D) provides standards for web-based 3D graphics and interactive
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "x3d": "https://www.web3d.org/specifications/x3d-4.0/"
+    "x3d": "https://www.web3d.org/documents/specifications/19775-1/V4.0/index.html"
   },
   "@type": "3DModel",
   "name": "Web Scene",
@@ -64,7 +67,7 @@ X3D (Extensible 3D) provides standards for web-based 3D graphics and interactive
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "x3d": "https://www.web3d.org/specifications/x3d-4.0/"
+    "x3d": "https://www.web3d.org/documents/specifications/19775-1/V4.0/index.html"
   },
   "@type": "3DModel",
   "name": "Interactive Web Gallery",
@@ -283,7 +286,7 @@ X3D (Extensible 3D) provides standards for web-based 3D graphics and interactive
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "x3d": "https://www.web3d.org/specifications/x3d-4.0/",
+    "x3d": "https://www.web3d.org/documents/specifications/19775-1/V4.0/index.html",
     "gltf": "https://www.khronos.org/gltf/"
   },
   "@type": "3DModel",
@@ -306,7 +309,7 @@ X3D (Extensible 3D) provides standards for web-based 3D graphics and interactive
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "x3d": "https://www.web3d.org/specifications/x3d-4.0/",
+    "x3d": "https://www.web3d.org/documents/specifications/19775-1/V4.0/index.html",
     "usd": "https://openusd.org/ns/"
   },
   "@type": "Place",

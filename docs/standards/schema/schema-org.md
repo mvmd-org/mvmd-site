@@ -4,7 +4,10 @@ sidebar_position: 1
 
 # Schema.org Standard
 
-Schema.org provides the foundation for describing Metaverse assets with widely-supported, standardized vocabulary. This guide covers the core Schema.org types and properties most relevant for Metaverse metadata.
+Schema.org is a collaborative initiative launched by major search engines—Google, Bing, Yahoo!, and Yandex—to create and support a common set of schemas for structured data markup on web pages. These schemas enable webmasters to embed structured data into their websites, enhancing search engine understanding and improving the display of search results with rich snippets.
+Schema.org
+
+For detailed information, you can refer to the official Schema.org website: [Schema.org](https://schema.org/)
 
 ## Core Types for Metaverse Assets
 

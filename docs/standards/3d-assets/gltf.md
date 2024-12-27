@@ -4,7 +4,10 @@ sidebar_position: 1
 
 # glTF Standard
 
-The GL Transmission Format (glTF) standard provides detailed technical metadata for 3D models in the Metaverse. This guide covers how to properly describe glTF-specific properties within your metadata.
+glTF (GL Transmission Format) is a royalty-free specification developed by the Khronos Group for the efficient transmission and loading of 3D models and scenes in applications. It minimizes both the size of 3D assets and the runtime processing required to unpack and utilize them, making it an ideal choice for web-based and real-time applications.
+Khronos Group
+
+For more detailed information, you can refer to the official glTF 2.0 specification: [glTF 2.0 Specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
 
 ## Core Properties
 
@@ -14,7 +17,7 @@ The GL Transmission Format (glTF) standard provides detailed technical metadata 
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "gltf": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html"
   },
   "@type": "3DModel",
   "name": "Positioned Asset",

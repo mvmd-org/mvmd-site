@@ -1,123 +1,19 @@
----
-sidebar_position: 2
----
-
 # Wearables Profile
 
-The Wearables Profile extends the Basic Profile with properties specific to wearable virtual items. This profile defines metadata for items that can be worn by avatars, including clothing, accessories, and equipment.
+This profile defines the metadata structure for wearable items in the metaverse, ensuring interoperability across different platforms and standards compliance.
 
-## Core Structure
+## Overview
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "3DModel",
-  
-  "name": "Virtual Jacket",
-  "description": "Customizable jacket with physical cloth simulation",
-  
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "MVMD-ID",
-    "value": "wearable-2024-001"
-  },
-  
-  "category": "clothing",
-  "wearableType": "jacket"
-}
-```
+Wearable metadata must:
+- Use ImageObject as the root type to represent the wearable's preview/thumbnail
+- Include proper Schema.org context and type declarations
+- Specify attachment points and compatibility information
+- Include technical specifications for 3D models
+- Follow Schema.org validation requirements
 
-## Required Properties
+## Basic Example
 
-### Basic Information (from Basic Profile)
-- `@context`
-- `@type`: Must be "3DModel"
-- `name`
-- `description`
-- `identifier`
-- `creator`
-- `contentUrl`
-- `encodingFormat`
-
-### Wearable Properties
-- `category`: Type of wearable (clothing, accessory, equipment)
-- `wearableType`: Specific type within category
-- `attachmentPoints`: Where/how item attaches to avatar
-- `size`: Size information
-- `customization`: Available customization options
-
-## Technical Properties
-
-### Attachment Configuration
-```json
-{
-  "attachmentPoints": [
-    {
-      "name": "torso",
-      "type": "primary",
-      "position": [0, 0, 0],
-      "rotation": [0, 0, 0, 1]
-    },
-    {
-      "name": "arms",
-      "type": "secondary",
-      "bones": ["left_arm", "right_arm"]
-    }
-  ],
-  
-  "physicalProperties": {
-    "simulation": "cloth",
-    "collisionMesh": "jacket_collision",
-    "weight": 1.5
-  }
-}
-```
-
-### Customization Options
-```json
-{
-  "customization": {
-    "materials": [
-      {
-        "name": "fabric",
-        "type": "texture",
-        "options": [
-          {
-            "name": "denim",
-            "diffuse": "textures/denim.jpg",
-            "normal": "textures/denim_normal.jpg"
-          },
-          {
-            "name": "leather",
-            "diffuse": "textures/leather.jpg",
-            "normal": "textures/leather_normal.jpg"
-          }
-        ]
-      }
-    ],
-    "colors": [
-      {
-        "name": "primary",
-        "type": "color",
-        "default": "#000000",
-        "options": ["#000000", "#0000FF", "#FF0000"]
-      }
-    ],
-    "toggles": [
-      {
-        "name": "hood",
-        "type": "visibility",
-        "default": true
-      }
-    ]
-  }
-}
-```
-
-## Complete Example
+Here's a minimal valid wearable metadata example:
 
 ```json
 {
@@ -125,188 +21,397 @@ The Wearables Profile extends the Basic Profile with properties specific to wear
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/"
   },
-  "@type": "3DModel",
-  
-  "name": "Cyberpunk Jacket",
-  "description": "Interactive cyberpunk-style jacket with LED effects and cloth physics",
+  "@type": "ImageObject",
+  "name": "Simple Digital Hat",
+  "description": "A basic digital hat wearable",
+  "contentUrl": "https://example.com/preview/simple_hat.jpg",
+  "encodingFormat": "image/jpeg",
   
   "identifier": {
     "@type": "PropertyValue",
-    "propertyID": "MVMD-ID",
+    "propertyID": "assetId",
     "value": "wearable-2024-001"
   },
   
   "creator": {
     "@type": "Organization",
-    "name": "Virtual Fashion Inc.",
-    "url": "https://example.com/virtual-fashion"
+    "name": "Digital Fashion Studio",
+    "url": "https://example.com/studio"
   },
-  
-  "dateCreated": "2024-03-15",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  
-  "contentUrl": "https://example.com/wearables/cyberpunk-jacket.glb",
-  "encodingFormat": "model/gltf-binary",
-  "thumbnailUrl": "https://example.com/thumbnails/cyberpunk-jacket.jpg",
-  
-  "category": "clothing",
-  "wearableType": "jacket",
-  
-  "attachmentPoints": [
+
+  "additionalProperty": [
     {
-      "name": "torso",
-      "type": "primary",
-      "position": [0, 0, 0],
-      "rotation": [0, 0, 0, 1],
-      "scale": [1, 1, 1]
+      "@type": "PropertyValue",
+      "propertyID": "category",
+      "name": "Wearable Category",
+      "value": "headwear"
     },
     {
-      "name": "arms",
-      "type": "secondary",
-      "bones": ["left_arm", "right_arm"],
-      "weightMaps": ["left_arm_weights", "right_arm_weights"]
+      "@type": "PropertyValue",
+      "propertyID": "attachmentPoint",
+      "name": "Attachment Point",
+      "value": "head"
     }
   ],
-  
-  "physicalProperties": {
-    "simulation": "cloth",
-    "collisionMesh": "jacket_collision",
-    "weight": 1.5,
-    "physics": {
-      "stiffness": 0.8,
-      "damping": 0.2,
-      "friction": 0.3
-    }
-  },
-  
-  "customization": {
-    "materials": [
-      {
-        "name": "fabric",
-        "type": "texture",
-        "options": [
-          {
-            "name": "neon_fabric",
-            "diffuse": "textures/neon_fabric.jpg",
-            "normal": "textures/neon_fabric_normal.jpg",
-            "emissive": "textures/neon_fabric_emissive.jpg"
-          },
-          {
-            "name": "holographic",
-            "diffuse": "textures/holographic.jpg",
-            "normal": "textures/holographic_normal.jpg",
-            "emissive": "textures/holographic_emissive.jpg"
-          }
-        ]
-      }
-    ],
-    
-    "colors": [
-      {
-        "name": "primary",
-        "type": "color",
-        "default": "#00FF00",
-        "options": ["#00FF00", "#FF00FF", "#00FFFF"]
-      },
-      {
-        "name": "accent",
-        "type": "color",
-        "default": "#FF00FF",
-        "options": ["#FF00FF", "#00FFFF", "#FFFF00"]
-      }
-    ],
-    
-    "toggles": [
-      {
-        "name": "hood",
-        "type": "visibility",
-        "default": true
-      },
-      {
-        "name": "led_effects",
-        "type": "animation",
-        "default": true,
-        "options": ["pulse", "wave", "static"]
-      }
-    ]
-  },
-  
-  "compatibility": {
-    "avatarTypes": ["humanoid"],
-    "platforms": ["platform-a", "platform-b"],
-    "minimumVersion": "2.0"
-  },
-  
-  "gltf:animations": [
+
+  "associatedMedia": [
     {
-      "name": "led_pulse",
-      "type": "emissive",
-      "duration": 2.0
-    },
-    {
-      "name": "led_wave",
-      "type": "emissive",
-      "duration": 3.0
+      "@type": "3DModel",
+      "name": "Hat 3D Model",
+      "contentUrl": "https://example.com/models/hat.glb",
+      "encodingFormat": "model/gltf-binary"
     }
   ]
 }
 ```
 
-## Validation Rules
+## Standard Example with Technical Properties
 
-### Wearable Properties
-- Valid category values
-- Proper attachment points
-- Complete size information
-- Valid customization options
-- Supported physics properties
+This example adds more technical details while maintaining Schema.org validation:
 
-### Technical Properties
-- Valid attachment configurations
-- Proper bone references
-- Compatible physics settings
-- Supported animation types
-- Valid material options
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "ImageObject",
+  "name": "Digital Fashion Hat",
+  "description": "Interactive digital hat with customizable features",
+  "contentUrl": "https://example.com/preview/fashion_hat.jpg",
+  "encodingFormat": "image/jpeg",
+  
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "assetId",
+    "value": "wearable-2024-002"
+  },
+  
+  "creator": {
+    "@type": "Organization",
+    "name": "Digital Fashion Studio",
+    "url": "https://example.com/studio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/studio/logo.png"
+    }
+  },
 
-### Customization Properties
-- Valid color formats
-- Proper texture references
-- Supported toggle options
-- Valid animation references
-- Complete option sets
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "category",
+      "name": "Wearable Category",
+      "value": "headwear"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "attachmentPoint",
+      "name": "Attachment Point",
+      "value": "head"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compatibility",
+      "name": "Avatar Compatibility",
+      "value": "humanoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "technicalRequirements",
+      "name": "Technical Requirements",
+      "value": "polyCount:15000;textureSize:2048;materials:2"
+    }
+  ],
+
+  "associatedMedia": [
+    {
+      "@type": "3DModel",
+      "name": "Hat 3D Model",
+      "contentUrl": "https://example.com/models/fashion_hat.glb",
+      "encodingFormat": "model/gltf-binary",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "quality",
+          "name": "Quality Level",
+          "value": "high"
+        }
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Normal Map",
+      "contentUrl": "https://example.com/textures/hat_normal.jpg",
+      "encodingFormat": "image/jpeg",
+      "width": 2048,
+      "height": 2048
+    }
+  ]
+}
+```
+
+## Complete Example
+
+Here's a comprehensive example showing all features while maintaining Schema.org compatibility:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "ImageObject",
+  "name": "Magical Crown",
+  "description": "Interactive royal crown with dynamic effects and animations",
+  "contentUrl": "https://example.com/preview/crown.jpg",
+  "encodingFormat": "image/jpeg",
+  "thumbnail": {
+    "@type": "ImageObject",
+    "contentUrl": "https://example.com/preview/crown_thumb.jpg",
+    "encodingFormat": "image/jpeg",
+    "width": 256,
+    "height": 256
+  },
+
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "assetId",
+    "value": "wearable-2024-003"
+  },
+
+  "creator": {
+    "@type": "Organization",
+    "name": "Digital Fashion Studio",
+    "url": "https://example.com/studio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/studio/logo.png"
+    }
+  },
+
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "acquireLicensePage": "https://example.com/license/crown",
+
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "category",
+      "name": "Wearable Category",
+      "value": "headwear"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "attachmentPoint",
+      "name": "Attachment Point",
+      "value": "head"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compatibility",
+      "name": "Avatar Compatibility",
+      "value": "humanoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "minRequirements",
+      "name": "Minimum Requirements",
+      "value": "polyCount:8000;textureSize:1024;materials:2"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "recommendedRequirements",
+      "name": "Recommended Requirements",
+      "value": "polyCount:25000;textureSize:4096;materials:4"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "physicsProperties",
+      "name": "Physics Properties",
+      "value": "mass:0.3;collisionEnabled:true;restitution:0.3;friction:0.5"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "renderingProperties",
+      "name": "Rendering Properties",
+      "value": "castShadows:true;receiveShadows:true;reflective:true"
+    }
+  ],
+
+  "gltf:asset": {
+    "@type": "gltf:Asset",
+    "version": "2.0",
+    "generator": "Digital Fashion Studio Creator v1.0",
+    "copyright": "© 2024 Digital Fashion Studio"
+  },
+
+  "gltf:transform": {
+    "@type": "gltf:Transform",
+    "scale": [1.0, 1.0, 1.0],
+    "rotation": [0, 0, 0, 1],
+    "translation": [0, 0.15, 0]
+  },
+
+  "associatedMedia": [
+    {
+      "@type": "3DModel",
+      "name": "High Quality Model",
+      "contentUrl": "https://example.com/models/crown_high.glb",
+      "encodingFormat": "model/gltf-binary",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "quality",
+          "name": "Quality Level",
+          "value": "high"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "polyCount",
+          "name": "Polygon Count",
+          "value": "25000"
+        }
+      ]
+    },
+    {
+      "@type": "3DModel",
+      "name": "Low Quality Model",
+      "contentUrl": "https://example.com/models/crown_low.glb",
+      "encodingFormat": "model/gltf-binary",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "quality",
+          "name": "Quality Level",
+          "value": "low"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "polyCount",
+          "name": "Polygon Count",
+          "value": "8000"
+        }
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Base Color Map",
+      "contentUrl": "https://example.com/textures/crown_basecolor.jpg",
+      "encodingFormat": "image/jpeg",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Normal Map",
+      "contentUrl": "https://example.com/textures/crown_normal.jpg",
+      "encodingFormat": "image/jpeg",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Metallic-Roughness Map",
+      "contentUrl": "https://example.com/textures/crown_mer.jpg",
+      "encodingFormat": "image/jpeg",
+      "width": 2048,
+      "height": 2048
+    }
+  ]
+}
+```
+
+## Required Properties
+
+### Core Properties
+- `@context`: Context definition including Schema.org
+- `@type`: "ImageObject" for root object
+- `name`: Wearable name
+- `description`: Detailed description
+- `contentUrl`: URL to preview image
+- `encodingFormat`: MIME type of preview
+- `identifier`: Unique identifier structure
+- `creator`: Creator information
+
+### Wearable-Specific Properties
+Must be included in additionalProperty array:
+- Category
+- Attachment point(s)
+- Avatar compatibility
+- Technical requirements
+
+### Associated Media
+Must include at least one 3D model:
+- High quality version
+- Optional low quality version
+- Required textures and maps
 
 ## Best Practices
 
-1. **Attachment Design**
-    - Use standard attachment points
-    - Include weight painting
-    - Define clear hierarchies
-    - Support animation systems
-    - Handle scaling properly
+### Property Organization
+- Group related properties together
+- Use consistent property naming
+- Include complete type declarations
+- Validate all examples
 
-2. **Customization Implementation**
-    - Group related options
-    - Provide defaults
-    - Support common variations
-    - Consider performance
-    - Document limitations
+### Technical Requirements
+- Specify both minimum and recommended specs
+- Include detailed material information
+- Define physics properties when applicable
+- List supported features and capabilities
 
-3. **Physics Configuration**
-    - Use appropriate simulation types
-    - Define collision properly
-    - Balance performance
-    - Test interactions
-    - Consider platforms
+### Media Management
+- Provide multiple quality levels
+- Include all required textures
+- Specify exact dimensions
+- Use appropriate formats
 
-4. **Platform Compatibility**
-    - Document requirements
-    - Test across platforms
-    - Provide fallbacks
-    - Consider limitations
-    - Maintain updates
+## Implementation Notes
+
+1. **Avatar Compatibility**
+    - Define clear attachment points
+    - Specify scaling rules
+    - Include fit adjustments
+    - Handle different avatar types
+
+2. **Technical Requirements**
+    - Specify polygon count limits
+    - Define texture resolution ranges
+    - List required materials
+    - Include physics properties
+
+3. **Platform Support**
+    - Define required features
+    - List supported platforms
+    - Specify rendering requirements
+    - Include fallback options
+
+## Common Issues and Solutions
+
+1. **Schema Validation**
+    - Use only valid Schema.org types
+    - Include all required properties
+    - Properly structure nested objects
+    - Validate complex properties
+
+2. **3D Asset Integration**
+    - Provide appropriate LOD models
+    - Include all required textures
+    - Define clear material properties
+    - Specify technical requirements
+
+3. **Compatibility**
+    - Define clear attachment methods
+    - Specify avatar requirements
+    - Include platform constraints
+    - List supported features
 
 ## Next Steps
 
-- Review [Avatar Profile](./avatar-profile.md) for character integration
-- See [Basic Profile](./basic-profile.md) for core properties
-- Check [Validation Tools](/tools/validation.md) for testing
+1. Validate metadata using Schema.org validator
+2. Test with target platforms
+3. Verify all required properties
+4. Check media accessibility
+5. Confirm technical requirements

@@ -2,9 +2,12 @@
 sidebar_position: 2
 ---
 
-# JSON-LD Patterns
+# JSON-LD Standard
 
-JSON-LD (JavaScript Object Notation for Linked Data) provides the foundation for linking metadata across different standards and platforms in the Metaverse ecosystem.
+JSON-LD (JavaScript Object Notation for Linked Data) is a lightweight, JSON-based format designed to serialize Linked Data. It enables the seamless integration of structured data into web applications, making it easier for developers to create interoperable web services and store Linked Data in JSON-based storage engines. JSON-LD is a World Wide Web Consortium (W3C) Recommendation, ensuring its status as a stable and widely accepted standard.
+Wikipedia
+
+For detailed information, you can refer to the official JSON-LD website: [JSON-LD](https://json-ld.org/)
 
 ## Core Concepts
 

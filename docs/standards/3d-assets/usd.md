@@ -2,9 +2,12 @@
 sidebar_position: 2
 ---
 
-# USD Standard
+# Open USD Standard
 
-Universal Scene Description (USD) provides metadata standards for complex scene composition and management in the Metaverse. This guide covers how to describe USD-specific properties within your metadata.
+Universal Scene Description (USD) is an open-source framework developed by Pixar Animation Studios for the interchange of 3D computer graphics data. It facilitates collaboration, non-destructive editing, and supports multiple views and opinions about graphics data, making it a versatile choice for complex scene management.
+Wikipedia
+
+For detailed information, you can refer to the official USD documentation: [Introduction to USD](https://openusd.org/release/intro.html)
 
 ## Core Properties
 
@@ -14,7 +17,7 @@ Universal Scene Description (USD) provides metadata standards for complex scene 
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
+    "usd": "https://openusd.org/24.08/spec.html"
   },
   "@type": "Place",
   "name": "Virtual Environment",
@@ -76,7 +79,7 @@ Universal Scene Description (USD) provides metadata standards for complex scene 
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
+    "usd": "https://openusd.org/24.08/spec.html"
   },
   "@type": "Place",
   "name": "Virtual Plaza",
