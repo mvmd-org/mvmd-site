@@ -6,7 +6,7 @@ import {Book, Code2, Network, FileCheck} from 'lucide-react';
 
 const SupporterCard = ({name, url, description, profileUrl, logo}) => {
     return (
-        <div className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow overflow-hidden">
             <Link to={profileUrl} className="block p-6">
                 <div className="flex flex-col items-center">
                     <img
@@ -16,11 +16,11 @@ const SupporterCard = ({name, url, description, profileUrl, logo}) => {
                     />
                     <h3 className="text-xl font-semibold mb-2">
                         <a href={url} target="_blank" rel="noopener noreferrer"
-                           className="text-blue-600 hover:text-blue-800">
+                           className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                             {name}
                         </a>
                     </h3>
-                    <p className="text-center text-gray-600">{description}</p>
+                    <p className="text-center text-gray-600 dark:text-gray-300">{description}</p>
                 </div>
             </Link>
         </div>
@@ -29,10 +29,10 @@ const SupporterCard = ({name, url, description, profileUrl, logo}) => {
 
 function FeatureCard({icon, title, description}) {
     return (
-        <div className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
             <div className="mb-4">{icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">{title}</h3>
+            <p className="text-gray-600 dark:text-gray-300">{description}</p>
         </div>
     );
 }
@@ -88,27 +88,27 @@ export default function Home(): JSX.Element {
 
             <main>
                 {/* Key Features */}
-                <div className="py-20 bg-white">
+                <div className="py-20 bg-white dark:bg-gray-900">
                     <div className="container mx-auto px-6">
-                        <h2 className="text-3xl font-bold text-center mb-16">What You Can Do</h2>
+                        <h2 className="text-3xl font-bold text-center mb-16 dark:text-white">What You Can Do</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                             <FeatureCard
-                                icon={<Book className="w-8 h-8 text-blue-600"/>}
+                                icon={<Book className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
                                 title="Browse Standards"
                                 description="Explore our curated registry of metadata standards for the Metaverse"
                             />
                             <FeatureCard
-                                icon={<Code2 className="w-8 h-8 text-blue-600"/>}
+                                icon={<Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
                                 title="Implement Profiles"
                                 description="Use our pre-defined profiles for common asset types and scenarios"
                             />
                             <FeatureCard
-                                icon={<FileCheck className="w-8 h-8 text-blue-600"/>}
+                                icon={<FileCheck className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
                                 title="Validate Metadata"
                                 description="Ensure your metadata meets industry standards with our validation tools"
                             />
                             <FeatureCard
-                                icon={<Network className="w-8 h-8 text-blue-600"/>}
+                                icon={<Network className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
                                 title="Connect Assets"
                                 description="Create interoperable connections between virtual assets and environments"
                             />
@@ -117,10 +117,10 @@ export default function Home(): JSX.Element {
                 </div>
 
                 {/* Supporters Section */}
-                <div className="py-20 bg-gray-50">
+                <div className="py-20 bg-gray-50 dark:bg-gray-800">
                     <div className="container mx-auto px-6">
-                        <h2 className="text-3xl font-bold text-center mb-4">Supported By</h2>
-                        <p className="text-center text-gray-600 mb-16">
+                        <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Supported By</h2>
+                        <p className="text-center text-gray-600 dark:text-gray-300 mb-16">
                             Join these organizations in building an interoperable Metaverse
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -142,7 +142,7 @@ export default function Home(): JSX.Element {
                         <div className="text-center mt-12">
                             <Link
                                 to="/community/supporters"
-                                className="text-blue-600 hover:text-blue-800 font-semibold">
+                                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold">
                                 View All Supporters →
                             </Link>
                         </div>
