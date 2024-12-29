@@ -107,7 +107,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Version 0.1 - Copyright © ${new Date().getFullYear()} Metaverse Metadata Directory`,
+            copyright: `version 0.3 - Copyright © ${new Date().getFullYear()} Metaverse Metadata Directory`,
         },
         prism: {
             theme: prismThemes.github,

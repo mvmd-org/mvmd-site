@@ -1,4 +1,4 @@
-# Validating Metadata
+# Validator
 
 At present, the primary tool for validating MVMD metadata is the Schema.org Validator ([https://validator.schema.org/](https://validator.schema.org/)). This guide explains how to use the validator effectively with MVMD metadata.
 

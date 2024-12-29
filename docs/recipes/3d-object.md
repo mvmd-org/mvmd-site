@@ -138,7 +138,7 @@ The 3D Model Profile extends the Basic Profile with properties specific to 3D mo
   
   "contentUrl": "https://example.com/models/ergonomic-chair.glb",
   "encodingFormat": "model/gltf-binary",
-  "thumbnailUrl": "https://example.com/thumbnails/ergonomic-chair.jpg",
+  "thumbnail": "https://example.com/thumbnails/ergonomic-chair.jpg",
   
   "gltf:asset": {
     "version": "2.0",

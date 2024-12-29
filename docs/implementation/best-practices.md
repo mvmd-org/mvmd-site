@@ -6,6 +6,24 @@ sidebar_position: 3
 
 This guide outlines practical guidelines for implementing high-quality Metaverse metadata. Following these practices ensures your metadata is discoverable, maintainable, and interoperable.
 
+## General
+
+1. **Keep It Simple**
+   - Only use complex structures when necessary
+   - Prefer standard properties over custom ones
+   - Use clear, descriptive property names
+
+2. **Maintain Consistency**
+   - Use consistent property patterns
+   - Maintain consistent value types
+   - Follow naming conventions
+
+3. **Think About Scale**
+   - Plan for future extensions
+   - Consider performance implications
+   - Design for maintainability
+   
+
 ## Metadata Structure
 
 ### Use Clear Organization
@@ -191,7 +209,7 @@ This guide outlines practical guidelines for implementing high-quality Metaverse
   "@type": "3DModel",
   "name": "Office Chair",
   "contentUrl": "https://example.com/models/chair.glb",
-  "thumbnailUrl": "https://example.com/thumbnails/chair.jpg",
+  "thumbnail": "https://example.com/thumbnails/chair.jpg",
   "sameAs": [
     "https://other-platform.com/models/chair-123",
     "ipfs://QmXaXa1XaX..."
@@ -206,7 +224,7 @@ This guide outlines practical guidelines for implementing high-quality Metaverse
   "@type": "3DModel",
   "name": "Office Chair",
   "contentUrl": "/models/chair.glb",
-  "thumbnailUrl": "chair.jpg"
+  "thumbnail": "chair.jpg"
 }
 ```
 

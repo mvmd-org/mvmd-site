@@ -134,7 +134,7 @@ The Environment Profile defines metadata for virtual spaces and environments. Th
 
    "contentUrl": "https://example.com/environments/conference-center.usd",
    "encodingFormat": "model/vnd.usd",
-   "thumbnailUrl": "https://example.com/thumbnails/conference-center.jpg",
+   "thumbnail": "https://example.com/thumbnails/conference-center.jpg",
 
    "spatialCoverage": {
       "@type": "GeoShape",

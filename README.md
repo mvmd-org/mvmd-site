@@ -43,10 +43,6 @@ Open your browser to http://localhost:3000 to preview the changes.
 
 ## Building and Deploying
 
-#### Build the site:
-
-    npm run build
-
 #### Deploy the site:
     npm run build
     npm run deploy

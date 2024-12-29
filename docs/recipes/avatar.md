@@ -123,7 +123,7 @@ The Avatar Profile extends the Basic Profile with properties specific to virtual
   
   "contentUrl": "https://example.com/avatars/customizable.glb",
   "encodingFormat": "model/gltf-binary",
-  "thumbnailUrl": "https://example.com/thumbnails/avatar.jpg",
+  "thumbnail": "https://example.com/thumbnails/avatar.jpg",
   
   "avatarProperties": {
     "type": "humanoid",

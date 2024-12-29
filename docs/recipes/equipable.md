@@ -129,7 +129,7 @@ The Equipable Profile extends the Basic Profile with properties specific to item
   
   "contentUrl": "https://example.com/equipables/arcane-staff.glb",
   "encodingFormat": "model/gltf-binary",
-  "thumbnailUrl": "https://example.com/thumbnails/arcane-staff.jpg",
+  "thumbnail": "https://example.com/thumbnails/arcane-staff.jpg",
   
   "category": "tool",
   "equipableType": "staff",

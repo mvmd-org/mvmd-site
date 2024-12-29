@@ -97,7 +97,7 @@ Use for individual 3D objects and models.
   "contentUrl": "https://example.com/models/chair.glb",
   "encodingFormat": "model/gltf-binary",
   "dateCreated": "2024-03-15",
-  "thumbnailUrl": "https://example.com/thumbnails/chair.jpg",
+  "thumbnail": "https://example.com/thumbnails/chair.jpg",
   "license": "https://creativecommons.org/licenses/by/4.0/"
 }
 ```
@@ -156,7 +156,7 @@ Use for various asset types and content.
 - `identifier`: Unique identifier
 - `url`: Web reference
 - `contentUrl`: Direct asset access
-- `thumbnailUrl`: Preview image
+- `thumbnail`: Preview image
 
 ### Creation and Authorship
 - `creator`: Asset creator

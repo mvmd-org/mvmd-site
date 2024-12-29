@@ -50,7 +50,7 @@ The Basic Profile defines essential metadata properties that should be included 
   "version": "1.0.0",
   "dateModified": "2024-03-15T10:30:00Z",
   
-  "thumbnailUrl": "https://example.com/thumbnails/asset.jpg",
+  "thumbnail": "https://example.com/thumbnails/asset.jpg",
   
   "contributor": [{
     "@type": "Person",
@@ -146,7 +146,7 @@ The Basic Profile defines essential metadata properties that should be included 
 ### Optional Fields
 - `version`: Semantic version recommended
 - `dateModified`: ISO 8601 format
-- `thumbnailUrl`: Valid URL
+- `thumbnail`: Valid URL
 - `contributor`: Must include name
 - `keywords`: Array of strings
 - `fileSize`: Number in bytes
@@ -187,7 +187,7 @@ The Basic Profile defines essential metadata properties that should be included 
   "encodingFormat": "model/gltf-binary",
   "fileSize": 1048576,
   
-  "thumbnailUrl": "https://example.com/thumbnails/office-chair.jpg",
+  "thumbnail": "https://example.com/thumbnails/office-chair.jpg",
   
   "keywords": ["furniture", "office", "chair", "ergonomic"],
   

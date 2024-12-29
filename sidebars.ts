@@ -2,128 +2,114 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
     tutorialSidebar: [
+        'introduction',
+        'quickstart',
         {
             type: 'category',
-            label: 'Introduction',
+            label: 'Concepts',
             items: [
-                'introduction/intro',
-                'introduction/quickstart',
+                'concepts/overview',
+                'concepts/fundamentals',
+                'concepts/types-of-things',
+                'concepts/composition',
+                'concepts/references',
+                'concepts/urls-vs-embedding',
             ],
         },
         {
             type: 'category',
-            label: 'Core Concepts',
+            label: 'Implementation',
             items: [
-                'core-concepts/metadata-fundamentals',
-                'core-concepts/file-organization',
-                'core-concepts/embedding-and-reference',
+                'implementation/overview',
+                'implementation/assets',
+                'implementation/nfts',
+                'implementation/composable',
+                'implementation/best-practices',
             ],
         },
         {
             type: 'category',
-            label: 'Standards',
+            label: 'Recipes',
             items: [
-                'standards/overview',
+                'recipes/overview',
+                'recipes/basic',
+                'recipes/wearable',
+                'recipes/avatar',
+                'recipes/3d-object',
+                'recipes/scene',
+                'recipes/equipable',
+                'recipes/interactable',
+                {
+                    type: 'category',
+                    label: 'Locations',
+                    items: [
+                        'recipes/locations/virtual',
+                        'recipes/locations/physical',
+                    ],
+                },
+                'recipes/future',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Embedding',
+            items: [
+                'embedding/overview',
                 {
                     type: 'category',
                     label: 'Schema',
                     items: [
-                        'standards/schema/schema-org',
-                        'standards/schema/json-ld',
+                        'embedding/schema/schema-org',
+                        'embedding/schema/json-ld',
                     ],
                 },
                 {
                     type: 'category',
                     label: '3D Assets',
                     items: [
-                        'standards/3d-assets/gltf',
-                        'standards/3d-assets/usd',
-                        'standards/3d-assets/x3d',
-                        'standards/3d-assets/fbx',
-                        'standards/3d-assets/vrm',
-                        'standards/3d-assets/openxr',
-                        'standards/3d-assets/collada'
+                        'embedding/3d-assets/gltf',
+                        'embedding/3d-assets/usd',
+                        'embedding/3d-assets/x3d',
+                        'embedding/3d-assets/fbx',
+                        'embedding/3d-assets/vrm',
+                        'embedding/3d-assets/openxr',
+                        'embedding/3d-assets/collada'
                     ],
                 },
                 {
                     type: 'category',
                     label: 'Geospatial',
                     items: [
-                        'standards/geospatial/cityjson',
-                        'standards/geospatial/3d-tiles',
+                        'embedding/geospatial/cityjson',
+                        'embedding/geospatial/3d-tiles',
                     ],
                 },
                 {
                     type: 'category',
                     label: 'Trust and Provenance',
                     items: [
-                        'standards/trust/c2pa',
+                        'embedding/trust/c2pa',
                     ],
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Implementation Guide',
-            items: [
-                'implementation/getting-started',
-                {
-                    type: 'category',
-                    label: 'Metadata Profiles',
-                    items: [
-                        'implementation/profiles/basic-profile',
-                        'implementation/profiles/wearables-profile',
-                        'implementation/profiles/avatar-profile',
-                        'implementation/profiles/3d-model-profile',
-                        'implementation/profiles/scene-profile',
-                        'implementation/profiles/equipable-profile',
-                        'implementation/profiles/interactables-profile',
-                        'implementation/profiles/future-profiles',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'NFT Integration',
-                    items: [
-                        'implementation/nft/concepts',
-                        'implementation/nft/examples',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Composable Assets',
-                    items: [
-                        'implementation/composable/concepts',
-                        'implementation/composable/schema-parts',
-                        'implementation/composable/assembly-patterns',
-                    ],
-                },
-                'implementation/best-practices',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Tools',
-            items: [
-                'tools/validation',
             ],
         },
         {
             type: 'category',
             label: 'Community',
             items: [
-                {
-                    type: 'category',
-                    label: 'Supporting Organizations',
-                    items: [
-                        'community/supporters/nftr-pro',
-                        'community/supporters/sumset-tech',
-                    ],
-                },
+                'community/supporters',
                 'community/become-supporter',
                 'community/contributors',
             ],
         },
+        {
+            type: 'category',
+            label: 'Tools',
+            items: [
+                'tools/validator',
+                'tools/mintr'
+            ],
+        }
     ],
 };
 
