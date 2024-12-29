@@ -1,0 +1,25 @@
+.codeBlockContainer {
+    position: relative;
+}
+
+.validateButton {
+    position: absolute;
+    top: .75em;
+    right: 3rem;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--ifm-color-white);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.codeBlockContainer:hover .validateButton {
+    opacity: 1;
+}
+
+.validateButton:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
