@@ -34,6 +34,11 @@
     align-items: center;
 }
 
+.editorHeaderButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .editorHeader h3 {
     margin: 0;
     color: var(--ifm-color-emphasis-900);

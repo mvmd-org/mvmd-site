@@ -436,6 +436,22 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
     }
   };
 
+  const openSchemaOrgValidator = () => {
+    try {
+      // Ensure the JSON is valid before proceeding
+      JSON.parse(jsonInput);
+      
+      // Create the Schema.org validator URL
+      const encodedJson = encodeURIComponent(jsonInput);
+      const validatorUrl = `https://validator.schema.org/?code=${encodedJson}`;
+      
+      // Open in a new tab
+      window.open(validatorUrl, '_blank');
+    } catch (error) {
+      alert('Please enter valid JSON before attempting to validate with Schema.org');
+    }
+  };
+
   const handleErrorClick = (location: ErrorLocation) => {
     if (editorRef.current) {
       const editor = editorRef.current;
@@ -643,13 +659,23 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
         <div className={styles.leftPane}>
           <div className={styles.editorHeader}>
             <h3>JSON-LD Input</h3>
-            <button
-              className={styles.shareButton}
-              onClick={generateShareUrl}
-              disabled={!jsonInput.trim()}
-            >
-              Share
-            </button>
+            <div className={styles.editorHeaderButtons}>
+              <button
+                className={styles.shareButton}
+                onClick={openSchemaOrgValidator}
+                disabled={!jsonInput.trim()}
+                title="Validate current code with schema.org validator"
+              >
+                Schema.org
+              </button>
+              <button
+                className={styles.shareButton}
+                onClick={generateShareUrl}
+                disabled={!jsonInput.trim()}
+              >
+                Share
+              </button>
+            </div>
           </div>
           <div className={styles.editorContainer}>
             <Editor
