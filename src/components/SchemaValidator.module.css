@@ -202,6 +202,18 @@
     border-radius: 3px;
     color: var(--ifm-color-warning-darkest);
     font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.propertyWarning:hover {
+    background-color: var(--ifm-color-warning-contrast-background);
+    filter: brightness(0.95);
+}
+
+.propertyWarning:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ifm-color-warning-light);
 }
 
 .nestedProperties {
@@ -332,4 +344,12 @@
     padding: 1rem;
     margin: 1rem 0;
     color: var(--ifm-color-warning-darkest);
+}
+
+.warningList {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: var(--ifm-color-warning-contrast-background);
+    border: 1px solid var(--ifm-color-warning-dark);
 } 

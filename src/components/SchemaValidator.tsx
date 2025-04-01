@@ -764,6 +764,30 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
                 </div>
               )}
 
+              {/* New Warning List Section */}
+              {validationResult.warnings.length > 0 && (
+                <div className={styles.warningList}> {/* Use a new style class */} 
+                  {validationResult.errorLocations
+                    .filter(loc => loc.severity === 'warning')
+                    .map((warningLocation, i) => (
+                      <div
+                        key={`warning-${i}`}
+                        className={styles.propertyWarning} // Reuse existing style for individual items
+                        onClick={() => handleErrorClick(warningLocation)} // Reuse existing handler
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleErrorClick(warningLocation);
+                          }
+                        }}
+                      >
+                        ℹ {warningLocation.message}
+                      </div>
+                    ))}
+                </div>
+              )}
+
               <div className={styles.propertyBreakdown}>
                 {validationResult.properties.map((prop, index) => (
                   <div 
