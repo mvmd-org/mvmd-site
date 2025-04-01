@@ -1,12 +1,12 @@
 ---
-sidebar_position: 10
+sidebar_position: 4
 ---
 
-> **PROPOSED STATE**: This recipe is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
-# Vehicle Recipe
+# Vehicle Integration Profile
 
-The Vehicle Recipe extends the Basic Profile with properties specific to vehicles, mounts, and other transportation elements in virtual environments. This profile combines physical simulation, interaction capabilities, and animation systems to define functional transportation assets.
+The Vehicle Integration Profile extends the Basic Profile with properties specific to vehicles, mounts, and other transportation elements in virtual environments. This profile combines physical simulation, interaction capabilities, and customization options to create rich vehicle experiences.
 
 ## Core Structure
 

@@ -122,7 +122,7 @@ MVMD is designed to be approachable for both beginners and standards experts:
 
 - Start with our [Quickstart](./quickstart.md) guide
 - Explore [Core Concepts](./concepts/overview.md) to understand the fundamentals
-- Try our [Recipes](./recipes/overview.md) for ready-to-use patterns
+- Try our [Integration Profiles](./integration-profiles/overview.md) for ready-to-use patterns
 - Dive into [Implementation](./implementation/overview.md) for detailed guidance
 
 We welcome collaboration from developers, platform owners, and standards organizations to continue building an interoperable, accessible metaverse ecosystem.

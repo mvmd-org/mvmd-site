@@ -23,7 +23,7 @@ Learn how to implement metadata for your assets:
 - Working with composable assets
 - Best practices for implementation
 
-### [Recipes](./recipes/overview.md)
+### [Integration Profiles](./integration-profiles/overview.md)
 Ready-to-use patterns for common Metaverse asset types:
 - Wearables and equipment
 - Avatars and characters
@@ -46,10 +46,10 @@ Detailed technical standards for embedding different types of data:
 ### "I'm new to Metaverse metadata"
 1. Start with [Concepts](./concepts/overview.md) to understand the basics
 2. Review [Implementation](./implementation/overview.md) for practical guidance
-3. Follow our [Basic Recipe](./recipes/basic.md) for your first implementation
+3. Follow our [Basic Integration Profile](./integration-profiles/basic.md) for your first implementation
 
 ### "I need to implement a specific asset type"
-1. Check our [Recipes](./recipes/overview.md) for your asset type
+1. Check our [Integration Profiles](./integration-profiles/overview.md) for your asset type
 2. Review relevant [Embedding](./embedding/overview.md) standards
 3. [Validate](./tools/validator.md) your implementation
 
@@ -62,6 +62,6 @@ Detailed technical standards for embedding different types of data:
 
 Choose your path:
 1. **Learn the Basics**: Start with [Concepts](./concepts/overview.md)
-2. **Quick Implementation**: Jump to [Recipes](./recipes/overview.md)
+2. **Quick Implementation**: Jump to [Integration Profiles](./integration-profiles/overview.md)
 3. **Technical Details**: Dive into [Embedding](./embedding/overview.md)
 4. **Validate Metadata**: Use the [Validator](./tools/validator.md) to ensure your metadata is correct.

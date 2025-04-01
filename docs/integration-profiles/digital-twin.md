@@ -1,12 +1,12 @@
 ---
-sidebar_position: 9
+sidebar_position: 3
 ---
 
-> **PROPOSED STATE**: This recipe is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
-# Digital Twin Recipe
+# Digital Twin Integration Profile
 
-The Digital Twin Recipe defines metadata for virtual representations of physical objects, environments, or systems. This profile enables synchronization between physical entities and their digital counterparts, supporting real-time updates, historical data, and predictive modeling.
+The Digital Twin Integration Profile defines metadata for virtual representations of physical objects, environments, or systems. This profile enables synchronization between physical entities and their digital counterparts, supporting real-time monitoring, simulation, and control.
 
 ## Core Structure
 

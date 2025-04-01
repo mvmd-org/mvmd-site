@@ -1,12 +1,12 @@
 ---
-sidebar_position: 11
+sidebar_position: 5
 ---
 
-> **PROPOSED STATE**: This recipe is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
-# Identity Recipe
+# Identity Integration Profile
 
-The Identity Recipe defines metadata for digital identities that persist across metaverse platforms and applications. This profile enables consistent identity representation, reputation management, achievement tracking, and social connections while maintaining privacy controls.
+The Identity Integration Profile defines metadata for digital identities that persist across metaverse platforms and applications. This profile enables consistent identity representation, reputation management, achievement tracking, and social connections while maintaining privacy and security controls.
 
 ## Core Structure
 

@@ -31,37 +31,37 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'Recipes',
+            label: 'Integration Profiles',
             items: [
-                'recipes/overview',
-                // 'recipes/basic',
-                // 'recipes/wearable',
-                // 'recipes/avatar',
-                'recipes/composable-3d-nft',
+                'integration-profiles/overview',
+                // 'integration-profiles/basic',
+                // 'integration-profiles/wearable',
+                // 'integration-profiles/avatar',
+                'integration-profiles/composable-3d-nft',
                 {
                     type: 'doc',
-                    id: 'recipes/digital-twin',
+                    id: 'integration-profiles/digital-twin',
                     label: 'Digital Twin'
                 },
                 {
                     type: 'doc',
-                    id: 'recipes/vehicle',
+                    id: 'integration-profiles/vehicle',
                     label: 'Vehicle'
                 },
                 {
                     type: 'doc',
-                    id: 'recipes/identity',
+                    id: 'integration-profiles/identity',
                     label: 'Identity'
                 },
                 {
                     type: 'doc',
-                    id: 'recipes/royalty',
+                    id: 'integration-profiles/royalty',
                     label: 'Royalty'
                 },
-                // 'recipes/scene',
-                // 'recipes/equipable',
-                // 'recipes/interactable',
-                'recipes/future',
+                // 'integration-profiles/scene',
+                // 'integration-profiles/equipable',
+                // 'integration-profiles/interactable',
+                'integration-profiles/future',
             ],
         },
         {

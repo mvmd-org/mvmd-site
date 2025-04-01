@@ -1,12 +1,12 @@
 ---
-sidebar_position: 12
+sidebar_position: 6
 ---
 
-> **PROPOSED STATE**: This recipe is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
-# Royalty Recipe
+# Royalty Integration Profile
 
-The Royalty Management Recipe defines metadata for tracking, distributing, and managing royalties and revenue sharing for digital assets. This profile enables creators to specify compensation terms, usage rights, and distribution rules for their assets across platforms.
+The Royalty Integration Profile defines metadata for tracking, distributing, and managing royalties and revenue sharing for digital assets. This profile enables creators to specify compensation terms, usage rights, and distribution rules for their assets across platforms.
 
 ## Core Structure
 

@@ -55,18 +55,18 @@ Comprehensive validation is essential for effective implementation:
 - Provide test cases for integration validation
 - Establish conflict resolution guidelines
 
-## Recipe Development
+## Integration Profile Development
 
-Standards organizations can collaborate on specialized recipes:
+Standards organizations can collaborate on specialized integration profiles:
 
-### Recipe Authoring
-1. **Identify Use Cases**: What problems does this recipe solve?
+### Integration Profile Authoring
+1. **Identify Use Cases**: What problems does this profile solve?
 2. **Specify Required Standards**: Which standards must be implemented?
 3. **Define Core Properties**: What properties must be included?
 4. **Create Validation Rules**: How is compliance verified?
 5. **Document Implementation Steps**: How should implementers proceed?
 
-### Recipe Review Process
+### Integration Profile Review Process
 1. **Technical Review**: Accuracy and completeness check
 2. **Integration Testing**: Verify with real implementations
 3. **Documentation Review**: Ensure clarity and accessibility
