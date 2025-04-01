@@ -18,6 +18,8 @@ We are restructuring the documentation for the Metaverse Metadata Directory (MVM
 
 - **[Audit Log](./iteration/audit_log_v1.md)** - This contains the results of our content audit and identifies issues to address.
 
+- **[Presentation Script](./strategy/presentation-script.md)** - Contains the presentation script for the restructuring project.
+
 ## Current Step
 
 We have completed the content audit and finalized the structure design. We are now ready for Step 5 from the RESTRUCTURING_PLAN.md: "Implement New Structure" by creating the new directory structure and moving files.

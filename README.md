@@ -89,6 +89,7 @@ All planning and guidance documents for this restructuring effort are located in
 - [Document Standards](./strategy/DOCUMENT_STANDARDS.md) - Standards and templates for each content type
 - [AI Guide](./strategy/AI_GUIDE.md) - Guide for AI assistants working on the project
 - [Cursor Workflow](./strategy/CURSOR_WORKFLOW.md) - Specific instructions for working in Cursor
+- [Presentation Script](./strategy/presentation-script.md) - Script for presentations about the restructuring
 
 ### Current Status
 

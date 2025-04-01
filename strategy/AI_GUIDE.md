@@ -49,7 +49,16 @@ This document provides Cursor-specific instructions for implementing the restruc
 
 Refer to this document for technical guidance on working within the Cursor environment.
 
-### 4. iteration/audit_log_v1.md
+### 4. presentation-script.md
+
+This document contains the presentation script for the restructuring project:
+- Overview of the restructuring approach
+- Key points to communicate
+- Visual aids and examples
+
+Use this as a reference when explaining the restructuring approach to others.
+
+### 5. iteration/audit_log_v1.md
 
 This document contains the results of the content audit:
 - Findings from reviewing existing documentation
