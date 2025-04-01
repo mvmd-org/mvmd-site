@@ -1,493 +1,204 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Schema Reference
 
-This reference document provides detailed information about the Schema.org properties most commonly used in MVMD metadata. Use this as a technical reference when implementing metadata for your assets.
+The MVMD Schema defines a structured format for describing metaverse assets using JSON-LD. This reference provides an overview of the schema structure and guides you to more detailed documentation on each component.
 
-## Core Properties
+## Schema Overview
 
-These properties are fundamental to almost all MVMD metadata objects.
+MVMD metadata is expressed using JSON-LD with a combination of:
 
-### name
-**Description**: The name of the asset.  
-**Type**: Text  
-**Required**: Yes  
-**Example**:
-```json
-"name": "Character Model"
-```
+1. **Schema.org vocabulary** - For general metadata properties
+2. **MVMD-specific terms** - For metaverse-specific properties
+3. **JSON-LD context** - For providing namespace definitions
 
-### description
-**Description**: A description of the asset.  
-**Type**: Text  
-**Required**: Recommended  
-**Example**:
-```json
-"description": "A detailed humanoid character model designed for gaming environments."
-```
+Together, these components create a flexible, extensible, and interoperable metadata standard for metaverse assets.
 
-### identifier
-**Description**: A unique identifier for the asset.  
-**Type**: Text or PropertyValue  
-**Required**: Recommended  
-**Example**:
-```json
-"identifier": "asset-2024-001"
-```
-Or with more detail:
-```json
-"identifier": {
-  "@type": "PropertyValue",
-  "propertyID": "UUID",
-  "value": "550e8400-e29b-41d4-a716-446655440000"
-}
-```
+## Basic Structure
 
-### url
-**Description**: The URL of the asset page.  
-**Type**: URL  
-**Required**: Optional  
-**Example**:
-```json
-"url": "https://example.com/assets/character"
-```
-
-### creator
-**Description**: The creator of the asset.  
-**Type**: Person or Organization  
-**Required**: Recommended  
-**Example**:
-```json
-"creator": {
-  "@type": "Person",
-  "name": "Jane Creator"
-}
-```
-
-### dateCreated
-**Description**: The date the asset was created.  
-**Type**: Date  
-**Required**: Recommended  
-**Example**:
-```json
-"dateCreated": "2024-04-01"
-```
-
-### dateModified
-**Description**: The date the asset was last modified.  
-**Type**: Date  
-**Required**: Optional  
-**Example**:
-```json
-"dateModified": "2024-04-15"
-```
-
-### license
-**Description**: The license under which the asset is available.  
-**Type**: URL or CreativeWork  
-**Required**: Recommended  
-**Example**:
-```json
-"license": "https://creativecommons.org/licenses/by/4.0/"
-```
-
-## Media Properties
-
-These properties relate to media content and files.
-
-### contentUrl
-**Description**: The direct URL to download the asset file.  
-**Type**: URL  
-**Required**: Recommended  
-**Example**:
-```json
-"contentUrl": "https://example.com/assets/model.glb"
-```
-
-### encodingFormat
-**Description**: The MIME type of the asset file.  
-**Type**: Text  
-**Required**: Recommended when contentUrl is used  
-**Example**:
-```json
-"encodingFormat": "model/gltf-binary"
-```
-
-### contentSize
-**Description**: The size of the asset file.  
-**Type**: Text  
-**Required**: Optional  
-**Example**:
-```json
-"contentSize": "2.5MB"
-```
-
-### thumbnail
-**Description**: A thumbnail image representing the asset.  
-**Type**: URL or ImageObject  
-**Required**: Recommended  
-**Example**:
-```json
-"thumbnail": "https://example.com/thumbnails/model.jpg"
-```
-Or with more detail:
-```json
-"thumbnail": {
-  "@type": "ImageObject",
-  "contentUrl": "https://example.com/thumbnails/model.jpg",
-  "width": 256,
-  "height": 256
-}
-```
-
-### image
-**Description**: Images related to the asset.  
-**Type**: URL or ImageObject or array of these  
-**Required**: Optional  
-**Example**:
-```json
-"image": [
-  {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/images/front.jpg",
-    "caption": "Front view"
-  },
-  {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/images/side.jpg",
-    "caption": "Side view"
-  }
-]
-```
-
-## Relationship Properties
-
-These properties define relationships between assets and components.
-
-### hasPart
-**Description**: Components that are part of this asset.  
-**Type**: CreativeWork or array of CreativeWork  
-**Required**: Optional  
-**Example**:
-```json
-"hasPart": [
-  {
-    "@type": "3DModel",
-    "name": "Head Component",
-    "contentUrl": "https://example.com/components/head.glb"
-  },
-  {
-    "@type": "3DModel",
-    "name": "Body Component",
-    "contentUrl": "https://example.com/components/body.glb"
-  }
-]
-```
-
-### isPartOf
-**Description**: Indicates that this asset is a component of another asset.  
-**Type**: CreativeWork  
-**Required**: Optional  
-**Example**:
-```json
-"isPartOf": {
-  "@type": "3DModel",
-  "name": "Complete Character",
-  "@id": "https://example.com/assets/full-character#asset"
-}
-```
-
-### associatedMedia
-**Description**: Media assets associated with this asset.  
-**Type**: MediaObject or array of MediaObject  
-**Required**: Optional  
-**Example**:
-```json
-"associatedMedia": [
-  {
-    "@type": "ImageObject",
-    "name": "Texture Map",
-    "contentUrl": "https://example.com/textures/diffuse.jpg"
-  },
-  {
-    "@type": "AudioObject",
-    "name": "Ambient Sound",
-    "contentUrl": "https://example.com/sounds/ambient.mp3"
-  }
-]
-```
-
-### encodesCreativeWork
-**Description**: Creative works encoded or contained within this asset.  
-**Type**: CreativeWork or array of CreativeWork  
-**Required**: Optional  
-**Example**:
-```json
-"encodesCreativeWork": {
-  "@type": "TextObject",
-  "name": "Character Story",
-  "contentUrl": "https://example.com/stories/background.txt"
-}
-```
-
-### mainEntity
-**Description**: The primary entity described by this asset.  
-**Type**: Thing  
-**Required**: Optional  
-**Example**:
-```json
-"mainEntity": {
-  "@type": "Person",
-  "name": "Character Name",
-  "description": "A fictional character in the game world"
-}
-```
-
-### subjectOf
-**Description**: Creative works that have this asset as their subject.  
-**Type**: CreativeWork or array of CreativeWork  
-**Required**: Optional  
-**Example**:
-```json
-"subjectOf": {
-  "@type": "DigitalDocument",
-  "name": "Technical Documentation",
-  "contentUrl": "https://example.com/docs/technical.pdf"
-}
-```
-
-## Classification Properties
-
-These properties help categorize and classify assets.
-
-### keywords
-**Description**: Keywords or tags for the asset.  
-**Type**: Text or array of Text  
-**Required**: Recommended  
-**Example**:
-```json
-"keywords": ["character", "humanoid", "3d model", "game asset"]
-```
-
-### category
-**Description**: A category for the asset.  
-**Type**: Text or array of Text  
-**Required**: Optional  
-**Example**:
-```json
-"category": "Character"
-```
-Or multiple categories:
-```json
-"category": ["Character", "Animated", "Humanoid"]
-```
-
-### additionalType
-**Description**: Additional types that apply to the asset.  
-**Type**: URL  
-**Required**: Optional  
-**Example**:
-```json
-"additionalType": "https://example.com/types/GameCharacter"
-```
-
-## Technical Properties
-
-These properties provide technical details about the asset.
-
-### additionalProperty
-**Description**: Custom properties not defined in Schema.org.  
-**Type**: PropertyValue or array of PropertyValue  
-**Required**: Optional  
-**Example**:
-```json
-"additionalProperty": [
-  {
-    "@type": "PropertyValue",
-    "propertyID": "polyCount",
-    "name": "Polygon Count",
-    "value": 12500
-  },
-  {
-    "@type": "PropertyValue",
-    "propertyID": "animationCount",
-    "name": "Number of Animations",
-    "value": 8
-  }
-]
-```
-
-### potentialAction
-**Description**: Actions that can be performed on or with the asset.  
-**Type**: Action  
-**Required**: Optional  
-**Example**:
-```json
-"potentialAction": {
-  "@type": "ViewAction",
-  "target": {
-    "@type": "EntryPoint",
-    "urlTemplate": "https://example.com/viewer?model={model}"
-  }
-}
-```
-
-## Complete Example
-
-Here's a comprehensive example showing many of these properties in use:
+Every MVMD metadata document follows this basic structure:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Asset Name",
+  "description": "Asset description...",
+  
+  // Standard Schema.org properties
+  "creator": {
+    "@type": "Person",
+    "name": "Creator Name"
+  },
+  
+  // MVMD-specific properties
+  "mvmd:category": "wearable",
+  "mvmd:polyCount": 15000
+}
+```
+
+## Core Components
+
+The schema reference is divided into the following sections:
+
+### [JSON-LD](schema/json-ld.md)
+
+Learn how MVMD uses JSON-LD to structure metadata, including:
+- Basic JSON-LD syntax
+- How to format MVMD metadata as JSON-LD
+- Nesting objects and arrays
+- JSON-LD features used in MVMD
+
+### [Schema.org Reference](schema/schema-org.md)
+
+Details on how MVMD leverages Schema.org vocabulary:
+- Core Schema.org types used in MVMD
+- Essential Schema.org properties
+- Structured data patterns
+- Best practices for Schema.org usage
+
+### [MVMD Context](schema/context.md)
+
+Information about the MVMD JSON-LD context:
+- Context structure
+- Namespace definitions
+- Context versioning
+- Multiple context handling
+
+### [MVMD-Specific Terms](schema/mvmd-terms.md)
+
+Complete reference of MVMD-specific terms:
+- 3D model properties
+- Virtual world properties
+- Avatar and wearable properties
+- Technical specifications
+- NFT and blockchain properties
+- Interactive and physics properties
+
+## Data Types
+
+MVMD properties use the following data types:
+
+| Type | Description | Example |
+|------|-------------|---------|
+| String | Text value | `"name": "Space Helmet"` |
+| Number | Numeric value | `"mvmd:polyCount": 15000` |
+| Boolean | True/false value | `"mvmd:rigged": true` |
+| Object | Nested JSON object | `"creator": { "@type": "Person", "name": "Creator" }` |
+| Array | List of values | `"keywords": ["sci-fi", "helmet", "space"]` |
+| URL | Web address | `"contentUrl": "https://example.com/model.glb"` |
+| Date | ISO 8601 date format | `"dateCreated": "2023-08-15"` |
+
+## Validation
+
+MVMD metadata can be validated using:
+
+1. **JSON-LD Validators** - Verify your JSON-LD syntax
+2. **Schema.org Validators** - Check Schema.org property usage
+3. **MVMD Validators** - Ensure MVMD-specific terms are used correctly
+
+## Schema Versioning
+
+The MVMD schema uses semantic versioning:
+
+- **Major version** (`v1`, `v2`) - Incompatible changes
+- **Minor version** (`v1.1`, `v1.2`) - Backwards-compatible additions
+- **Patch version** (`v1.1.1`) - Backwards-compatible fixes
+
+The context URL includes the major version: `https://mvmd.org/v1/`
+
+## Common Patterns
+
+MVMD follows common patterns for different asset types:
+
+### 3D Model
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
-  "@id": "https://example.com/assets/character-model",
-  "name": "Advanced Character Model",
-  "description": "A high-quality character model with multiple animations and customizable features.",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "AssetID",
-    "value": "model-2024-042"
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "Jane Creator",
-    "url": "https://example.com/creators/jane"
-  },
-  "dateCreated": "2024-03-15",
-  "dateModified": "2024-04-10",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  
-  "contentUrl": "https://example.com/assets/character.glb",
+  "name": "Sci-Fi Helmet",
+  "contentUrl": "https://example.com/helmet.glb",
   "encodingFormat": "model/gltf-binary",
-  "contentSize": "15MB",
-  
-  "thumbnail": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/thumbnails/character.jpg",
-    "width": 512,
-    "height": 512
+  "mvmd:category": "wearable",
+  "mvmd:polyCount": 15000
+}
+```
+
+### Virtual World Scene
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
   },
-  
-  "image": [
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/images/character-front.jpg",
-      "caption": "Front view"
-    },
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/images/character-side.jpg",
-      "caption": "Side view"
-    }
-  ],
-  
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Head Component",
-      "contentUrl": "https://example.com/components/head.glb"
-    },
-    {
-      "@type": "3DModel",
-      "name": "Body Component",
-      "contentUrl": "https://example.com/components/body.glb"
-    },
-    {
-      "@type": "3DModel",
-      "name": "Accessories",
-      "contentUrl": "https://example.com/components/accessories.glb"
-    }
-  ],
-  
-  "associatedMedia": [
-    {
-      "@type": "ImageObject",
-      "name": "Texture Atlas",
-      "contentUrl": "https://example.com/textures/atlas.jpg"
-    },
-    {
-      "@type": "AudioObject",
-      "name": "Voice Pack",
-      "contentUrl": "https://example.com/audio/voice.mp3"
-    }
-  ],
-  
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Hero Character",
-    "description": "The main protagonist of the story"
-  },
-  
-  "subjectOf": {
-    "@type": "DigitalDocument",
-    "name": "Character Guide",
-    "contentUrl": "https://example.com/docs/character-guide.pdf"
-  },
-  
-  "keywords": ["character", "protagonist", "humanoid", "animated", "customizable"],
-  "category": ["Game Asset", "Character", "Hero"],
-  
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "polyCount",
-      "name": "Polygon Count",
-      "value": 25000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "animationCount",
-      "name": "Number of Animations",
-      "value": 12
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "textureResolution",
-      "name": "Texture Resolution",
-      "value": "4096x4096"
-    }
-  ],
-  
-  "potentialAction": {
-    "@type": "ViewAction",
-    "name": "View in 3D",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://example.com/viewer?model=character-model"
-    }
-  },
-  
-  "gltf:asset": {
-    "version": "2.0",
-    "generator": "Example Studio 2.0"
-  },
-  
-  "mvmd:compatibility": {
-    "platforms": ["platform-a", "platform-b", "platform-c"],
-    "minVersion": "1.5"
+  "@type": "DigitalDocument",
+  "name": "Fantasy Forest",
+  "mvmd:category": "environment",
+  "mvmd:sceneScale": "1:1",
+  "mvmd:boundingBox": {
+    "min": [-50, 0, -50],
+    "max": [50, 30, 50]
   }
+}
+```
+
+### NFT Asset
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Legendary Sword",
+  "mvmd:blockchain": "ethereum",
+  "mvmd:contractAddress": "0x1234567890abcdef1234567890abcdef12345678",
+  "mvmd:tokenId": "42"
 }
 ```
 
 ## Best Practices
 
-1. **Always include essential properties**: At minimum, include `@context`, `@type`, and `name`.
-2. **Use specific types**: Choose the most specific Schema.org type that applies to your asset.
-3. **Validate properties**: Ensure property values match the expected type (Text, URL, etc.).
-4. **Maintain relationships**: Use relationship properties to create clear connections between assets.
-5. **Include technical details**: Use `additionalProperty` for domain-specific or technical information.
-6. **Follow naming conventions**: Use camelCase for property names, matching Schema.org conventions.
-7. **Be consistent**: Maintain consistent property usage across related assets.
+For consistent and effective MVMD metadata:
 
-## Related Resources
+1. **Use appropriate types** - Choose the most specific Schema.org type
+2. **Include required properties** - Always include essential properties
+3. **Be consistent with terms** - Use properties consistently across assets
+4. **Add sufficient detail** - Include details relevant to your asset type
+5. **Follow naming conventions** - Use standard property names
+6. **Validate your metadata** - Test your metadata against schemas
 
-- [Schema.org Full Documentation](https://schema.org/docs/full.html)
-- [JSON-LD Playground](https://json-ld.org/playground/)
-- [MVMD Validator](../guides/basic/validate-metadata.md)
-- [Create Basic Metadata Guide](../guides/basic/create-metadata.md) 
+## Extensions
+
+MVMD can be extended for specific platforms or use cases:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "platform": "https://platform-specific.example.com/terms/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Custom Asset",
+  "mvmd:category": "wearable",
+  "platform:customProperty": "Custom value"
+}
+```
+
+## Related Documentation
+
+- [Fundamentals: Schema and JSON-LD](../../fundamentals/schema-and-json-ld.md)
+- [Guides: Prepare Metadata](../../guides/basic/prepare-metadata.md)
+- [Reference: Glossary](../terms-glossary.md) 
