@@ -58,6 +58,8 @@ Standards organizations benefit from:
 - Contribute to integration examples
 - Assist with edge case resolution
 
+We actively review feedback and contributions from SDOs and have processes in place to incorporate suggested improvements into the MVMD framework and Integration Profiles.
+
 ### 3. Community Building
 
 - Co-host implementation workshops

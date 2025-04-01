@@ -22,6 +22,10 @@ const config: Config = {
         locales: ['en'],
     },
 
+    plugins: [
+        require.resolve('@docusaurus/plugin-debug'),
+    ],
+
     presets: [
         [
             'classic',
