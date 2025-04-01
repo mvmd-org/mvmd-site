@@ -1,0 +1,10 @@
+This is a documentation restructuring project for MVMD.
+
+Primary instructions are in:
+- INSTRUCTIONS.md (root-level)
+- /strategy/AI_GUIDE.md
+- /strategy/RESTRUCTURING_PLAN.md 
+
+Current task: Implementing the new documentation structure according to Step 5 in the RESTRUCTURING_PLAN.md.
+
+Always work on the 'restructuring' branch and make incremental changes with clear explanations. 
