@@ -319,6 +319,11 @@ const sidebars: SidebarsConfig = {
                     id: 'reference/terms-glossary',
                     label: 'Terms Glossary',
                 },
+                {
+                    type: 'doc',
+                    id: 'reference/cross-references',
+                    label: 'Cross-References',
+                },
             ],
         },
         {
