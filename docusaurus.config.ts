@@ -23,7 +23,7 @@ const config: Config = {
     },
 
     plugins: [
-        require.resolve('@docusaurus/plugin-debug'),
+        // require.resolve('@docusaurus/plugin-debug'),
     ],
 
     presets: [

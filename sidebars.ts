@@ -68,14 +68,14 @@ const sidebars: SidebarsConfig = {
             label: 'Embedding',
             items: [
                 'embedding/overview',
-                {
-                    type: 'category',
-                    label: 'Schema',
-                    items: [
-                        'embedding/schema/schema-org',
-                        'embedding/schema/json-ld',
-                    ],
-                },
+                // {
+                //     type: 'category',
+                //     label: 'Schema',
+                //     items: [
+                //         // 'embedding/schema/schema-org',
+                //         // 'embedding/schema/json-ld',
+                //     ],
+                // },
                 {
                     type: 'category',
                     label: '3D Assets',
