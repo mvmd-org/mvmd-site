@@ -1,0 +1,185 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.splitPane {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.leftPane {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8fafc;
+}
+
+.rightPane {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.editorHeader {
+    margin-bottom: 10px;
+}
+
+.editorHeader h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.jsonInput {
+    flex: 1;
+    width: 100%;
+    padding: 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.validateButton {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.validateButton:hover {
+    background-color: #1d4ed8;
+}
+
+.validateButton:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.resultHeader h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.validType {
+    color: #059669;
+}
+
+.invalidType {
+    color: #dc2626;
+}
+
+.resultSummary {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.propertyBreakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.property {
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background-color: #f8fafc;
+}
+
+.propertyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.propertyName {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.propertyType {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-family: monospace;
+}
+
+.propertyValue {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #334155;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.propertyError {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 3px;
+    color: #dc2626;
+    font-size: 0.875rem;
+}
+
+.propertyWarning {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 3px;
+    color: #d97706;
+    font-size: 0.875rem;
+}
+
+.nestedProperties {
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid #e2e8f0;
+}
+
+.nestedProperties .property {
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.nestedProperties .property:last-child {
+    margin-bottom: 0;
+}
+
+.nestedProperties .propertyHeader {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e2e8f0;
+} 

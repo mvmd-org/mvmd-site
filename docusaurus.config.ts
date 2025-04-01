@@ -17,21 +17,6 @@ const config: Config = {
     onBrokenLinks: 'ignore', // Options: 'throw', 'warn', 'ignore'
     onBrokenMarkdownLinks: 'ignore', // Options: 'throw', 'warn', 'ignore'
 
-    themeConfig: {
-        metadata: [
-            {name: 'og:type', content: 'website'}, // Required Open Graph type
-            {name: 'fb:app_id', content: 'YOUR_FB_APP_ID'}, // Replace with your Facebook App ID
-            {name: 'og:title', content: 'Metaverse Metadata Directory'},
-            {name: 'og:description', content: 'Metadata standards for metaverse assets'},
-            {name: 'og:image', content: 'https://mvmd.org/img/mvmd-social-card.jpg'},
-            {name: 'og:url', content: 'https://mvmd.org'},
-            {name: 'twitter:card', content: 'summary_large_image'}, // For Twitter large card display
-            {name: 'twitter:title', content: 'Metaverse Metadata Directory'},
-            {name: 'twitter:description', content: 'Metadata standards for metaverse assets'},
-            {name: 'twitter:image', content: 'https://mvmd.org/img/mvmd-social-card.jpg'},
-        ],
-    },
-
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
@@ -55,6 +40,18 @@ const config: Config = {
     ],
 
     themeConfig: {
+        metadata: [
+            {name: 'og:type', content: 'website'}, // Required Open Graph type
+            {name: 'fb:app_id', content: 'YOUR_FB_APP_ID'}, // Replace with your Facebook App ID
+            {name: 'og:title', content: 'Metaverse Metadata Directory'},
+            {name: 'og:description', content: 'Metadata standards for metaverse assets'},
+            {name: 'og:image', content: 'https://mvmd.org/img/mvmd-social-card.jpg'},
+            {name: 'og:url', content: 'https://mvmd.org'},
+            {name: 'twitter:card', content: 'summary_large_image'}, // For Twitter large card display
+            {name: 'twitter:title', content: 'Metaverse Metadata Directory'},
+            {name: 'twitter:description', content: 'Metadata standards for metaverse assets'},
+            {name: 'twitter:image', content: 'https://mvmd.org/img/mvmd-social-card.jpg'},
+        ],
         image: 'img/mvmd-social-card.jpg',
         navbar: {
             title: 'Metaverse Metadata Directory',
@@ -68,6 +65,11 @@ const config: Config = {
                     sidebarId: 'tutorialSidebar',
                     position: 'left',
                     label: 'Documentation',
+                },
+                {
+                    to: '/validator',
+                    label: 'Schema Validator',
+                    position: 'right',
                 },
                 {
                     href: 'https://github.com/mvmd-org',

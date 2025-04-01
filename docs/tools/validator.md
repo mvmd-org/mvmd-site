@@ -1,6 +1,34 @@
 # Validator
 
-At present, the primary tool for validating MVMD metadata is the Schema.org Validator ([https://validator.schema.org/](https://validator.schema.org/)). This guide explains how to use the validator effectively with MVMD metadata.
+MVMD provides two ways to validate your metadata:
+
+1. **MVMD Schema Validator** - Our integrated validator that provides a user-friendly interface for validating your metadata directly on the MVMD site.
+2. **Schema.org Validator** - The official Schema.org validator for comprehensive validation against the Schema.org specification.
+
+## Using the MVMD Schema Validator
+
+The MVMD Schema Validator is the recommended way to validate your metadata. It provides:
+
+- A clean, user-friendly interface
+- Real-time validation feedback
+- Detailed error and warning messages
+- Support for all Schema.org types and properties
+
+### How to Use
+
+1. Visit the [MVMD Schema Validator](/validator)
+2. Paste your JSON-LD metadata into the input field
+3. Click "Validate Schema"
+4. Review the validation results
+
+The validator will show:
+- ✅ Success message if your schema is valid
+- ❌ Error messages with specific issues if validation fails
+- ⚠️ Warnings for potential improvements
+
+## Using the Schema.org Validator
+
+The Schema.org Validator ([https://validator.schema.org/](https://validator.schema.org/)) is the official validation tool. This guide explains how to use it effectively with MVMD metadata.
 
 Note: In the future, MVMD will provide dedicated validation tools that handle namespaced properties, file attachments, and cross-references between files. This guide will be updated when those tools become available.
 
@@ -29,18 +57,25 @@ Example of properly formatted metadata:
 }
 ```
 
-### Step 2: Visit the Validator
+You can validate this example using either:
+- The [MVMD Schema Validator](/validator) - Click "Validate Schema" to check against Schema.org standards
+- The [Schema.org Validator](https://validator.schema.org/) - Click "Validate" to use the official validator
 
+### Step 2: Choose Your Validator
+
+#### Option 1: MVMD Schema Validator
+1. Go to the [MVMD Schema Validator](/validator)
+2. Paste your metadata into the input field
+3. Click "Validate Schema"
+4. Review the results
+
+#### Option 2: Schema.org Validator
 1. Go to [https://validator.schema.org/](https://validator.schema.org/)
 2. Choose the "Validate" tab
 3. Select JSON-LD as the format
-
-### Step 3: Validate Your Metadata
-
-1. Paste your metadata into the validator
-2. Click "Validate"
-3. Review the results
-4. Address any validation errors
+4. Paste your metadata
+5. Click "Validate"
+6. Review the results
 
 ## Common Validation Issues
 
