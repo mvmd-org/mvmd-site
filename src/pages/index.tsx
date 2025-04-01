@@ -120,16 +120,16 @@ export default function Home(): JSX.Element {
                                     Today's metaverse ecosystem relies on numerous excellent standards working in different domains:
                                 </p>
                                 <ul className="list-disc pl-6 mb-6 text-gray-700 dark:text-gray-300 space-y-2">
-                                    <li><strong>glTF</strong> handles 3D model representation</li>
-                                    <li><strong>USD</strong> enables complex scene composition</li>
-                                    <li><strong>VRM</strong> specializes in humanoid avatars</li>
-                                    <li><strong>FBX</strong> supports animation and rigging</li>
-                                    <li><strong>COLLADA</strong> facilitates asset exchange</li>
-                                    <li><strong>X3D</strong> enables web-based 3D graphics</li>
-                                    <li><strong>OpenXR</strong> standardizes VR/AR experiences</li>
-                                    <li><strong>CityJSON</strong> provides urban environment modeling</li>
-                                    <li><strong>3D Tiles</strong> manages large-scale geospatial data</li>
-                                    <li><strong>C2PA</strong> handles content authentication</li>
+                                    <li><strong><a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">glTF</a></strong> handles 3D model representation</li>
+                                    <li><strong><a href="https://graphics.pixar.com/usd/docs/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">USD</a></strong> enables complex scene composition</li>
+                                    <li><strong><a href="https://vrm.dev/en/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">VRM</a></strong> specializes in humanoid avatars</li>
+                                    <li><strong><a href="https://www.autodesk.com/developer-network/platform-technologies/fbx" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">FBX</a></strong> supports animation and rigging</li>
+                                    <li><strong><a href="https://www.khronos.org/collada/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">COLLADA</a></strong> facilitates asset exchange</li>
+                                    <li><strong><a href="https://www.web3d.org/x3d/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">X3D</a></strong> enables web-based 3D graphics</li>
+                                    <li><strong><a href="https://www.khronos.org/openxr/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">OpenXR</a></strong> standardizes VR/AR experiences</li>
+                                    <li><strong><a href="https://www.cityjson.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">CityJSON</a></strong> provides urban environment modeling</li>
+                                    <li><strong><a href="https://cesium.com/ion/3d-tiles" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">3D Tiles</a></strong> manages large-scale geospatial data</li>
+                                    <li><strong><a href="https://c2pa.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">C2PA</a></strong> handles content authentication</li>
                                 </ul>
                                 <p className="text-gray-700 dark:text-gray-300">
                                     These standards excel in their domains but achieving interoperability between them requires additional integration work.

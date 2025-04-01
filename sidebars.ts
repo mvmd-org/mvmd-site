@@ -22,7 +22,6 @@ const sidebars: SidebarsConfig = {
             label: 'Implementation',
             items: [
                 'implementation/overview',
-                'implementation/standards-implementation',
                 'implementation/assets',
                 'implementation/nfts',
                 'implementation/composable',
@@ -114,6 +113,7 @@ const sidebars: SidebarsConfig = {
                 'community/supporters',
                 'community/become-supporter',
                 'community/contributors',
+                'community/sdo-integration-guide',
             ],
         },
         {

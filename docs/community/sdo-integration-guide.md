@@ -8,6 +8,8 @@ sidebar_position: 3
 
 This guide provides practical steps for standards organizations to implement and integrate their standards within the Metaverse Metadata Directory (MVMD) framework. By following these guidelines, standards bodies can ensure their specifications are accurately represented, properly documented, and effectively integrated with other standards.
 
+For an overview of how standards organizations can engage with MVMD and the benefits of participation, see our [Standards Organizations Guide](../for-standards-organizations).
+
 ## Implementation Process
 
 ### 1. Standard Registration

@@ -100,9 +100,10 @@ By engaging with MVMD, standards organizations can validate ideas in a real-worl
 
 ## Next Steps for Standards Organizations
 
-1. **Review Documentation**: Explore how your standard is currently represented
-2. **Provide Feedback**: Suggest improvements to the representation
-3. **Consider Supporting**: Join as a supporting organization
-4. **Contact Us**: Discuss collaboration opportunities
+1. **Review the Standards Integration Guide**: Learn how to integrate your standard with MVMD by following our [Standards Integration Guide for SDOs](./community/sdo-integration-guide)
+2. **Review Documentation**: Explore how your standard is currently represented
+3. **Provide Feedback**: Suggest improvements to the representation
+4. **Consider Supporting**: Join as a supporting organization
+5. **Contact Us**: Discuss collaboration opportunities
 
 We're committed to working with standards organizations to ensure accurate, effective representation and implementation of your standards within the MVMD framework. 
