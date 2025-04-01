@@ -121,7 +121,7 @@ export default function Home(): JSX.Element {
                                 </p>
                                 <ul className="list-disc pl-6 mb-6 text-gray-700 dark:text-gray-300 space-y-2">
                                     <li><strong><a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">glTF</a></strong> handles 3D model representation</li>
-                                    <li><strong><a href="https://graphics.pixar.com/usd/docs/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">USD</a></strong> enables complex scene composition</li>
+                                    <li><strong><a href="https://graphics.pixar.com/usd/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">USD</a></strong> enables complex scene composition</li>
                                     <li><strong><a href="https://vrm.dev/en/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">VRM</a></strong> specializes in humanoid avatars</li>
                                     <li><strong><a href="https://www.autodesk.com/developer-network/platform-technologies/fbx" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">FBX</a></strong> supports animation and rigging</li>
                                     <li><strong><a href="https://www.khronos.org/collada/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">COLLADA</a></strong> facilitates asset exchange</li>
@@ -240,21 +240,21 @@ export default function Home(): JSX.Element {
                                 title="Developers"
                                 description="Implement multiple standards without conflicts, follow ready-to-use integration patterns, validate implementations with clear tools, and future-proof your development."
                                 linkText="Developer Guide"
-                                linkUrl="/docs/guides/developers"
+                                linkUrl="/implementation/overview"
                             />
                             <BenefitCard
                                 icon={<Boxes className="w-8 h-8 text-green-600 dark:text-green-400"/>}
                                 title="Platform Owners"
                                 description="Enable cross-platform asset compatibility, improve discovery and filtering, support rich metadata across your platform, and reduce creator onboarding friction."
                                 linkText="Platform Guide"
-                                linkUrl="/docs/guides/platforms"
+                                linkUrl="/implementation/overview"
                             />
                             <BenefitCard
                                 icon={<LayoutList className="w-8 h-8 text-purple-600 dark:text-purple-400"/>}
                                 title="Standards Organizations"
                                 description="Increase adoption through practical integration, see how your standard works with others, gather real-world implementation feedback, and extend your standard's reach."
                                 linkText="Standards Organization Guide"
-                                linkUrl="/docs/for-standards-organizations"
+                                linkUrl="/for-standards-organizations"
                             />
                         </div>
                     </div>
@@ -376,7 +376,7 @@ export default function Home(): JSX.Element {
                                     MVMD is a collaborative effort supported by industry partners committed to metaverse interoperability.
                                 </p>
                                 <div className="space-y-4 mb-8">
-                                    <Link to="/community/contribute" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                    <Link to="/community/contributing" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                         <Users className="w-5 h-5 mr-2" />
                                         Learn how to contribute
                                     </Link>

@@ -2,7 +2,11 @@
 sidebar_position: 1
 ---
 
-# Basic
+# Basic Profile
+
+:::caution PROPOSED STATE
+This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience. See our [Profile States](/integration-profiles/management/profile-states) documentation for more information.
+:::
 
 The Basic Recipe defines essential metadata properties that should be included with all Metaverse assets. This profile serves as the foundation for more specific asset profiles.
 

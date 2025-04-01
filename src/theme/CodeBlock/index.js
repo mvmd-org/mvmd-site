@@ -6,8 +6,7 @@ import styles from './styles.module.css';
 export default function CodeBlockWrapper(props) {
     const validateCode = () => {
         const encodedCode = encodeURIComponent(props.children);
-        // Try with additional parameters that might help
-        const validatorUrl = `https://validator.schema.org/?code=${encodedCode}`;
+        const validatorUrl = `/validator?code=${encodedCode}`;
         window.open(validatorUrl, '_blank');
     };
 

@@ -4,6 +4,10 @@ sidebar_position: 3
 
 # Avatar
 
+:::caution PROPOSED STATE
+This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience. See our [Profile States](/integration-profiles/management/profile-states) documentation for more information.
+:::
+
 The Avatar Recipe extends the Basic Profile with properties specific to virtual characters and avatars. This profile combines properties from multiple standards to describe customizable, interactive characters.
 
 ## Core Structure

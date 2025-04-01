@@ -1,0 +1,35 @@
+{
+  "name": "@mvmd/validator-logic",
+  "version": "0.1.0",
+  "description": "Core validation logic for Metaverse Metadata Directory schemas based on Schema.org",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/mvmd-site.git"
+  },
+  "keywords": [
+    "metaverse",
+    "metadata",
+    "schema.org",
+    "validator",
+    "json-ld"
+  ],
+  "author": "YOUR NAME <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/mvmd-site/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/mvmd-site#readme",
+  "files": [
+    "dist",
+    "schemaDefinitions.json"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+} 

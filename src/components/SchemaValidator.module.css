@@ -266,11 +266,12 @@
 }
 
 .editorContainer {
-    flex: 1;
-    margin-bottom: 0.75rem;
+    flex-grow: 1;
+    min-height: 200px;
     border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 0.75rem;
 }
 
 .editorContainer :global(.monaco-editor) {
@@ -327,4 +328,165 @@
     padding: 1rem;
     margin: 1rem 0;
     color: var(--ifm-color-warning-darkest);
+}
+
+.headerButtons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.schemaOrgButton {
+    background-color: var(--ifm-color-emphasis-700);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.schemaOrgButton:hover {
+    background-color: var(--ifm-color-emphasis-800);
+}
+
+.schemaOrgButton:disabled {
+    background-color: var(--ifm-color-emphasis-300);
+    cursor: not-allowed;
+}
+
+.clickableSummary {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    transition: color 0.2s ease;
+}
+
+.clickableSummary:hover,
+.clickableSummary:focus {
+    color: var(--ifm-color-primary);
+    text-decoration-style: solid;
+}
+
+/* Popup Styles */
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popupContent {
+    background-color: var(--ifm-background-surface-color);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--ifm-global-shadow-lw);
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.popupCloseButton {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--ifm-color-emphasis-600);
+    line-height: 1;
+}
+
+.popupCloseButton:hover {
+    color: var(--ifm-color-emphasis-900);
+}
+
+.popupContent h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--ifm-color-emphasis-900);
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
+    padding-bottom: 0.5rem;
+}
+
+.popupList {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin: -0.5rem;
+    padding: 0.5rem;
+}
+
+.popupErrorItem,
+.popupWarningItem {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.popupErrorItem {
+    background-color: var(--ifm-color-danger-contrast-background);
+    border: 1px solid var(--ifm-color-danger-light);
+    color: var(--ifm-color-danger-darkest);
+}
+
+.popupWarningItem {
+    background-color: var(--ifm-color-warning-contrast-background);
+    border: 1px solid var(--ifm-color-warning-light);
+    color: var(--ifm-color-warning-darkest);
+}
+
+.popupErrorItem:hover, .popupErrorItem:focus {
+    background-color: var(--ifm-color-danger-lightest);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ifm-color-danger-light);
+}
+
+.popupWarningItem:hover, .popupWarningItem:focus {
+    background-color: var(--ifm-color-warning-lightest);
+    filter: brightness(0.98);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ifm-color-warning-light);
+}
+
+.popupItemLocation {
+    font-weight: 600;
+    margin-right: 0.5em;
+    display: block;
+    margin-bottom: 0.25em;
+    color: var(--ifm-color-emphasis-700);
+}
+
+.popupItemMessage {
+    display: block;
+}
+
+.warningList {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: var(--ifm-color-warning-contrast-background);
+    border: 1px solid var(--ifm-color-warning-dark);
+}
+
+.warningList h4,
+.errorList h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--ifm-color-emphasis-700);
 } 

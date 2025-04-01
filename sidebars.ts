@@ -2,107 +2,365 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
     tutorialSidebar: [
-        'introduction',
-        'for-standards-organizations',
-        'quickstart',
+        {
+            type: 'doc',
+            id: 'introduction',
+            label: 'Introduction',
+        },
+        {
+            type: 'doc',
+            id: 'for-standards-organizations',
+            label: 'Standards Organizations',
+        },
+        {
+            type: 'doc',
+            id: 'quickstart',
+            label: 'Quickstart',
+        },
         {
             type: 'category',
             label: 'Concepts',
             items: [
-                'concepts/overview',
-                'concepts/fundamentals',
-                'concepts/types-of-things',
-                'concepts/composition',
-                'concepts/references',
-                'concepts/uris-vs-embedding',
+                {
+                    type: 'doc',
+                    id: 'concepts/overview',
+                    label: 'Overview',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/fundamentals',
+                    label: 'Fundamentals',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/metadata-fundamentals',
+                    label: 'Metadata Fundamentals',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/types-of-things',
+                    label: 'Types of Things',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/composition',
+                    label: 'Composition',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/embedding-and-reference',
+                    label: 'Embedding and Reference',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/file-organization',
+                    label: 'File Organization',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/references',
+                    label: 'References',
+                },
+                {
+                    type: 'doc',
+                    id: 'concepts/uris-vs-embedding',
+                    label: 'URIs vs Embedding',
+                },
             ],
         },
         {
             type: 'category',
             label: 'Implementation',
             items: [
-                'implementation/overview',
-                'implementation/assets',
-                'implementation/nfts',
-                'implementation/composable',
-                'implementation/best-practices',
+                {
+                    type: 'doc',
+                    id: 'implementation/overview',
+                    label: 'Overview',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/getting-started',
+                    label: 'Getting Started',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/standards-implementation',
+                    label: 'Standards Implementation',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/assets',
+                    label: 'Assets',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/nfts',
+                    label: 'NFTs',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/metadata-profiles',
+                    label: 'Metadata Profiles',
+                },
+                {
+                    type: 'doc',
+                    id: 'implementation/best-practices',
+                    label: 'Best Practices',
+                },
+                {
+                    type: 'category',
+                    label: 'Composable',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'implementation/composable',
+                            label: 'Overview',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'implementation/composable/concepts',
+                            label: 'Concepts',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'implementation/composable/schema-parts',
+                            label: 'Schema Parts',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'implementation/composable/assembly-patterns',
+                            label: 'Assembly Patterns',
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'NFT',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'implementation/nft/concepts',
+                            label: 'Concepts',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'implementation/nft/examples',
+                            label: 'Examples',
+                        },
+                    ],
+                },
             ],
         },
         {
             type: 'category',
             label: 'Integration Profiles',
             items: [
-                'integration-profiles/overview',
-                // 'integration-profiles/basic',
-                // 'integration-profiles/wearable',
-                // 'integration-profiles/avatar',
-                'integration-profiles/composable-3d-nft',
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/overview',
+                    label: 'Overview',
+                },
+                {
+                    type: 'category',
+                    label: 'Profile Management',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'integration-profiles/management/profile-states',
+                            label: 'Profile States',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'integration-profiles/management/future',
+                            label: 'Future Integration Profiles',
+                        },
+                    ],
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/basic',
+                    label: 'Basic',
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/wearable',
+                    label: 'Wearables',
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/avatar',
+                    label: 'Avatar',
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/composable-3d-nft',
+                    label: 'Composable 3D NFT',
+                },
                 {
                     type: 'doc',
                     id: 'integration-profiles/digital-twin',
-                    label: 'Digital Twin'
+                    label: 'Digital Twin',
                 },
                 {
                     type: 'doc',
                     id: 'integration-profiles/vehicle',
-                    label: 'Vehicle'
+                    label: 'Vehicle',
                 },
                 {
                     type: 'doc',
                     id: 'integration-profiles/identity',
-                    label: 'Identity'
+                    label: 'Identity',
                 },
                 {
                     type: 'doc',
                     id: 'integration-profiles/royalty',
-                    label: 'Royalty'
+                    label: 'Royalty',
                 },
-                // 'integration-profiles/scene',
-                // 'integration-profiles/equipable',
-                // 'integration-profiles/interactable',
-                'integration-profiles/future',
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/scene',
+                    label: 'Scene',
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/equipable',
+                    label: 'Equipable',
+                },
+                {
+                    type: 'doc',
+                    id: 'integration-profiles/interactable',
+                    label: 'Interactables',
+                },
             ],
         },
         {
             type: 'category',
             label: 'Embedding',
             items: [
-                'embedding/overview',
+                {
+                    type: 'doc',
+                    id: 'embedding/overview',
+                    label: 'Overview',
+                },
+                {
+                    type: 'doc',
+                    id: 'embedding/general-metadata',
+                    label: 'General Metadata',
+                },
+                {
+                    type: 'doc',
+                    id: 'embedding/combining-standards',
+                    label: 'Combining Standards',
+                },
+                {
+                    type: 'doc',
+                    id: 'embedding/media-content',
+                    label: 'Media Content',
+                },
+                {
+                    type: 'doc',
+                    id: 'embedding/3d-virtual-world',
+                    label: '3D Virtual World',
+                },
+                {
+                    type: 'doc',
+                    id: 'embedding/geospacial',
+                    label: 'Geospatial',
+                },
                 {
                     type: 'category',
                     label: 'Schema',
                     items: [
-                        'embedding/schema/schema-org',
-                        'embedding/schema/json-ld',
+                        {
+                            type: 'doc',
+                            id: 'embedding/schema/schema-org',
+                            label: 'Schema.org',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/schema/json-ld',
+                            label: 'JSON-LD',
+                        },
                     ],
                 },
                 {
                     type: 'category',
                     label: '3D Assets',
                     items: [
-                        'embedding/3d-assets/gltf',
-                        'embedding/3d-assets/usd',
-                        'embedding/3d-assets/x3d',
-                        'embedding/3d-assets/fbx',
-                        'embedding/3d-assets/vrm',
-                        'embedding/3d-assets/openxr',
-                        'embedding/3d-assets/collada'
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/gltf',
+                            label: 'glTF',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/usd',
+                            label: 'USD',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/x3d',
+                            label: 'X3D',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/fbx',
+                            label: 'FBX',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/vrm',
+                            label: 'VRM',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/openxr',
+                            label: 'OpenXR',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/3d-assets/collada',
+                            label: 'COLLADA',
+                        },
                     ],
                 },
                 {
                     type: 'category',
                     label: 'Geospatial',
                     items: [
-                        'embedding/geospatial/cityjson',
-                        'embedding/geospatial/3d-tiles',
+                        {
+                            type: 'doc',
+                            id: 'embedding/geospatial/cityjson',
+                            label: 'CityJSON',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'embedding/geospatial/3d-tiles',
+                            label: '3D Tiles',
+                        },
                     ],
                 },
                 {
                     type: 'category',
                     label: 'Trust and Provenance',
                     items: [
-                        'embedding/trust/c2pa',
+                        {
+                            type: 'doc',
+                            id: 'embedding/trust/c2pa',
+                            label: 'C2PA',
+                        },
                     ],
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Guides',
+            items: [
+                {
+                    type: 'doc',
+                    id: 'guides/content-creators',
+                    label: 'Content Creators',
                 },
             ],
         },
@@ -110,19 +368,66 @@ const sidebars: SidebarsConfig = {
             type: 'category',
             label: 'Community',
             items: [
-                'community/supporters',
-                'community/become-supporter',
-                'community/contributors',
-                'community/sdo-integration-guide',
+                {
+                    type: 'category',
+                    label: 'Contributing',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'community/contributing',
+                            label: 'How to Contribute',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'community/contributors',
+                            label: 'Contributors',
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Supporters',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'community/supporters',
+                            label: 'Current Supporters',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'community/become-supporter',
+                            label: 'Become a Supporter',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'community/supporters/nftr-pro',
+                            label: 'NFTr.pro',
+                        },
+                        {
+                            type: 'doc',
+                            id: 'community/supporters/sumset-tech',
+                            label: 'SumSet.Tech',
+                        },
+                    ],
+                },
+                {
+                    type: 'doc',
+                    id: 'community/sdo-integration-guide',
+                    label: 'Standards Organization Guide',
+                },
             ],
         },
         {
             type: 'category',
             label: 'Tools',
             items: [
-                'tools/validator'
+                {
+                    type: 'doc',
+                    id: 'tools/validator',
+                    label: 'Validator',
+                },
             ],
-        }
+        },
     ],
 };
 
