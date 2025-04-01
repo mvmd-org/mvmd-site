@@ -1,8 +1,6 @@
 .container {
     width: 100%;
-    height: calc(100vh - 60px);
-    margin: 0;
-    padding: 0;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -14,62 +12,88 @@
 
 .leftPane {
     flex: 1;
-    padding: 20px;
-    border-right: 1px solid #e2e8f0;
+    padding: 1rem;
+    border-right: 1px solid var(--ifm-color-emphasis-300);
     display: flex;
     flex-direction: column;
-    background-color: #f8fafc;
+    background-color: var(--ifm-background-surface-color);
+    height: 100%;
 }
 
 .rightPane {
     flex: 1;
-    padding: 20px;
-    background-color: white;
+    padding: 1rem;
+    background-color: var(--ifm-background-surface-color);
     overflow-y: auto;
 }
 
 .editorHeader {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .editorHeader h3 {
     margin: 0;
-    color: #2d3748;
-    font-size: 1.1rem;
+    color: var(--ifm-color-emphasis-900);
+    font-size: 1rem;
+}
+
+.shareButton {
+    background-color: var(--ifm-color-emphasis-700);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.shareButton:hover {
+    background-color: var(--ifm-color-emphasis-800);
+}
+
+.shareButton:disabled {
+    background-color: var(--ifm-color-emphasis-300);
+    cursor: not-allowed;
 }
 
 .jsonInput {
     flex: 1;
     width: 100%;
-    padding: 12px;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-    font-size: 14px;
+    padding: 0.75rem;
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 0.875rem;
     line-height: 1.5;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: 4px;
-    background-color: white;
+    background-color: var(--ifm-background-color);
     resize: none;
-    margin-bottom: 15px;
+    margin-bottom: 0.75rem;
+    min-height: 0;
 }
 
 .validateButton {
-    background-color: #2563eb;
+    background-color: var(--ifm-color-primary);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
     transition: background-color 0.2s;
 }
 
 .validateButton:hover {
-    background-color: #1d4ed8;
+    background-color: var(--ifm-color-primary-darker);
 }
 
 .validateButton:disabled {
-    background-color: #94a3b8;
+    background-color: var(--ifm-color-emphasis-300);
     cursor: not-allowed;
 }
 
@@ -77,102 +101,114 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
 }
 
 .resultHeader h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .validType {
-    color: #059669;
+    color: var(--ifm-color-success);
 }
 
 .invalidType {
-    color: #dc2626;
+    color: var(--ifm-color-danger);
 }
 
 .resultSummary {
     font-size: 0.875rem;
-    color: #64748b;
+    color: var(--ifm-color-emphasis-600);
 }
 
 .propertyBreakdown {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.75rem;
 }
 
 .property {
-    padding: 15px;
-    border: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: 4px;
-    background-color: #f8fafc;
+    background-color: var(--ifm-background-color);
 }
 
 .propertyHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
 }
 
 .propertyName {
     font-weight: 500;
-    color: #1e293b;
+    color: var(--ifm-color-emphasis-900);
 }
 
 .propertyType {
     font-size: 0.875rem;
-    color: #64748b;
-    font-family: monospace;
+    color: var(--ifm-color-emphasis-600);
+    font-family: var(--ifm-font-family-monospace);
 }
 
 .propertyValue {
-    font-family: monospace;
+    font-family: var(--ifm-font-family-monospace);
     font-size: 0.875rem;
-    color: #334155;
-    padding: 8px;
-    background-color: white;
-    border: 1px solid #e2e8f0;
+    color: var(--ifm-color-emphasis-800);
+    padding: 0.5rem;
+    background-color: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: 3px;
     white-space: pre-wrap;
     word-break: break-all;
 }
 
 .propertyError {
-    margin-top: 8px;
-    padding: 8px;
-    background-color: #fef2f2;
-    border: 1px solid #fecaca;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--ifm-color-danger-contrast-background);
+    border: 1px solid var(--ifm-color-danger-dark);
     border-radius: 3px;
-    color: #dc2626;
+    color: var(--ifm-color-danger-darkest);
     font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.propertyError:hover {
+    background-color: var(--ifm-color-danger-contrast-background);
+    filter: brightness(0.95);
+}
+
+.propertyError:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ifm-color-danger-light);
 }
 
 .propertyWarning {
-    margin-top: 8px;
-    padding: 8px;
-    background-color: #fffbeb;
-    border: 1px solid #fcd34d;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--ifm-color-warning-lightest);
+    border: 1px solid var(--ifm-color-warning-light);
     border-radius: 3px;
-    color: #d97706;
+    color: var(--ifm-color-warning-darkest);
     font-size: 0.875rem;
 }
 
 .nestedProperties {
-    margin-left: 20px;
-    margin-top: 10px;
-    padding-left: 15px;
-    border-left: 2px solid #e2e8f0;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--ifm-color-emphasis-300);
 }
 
 .nestedProperties .property {
-    margin-bottom: 10px;
-    background-color: white;
+    margin-bottom: 0.5rem;
+    background-color: var(--ifm-background-surface-color);
 }
 
 .nestedProperties .property:last-child {
@@ -180,6 +216,115 @@
 }
 
 .nestedProperties .propertyHeader {
-    padding-bottom: 4px;
-    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.invalidProperty {
+    border-color: var(--ifm-color-danger-dark);
+    background-color: var(--ifm-color-danger-contrast-background);
+}
+
+.invalidValue {
+    border-color: var(--ifm-color-danger-dark);
+    background-color: var(--ifm-color-danger-contrast-background);
+}
+
+.warningValue {
+    border-color: var(--ifm-color-warning-dark);
+    background-color: var(--ifm-color-warning-contrast-background);
+}
+
+.errorList {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: var(--ifm-color-danger-contrast-background);
+    border: 1px solid var(--ifm-color-danger-dark);
+}
+
+.errorCount {
+    color: var(--ifm-color-danger);
+    font-weight: 500;
+}
+
+.warningCount {
+    color: var(--ifm-color-warning);
+    font-weight: 500;
+}
+
+.typeInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.expectedType {
+    font-size: 0.875rem;
+    color: var(--ifm-color-danger);
+    font-family: var(--ifm-font-family-monospace);
+}
+
+.editorContainer {
+    flex: 1;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.editorContainer :global(.monaco-editor) {
+    padding-top: 0.5rem;
+}
+
+.errorLine {
+    background-color: var(--ifm-color-danger-contrast-background);
+    border-left: 3px solid var(--ifm-color-danger);
+}
+
+.warningLine {
+    background-color: var(--ifm-color-warning-contrast-background);
+    border-left: 3px solid var(--ifm-color-warning);
+}
+
+.errorGlyph {
+    background-color: var(--ifm-color-danger);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.warningGlyph {
+    background-color: var(--ifm-color-warning);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.clickableProperty {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clickableProperty:hover {
+    filter: brightness(0.97);
+}
+
+.clickableProperty:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
+
+.unspecifiedType {
+    color: var(--ifm-color-warning);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.unspecifiedMessage {
+    background-color: var(--ifm-color-warning-lightest);
+    border: 1px solid var(--ifm-color-warning-lighter);
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: var(--ifm-color-warning-darkest);
 } 
