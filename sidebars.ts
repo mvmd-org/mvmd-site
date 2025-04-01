@@ -3,6 +3,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
     tutorialSidebar: [
         'introduction',
+        'for-standards-organizations',
         'quickstart',
         {
             type: 'category',
@@ -21,6 +22,7 @@ const sidebars: SidebarsConfig = {
             label: 'Implementation',
             items: [
                 'implementation/overview',
+                'implementation/standards-implementation',
                 'implementation/assets',
                 'implementation/nfts',
                 'implementation/composable',
@@ -36,6 +38,26 @@ const sidebars: SidebarsConfig = {
                 // 'recipes/wearable',
                 // 'recipes/avatar',
                 'recipes/composable-3d-nft',
+                {
+                    type: 'doc',
+                    id: 'recipes/digital-twin',
+                    label: 'Digital Twin'
+                },
+                {
+                    type: 'doc',
+                    id: 'recipes/vehicle',
+                    label: 'Vehicle'
+                },
+                {
+                    type: 'doc',
+                    id: 'recipes/identity',
+                    label: 'Identity'
+                },
+                {
+                    type: 'doc',
+                    id: 'recipes/royalty',
+                    label: 'Royalty'
+                },
                 // 'recipes/scene',
                 // 'recipes/equipable',
                 // 'recipes/interactable',
@@ -98,8 +120,7 @@ const sidebars: SidebarsConfig = {
             type: 'category',
             label: 'Tools',
             items: [
-                'tools/validator',
-                'tools/mintr'
+                'tools/validator'
             ],
         }
     ],

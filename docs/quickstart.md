@@ -40,7 +40,6 @@ Detailed technical standards for embedding different types of data:
 
 ### Tools
 - Schema [validation](./tools/validator.md)
-- [Mintr](./tools/mintr.md) for creating metaverse NFTs
 
 ## Common Use Cases
 
@@ -65,5 +64,4 @@ Choose your path:
 1. **Learn the Basics**: Start with [Concepts](./concepts/overview.md)
 2. **Quick Implementation**: Jump to [Recipes](./recipes/overview.md)
 3. **Technical Details**: Dive into [Embedding](./embedding/overview.md)
-4. **Validate**: Make sure your metadata is valid with the [Validator](./tools/validator.md)
-5. **Mint NFTs**: Try [Mintr](./tools/mintr.md) to learn by doing.
+4. **Validate Metadata**: Use the [Validator](./tools/validator.md) to ensure your metadata is correct.
