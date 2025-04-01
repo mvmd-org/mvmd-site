@@ -2,31 +2,34 @@
 sidebar_position: 6
 ---
 
-# URIs vs Embedding
+# Reference vs Embedding
 
 When working with metadata for metaverse assets, there are two primary approaches to handling content: referencing external files via URIs and embedding data directly in the metadata. This guide explains the fundamental differences and use cases for each approach.
 
-## When to Use Each
+## When to Use Each Approach
 
-### Use URLs When:
-- Content is large
-- Content needs to be cached
-- Content is shared across assets
-- Content updates independently
+### Use References (URLs) When:
+- Content is large (3D models, textures, etc.)
+- Content needs to be cached independently
+- Content is shared across multiple assets
+- Content updates independently of metadata
 - Progressive loading is needed
+- Bandwidth optimization is important
 
 ### Use Embedding When:
-- Data is small
-- Data is specific to the asset
-- Quick access is required
+- Data is small (simple properties, transforms, etc.)
+- Data is specific to the asset and not reused
+- Quick access without additional requests is required
 - Offline support is needed
 - Data consistency is critical
 
+## Reference Approaches
 
-## Basic Concepts
+References use URLs to point to external files that contain the actual content. Here are the main ways to reference external resources:
 
-### URL References
-URLs point to external files that contain the actual content. This is the simplest approach:
+### Direct URL Reference
+
+The simplest approach uses a direct URL string:
 
 ```json
 {
@@ -39,44 +42,36 @@ URLs point to external files that contain the actual content. This is the simple
 }
 ```
 
+### Thumbnail Reference
 
-## Reference Types
+For preview images:
 
-Here are all the ways to reference external files in MVMD:
-
-### Direct URL
-Simple string URL:
-```json
-{
-  "@type": "ImageObject",
-  "contentUrl": "https://example.com/image.jpg"
-}
-```
-
-### Thumbnail
-Simple thumbnail with just URL:
 ```json
 {
   "@type": "3DModel",
   "thumbnail": "https://example.com/thumbnail.jpg"
 }
 ```
-Detailed thumbnail data:
+
+Or with more detailed information:
+
 ```json
 {
   "@type": "3DModel",
    "thumbnail": {
+      "@type": "ImageObject",
       "contentUrl": "https://example.com/preview-thumb.jpg",
       "encodingFormat": "image/jpeg",
-      "width": "256",
-      "height": "256"
+      "width": 256,
+      "height": 256
    }
 }
 ```
 
+### Multiple Alternative URLs
 
-### URL Array
-Multiple alternative URLs:
+For providing multiple access options:
+
 ```json
 {
   "@type": "3DModel",
@@ -87,8 +82,10 @@ Multiple alternative URLs:
 }
 ```
 
-### URL Object
-URL with additional metadata:
+### URL with Additional Metadata
+
+When additional information about the URL is needed:
+
 ```json
 {
   "@type": "3DModel",
@@ -100,33 +97,79 @@ URL with additional metadata:
 }
 ```
 
-### Associated Media URL
-Related media references:
+### Associated Media References
+
+For related media files:
+
 ```json
 {
   "@type": "3DModel",
-  "associatedMedia": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/texture.jpg"
+  "associatedMedia": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://example.com/texture.jpg",
+      "encodingFormat": "image/jpeg"
+    },
+    {
+      "@type": "VideoObject",
+      "contentUrl": "https://example.com/preview.mp4",
+      "encodingFormat": "video/mp4"
+    }
+  ]
+}
+```
+
+## Embedding Approaches
+
+Embedding includes data directly within the metadata structure, typically using appropriate namespaces:
+
+### Simple Property Embedding
+
+For basic properties:
+
+```json
+{
+  "@type": "3DModel",
+  "name": "Simple Cube",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "polyCount",
+      "name": "Polygon Count",
+      "value": 1200
+    }
+  ]
+}
+```
+
+### Namespaced Structured Data
+
+For more complex data structures using namespaces:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "3DModel",
+  "name": "Detailed Model",
+  "gltf:asset": {
+    "version": "2.0",
+    "generator": "Example Studio 1.0"
+  },
+  "gltf:transform": {
+    "translation": [0, 1, 0],
+    "rotation": [0, 0, 0, 1],
+    "scale": [1, 1, 1]
   }
 }
 ```
 
-### Encoded Content URL
-Content encoded or embedded in the asset:
-```json
-{
-  "@type": "3DModel",
-  "encodesCreativeWork": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/display.jpg"
-  }
-}
-```
+### Complete Embedded Content
 
-
-## Embedded Content
-Data is included directly within the metadata structure using appropriate namespaces:
+In some cases, the entire content can be embedded:
 
 ```json
 {
@@ -167,30 +210,66 @@ Data is included directly within the metadata structure using appropriate namesp
    }
 }
 ```
-_For detailed examples of embedding different types of data, see the [Embedding section](/embedding/overview.md)._
 
+## Hybrid Approach
 
+Most real-world metadata will use a combination of references and embedding:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "contentUrl": "https://example.com/character.glb",
+  "thumbnail": "https://example.com/thumbnail.jpg",
+  "gltf:transform": {
+    "translation": [0, 0, 0],
+    "rotation": [0, 0, 0, 1],
+    "scale": [1, 1, 1]
+  },
+  "associatedMedia": [
+    {
+      "@type": "ImageObject",
+      "name": "Texture Atlas",
+      "contentUrl": "https://example.com/textures.jpg"
+    }
+  ]
+}
+```
 
 ## Best Practices
 
-1. **URL Management**
-    - Use absolute URLs
-    - Include fallback URLs
-    - Consider CDN usage
-    - Plan for URL changes
-    - Handle failed loads
+### For References
 
-2. **Embedding Management**
-    - Limit embedded data size
-    - Use appropriate namespaces
-    - Validate embedded data
-    - Consider parsing impact
-    - Document data structures
+1. **Use Absolute URLs**: Ensure URLs are fully qualified
+2. **Include Fallback URLs**: Provide alternative sources when possible
+3. **Consider CDN Usage**: Use content delivery networks for frequently accessed resources
+4. **Plan for URL Changes**: Include permanent identifiers when available
+5. **Handle Failed Loads**: Provide fallback mechanisms for unavailable resources
 
-3. **Mixed Approach**
-    - Combine when appropriate
-    - Keep references organized
-    - Document relationships
-    - Consider load order
-    - Plan update strategies
+### For Embedding
+
+1. **Limit Embedded Data Size**: Only embed small to medium data structures
+2. **Use Appropriate Namespaces**: Clearly separate embedded data by standard
+3. **Validate Embedded Data**: Ensure embedded content follows the appropriate schemas
+4. **Consider Parsing Impact**: Be mindful of the performance impact of complex embedded data
+5. **Document Data Structures**: Provide clear documentation for custom embedded formats
+
+### For Mixed Approaches
+
+1. **Choose Wisely**: Reference large files, embed small data
+2. **Keep References Organized**: Group related references logically
+3. **Document Relationships**: Clearly indicate how references and embedded data relate
+4. **Consider Load Order**: Plan the sequence in which resources will be loaded
+5. **Plan Update Strategies**: Determine how updates will affect both references and embedded data
+
+## Next Steps
+
+- Learn how to [create basic metadata](../guides/basic/create-metadata.md) following these principles
+- Explore [structure and composition](./structure-and-composition.md) for more complex relationships
+- Understand how to [combine multiple standards](./standards-compatibility.md) in your metadata
 

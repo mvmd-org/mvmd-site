@@ -1,4 +1,8 @@
-# Metadata Fundamentals
+---
+sidebar_position: 3
+---
+
+# Metadata Foundations
 
 Metadata is structured information that describes, explains, or locates virtual assets and experiences in the Metaverse. Well-structured metadata enables interoperability, discoverability, and management of digital assets across different platforms and environments.
 
@@ -249,20 +253,27 @@ For digital representations of real places, use Place:
     "@vocab": "https://schema.org/"
   },
   "@type": "Place",
-  "name": "Digital Museum",
-  "description": "Digital twin of physical museum",
-  "maximumAttendeeCapacity": 500,
+  "name": "Virtual Gallery",
+  "description": "Digital twin of the Example Art Gallery",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street",
+    "addressLocality": "Example City",
+    "addressRegion": "EX",
+    "postalCode": "12345",
+    "addressCountry": "US"
+  },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.5009,
-    "longitude": -0.1774
+    "latitude": 37.7749,
+    "longitude": -122.4194
   }
 }
 ```
 
 ## Complete Example
 
-This comprehensive example shows all major metadata concepts working together:
+Here's a complete example showing a complex asset with multiple components and relationships:
 
 ```json
 {
@@ -271,211 +282,110 @@ This comprehensive example shows all major metadata concepts working together:
     "gltf": "https://www.khronos.org/gltf/",
     "usd": "https://openusd.org/ns/"
   },
-  "@type": "ImageObject",
-  "name": "Virtual Gallery Experience",
-  "description": "Interactive virtual art gallery with multiple components",
-  "encodingFormat": "image/png",
-  "contentSize": "3.216 MB",
-  "width": 4000,
-  "height": 4000,
-  "url": "https://path/to/image_thumbnail.png",
-  "additionalType": "VirtualLocation",
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "capacity",
-      "name": "Maximum Attendee Capacity",
-      "value": 100
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "lighting",
-      "name": "Lighting System",
-      "value": "dynamic"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "physics",
-      "name": "Physics System",
-      "value": "custom"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "interactivity",
-      "name": "Interactivity Level",
-      "value": "full"
-    }
-  ],
-  "usd:environment": {
-    "lighting": {
-      "type": "dynamic",
-      "shadows": true,
-      "quality": "high"
-    },
-    "physics": {
-      "type": "custom",
-      "gravity": -9.81,
-      "collisions": true
-    },
-    "interactivity": {
-      "mode": "full",
-      "gestures": ["grab", "point", "wave"]
-    }
+  "@type": "CreativeWork",
+  "name": "Virtual Showroom",
+  "description": "Interactive virtual showroom with multiple exhibits",
+  "creator": {
+    "@type": "Organization",
+    "name": "Example Studio",
+    "url": "https://example.com"
   },
+  "dateCreated": "2022-03-15",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  
+  "contentUrl": "https://example.com/showroom.usd",
+  "encodingFormat": "model/vnd.usd",
+  
+  "usd:environment": {
+    "lighting": "studio",
+    "background": "neutral"
+  },
+  
   "hasPart": [
     {
       "@type": "3DModel",
-      "name": "Main Gallery Hall",
+      "name": "Display Stand",
+      "contentUrl": "https://example.com/stand.glb",
       "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/hall.glb",
       "gltf:transform": {
-        "scale": [2.0, 1.0, 2.0],
-        "rotation": [0, 0, 0, 1],
         "translation": [0, 0, 0]
       }
     },
     {
       "@type": "3DModel",
-      "name": "Exhibition Wing A",
+      "name": "Product Showcase",
+      "contentUrl": "https://example.com/product.glb",
       "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/wing_a.glb",
       "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0.707, 0, 0.707],
-        "translation": [20, 0, 0]
-      }
-    },
-    {
-      "@type": "3DModel",
-      "name": "Exhibition Wing B",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/wing_b.glb",
-      "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, -0.707, 0, 0.707],
-        "translation": [-20, 0, 0]
+        "translation": [0, 1, 0]
+      },
+      "potentialAction": {
+        "@type": "ViewAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://example.com/product-details"
+        }
       }
     }
   ],
+  
   "associatedMedia": [
     {
-      "@type": "VideoObject",
-      "name": "Gallery Walkthrough",
-      "encodingFormat": "video/mp4",
-      "contentUrl": "https://example.com/walkthrough.mp4"
-    }
-  ],
-  "encodesCreativeWork": [
-    {
       "@type": "ImageObject",
-      "name": "Gallery Floor Plan",
-      "encodingFormat": "image/png",
-      "contentUrl": "https://example.com/floorplan.png"
+      "name": "Showroom Thumbnail",
+      "contentUrl": "https://example.com/thumbnail.jpg",
+      "encodingFormat": "image/jpeg"
     },
     {
-      "@type": "TextObject",
-      "name": "Visitor Guide",
-      "encodingFormat": "text/markdown",
-      "contentUrl": "https://example.com/guide.md"
+      "@type": "VideoObject",
+      "name": "Showroom Tour",
+      "contentUrl": "https://example.com/tour.mp4",
+      "encodingFormat": "video/mp4",
+      "thumbnail": "https://example.com/tour-thumb.jpg"
     }
   ],
-  "mainEntity": {
-    "@type": "Place",
-    "name": "Virtual Modern Art Gallery",
-    "description": "A contemporary art space in the metaverse",
-    "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "propertyID": "curator",
-        "name": "Gallery Curator",
-        "value": "Virtual Arts Foundation"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "exhibitions",
-        "name": "Current Exhibitions",
-        "value": ["Digital Realism", "NFT Showcase", "Interactive Installations"]
-      }
-    ]
-  }
+  
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "maxUsers",
+      "name": "Maximum Users",
+      "value": 20
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "interactionMode",
+      "name": "Interaction Mode",
+      "value": "guided"
+    }
+  ]
 }
 ```
 
 ## Best Practices
 
-1. **Type Selection**
-    - Choose type based on needed properties
-    - Consider Schema.org compatibility
-    - Use additionalType for specialization
-    - Verify property support for chosen type
+1. **Use Proper @type Declarations**: Always specify the most specific type, and ensure all objects in arrays have proper @type declarations.
 
-2. **Property Organization**
-    - Group related properties
-    - Use clear property names
-    - Maintain consistent structure
-    - Document relationships clearly
+2. **Maintain Consistent Namespacing**: When using properties from external standards like glTF or USD, maintain consistent namespace prefixes.
 
-3. **Value Handling**
-    - Use appropriate value structure
-    - Namespace complex objects
-    - Maintain data type consistency
-    - Follow Schema.org value types
+3. **Structure Complex Properties**: Use nested objects for complex properties and arrays for multiple related items.
 
-4. **Relationship Definition**
-    - Use appropriate relationship properties
-    - Maintain clear hierarchies
-    - Document dependencies
-    - Consider relationship direction
+4. **Reference External Resources**: Use contentUrl for main assets and associatedMedia for supporting materials.
 
-5. **Namespace Usage**
-    - Define all namespaces in @context
-    - Use appropriate namespace prefixes
-    - Keep namespace usage consistent
-    - Document namespace purposes
+5. **Include Essential Metadata**: Always include name, description, creator, dateCreated, and license for better discoverability.
 
-6. **Metadata Validation**
-    - Validate against Schema.org
-    - Check namespace compliance
-    - Verify property values
-    - Test relationship integrity
+6. **Validate Your Metadata**: Use the MVMD Validator to ensure your metadata follows best practices and is correctly formatted.
 
 ## Common Patterns
 
-1. **Base Type Selection**
-   ```json
-   {
-     "@type": "CreativeWork",
-     "additionalType": "VirtualLocation"
-   }
-   ```
+1. **Asset Library Pattern**: Group related assets under a CreativeWork with multiple hasPart relationships.
 
-2. **Property Value Structure**
-   ```json
-   "additionalProperty": [
-     {
-       "@type": "PropertyValue",
-       "propertyID": "customField",
-       "name": "Custom Field Name",
-       "value": "custom value"
-     }
-   ]
-   ```
+2. **Nested Component Pattern**: Create hierarchical structures with components that have their own components.
 
-3. **Namespaced Properties**
-   ```json
-   "gltf:transform": {
-     "scale": [1.0, 1.0, 1.0]
-   }
-   ```
+3. **Reference vs. Embedding**: Choose between referencing external files (contentUrl) and embedding content directly in JSON-LD.
 
-4. **Relationships**
-   ```json
-   "hasPart": [
-     {
-       "@type": "3DModel",
-       "name": "Component"
-     }
-   ]
-   ```
+4. **Custom Attribute Pattern**: Use additionalProperty consistently for domain-specific attributes.
 
-These patterns ensure maximum compatibility while enabling rich descriptions of virtual assets and experiences. When implementing metadata, always consider Schema.org compatibility, proper value handling, and clear relationship definition.
+5. **Action Pattern**: Attach potentialAction to enable interactive behaviors.
+
+These patterns provide a foundation for building rich, interoperable metadata for Metaverse assets. For implementation details, see the [Implementation](../guides/basic/create-metadata.md) section.

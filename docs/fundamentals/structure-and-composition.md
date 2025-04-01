@@ -1,20 +1,18 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# Composition
+# Structure & Composition
 
-Asset composition defines how different types of content relate to each other within MVMD metadata. Understanding these
-relationships is crucial for creating well-structured, maintainable metadata for complex assets.
+Asset structure and composition define how different types of content relate to each other within MVMD metadata. Understanding these relationships is crucial for creating well-structured, maintainable metadata for complex assets.
 
-## Primary Entity (mainEntity)
-Schema.org:
-[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [about](https://schema.org/about) : [mainEntity](https://schema.org/mainEntity)
+## Types of Relationships
 
-The `mainEntity` property identifies the primary subject or focus of a metadata object. This is particularly useful when
-one object serves to describe or represent another.
+MVMD uses several key relationship properties from Schema.org to model connections between assets:
 
-### Basic Usage
+### Primary Entity (mainEntity)
+
+The `mainEntity` property identifies the primary subject or focus of a metadata object. This is particularly useful when one object serves to describe or represent another.
 
 ```json
 {
@@ -35,24 +33,15 @@ one object serves to describe or represent another.
 }
 ```
 
-### Common Use Cases
-
+**Common Use Cases:**
 - Preview images describing 3D models
 - Documentation describing an asset
 - Thumbnail representing a larger work
 - Landing page for a virtual location
 
-## Component Parts (hasPart)
-Schema.org:
-[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [hasPart](https://schema.org/hasPart)
+### Component Parts (hasPart)
 
-The `hasPart` property defines direct components or pieces that make up a larger asset. This is crucial for describing
-modular or composite assets.
-
-Component parts are mentioned in further detail in the [composable](/implementation/composable.md) page of
-the [implementation](/implementation/composable) section.
-
-### Basic Structure
+The `hasPart` property defines direct components or pieces that make up a larger asset. This is crucial for describing modular or composite assets.
 
 ```json
 {
@@ -79,14 +68,10 @@ the [implementation](/implementation/composable) section.
 }
 ```
 
-### Nested Components
+Components can also be nested for more complex hierarchies:
 
 ```json
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
   "@type": "CreativeWork",
   "name": "Complex Assembly",
   "hasPart": [
@@ -110,20 +95,15 @@ the [implementation](/implementation/composable) section.
 }
 ```
 
-### Common Use Cases
-
+**Common Use Cases:**
 - Modular assets
 - Complex assemblies
 - Multi-part environments
 - Composite objects
 
-## Associated Media (associatedMedia)
-Schema.org:
-[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [associatedMedia](https://schema.org/associatedMedia)
+### Associated Media (associatedMedia)
 
 The `associatedMedia` property links to related media assets that support or enhance the main asset.
-
-### Basic Usage
 
 ```json
 {
@@ -157,20 +137,15 @@ The `associatedMedia` property links to related media assets that support or enh
 }
 ```
 
-### Common Use Cases
-
+**Common Use Cases:**
 - Textures and materials
 - Supplementary media
 - Tutorial content
 - Preview content
 
-## Embedded Content (encodesCreativeWork)
-Schema.org:
-[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [encodesCreativeWork](https://schema.org/encodesCreativeWork)
+### Embedded Content (encodesCreativeWork)
 
 The `encodesCreativeWork` property indicates content that is embedded within or encoded by the main asset.
-
-### Basic Usage
 
 ```json
 {
@@ -196,20 +171,15 @@ The `encodesCreativeWork` property indicates content that is embedded within or 
 }
 ```
 
-### Common Use Cases
-
+**Common Use Cases:**
 - Screen content in 3D models
 - Embedded documents
 - Internal textures
 - Bundled resources
 
-## Related Documentation (subjectOf)
-Schema.org:
-[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [subjectOf](https://schema.org/subjectOf)
+### Related Documentation (subjectOf)
 
 The `subjectOf` property links to documentation, descriptions, or other content about the asset.
-
-### Basic Usage
 
 ```json
 {
@@ -237,12 +207,79 @@ The `subjectOf` property links to documentation, descriptions, or other content 
 }
 ```
 
-### Common Use Cases
-
+**Common Use Cases:**
 - Technical documentation
 - User guides
 - Assembly instructions
 - Educational content
+
+## Composition Patterns
+
+Different types of assets and use cases require different composition patterns:
+
+### Flat Composition
+
+Simple assets with few components can use a flat structure:
+
+```json
+{
+  "@type": "CreativeWork",
+  "name": "Simple Asset",
+  "hasPart": [
+    { "@type": "3DModel", "name": "Component 1" },
+    { "@type": "3DModel", "name": "Component 2" }
+  ]
+}
+```
+
+### Hierarchical Composition
+
+Complex assets with nested components benefit from a hierarchical structure:
+
+```json
+{
+  "@type": "CreativeWork",
+  "name": "Complex Asset",
+  "hasPart": [
+    {
+      "@type": "CreativeWork",
+      "name": "Module A",
+      "hasPart": [
+        { "@type": "3DModel", "name": "Subcomponent A1" },
+        { "@type": "3DModel", "name": "Subcomponent A2" }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Module B",
+      "hasPart": [
+        { "@type": "3DModel", "name": "Subcomponent B1" },
+        { "@type": "3DModel", "name": "Subcomponent B2" }
+      ]
+    }
+  ]
+}
+```
+
+### Multiple Relationship Types
+
+Most complex assets use several relationship types together:
+
+```json
+{
+  "@type": "3DModel",
+  "name": "Main Asset",
+  "hasPart": [
+    { "@type": "3DModel", "name": "Component" }
+  ],
+  "associatedMedia": [
+    { "@type": "ImageObject", "name": "Texture" }
+  ],
+  "subjectOf": [
+    { "@type": "DigitalDocument", "name": "Documentation" }
+  ]
+}
+```
 
 ## Complete Composition Example
 
@@ -301,25 +338,43 @@ Here's an example showing all composition types working together:
 ## Best Practices
 
 1. **Clear Hierarchy**
-    - Use `mainEntity` for the primary subject
-    - Keep component hierarchies logical
-    - Group related media appropriately
-    - Document relationships clearly
+   - Use `mainEntity` for the primary subject
+   - Keep component hierarchies logical
+   - Group related media appropriately
+   - Document relationships clearly
 
 2. **Relationship Management**
-    - Choose appropriate relationship types
-    - Avoid circular references
-    - Maintain clear ownership
-    - Document dependencies
+   - Choose appropriate relationship types
+   - Avoid circular references
+   - Maintain clear ownership
+   - Document dependencies
 
 3. **Resource Organization**
-    - Group related resources
-    - Use consistent naming
-    - Maintain clear structure
-    - Plan for updates
+   - Group related resources
+   - Use consistent naming
+   - Maintain clear structure
+   - Plan for updates
 
 4. **Documentation**
-    - Document all relationships
-    - Explain complex structures
-    - Provide usage guides
-    - Maintain version history
+   - Document all relationships
+   - Explain complex structures
+   - Provide usage guides
+   - Maintain version history
+
+## When to Use Each Relationship Type
+
+| Relationship Type | When to Use |
+|-------------------|-------------|
+| `mainEntity` | When one object describes or represents another |
+| `hasPart` | For components that make up a larger asset |
+| `associatedMedia` | For supporting media that enhances the main asset |
+| `encodesCreativeWork` | For content embedded within or encoded by the main asset |
+| `subjectOf` | For documentation or content about the asset |
+
+## Next Steps
+
+Now that you understand the basics of structure and composition, you can:
+
+- Explore how to [create metadata](../guides/basic/create-metadata.md) for your assets
+- Learn about [reference vs embedding](./reference-vs-embedding.md) approaches
+- Understand how to [combine standards](./standards-compatibility.md) within your metadata
