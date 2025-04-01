@@ -1,0 +1,63 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="250" fill="#f9fafb" rx="8" ry="8"/>
+  
+  <!-- Standards Illustration -->
+  <!-- glTF -->
+  <g transform="translate(75, 50)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#10b981" stroke="#059669" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">glTF</text>
+  </g>
+  
+  <!-- USD -->
+  <g transform="translate(160, 50)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">USD</text>
+  </g>
+  
+  <!-- VRM -->
+  <g transform="translate(245, 50)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">VRM</text>
+  </g>
+  
+  <!-- FBX -->
+  <g transform="translate(75, 120)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">FBX</text>
+  </g>
+  
+  <!-- COLLADA -->
+  <g transform="translate(160, 120)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#6366f1" stroke="#4f46e5" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" alignment-baseline="middle">COLLADA</text>
+  </g>
+  
+  <!-- C2PA -->
+  <g transform="translate(245, 120)">
+    <rect width="70" height="40" rx="8" ry="8" fill="#ec4899" stroke="#db2777" stroke-width="2"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" alignment-baseline="middle">C2PA</text>
+  </g>
+  
+  <!-- Domain Labels -->
+  <text x="110" y="30" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">3D Models</text>
+  <text x="160" y="30" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">Scenes</text>
+  <text x="280" y="30" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">Avatars</text>
+  <text x="110" y="100" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">Animation</text>
+  <text x="160" y="100" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">Exchange</text>
+  <text x="280" y="100" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">Provenance</text>
+  
+  <!-- Center Element -->
+  <g transform="translate(160, 180)">
+    <ellipse cx="40" cy="20" rx="80" ry="25" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="40" y="24" font-family="Arial, sans-serif" font-size="14" fill="#1e40af" text-anchor="middle" font-weight="bold">Metaverse Standards</text>
+  </g>
+  
+  <!-- Connecting lines -->
+  <line x1="110" y1="90" x2="160" y2="180" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="160" y1="90" x2="175" y2="180" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="210" y1="90" x2="190" y2="180" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="90" x2="205" y2="180" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="110" y1="160" x2="145" y2="180" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="160" x2="215" y2="180" stroke="#94a3b8" stroke-width="1"/>
+</svg> 
