@@ -22,7 +22,35 @@ This guide outlines practical guidelines for implementing high-quality Metaverse
    - Plan for future extensions
    - Consider performance implications
    - Design for maintainability
-   
+
+
+## Implementation Guidelines
+
+1. **Start Simple**
+   - Begin with basic Schema.org properties
+   - Add technical details gradually
+   - Validate at each step
+
+2. **Maintain Consistency**
+   - Use consistent property names
+   - Follow standard date formats
+   - Apply consistent naming conventions
+
+3. **Plan for Evolution**
+   - Design for extensibility
+   - Document changes clearly
+   - Maintain backwards compatibility
+
+4. **Optimize for Discovery**
+   - Use descriptive names
+   - Include relevant keywords
+   - Add proper categorization
+
+5. **Regular Validation**
+   - Check required properties
+   - Verify format compliance
+   - Test references
+
 
 ## Metadata Structure
 
@@ -285,33 +313,6 @@ This guide outlines practical guidelines for implementing high-quality Metaverse
   "license": "free for use"
 }
 ```
-
-## Implementation Guidelines
-
-1. **Start Simple**
-    - Begin with basic Schema.org properties
-    - Add technical details gradually
-    - Validate at each step
-
-2. **Maintain Consistency**
-    - Use consistent property names
-    - Follow standard date formats
-    - Apply consistent naming conventions
-
-3. **Plan for Evolution**
-    - Design for extensibility
-    - Document changes clearly
-    - Maintain backwards compatibility
-
-4. **Optimize for Discovery**
-    - Use descriptive names
-    - Include relevant keywords
-    - Add proper categorization
-
-5. **Regular Validation**
-    - Check required properties
-    - Verify format compliance
-    - Test references
 
 ## Next Steps
 

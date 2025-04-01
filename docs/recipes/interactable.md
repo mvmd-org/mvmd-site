@@ -2,9 +2,9 @@
 sidebar_position: 7
 ---
 
-# Interactables Profile
+# Interactables
 
-The Interactables Profile defines metadata for objects that can be interacted with in virtual environments, such as buttons, switches, doors, and other interactive elements.
+The Interactables Recipe defines metadata for objects that can be interacted with in virtual environments, such as buttons, switches, doors, and other interactive elements.
 
 ## Core Structure
 
@@ -27,7 +27,7 @@ The Interactables Profile defines metadata for objects that can be interacted wi
 
 ## Required Properties
 
-- Basic Profile requirements
+- Basic Recipe requirements
 - Interaction type
 - Trigger definitions
 - State management

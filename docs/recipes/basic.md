@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Basic Metadata Profile
+# Basic
 
-The Basic Profile defines essential metadata properties that should be included with all Metaverse assets. This profile serves as the foundation for more specific asset profiles.
+The Basic Recipe defines essential metadata properties that should be included with all Metaverse assets. This profile serves as the foundation for more specific asset profiles.
 
 ## Core Properties
 

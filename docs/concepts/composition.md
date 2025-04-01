@@ -2,12 +2,14 @@
 sidebar_position: 4
 ---
 
-# Asset Composition
+# Composition
 
 Asset composition defines how different types of content relate to each other within MVMD metadata. Understanding these
 relationships is crucial for creating well-structured, maintainable metadata for complex assets.
 
 ## Primary Entity (mainEntity)
+Schema.org:
+[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [about](https://schema.org/about) : [mainEntity](https://schema.org/mainEntity)
 
 The `mainEntity` property identifies the primary subject or focus of a metadata object. This is particularly useful when
 one object serves to describe or represent another.
@@ -41,6 +43,8 @@ one object serves to describe or represent another.
 - Landing page for a virtual location
 
 ## Component Parts (hasPart)
+Schema.org:
+[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [hasPart](https://schema.org/hasPart)
 
 The `hasPart` property defines direct components or pieces that make up a larger asset. This is crucial for describing
 modular or composite assets.
@@ -114,6 +118,8 @@ the [implementation](/implementation/composable) section.
 - Composite objects
 
 ## Associated Media (associatedMedia)
+Schema.org:
+[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [associatedMedia](https://schema.org/associatedMedia)
 
 The `associatedMedia` property links to related media assets that support or enhance the main asset.
 
@@ -159,6 +165,8 @@ The `associatedMedia` property links to related media assets that support or enh
 - Preview content
 
 ## Embedded Content (encodesCreativeWork)
+Schema.org:
+[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [encodesCreativeWork](https://schema.org/encodesCreativeWork)
 
 The `encodesCreativeWork` property indicates content that is embedded within or encoded by the main asset.
 
@@ -196,6 +204,8 @@ The `encodesCreativeWork` property indicates content that is embedded within or 
 - Bundled resources
 
 ## Related Documentation (subjectOf)
+Schema.org:
+[Thing](https://schema.org/Thing) > [Property](https://schema.org/Property) :: [subjectOf](https://schema.org/subjectOf)
 
 The `subjectOf` property links to documentation, descriptions, or other content about the asset.
 
@@ -214,7 +224,7 @@ The `subjectOf` property links to documentation, descriptions, or other content 
     {
       "@type": "DigitalDocument",
       "name": "Technical Documentation",
-      "contentUrl": "https://example.com/docs/technical.pdf",
+      "url": "https://example.com/docs/technical.pdf",
       "encodingFormat": "application/pdf"
     },
     {
@@ -281,7 +291,7 @@ Here's an example showing all composition types working together:
       {
         "@type": "DigitalDocument",
         "name": "User Manual",
-        "contentUrl": "https://example.com/manual.pdf"
+        "url": "https://example.com/manual.pdf"
       }
     ]
   }

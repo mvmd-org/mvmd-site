@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Avatar Profile
+# Avatar
 
-The Avatar Profile extends the Basic Profile with properties specific to virtual characters and avatars. This profile combines properties from multiple standards to describe customizable, interactive characters.
+The Avatar Recipe extends the Basic Profile with properties specific to virtual characters and avatars. This profile combines properties from multiple standards to describe customizable, interactive characters.
 
 ## Core Structure
 

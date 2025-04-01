@@ -6,6 +6,23 @@ sidebar_position: 6
 
 When working with metadata for metaverse assets, there are two primary approaches to handling content: referencing external files via URIs and embedding data directly in the metadata. This guide explains the fundamental differences and use cases for each approach.
 
+## When to Use Each
+
+### Use URLs When:
+- Content is large
+- Content needs to be cached
+- Content is shared across assets
+- Content updates independently
+- Progressive loading is needed
+
+### Use Embedding When:
+- Data is small
+- Data is specific to the asset
+- Quick access is required
+- Offline support is needed
+- Data consistency is critical
+
+
 ## Basic Concepts
 
 ### URL References
@@ -22,23 +39,6 @@ URLs point to external files that contain the actual content. This is the simple
 }
 ```
 
-### Embedded Content
-Data is included directly within the metadata structure using appropriate namespaces:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "3DModel",
-  "gltf:asset": {
-    "version": "2.0",
-    "generator": "Example Tool"
-  }
-}
-```
 
 ## Reference Types
 
@@ -124,38 +124,52 @@ Content encoded or embedded in the asset:
 }
 ```
 
-## URL Schemes
 
-MVMD supports various URL schemes:
+## Embedded Content
+Data is included directly within the metadata structure using appropriate namespaces:
 
 ```json
 {
-  "@type": "3DModel",
-  "sameAs": [
-    "https://example.com/model.glb",     // HTTP/HTTPS
-    "ipfs://QmXaXa1XaX...",             // IPFS
-    "ar://asset-id",                     // Arweave
-    "data:application/json,{...}",       // Data URI
-    "file:///local/path/model.glb"       // Local file
-  ]
+   "@context": {
+      "@vocab": "https://schema.org/",
+      "mvmd": "https://mvmd.org/v1/",
+      "gltf": "https://www.khronos.org/gltf/"
+   },
+   "@type": "3DModel",
+   "name": "Simple Cube Model",
+   "encodingFormat": "model/gltf+json",
+   "gltf": {
+      "@type": "gltf:Asset",
+      "version": "2.0",
+      "scenes": [{
+         "@type": "gltf:Scene",
+         "name": "SimpleScene",
+         "nodes": [0]
+      }],
+      "nodes": [{
+         "@type": "gltf:Node",
+         "name": "Cube",
+         "mesh": 0
+      }],
+      "meshes": [{
+         "@type": "gltf:Mesh",
+         "name": "SimpleCube",
+         "primitives": [{
+            "@type": "gltf:MeshPrimitive",
+            "attributes": {
+               "@type": "gltf:Attributes",
+               "POSITION": 0
+            },
+            "indices": 1,
+            "material": 0
+         }]
+      }]
+   }
 }
 ```
+_For detailed examples of embedding different types of data, see the [Embedding section](/embedding/overview.md)._
 
-## When to Use Each
 
-### Use URLs When:
-- Content is large
-- Content needs to be cached
-- Content is shared across assets
-- Content updates independently
-- Progressive loading is needed
-
-### Use Embedding When:
-- Data is small
-- Data is specific to the asset
-- Quick access is required
-- Offline support is needed
-- Data consistency is critical
 
 ## Best Practices
 
@@ -180,4 +194,3 @@ MVMD supports various URL schemes:
     - Consider load order
     - Plan update strategies
 
-_For detailed examples of embedding different types of data, see the [Embedding section](/embedding/overview.md)._

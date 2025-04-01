@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Scene Profile
+# Scene
 
-The Scene Profile extends the Environment Profile with specific properties for interactive scenes and staged environments. This profile combines spatial, interactive, and performance properties to define complex virtual scenes.
+The Scene Recipe extends the Environment Recipe with specific properties for interactive scenes and staged environments. This profile combines spatial, interactive, and performance properties to define complex virtual scenes.
 
 ## Core Structure
 

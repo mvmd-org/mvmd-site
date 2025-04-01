@@ -117,6 +117,7 @@ Use for standard-specific properties, use namespaces, which use the context's na
   "@type": "CreativeWork",
   "gltf:materials": [
     {
+      "@type": "gltf:Material",
       "name": "Metal",
       "pbrMetallicRoughness": {
         "metallicFactor": 1.0,
@@ -197,9 +198,6 @@ Use arrays for multiple values, ensuring each object has proper type declaration
 ## Type of Thing
 
 The choice of root object type (the type of thing) affects what properties and relationships are available.
-
-### CreativeWork
-
 The CreativeWork is used as the primary entry point for most assets becase Schema.org allows for most object types with the CreativeWork.
 
 ```json
@@ -208,10 +206,8 @@ The CreativeWork is used as the primary entry point for most assets becase Schem
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "ImageObject",
-  "name": "Asset Name",
-  "contentUrl": "https://example.com/preview.jpg",
-  "encodingFormat": "image/jpeg"
+  "@type": "CreativeWork",
+  "name": "Asset Name"
 }
 ```
 
@@ -239,15 +235,13 @@ Use for custom data that doesn't fit standard properties:
 }
 ```
 
-=
-
 ## What's Next
 
 These fundamentals provide the foundation for implementing Metaverse metadata. From here, you can:
 
 - Learn about specific types in [Types of Things](./types-of-things.md)
 - Understand asset relationships in [Asset Types](./composition.md)
-- Explore content strategies in [URLs vs Embedding](./urls-vs-embedding.md)
+- Explore content strategies in [URLs vs Embedding](./uris-vs-embedding.md)
 
 Remember: The concepts covered here are universal to all MVMD implementations. More specific patterns and
 implementations are covered in other sections of the documentation.

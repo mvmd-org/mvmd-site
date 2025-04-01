@@ -61,13 +61,8 @@ function HomepageHeader() {
                             <div className="flex gap-4">
                                 <Link
                                     className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50"
-                                    to="/introduction/quickstart">
+                                    to="/quickstart">
                                     Get Started
-                                </Link>
-                                <Link
-                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50"
-                                    to="/standards/overview">
-                                    Browse Standards
                                 </Link>
                             </div>
                         </div>
@@ -105,7 +100,7 @@ export default function Home(): JSX.Element {
                             <FeatureCard
                                 icon={<FileCheck className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
                                 title="Validate Metadata"
-                                description="Ensure your metadata meets industry standards with our validation tools"
+                                description="Ensure your metadata meets industry standards with validation"
                             />
                             <FeatureCard
                                 icon={<Network className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
@@ -129,14 +124,14 @@ export default function Home(): JSX.Element {
                                 url="https://nftr.pro"
                                 description="NFT tools for creators, by creators"
                                 profileUrl="/community/supporters/nftr-pro"
-                                logo="https://nftr.pro/wp-content/uploads/2024/02/nftr-logo.png"
+                                logo="/img/nftr-logo.png"
                             />
                             <SupporterCard
-                                name="SumSetTech"
+                                name="SumSet.Tech"
                                 url="https://sumset.tech"
                                 description="Building the tech behind your experiences"
                                 profileUrl="/community/supporters/sumset-tech"
-                                logo="https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png"
+                                logo="/img/sumset-tech-logo.png"
                             />
                         </div>
                         <div className="text-center mt-12">

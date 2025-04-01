@@ -4,11 +4,16 @@ sidebar_position: 3
 
 # Types of Things
 
-This guide covers the Schema.org types used within MVMD. While Schema.org defines [many types](https://schema.org/docs/full.html), we focus on those most relevant for Metaverse assets and experiences. As new recipes and use cases are added to MVMD, this guide will be updated with additional types.
+This guide covers the Schema.org types used within MVMD. While Schema.org
+defines [many types](https://schema.org/docs/full.html), we focus on those most relevant for Metaverse assets and
+experiences. As new recipes and use cases are added to MVMD, this guide will be updated with additional types.
 
 ## Core Types
 
 ### CreativeWork
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork)
+
 The most versatile base type for digital assets. Used for any creative content or intellectual creation.
 
 ```json
@@ -26,25 +31,24 @@ The most versatile base type for digital assets. Used for any creative content o
 }
 ```
 
-Key properties:
-- `name`: Title of the work
-- `creator`: Creator or author
-- `dateCreated`: Creation date
-- `license`: Usage rights
-- `hasPart`: Component parts
-- `isPartOf`: Parent work
-- `encodesCreativeWork`: Embedded works
-
 Common uses:
+
 - Base type for complex assets
 - Collections of assets
 - Multi-part creations
 - Composite works
 
 ### MediaObject
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork) > [MediaObject](https://schema.org/MediaObject)
+
+
 Base type for various media formats. Several specialized subtypes are commonly used:
 
 #### ImageObject
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork) > [MediaObject](https://schema.org/MediaObject) > [ImageObject](https://schema.org/ImageObject)
+
 Primary type for visual assets and previews:
 
 ```json
@@ -62,20 +66,17 @@ Primary type for visual assets and previews:
 }
 ```
 
-Key properties:
-- `contentUrl`: URL of the image
-- `encodingFormat`: MIME type
-- `width`: Image width
-- `height`: Image height
-- `thumbnail`: Smaller version
-
 Common uses:
+
 - Asset previews
 - Thumbnails
 - Textures
 - Reference images
 
 #### 3DModel
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork) > [MediaObject](https://schema.org/MediaObject) > [3DModel](https://schema.org/3DModel)
+
 Specialized type for three-dimensional assets:
 
 ```json
@@ -92,20 +93,17 @@ Specialized type for three-dimensional assets:
 }
 ```
 
-Key properties:
-- `contentUrl`: Model file URL
-- `encodingFormat`: Format specification
-- `associatedMedia`: Related files
-- `thumbnail`: Preview image
-
 Common uses:
+
 - Virtual objects
 - Character models
 - Environmental elements
 - Interactive props
 
-
 ### Place
+Schema.org:
+[Thing](https://schema.org/Thing) > [Place](https://schema.org/Place)
+
 Used specifically for digital representations of physical locations (digital twins):
 
 ```json
@@ -117,7 +115,7 @@ Used specifically for digital representations of physical locations (digital twi
   "@type": "Place",
   "name": "Digital Museum Twin",
   "description": "Digital twin of the Metropolitan Museum",
-  "maximumPhysicalAttendeeCapacity": 1000,
+  "maximumAttendeeCapacity": 1000,
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 40.7794,
@@ -127,37 +125,7 @@ Used specifically for digital representations of physical locations (digital twi
     "@type": "PostalAddress",
     "streetAddress": "1000 Fifth Avenue",
     "addressLocality": "New York"
-  }
-}
-```
-
-Key properties:
-- `maximumPhysicalAttendeeCapacity`: Maximum physical occupancy
-- `containsPlace`: Physical sub-locations
-- `containedInPlace`: Physical parent location
-- `geo`: Geographic coordinates
-- `address`: Physical address
-
-Common uses:
-- Digital twins of real buildings
-- Virtual representations of physical spaces
-- Mapped physical environments
-- Real-world location references
-
-### VirtualLocation
-Used for purely virtual spaces in the metaverse:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "CreativeWork",
-  "additionalType": "VirtualLocation",
-  "name": "Fantasy Arena",
-  "description": "Floating combat arena in the sky",
-  "maximumVirtualAttendeeCapacity": 100,
   "amenityFeature": [
     {
       "@type": "LocationFeatureSpecification",
@@ -173,19 +141,120 @@ Used for purely virtual spaces in the metaverse:
 }
 ```
 
-Key properties:
-- `maximumVirtualAttendeeCapacity`: Maximum concurrent users
-- `amenityFeature`: Virtual features and facilities
-- `hasPart`: Virtual sub-spaces
-- `isPartOf`: Parent virtual space
+Common uses:
+
+- Digital twins of real buildings
+- Virtual representations of physical spaces
+- Mapped physical environments
+- Real-world location references
+
+### VirtualLocation
+Schema.org:
+[Thing](https://schema.org/Thing)  > [Intangible](https://schema.org/Intangible)  > [VirtualLocation](https://schema.org/VirtualLocation)
+
+Used for purely virtual spaces in the metaverse:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "VirtualLocation",
+  "name": "Tech Summit Plaza",
+  "description": "A virtual conference space in the Metaverse featuring multiple presentation areas, networking zones, and interactive exhibits.",
+  "image": "https://example.com/virtual-locations/tech-summit-plaza.jpg",
+  "url": "https://meta.example.com/locations/tech-summit-plaza",
+  "potentialAction": {
+    "@type": "JoinAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://example.com/join/tech-summit-plaza?userId={userId}",
+      "actionPlatform": [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/VRHeadset"
+      ]
+    }
+  }
+}
+```
 
 Common uses:
+
 - Virtual meeting spaces
 - Game environments
 - Fantasy locations
 - Abstract spaces
 
+# Event
+
+A Schema.org Type  
+[Thing](https://schema.org/Thing) > [Event](https://schema.org/Event)
+
+An event happening at a certain time and location, such as a concert, lecture, or festival. Events can be held in both
+physical locations and virtual spaces.
+
+## Example
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Event",
+  "name": "Future of Digital Worlds Summit 2024",
+  "description": "Annual conference exploring the intersection of virtual worlds, gaming, and digital society",
+  "startDate": "2024-09-15T09:00:00-07:00",
+  "endDate": "2024-09-17T17:00:00-07:00",
+  "eventStatus": "EventScheduled",
+  "eventAttendanceMode": "MixedEventAttendanceMode",
+  "location": [
+    {
+      "@type": "Place",
+      "name": "Tech Convention Center",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Innovation Blvd",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94105",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "VirtualLocation",
+      "name": "Digital Summit Space",
+      "url": "https://summit.example.com/virtual-venue"
+    }
+  ],
+  "maximumVirtualAttendeeCapacity": 2000,
+  "maximumPhysicalAttendeeCapacity": 500,
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "In-Person Full Pass",
+      "price": 599.00,
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Virtual Attendance",
+      "price": 199.00,
+      "priceCurrency": "USD"
+    }
+  ]
+}
+```
+
+Common uses:
+* Virtual conferences and meetups
+* Live streaming events
+* Social gatherings in virtual worlds
+* Mixed reality performances
+
+
 ### SoftwareApplication
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork) > [SoftwareApplication](https://schema.org/SoftwareApplication)
+
 Used for interactive applications and experiences:
 
 ```json
@@ -195,29 +264,33 @@ Used for interactive applications and experiences:
     "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "SoftwareApplication",
-  "name": "Interactive Experience",
-  "applicationCategory": "Game",
-  "gameServer": {
-    "@type": "GameServer",
-    "serverStatus": "Online",
-    "playersOnline": "50"
+  "name": "Virtual Gallery Creator",
+  "applicationCategory": "Virtual Reality Application",
+  "applicationSubCategory": "Content Creation",
+  "operatingSystem": "Quest OS",
+  "softwareVersion": "2.1.0",
+  "downloadUrl": "https://store.example.com/virtual-gallery-creator",
+  "installUrl": "https://install/virtual-gallery-creator",
+  "screenshot": {
+    "@type": "ImageObject",
+    "url": "https://example.com/gallery-creator-screenshot.jpg",
+    "width": "1920",
+    "height": "1080"
   }
 }
 ```
 
-Key properties:
-- `applicationCategory`: Type of application
-- `operatingSystem`: Supported platforms
-- `requirements`: System requirements
-- `featureList`: Available features
-
 Common uses:
+
 - Interactive experiences
 - Virtual applications
 - Games
 - Tools
 
 ### DigitalDocument
+Schema.org:
+[Thing](https://schema.org/Thing) > [CreativeWork](https://schema.org/CreativeWork) > [DigitalDocument](https://schema.org/DigitalDocument)
+
 Used for documentation and text-based assets:
 
 ```json
@@ -233,13 +306,8 @@ Used for documentation and text-based assets:
 }
 ```
 
-Key properties:
-- `encodingFormat`: Document format
-- `abstract`: Summary
-- `hasDigitalDocumentPermission`: Access rights
-- `numberOfPages`: Document length
-
 Common uses:
+
 - Documentation
 - Guides
 - Specifications
@@ -250,24 +318,29 @@ Common uses:
 Types can be related in several ways:
 
 ### Inheritance
+
 Many types inherit from broader types:
+
 - `3DModel` is a type of `MediaObject`
 - `MediaObject` is a type of `CreativeWork`
 - All types ultimately derive from `Thing`
 
 ### Composition
+
 Types can be composed using various properties:
+
 - `mainEntity`: The primary object
 - `hasPart`: Direct components
 - `associatedMedia`: Related media
 - `encodesCreativeWork`: Embedded content
 - `subjectOf`: Related documentation
 
-_Please review the [Composition](/concepts/composition) page for details._ 
-
+_Please review the [Composition](/concepts/composition) page for details._
 
 ### References
+
 Types can reference each other:
+
 - `image`: Link to an ImageObject
 - `mainEntityOfPage`: Primary subject
 - `sameAs`: Alternative versions
@@ -295,9 +368,11 @@ _Please review the [References](/concepts/references) page for details._
     - Document dependencies
     - Maintain referential integrity
 
+
 ## Future Types
 
 As MVMD evolves, additional types will be documented here based on:
+
 - New use cases identified
 - Additional recipes created
 - Community feedback

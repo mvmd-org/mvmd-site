@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Future Profiles Overview
+# Future Recipes
 
 This document outlines planned metadata profiles for future development in the MVMD ecosystem.
 
@@ -48,7 +48,7 @@ This document outlines planned metadata profiles for future development in the M
 
 ## Future Concepts
 
-### Planned Profiles
+### Planned Recipes
 - Replicants
 - Consumables
 - Pets

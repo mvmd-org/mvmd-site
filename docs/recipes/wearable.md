@@ -1,6 +1,6 @@
-# Wearables Profile
+# Wearables
 
-This profile defines the metadata structure for wearable items in the metaverse, ensuring interoperability across different platforms and standards compliance.
+This recipe defines the metadata structure for wearable items in the metaverse, ensuring interoperability across different platforms and standards compliance.
 
 ## Overview
 

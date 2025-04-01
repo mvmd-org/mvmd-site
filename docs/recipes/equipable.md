@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-# Equipable Profile
+# Equipable
 
-The Equipable Profile extends the Basic Profile with properties specific to items that can be equipped and used by avatars, such as tools, weapons, and interactive objects.
+The Equipable Recipe extends the Basic Recipe with properties specific to items that can be equipped and used by avatars, such as tools, weapons, and interactive objects.
 
 ## Core Structure
 
