@@ -15,7 +15,7 @@ This example demonstrates a complete implementation of metadata for a virtual en
     "usd": "https://openusd.org/ns/",
     "gltf": "https://www.khronos.org/gltf/",
     "geo": "http://www.opengis.net/ont/geosparql#",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": ["3DModel", "Place"],
   "@id": "https://example.com/environments/sci-fi-hub",
@@ -347,7 +347,7 @@ This example demonstrates a complete implementation of metadata for a virtual en
   "usd": "https://openusd.org/ns/",
   "gltf": "https://www.khronos.org/gltf/",
   "geo": "http://www.opengis.net/ont/geosparql#",
-  "mvmd": "https://mvmd.org/ns/"
+  "mvmd": "https://mvmd.org/v1/"
 },
 "@type": ["3DModel", "Place"],
 "@id": "https://example.com/environments/sci-fi-hub",

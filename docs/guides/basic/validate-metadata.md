@@ -160,7 +160,7 @@ If your validator can't resolve your context:
 ```json
 "@context": {
   "@vocab": "https://schema.org/",
-  "mvmd": "https://mvmd.org/ns/",
+  "mvmd": "https://mvmd.org/v1/",
   "ex": "https://example.org/"
 }
 ```
@@ -191,4 +191,4 @@ After successfully validating your metadata:
 2. Implement more advanced features as needed
 3. Consider integration with platforms that support MVMD
 
-Remember that validation is an ongoing process. As you update and enhance your metadata, continue to validate it to ensure continued compliance with standards. 
+Remember that validation is an ongoing process. As you update and enhance your metadata, continue to validate it to ensure continued compliance with standards.

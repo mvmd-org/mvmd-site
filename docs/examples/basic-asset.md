@@ -13,7 +13,7 @@ This example demonstrates a complete implementation of metadata for a basic 3D a
   "@context": {
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "@id": "https://example.com/assets/simple-chair",
@@ -101,7 +101,7 @@ This example demonstrates a complete implementation of metadata for a basic 3D a
 "@context": {
   "@vocab": "https://schema.org/",
   "gltf": "https://www.khronos.org/gltf/",
-  "mvmd": "https://mvmd.org/ns/"
+  "mvmd": "https://mvmd.org/v1/"
 },
 "@type": "3DModel",
 "@id": "https://example.com/assets/simple-chair",
@@ -274,4 +274,4 @@ After implementing this basic asset metadata:
 For more complex examples, see:
 - [Avatar Profile Example](./avatar-profile.md)
 - [Virtual Environment Example](./virtual-environment.md)
-- [NFT Asset Example](./nft-asset.md) 
+- [NFT Asset Example](./nft-asset.md)

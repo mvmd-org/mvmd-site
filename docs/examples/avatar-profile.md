@@ -14,7 +14,7 @@ This example demonstrates a complete implementation of metadata for a humanoid a
     "@vocab": "https://schema.org/",
     "vrm": "https://vrm.dev/vrm/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "@id": "https://example.com/avatars/fantasy-knight",
@@ -268,7 +268,7 @@ This example demonstrates a complete implementation of metadata for a humanoid a
   "@vocab": "https://schema.org/",
   "vrm": "https://vrm.dev/vrm/",
   "gltf": "https://www.khronos.org/gltf/",
-  "mvmd": "https://mvmd.org/ns/"
+  "mvmd": "https://mvmd.org/v1/"
 },
 "@type": "3DModel",
 "@id": "https://example.com/avatars/fantasy-knight",

@@ -69,9 +69,9 @@ Proper namespacing is essential for combining standards:
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/",
-    "vrm": "https://vrm.dev/vrm/",
-    "mvmd": "https://mvmd.org/ns/"
+    "vrm": "https://vrm.dev/vrm/"
   },
   "@type": "3DModel",
   "name": "Avatar Model",
@@ -96,7 +96,10 @@ For complex standards integration, link to external files:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   "name": "Complex Scene",
   "contentUrl": "https://example.com/scene.usd",
@@ -118,7 +121,10 @@ Use `additionalType` to indicate compliance with specific standards:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "additionalType": [
     "https://www.khronos.org/gltf/types/Asset",
@@ -135,7 +141,10 @@ Maintain consistent identifiers across different standards:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   "@id": "https://example.com/assets/model-123",
   "identifier": {
@@ -158,8 +167,8 @@ Maintain consistent identifiers across different standards:
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "vrm": "https://vrm.dev/vrm/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/",
+    "vrm": "https://vrm.dev/vrm/"
   },
   "@type": "3DModel",
   "name": "Customizable Character",
@@ -194,9 +203,9 @@ Maintain consistent identifiers across different standards:
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "erc721": "https://eips.ethereum.org/EIPS/eip-721#",
-    "c2pa": "https://c2pa.org/specifications/",
-    "mvmd": "https://mvmd.org/ns/"
+    "c2pa": "https://c2pa.org/specifications/"
   },
   "@type": "3DModel",
   "name": "Collectible Sculpture",
@@ -234,7 +243,7 @@ Maintain consistent identifiers across different standards:
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/",
     "geo": "http://www.opengis.net/ont/geosparql#",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": ["3DModel", "Place"],
   "name": "City Building",

@@ -12,12 +12,24 @@ Every metadata object MUST include two fundamental elements:
 
 ### 1. Context (@context)
 
-The `@context` must be provided as an object that defines the vocabulary and rules for interpreting metadata:
+The `@context` must be provided as an object that defines the vocabulary and rules for interpreting metadata. All MVMD metadata MUST include the MVMD namespace to reference this documentation and implementation version:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  }
+}
+```
+
+Additional namespaces can be included as needed for specific standards:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/",
     "usd": "https://openusd.org/ns/"
   }
@@ -50,7 +62,8 @@ For basic properties, use direct values:
 ```json
 {
   "@context": {
-    "@vocab": "https://schema.org/"
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "CreativeWork",
   "name": "Simple Asset",
@@ -63,6 +76,10 @@ When adding custom properties, use PropertyValue structure:
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "name": "Complex Asset",
   "additionalProperty": [
@@ -89,6 +106,7 @@ For complex data structures, use namespaced properties:
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "usd": "https://openusd.org/ns/"
   },
   "@type": "CreativeWork",
@@ -118,6 +136,11 @@ Used to indicate components or pieces that make up the whole. Example showing mu
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
   "@type": "CreativeWork",
   "name": "Complex Asset",
   "hasPart": [
@@ -152,6 +175,10 @@ Used to reference related media content:
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "name": "Asset with Media",
   "associatedMedia": [
@@ -176,6 +203,10 @@ Used to reference creative works encoded in this object:
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "name": "Asset Container",
   "encodesCreativeWork": [
@@ -200,6 +231,10 @@ Used to indicate the primary entity described by the creative work:
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "name": "Character Profile",
   "mainEntity": {
@@ -227,6 +262,7 @@ For purely virtual spaces, use CreativeWork with additionalType:
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "usd": "https://openusd.org/ns/"
   },
   "@type": "CreativeWork",
@@ -279,6 +315,7 @@ Here's a complete example showing a complex asset with multiple components and r
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/",
     "usd": "https://openusd.org/ns/"
   },

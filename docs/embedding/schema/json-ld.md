@@ -19,7 +19,7 @@ The `@context` defines vocabularies and rules for interpreting metadata.
   "@context": {
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "name": "Sample Asset"
@@ -139,7 +139,7 @@ Organize properties from different standards clearly.
       "@prefix": true
     },
     "mvmd": {
-      "@id": "https://mvmd.org/ns/",
+      "@id": "https://mvmd.org/v1/",
       "@prefix": true
     }
   },
@@ -203,10 +203,10 @@ Handle complex metadata hierarchies.
   "@context": {
     "@vocab": "https://schema.org/",
     "asset": {
-      "@id": "https://mvmd.org/ns/asset/",
+      "@id": "https://mvmd.org/v1/asset/",
       "@context": {
-        "quality": "https://mvmd.org/ns/quality",
-        "platform": "https://mvmd.org/ns/platform"
+        "quality": "https://mvmd.org/v1/quality",
+        "platform": "https://mvmd.org/v1/platform"
       }
     }
   },
@@ -219,42 +219,13 @@ Handle complex metadata hierarchies.
 }
 ```
 
-## Best Practices
-
-### 1. Context Definition
-- Use precise vocabulary URLs
-- Include all necessary namespaces
-- Keep contexts concise
-
-### 2. Identifier Management
-- Use consistent ID patterns
-- Include cross-platform references
-- Maintain unique identifiers
-
-### 3. Type Handling
-- Use specific types
-- Apply multiple types when needed
-- Maintain type hierarchy
-
-### 4. Property Organization
-- Group related properties
-- Use clear namespacing
-- Maintain consistent structure
-
-### 5. Reference Patterns
-- Use clear ID references
-- Maintain reference integrity
-- Document relationships clearly
-
-## Common Issues and Solutions
-
 ### Issue: Namespace Conflicts
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "model": "https://mvmd.org/ns/model/",
-    "asset": "https://mvmd.org/ns/asset/"
+    "model": "https://mvmd.org/v1/model/",
+    "asset": "https://mvmd.org/v1/asset/"
   },
   "@type": "3DModel",
   "name": "Conflict Example",

@@ -46,22 +46,34 @@ The combination of Schema.org and JSON-LD provides MVMD with several critical ad
 
 ### Context Declaration
 
-The `@context` field defines the vocabulary and rules for interpreting metadata:
+The `@context` field defines the vocabulary and rules for interpreting metadata. All MVMD metadata MUST include the MVMD namespace with the correct version:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  }
+}
+```
+
+Additional namespaces can be included as needed for specific standards:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "vrm": "https://vrm.dev/vrm/"
   }
 }
 ```
 
 This context declaration:
 - Sets Schema.org as the default vocabulary (`@vocab`)
-- Adds the `gltf` namespace for glTF-specific properties
-- Adds the `mvmd` namespace for MVMD-specific extensions
+- Includes the `mvmd` namespace to reference this documentation and implementation version
+- Adds additional namespaces for format-specific properties when needed
 
 ### Type Declaration
 
@@ -96,7 +108,10 @@ JSON-LD enables sophisticated relationships between objects:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   "name": "Character Model",
   "creator": {
@@ -121,7 +136,10 @@ MVMD primarily uses these Schema.org types:
 1. **CreativeWork** - Most versatile base type for digital assets
    ```json
    {
-     "@context": "https://schema.org/",
+     "@context": {
+       "@vocab": "https://schema.org/",
+       "mvmd": "https://mvmd.org/v1/"
+     },
      "@type": "CreativeWork",
      "name": "Metaverse Asset Collection",
      "creator": "Metaverse Studios"
@@ -131,7 +149,10 @@ MVMD primarily uses these Schema.org types:
 2. **3DModel** - Specific type for 3D models and objects
    ```json
    {
-     "@context": "https://schema.org/",
+     "@context": {
+       "@vocab": "https://schema.org/",
+       "mvmd": "https://mvmd.org/v1/"
+     },
      "@type": "3DModel",
      "name": "Detailed Character",
      "contentUrl": "https://example.com/models/character.glb"
@@ -141,7 +162,10 @@ MVMD primarily uses these Schema.org types:
 3. **MediaObject** subtypes - For various media assets
    ```json
    {
-     "@context": "https://schema.org/",
+     "@context": {
+       "@vocab": "https://schema.org/",
+       "mvmd": "https://mvmd.org/v1/"
+     },
      "@type": "ImageObject",
      "name": "Skybox Texture",
      "contentUrl": "https://example.com/textures/skybox.jpg",
@@ -153,7 +177,10 @@ MVMD primarily uses these Schema.org types:
 4. **Place** - For virtual environments and spaces
    ```json
    {
-     "@context": "https://schema.org/",
+     "@context": {
+       "@vocab": "https://schema.org/",
+       "mvmd": "https://mvmd.org/v1/"
+     },
      "@type": "Place",
      "name": "Virtual Gallery",
      "description": "An immersive art gallery experience"
@@ -163,7 +190,10 @@ MVMD primarily uses these Schema.org types:
 5. **SoftwareApplication** - For interactive experiences
    ```json
    {
-     "@context": "https://schema.org/",
+     "@context": {
+       "@vocab": "https://schema.org/",
+       "mvmd": "https://mvmd.org/v1/"
+     },
      "@type": "SoftwareApplication",
      "name": "Interactive Experience",
      "applicationCategory": "VirtualWorld"
@@ -178,9 +208,9 @@ JSON-LD enables seamless integration of multiple standards within the same metad
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/",
-    "vrm": "https://vrm.dev/specifications/",
-    "mvmd": "https://mvmd.org/ns/"
+    "vrm": "https://vrm.dev/specifications/"
   },
   "@type": "3DModel",
   "@id": "https://example.com/avatars/character-01",
@@ -213,7 +243,10 @@ JSON-LD allows referencing the same object multiple times:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   "@id": "#asset-collection",
   "name": "Asset Collection",
@@ -247,7 +280,10 @@ JSON-LD can be represented in different forms. MVMD typically uses the compact f
 **Compact Form (Preferred for MVMD)**
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   "name": "Simple Model"
 }
@@ -276,6 +312,7 @@ JSON-LD can be represented in different forms. MVMD typically uses the compact f
 4. **Document Relationships** - Clearly express how assets relate to each other
 5. **Use JSON-LD Features Appropriately** - Take advantage of JSON-LD's linking capabilities
 6. **Validate Your Implementation** - Use MVMD validation tools to ensure proper structure
+7. **Always Include MVMD Namespace** - All metadata must include the MVMD namespace (`mvmd: "https://mvmd.org/v1/"`)
 
 ## Moving Forward
 
@@ -283,4 +320,4 @@ With a solid understanding of Schema.org and JSON-LD, you're ready to explore mo
 
 - Learn about [Structure & Composition](./structure-and-composition.md) for complex assets
 - Understand [Reference vs Embedding](./reference-vs-embedding.md) approaches
-- Explore [Standards Compatibility](./standards-compatibility.md) for multi-standard integration 
+- Explore [Standards Compatibility](./standards-compatibility.md) for multi-standard integration

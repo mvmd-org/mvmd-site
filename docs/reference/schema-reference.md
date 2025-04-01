@@ -343,7 +343,7 @@ Here's a comprehensive example showing many of these properties in use:
   "@context": {
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "@id": "https://example.com/assets/character-model",

@@ -147,7 +147,7 @@ All Basic Profile properties, plus:
   "@context": {
     "@vocab": "https://schema.org/",
     "vrm": "https://vrm.dev/vrm/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "name": "Customizable Avatar",
@@ -226,7 +226,7 @@ All Basic Profile properties, plus:
   "@context": {
     "@vocab": "https://schema.org/",
     "gltf": "https://www.khronos.org/gltf/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "name": "Fantasy Helmet",
@@ -301,7 +301,7 @@ All Basic Profile properties, plus:
   "@context": {
     "@vocab": "https://schema.org/",
     "usd": "https://openusd.org/ns/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": ["3DModel", "Place"],
   "name": "Fantasy Tavern",
@@ -393,7 +393,7 @@ All Basic Profile properties, plus:
     "@vocab": "https://schema.org/",
     "erc721": "https://eips.ethereum.org/EIPS/eip-721#",
     "c2pa": "https://c2pa.org/specifications/",
-    "mvmd": "https://mvmd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
   "name": "Cosmic Artifact #42",
