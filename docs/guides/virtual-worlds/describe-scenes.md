@@ -4,11 +4,23 @@ sidebar_position: 1
 
 # Describe Virtual World Scenes
 
-This guide explains how to create metadata for virtual world scenes and environments using MVMD. It covers scene composition, spatial relationships, and interaction properties.
+This guide explains how to create metadata for virtual world scenes using the MVMD standard, ensuring compatibility and discoverability across metaverse platforms.
+
+## Overview
+
+Virtual world scenes are complex environments that combine multiple elements:
+
+- Spatial structure and boundaries
+- Interactive objects and elements
+- Environmental properties (lighting, physics, audio)
+- Navigation and accessibility information
+- Platform-specific requirements
+
+Proper metadata ensures scenes can be discovered, loaded, and experienced consistently across platforms.
 
 ## Essential Properties for Scene Description
 
-Every virtual world scene should include these core properties:
+Every virtual world scene should include these core metadata properties:
 
 ```json
 {
@@ -16,347 +28,363 @@ Every virtual world scene should include these core properties:
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "Place",
-  "name": "Forest Clearing",
-  "description": "A peaceful forest clearing with ambient sounds and interactive elements. Features a central campfire, surrounding trees, and hidden collectibles.",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "SceneID",
-    "value": "scene-2024-001"
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "Environment Artist",
-    "url": "https://example.com/creator"
-  },
-  "dateCreated": "2024-03-15",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "contentUrl": "https://example.com/scenes/forest-clearing.usd",
-  "encodingFormat": "model/vnd.usd"
+  "@type": "DigitalDocument",
+  "name": "Enchanted Forest Plaza",
+  "description": "A mystical forest clearing with interactive elements and ambient sounds.",
+  "encodingFormat": "model/gltf-binary",
+  "contentUrl": "https://example.com/scenes/forest-plaza.glb",
+  "mvmd:category": "scene",
+  "mvmd:sceneType": "outdoor"
 }
 ```
 
 ## Scene Composition and Structure
 
-Define the spatial composition and structure of your scene:
+Define the overall layout and structure of your scene:
 
 ```json
-"mvmd:sceneComposition": {
-  "dimensions": {
-    "width": 100,
-    "length": 100,
-    "height": 30,
-    "unit": "meters"
-  },
-  "scale": "1:1",
-  "coordinateSystem": "y-up",
-  "origin": [0, 0, 0]
+{
+  "mvmd:sceneComposition": {
+    "scale": "1:1", 
+    "dimensions": {
+      "width": 100,
+      "height": 35,
+      "depth": 100
+    },
+    "boundingBox": {
+      "min": [-50, 0, -50],
+      "max": [50, 35, 50]
+    },
+    "origin": [0, 0, 0],
+    "upAxis": "Y"
+  }
 }
 ```
 
-## Scene Components and Objects
+## Components and Objects
 
-List the key components and objects that make up your scene:
+Document the key components and objects within your scene:
 
 ```json
-"hasPart": [
-  {
-    "@type": "CreativeWork",
-    "name": "Terrain",
-    "contentUrl": "https://example.com/assets/terrain.usd",
-    "position": [0, 0, 0],
-    "scale": [1, 1, 1]
-  },
-  {
-    "@type": "CreativeWork",
-    "name": "Vegetation",
-    "contentUrl": "https://example.com/assets/vegetation.usd",
-    "position": [0, 0, 0],
-    "scale": [1, 1, 1]
-  },
-  {
-    "@type": "CreativeWork",
-    "name": "Campfire",
-    "contentUrl": "https://example.com/assets/campfire.usd",
-    "position": [0, 0.1, 0],
-    "scale": [1, 1, 1],
-    "potentialAction": {
-      "@type": "InteractAction",
-      "name": "Light Fire",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "action://light-fire"
-      }
+{
+  "mvmd:sceneComponents": [
+    {
+      "id": "terrain",
+      "name": "Forest Floor",
+      "type": "environment",
+      "position": [0, 0, 0]
+    },
+    {
+      "id": "trees",
+      "name": "Tree Collection",
+      "type": "environment",
+      "count": 42,
+      "distribution": "natural"
+    },
+    {
+      "id": "central-fountain",
+      "name": "Magic Fountain",
+      "type": "interactable",
+      "position": [0, 1, 0],
+      "interactionType": "proximity",
+      "interactionRange": 3
+    },
+    {
+      "id": "ambient-creatures",
+      "name": "Forest Creatures",
+      "type": "autonomous",
+      "behavior": "ambient",
+      "count": 12
     }
-  },
-  {
-    "@type": "CreativeWork",
-    "name": "Ambient Wildlife",
-    "contentUrl": "https://example.com/assets/wildlife.usd",
-    "position": [0, 0, 0],
-    "scale": [1, 1, 1]
-  }
-]
+  ]
+}
 ```
 
 ## Lighting Information
 
-Describe the lighting setup for your scene:
+Describe the lighting setup in your virtual world:
 
 ```json
-"mvmd:lighting": {
-  "type": "dynamic",
-  "timeOfDay": "sunset",
-  "sources": [
-    {
-      "name": "Directional Light",
-      "type": "directional",
-      "color": "#FFFAEB",
-      "intensity": 3.0,
-      "direction": [-0.5, -1.0, -0.3]
-    },
-    {
-      "name": "Ambient Light",
-      "type": "ambient",
-      "color": "#304875",
-      "intensity": 0.2
-    },
-    {
-      "name": "Campfire Light",
-      "type": "point",
-      "color": "#FF7700",
-      "intensity": 5.0,
-      "position": [0, 1.0, 0],
-      "range": 15,
-      "castsShadows": true
-    }
-  ],
-  "environmentMap": "https://example.com/textures/forest_sunset_hdri.hdr"
+{
+  "mvmd:lighting": {
+    "mode": "dynamic",
+    "timeOfDay": "dusk",
+    "sources": [
+      {
+        "id": "sun",
+        "type": "directional",
+        "color": "#FDB813",
+        "intensity": 0.7,
+        "direction": [-0.5, -1, -0.2]
+      },
+      {
+        "id": "fountain-glow",
+        "type": "point",
+        "color": "#4DF0FF",
+        "intensity": 2.0,
+        "position": [0, 3, 0],
+        "range": 10,
+        "castsShadows": true
+      },
+      {
+        "id": "ambient",
+        "type": "ambient",
+        "color": "#2C3E50",
+        "intensity": 0.3
+      }
+    ],
+    "shadows": true,
+    "shadowQuality": "high"
+  }
 }
 ```
 
 ## Environmental Factors
 
-Include details about the environmental factors of your scene:
+Define environmental elements and effects:
 
 ```json
-"mvmd:environment": {
-  "weather": "clear",
-  "ambientSound": "https://example.com/audio/forest_ambience.mp3",
-  "atmosphericEffects": [
-    {
-      "type": "fog",
+{
+  "mvmd:environment": {
+    "skybox": "https://example.com/textures/forest-sky.hdr",
+    "fog": {
+      "type": "exponential",
+      "color": "#8FA5BC",
       "density": 0.03,
-      "color": "#C0D8FF",
-      "startDistance": 50,
-      "endDistance": 100
+      "start": 10,
+      "end": 100
     },
-    {
-      "type": "particles",
-      "name": "Fireflies",
-      "density": 0.1,
-      "area": [20, 5, 20]
-    }
-  ],
-  "timeControl": {
-    "cycleEnabled": true,
-    "cycleDuration": 600,
-    "startTime": "sunset"
+    "weather": {
+      "type": "particle",
+      "effect": "light-rain",
+      "intensity": 0.4
+    },
+    "ambientEffects": [
+      {
+        "id": "floating-particles",
+        "type": "particle",
+        "effect": "fireflies",
+        "regions": [
+          {"center": [10, 1, 15], "radius": 8},
+          {"center": [-15, 1, -5], "radius": 5}
+        ]
+      },
+      {
+        "id": "fountain-spray",
+        "type": "particle",
+        "effect": "water-mist",
+        "position": [0, 2, 0],
+        "radius": 3
+      }
+    ]
   }
 }
 ```
 
 ## Navigation and Boundaries
 
-Define how users can navigate within your scene:
+Document navigation paths, boundaries, and points of interest:
 
 ```json
-"mvmd:navigation": {
-  "walkableSurfaces": [
-    {
-      "name": "Main Terrain",
-      "boundingVolume": "https://example.com/navigation/terrain_navmesh.obj"
+{
+  "mvmd:navigation": {
+    "spawnPoints": [
+      {"position": [0, 1, 25], "rotation": [0, 3.14, 0], "default": true},
+      {"position": [-20, 1, 15], "rotation": [0, 2.35, 0], "name": "East Path"}
+    ],
+    "navMesh": "https://example.com/scenes/forest-plaza-navmesh.bin",
+    "boundaries": {
+      "type": "invisible-wall",
+      "points": [
+        [-50, 0, -50], [50, 0, -50], [50, 0, 50], [-50, 0, 50], [-50, 0, -50]
+      ]
     },
-    {
-      "name": "Bridges",
-      "boundingVolume": "https://example.com/navigation/bridges_navmesh.obj"
-    }
-  ],
-  "obstacles": [
-    {
-      "name": "Trees",
-      "boundingVolume": "https://example.com/navigation/trees_colliders.obj"
-    },
-    {
-      "name": "Rocks",
-      "boundingVolume": "https://example.com/navigation/rocks_colliders.obj"
-    }
-  ],
-  "spawnPoints": [
-    {
-      "position": [0, 1, 10],
-      "rotation": [0, 180, 0],
-      "default": true
-    },
-    {
-      "position": [-15, 1, 5],
-      "rotation": [0, 90, 0],
-      "name": "Alternate Start"
-    }
-  ],
-  "boundaries": {
-    "type": "box",
-    "min": [-50, -1, -50],
-    "max": [50, 30, 50]
+    "pointsOfInterest": [
+      {
+        "id": "fountain",
+        "name": "Magic Fountain",
+        "position": [0, 1, 0],
+        "description": "A mystical fountain with magical properties",
+        "markerType": "highlight"
+      },
+      {
+        "id": "ancient-tree",
+        "name": "Ancient Oak",
+        "position": [-25, 0, 15],
+        "description": "A thousand-year-old tree with glowing runes",
+        "markerType": "icon"
+      }
+    ]
   }
 }
 ```
 
 ## Interactive Elements
 
-Document interactive elements within your scene:
+Describe interactive elements and their behaviors:
 
 ```json
-"mvmd:interactiveElements": [
-  {
-    "name": "Campfire",
-    "type": "toggleable",
-    "position": [0, 0.1, 0],
-    "interactionRadius": 3.0,
-    "defaultState": "off",
-    "states": ["on", "off"],
-    "triggers": {
-      "on": {
-        "visualEffect": "https://example.com/effects/fire.vfx",
-        "soundEffect": "https://example.com/sounds/fire_crackling.mp3",
-        "lightEffect": "campfireLight"
+{
+  "mvmd:interactions": {
+    "interactableObjects": [
+      {
+        "id": "central-fountain",
+        "type": "activatable",
+        "activationType": "proximity",
+        "range": 3,
+        "actions": [
+          {
+            "name": "activate",
+            "effect": "particle",
+            "effectDetails": "water-glow-increase",
+            "soundEffect": "magic-chime"
+          }
+        ]
+      },
+      {
+        "id": "forest-door",
+        "type": "portal",
+        "position": [-40, 1, 0],
+        "destination": {
+          "scene": "underground-cavern",
+          "position": [0, 1, 0]
+        },
+        "activationType": "interaction",
+        "requiresItem": "ancient-key"
       }
-    }
-  },
-  {
-    "name": "Hidden Treasure Chest",
-    "type": "openable",
-    "position": [12, 0.2, -8],
-    "interactionRadius": 2.0,
-    "defaultState": "closed",
-    "states": ["open", "closed"],
-    "triggers": {
-      "open": {
-        "animation": "chest_open",
-        "soundEffect": "https://example.com/sounds/chest_open.mp3",
-        "spawnItem": "ancient_coin"
+    ],
+    "triggers": [
+      {
+        "id": "forest-music",
+        "type": "region",
+        "shape": "sphere",
+        "position": [0, 5, 0],
+        "radius": 30,
+        "action": "play-audio",
+        "target": "ambient-forest-theme",
+        "mode": "once"
       }
-    },
-    "requirements": {
-      "item": "rusty_key"
-    }
+    ]
   }
-]
+}
 ```
 
 ## Collectibles and Rewards
 
-If your scene includes collectibles or rewards, document them:
+Document collectible items and rewards:
 
 ```json
-"mvmd:collectibles": [
-  {
-    "name": "Ancient Coin",
-    "id": "ancient_coin",
-    "position": [12, 0.5, -8],
-    "type": "reward",
-    "value": 50,
-    "model": "https://example.com/items/ancient_coin.glb",
-    "thumbnail": "https://example.com/thumbnails/ancient_coin.jpg"
-  },
-  {
-    "name": "Rusty Key",
-    "id": "rusty_key",
-    "position": [-5, 0.3, 15],
-    "type": "key",
-    "model": "https://example.com/items/rusty_key.glb",
-    "thumbnail": "https://example.com/thumbnails/rusty_key.jpg",
-    "unlocks": "hidden_treasure_chest"
-  }
-]
-```
-
-## Audio Landscape
-
-Describe the audio elements in your scene:
-
-```json
-"mvmd:audio": {
-  "background": {
-    "url": "https://example.com/audio/forest_ambience.mp3",
-    "volume": 0.7,
-    "loop": true
-  },
-  "positionalAudio": [
+{
+  "mvmd:collectibles": [
     {
-      "name": "Creek Sounds",
-      "url": "https://example.com/audio/creek_bubbling.mp3",
-      "position": [10, 0, -20],
-      "radius": 15,
-      "falloff": "linear",
-      "volume": 1.0,
-      "loop": true
+      "id": "magic-mushroom",
+      "name": "Glowing Mushroom",
+      "type": "resource",
+      "positions": [
+        [10, 0, 5], [15, 0, -8], [-5, 0, 12], [-20, 0, -15]
+      ],
+      "respawns": true,
+      "respawnTime": 300,
+      "effect": "health-boost"
     },
     {
-      "name": "Wind Through Trees",
-      "url": "https://example.com/audio/wind_through_trees.mp3",
-      "position": [0, 10, 0],
-      "radius": 30,
-      "falloff": "exponential",
-      "volume": 0.8,
-      "loop": true
-    }
-  ],
-  "triggerAudio": [
-    {
-      "name": "Bird Calls",
-      "url": "https://example.com/audio/bird_calls.mp3",
-      "triggerType": "random",
-      "triggerProbability": 0.01,
-      "triggerCooldown": 60,
-      "volume": 0.6
+      "id": "ancient-key",
+      "name": "Ancient Runic Key",
+      "type": "quest-item",
+      "position": [35, 1, 25],
+      "respawns": false,
+      "requirement": "complete-fountain-puzzle"
     }
   ]
 }
 ```
 
-## Platform Support and Requirements
+## Audio Landscape
 
-Specify platform compatibility and requirements:
+Define the audio elements in your scene:
 
 ```json
-"mvmd:platformRequirements": {
-  "minSpecifications": {
-    "gpu": "GTX 1060 or equivalent",
-    "memory": "8GB RAM",
-    "storage": "500MB available space"
-  },
-  "supportedPlatforms": [
-    "platform-a",
-    "platform-b",
-    "platform-c"
-  ],
-  "features": {
-    "vrSupport": true,
-    "mobileSupport": false,
-    "multiplayerSupport": true,
-    "maxConcurrentUsers": 16
-  },
-  "additionalAssets": {
-    "downloadUrl": "https://example.com/assets/forest_scene_extras.zip",
-    "size": "250MB"
+{
+  "mvmd:audioElements": {
+    "ambient": [
+      {
+        "id": "ambient-forest-theme",
+        "url": "https://example.com/audio/forest-ambient.mp3",
+        "volume": 0.4,
+        "loop": true,
+        "spatial": false
+      },
+      {
+        "id": "forest-creatures",
+        "url": "https://example.com/audio/forest-creatures.mp3",
+        "volume": 0.2,
+        "loop": true,
+        "spatial": true,
+        "position": [0, 5, 0],
+        "radius": 50
+      }
+    ],
+    "positional": [
+      {
+        "id": "fountain-bubbling",
+        "url": "https://example.com/audio/fountain-loop.mp3",
+        "position": [0, 1, 0],
+        "radius": 15,
+        "falloff": "logarithmic",
+        "loop": true
+      },
+      {
+        "id": "wind-through-trees",
+        "positions": [
+          [25, 10, 25], [-25, 10, 25], [25, 10, -25], [-25, 10, -25]
+        ],
+        "url": "https://example.com/audio/wind-trees.mp3",
+        "radius": 20,
+        "volume": 0.3,
+        "loop": true
+      }
+    ]
+  }
+}
+```
+
+## Platform Support and Requirements
+
+Define which platforms are supported and their specific requirements:
+
+```json
+{
+  "mvmd:platformRequirements": {
+    "minSpecification": {
+      "gpu": "mid-range",
+      "memory": "4GB",
+      "storage": "150MB"
+    },
+    "supportedPlatforms": [
+      {
+        "name": "Unity WebGL",
+        "version": "2021.2+",
+        "features": ["all"]
+      },
+      {
+        "name": "Unreal Web",
+        "version": "5.0+",
+        "features": ["all"]
+      },
+      {
+        "name": "Mobile AR",
+        "version": "latest",
+        "features": ["basic-visualization", "limited-interaction"],
+        "limitations": ["reduced-lighting", "simplified-geometry"]
+      }
+    ]
   }
 }
 ```
 
 ## Complete Example
 
-Here's a comprehensive example bringing everything together:
+Here's a more complete example of a virtual world scene metadata structure (some sections abbreviated for clarity):
 
 ```json
 {
@@ -364,388 +392,114 @@ Here's a comprehensive example bringing everything together:
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "Place",
-  "name": "Enchanted Forest Clearing",
-  "description": "An immersive forest clearing with dynamic lighting, ambient wildlife, and interactive elements including a magical campfire. This scene includes day-night cycles, environmental effects, and hidden collectibles for exploration.",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "SceneID",
-    "value": "scene-2024-001"
-  },
+  "@type": "DigitalDocument",
+  "name": "Enchanted Forest Plaza",
+  "description": "A mystical forest clearing with interactive elements and ambient sounds.",
   "creator": {
     "@type": "Person",
-    "name": "Environment Artist",
-    "url": "https://example.com/creator"
+    "name": "Virtual Worlds Design Team",
+    "url": "https://example.com/design-team"
   },
-  "dateCreated": "2024-03-15",
-  "dateModified": "2024-04-01",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "contentUrl": "https://example.com/scenes/enchanted_forest.usd",
-  "encodingFormat": "model/vnd.usd",
+  "dateCreated": "2023-06-15",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "encodingFormat": "model/gltf-binary",
+  "contentUrl": "https://example.com/scenes/forest-plaza.glb",
   
-  "thumbnail": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/thumbnails/forest_thumb.jpg",
-    "width": 512,
-    "height": 512
-  },
-  
-  "image": [
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/images/forest_day.jpg",
-      "caption": "Daytime view"
-    },
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/images/forest_night.jpg",
-      "caption": "Nighttime view"
-    },
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/images/forest_campfire.jpg",
-      "caption": "Campfire area"
-    }
-  ],
+  "mvmd:category": "scene",
+  "mvmd:sceneType": "outdoor",
+  "mvmd:version": "1.2",
   
   "mvmd:sceneComposition": {
+    "scale": "1:1",
     "dimensions": {
       "width": 100,
-      "length": 100,
-      "height": 30,
-      "unit": "meters"
+      "height": 35,
+      "depth": 100
     },
-    "scale": "1:1",
-    "coordinateSystem": "y-up",
-    "origin": [0, 0, 0]
+    "boundingBox": {
+      "min": [-50, 0, -50],
+      "max": [50, 35, 50]
+    },
+    "origin": [0, 0, 0],
+    "upAxis": "Y"
   },
   
-  "hasPart": [
+  "mvmd:sceneComponents": [
     {
-      "@type": "CreativeWork",
-      "name": "Terrain",
-      "contentUrl": "https://example.com/assets/forest_terrain.usd",
-      "position": [0, 0, 0],
-      "scale": [1, 1, 1]
+      "id": "terrain",
+      "name": "Forest Floor",
+      "type": "environment",
+      "position": [0, 0, 0]
     },
     {
-      "@type": "CreativeWork",
-      "name": "Trees",
-      "contentUrl": "https://example.com/assets/forest_trees.usd",
-      "position": [0, 0, 0],
-      "scale": [1, 1, 1]
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "Creek",
-      "contentUrl": "https://example.com/assets/forest_creek.usd",
-      "position": [10, 0, -20],
-      "scale": [1, 1, 1]
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "Campfire",
-      "contentUrl": "https://example.com/assets/campfire.usd",
-      "position": [0, 0.1, 0],
-      "scale": [1, 1, 1]
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "Wildlife",
-      "contentUrl": "https://example.com/assets/forest_wildlife.usd",
-      "position": [0, 0, 0],
-      "scale": [1, 1, 1]
+      "id": "central-fountain",
+      "name": "Magic Fountain",
+      "type": "interactable",
+      "position": [0, 1, 0],
+      "interactionType": "proximity",
+      "interactionRange": 3
     }
+    // Additional components omitted for brevity
   ],
   
   "mvmd:lighting": {
-    "type": "dynamic",
-    "timeOfDay": "cycle",
+    "mode": "dynamic",
+    "timeOfDay": "dusk",
     "sources": [
       {
-        "name": "Sun",
+        "id": "sun",
         "type": "directional",
-        "color": "#FFFAEB",
-        "intensity": 3.0,
-        "direction": [-0.5, -1.0, -0.3]
-      },
-      {
-        "name": "Ambient Light",
-        "type": "ambient",
-        "color": "#304875",
-        "intensity": 0.2
-      },
-      {
-        "name": "Campfire Light",
-        "type": "point",
-        "color": "#FF7700",
-        "intensity": 5.0,
-        "position": [0, 1.0, 0],
-        "range": 15,
-        "castsShadows": true
-      },
-      {
-        "name": "Moon",
-        "type": "directional",
-        "color": "#C0C0FF",
-        "intensity": 1.0,
-        "direction": [-0.3, -0.8, 0.1]
+        "color": "#FDB813",
+        "intensity": 0.7,
+        "direction": [-0.5, -1, -0.2]
       }
+      // Additional light sources omitted for brevity
     ],
-    "environmentMap": "https://example.com/textures/forest_hdri.hdr"
+    "shadows": true,
+    "shadowQuality": "high"
   },
   
-  "mvmd:environment": {
-    "weather": "dynamic",
-    "ambientSound": "https://example.com/audio/forest_ambience.mp3",
-    "atmosphericEffects": [
-      {
-        "type": "fog",
-        "density": 0.03,
-        "color": "#C0D8FF",
-        "startDistance": 50,
-        "endDistance": 100
-      },
-      {
-        "type": "particles",
-        "name": "Fireflies",
-        "density": 0.1,
-        "area": [20, 5, 20],
-        "activeTime": "night"
-      },
-      {
-        "type": "particles",
-        "name": "Pollen",
-        "density": 0.05,
-        "area": [50, 10, 50],
-        "activeTime": "day"
-      }
-    ],
-    "timeControl": {
-      "cycleEnabled": true,
-      "cycleDuration": 600,
-      "startTime": "sunset"
-    }
-  },
+  // Environment, navigation, interactions, etc. sections omitted for brevity
   
-  "mvmd:navigation": {
-    "walkableSurfaces": [
-      {
-        "name": "Main Terrain",
-        "boundingVolume": "https://example.com/navigation/terrain_navmesh.obj"
-      },
-      {
-        "name": "Bridges",
-        "boundingVolume": "https://example.com/navigation/bridges_navmesh.obj"
-      }
-    ],
-    "obstacles": [
-      {
-        "name": "Trees",
-        "boundingVolume": "https://example.com/navigation/trees_colliders.obj"
-      },
-      {
-        "name": "Rocks",
-        "boundingVolume": "https://example.com/navigation/rocks_colliders.obj"
-      },
-      {
-        "name": "Creek",
-        "boundingVolume": "https://example.com/navigation/creek_collider.obj"
-      }
-    ],
-    "spawnPoints": [
-      {
-        "position": [0, 1, 10],
-        "rotation": [0, 180, 0],
-        "default": true
-      },
-      {
-        "position": [-15, 1, 5],
-        "rotation": [0, 90, 0],
-        "name": "Creek View"
-      }
-    ],
-    "boundaries": {
-      "type": "box",
-      "min": [-50, -1, -50],
-      "max": [50, 30, 50]
+  "mvmd:relatedAssets": [
+    {
+      "id": "high-quality-render",
+      "url": "https://example.com/images/forest-plaza-hq.jpg",
+      "type": "image",
+      "purpose": "promotion"
+    },
+    {
+      "id": "video-flythrough",
+      "url": "https://example.com/videos/forest-plaza-tour.mp4",
+      "type": "video",
+      "purpose": "preview"
+    },
+    {
+      "id": "separate-collision-mesh",
+      "url": "https://example.com/scenes/forest-plaza-collision.glb",
+      "type": "model",
+      "purpose": "physics"
     }
-  },
-  
-  "mvmd:interactiveElements": [
-    {
-      "name": "Campfire",
-      "type": "toggleable",
-      "position": [0, 0.1, 0],
-      "interactionRadius": 3.0,
-      "defaultState": "off",
-      "states": ["on", "off"],
-      "triggers": {
-        "on": {
-          "visualEffect": "https://example.com/effects/fire.vfx",
-          "soundEffect": "https://example.com/sounds/fire_crackling.mp3",
-          "lightEffect": "campfireLight"
-        }
-      }
-    },
-    {
-      "name": "Hidden Treasure Chest",
-      "type": "openable",
-      "position": [12, 0.2, -8],
-      "interactionRadius": 2.0,
-      "defaultState": "closed",
-      "states": ["open", "closed"],
-      "triggers": {
-        "open": {
-          "animation": "chest_open",
-          "soundEffect": "https://example.com/sounds/chest_open.mp3",
-          "spawnItem": "ancient_coin"
-        }
-      },
-      "requirements": {
-        "item": "rusty_key"
-      }
-    },
-    {
-      "name": "Mystical Stone",
-      "type": "activatable",
-      "position": [-8, 1.0, -5],
-      "interactionRadius": 2.0,
-      "triggers": {
-        "activate": {
-          "visualEffect": "https://example.com/effects/magic_glow.vfx",
-          "soundEffect": "https://example.com/sounds/magic_hum.mp3"
-        }
-      }
-    }
-  ],
-  
-  "mvmd:collectibles": [
-    {
-      "name": "Ancient Coin",
-      "id": "ancient_coin",
-      "position": [12, 0.5, -8],
-      "type": "reward",
-      "value": 50,
-      "model": "https://example.com/items/ancient_coin.glb",
-      "thumbnail": "https://example.com/thumbnails/ancient_coin.jpg"
-    },
-    {
-      "name": "Rusty Key",
-      "id": "rusty_key",
-      "position": [-5, 0.3, 15],
-      "type": "key",
-      "model": "https://example.com/items/rusty_key.glb",
-      "thumbnail": "https://example.com/thumbnails/rusty_key.jpg",
-      "unlocks": "hidden_treasure_chest"
-    },
-    {
-      "name": "Magic Feather",
-      "id": "magic_feather",
-      "position": [-20, 1.5, -15],
-      "type": "collectible",
-      "model": "https://example.com/items/magic_feather.glb",
-      "thumbnail": "https://example.com/thumbnails/magic_feather.jpg"
-    }
-  ],
-  
-  "mvmd:audio": {
-    "background": {
-      "url": "https://example.com/audio/forest_ambience.mp3",
-      "volume": 0.7,
-      "loop": true
-    },
-    "positionalAudio": [
-      {
-        "name": "Creek Sounds",
-        "url": "https://example.com/audio/creek_bubbling.mp3",
-        "position": [10, 0, -20],
-        "radius": 15,
-        "falloff": "linear",
-        "volume": 1.0,
-        "loop": true
-      },
-      {
-        "name": "Wind Through Trees",
-        "url": "https://example.com/audio/wind_through_trees.mp3",
-        "position": [0, 10, 0],
-        "radius": 30,
-        "falloff": "exponential",
-        "volume": 0.8,
-        "loop": true
-      }
-    ],
-    "triggerAudio": [
-      {
-        "name": "Bird Calls",
-        "url": "https://example.com/audio/bird_calls.mp3",
-        "triggerType": "random",
-        "triggerProbability": 0.01,
-        "triggerCooldown": 60,
-        "volume": 0.6
-      },
-      {
-        "name": "Owl Hoots",
-        "url": "https://example.com/audio/owl_hoots.mp3",
-        "triggerType": "timed",
-        "triggerTime": "night",
-        "triggerInterval": 300,
-        "volume": 0.5
-      }
-    ]
-  },
-  
-  "mvmd:platformRequirements": {
-    "minSpecifications": {
-      "gpu": "GTX 1060 or equivalent",
-      "memory": "8GB RAM",
-      "storage": "500MB available space"
-    },
-    "recommendedSpecifications": {
-      "gpu": "RTX 2070 or equivalent",
-      "memory": "16GB RAM",
-      "storage": "500MB available space"
-    },
-    "supportedPlatforms": [
-      "platform-a",
-      "platform-b",
-      "platform-c"
-    ],
-    "features": {
-      "vrSupport": true,
-      "mobileSupport": false,
-      "multiplayerSupport": true,
-      "maxConcurrentUsers": 16
-    },
-    "additionalAssets": {
-      "downloadUrl": "https://example.com/assets/forest_scene_extras.zip",
-      "size": "250MB"
-    }
-  }
+  ]
 }
 ```
 
 ## Best Practices for Virtual World Scene Metadata
 
-1. **Be Comprehensive**: Include all relevant aspects of your scene from physical layout to interactive elements.
-
-2. **Prioritize Discoverability**: Use clear names, categories, and keywords to help users find your scene.
-
-3. **Document Interactions**: Clearly define how users can interact with objects in your scene.
-
-4. **Include Technical Requirements**: Help users understand the hardware and software needed to experience your scene.
-
-5. **Add Rich Media**: Include screenshots and videos to showcase your scene's appearance and features.
-
-6. **Structure Your Metadata**: Organize complex scene information into logical sections for clarity.
-
-7. **Define Navigation Information**: Include spawn points, walkable areas, and boundaries.
-
-8. **Document Audio Elements**: Include information about background music, ambient sounds, and triggered audio effects.
+1. **Be Comprehensive** - Include as much detail as practical about your scene to enhance compatibility
+2. **Prioritize Discoverability** - Add descriptive keywords and categorization to make your scene findable
+3. **Document Interactions** - Clearly define all interactive elements and their behaviors
+4. **Include Technical Requirements** - Specify minimum hardware and software needed for optimal experience
+5. **Add Rich Media** - Include thumbnails, previews, and reference material for better representation
+6. **Structure Your Metadata** - Organize properties logically to facilitate understanding
+7. **Define Navigation Information** - Include spawn points, boundaries, and points of interest
+8. **Document Audio Elements** - Specify both ambient and positional audio sources
 
 ## Next Steps
 
-- [Interactable Objects](interactable-objects.md) - Learn how to describe interactive objects within your scenes
-- [Virtual World Best Practices](../advanced/world-building.md) - Advanced techniques for creating engaging virtual worlds
+- [Create Interactable Objects](interactable-objects.md) - Learn how to define interactive objects in detail
+- [Advanced World Building](../advanced/construct-complex-metadata.md) - Discover advanced techniques for complex virtual environments
 - [Validate Your Metadata](../basic/validate-metadata.md) - Ensure your scene metadata is correctly structured
+- [Integration Profile: Scene](../../integration-profiles/scene.md) - Review the full scene profile specification
+- [Integration Profile: Interactable](../../integration-profiles/interactable.md) - Learn more about interactable object standards
 

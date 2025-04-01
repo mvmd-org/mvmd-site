@@ -199,6 +199,6 @@ MVMD can be extended for specific platforms or use cases:
 
 ## Related Documentation
 
-- [Fundamentals: Schema and JSON-LD](../../fundamentals/schema-and-json-ld.md)
-- [Guides: Prepare Metadata](../../guides/basic/prepare-metadata.md)
-- [Reference: Glossary](../terms-glossary.md) 
+- [Fundamentals: Schema and JSON-LD](../fundamentals/schema-and-json-ld.md)
+- [Guides: Create Basic Metadata](../guides/basic/create-metadata.md)
+- [Terms Glossary](terms-glossary.md) 
