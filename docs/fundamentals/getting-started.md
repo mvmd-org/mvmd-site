@@ -1,67 +1,63 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Quickstart
+# Getting Started
 
 Welcome to the Metaverse Metadata Directory (MVMD). This guide will help you navigate our documentation and find the information most relevant to your needs.
 
-## Structure
-The following is the high-level categories of this documentation.
+## Documentation Structure
 
-### [Concepts](./concepts/overview.md)
-Start here to understand the fundamental principles of metadata in the Metaverse:
-- Core metadata concepts and Schema.org foundations
-- Understanding different types of assets and their relationships
-- Learning when to use URLs vs embedding content
-- Essential data structures and organization patterns
+Our documentation follows the Diátaxis framework, organized into four main sections:
 
-### [Implementation](./implementation/overview.md)
-Learn how to implement metadata for your assets:
-- Basic asset metadata implementation
-- NFT metadata integration
-- Working with composable assets
-- Best practices for implementation
+### Fundamentals
+Start here to understand the core concepts of MVMD:
+- [Core Concepts](./core-concepts.md) - Essential principles and technologies
+- [Metadata Foundations](./metadata-foundations.md) - Key elements and patterns
+- [Schema.org & JSON-LD](./schema-and-json-ld.md) - Underlying technologies
+- [Structure & Composition](./structure-and-composition.md) - Asset relationships
+- [Reference vs Embedding](./reference-vs-embedding.md) - Content handling strategies
+- [Standards Compatibility](./standards-compatibility.md) - Working with multiple standards
 
-### [Integration Profiles](./integration-profiles/overview.md)
-Ready-to-use patterns for common Metaverse asset types:
-- Wearables and equipment
-- Avatars and characters
-- 3D objects and scenes
-- Interactive elements
-- Virtual and physical locations
+### How-To Guides
+Practical instructions for common tasks:
+- [Create Basic Metadata](../guides/basic/create-metadata.md) - Step-by-step metadata creation
+- [Organize Your Files](../guides/basic/organize-files.md) - File structure best practices
+- [Validate Metadata](../guides/basic/validate-metadata.md) - Testing your implementation
 
-### [Embedding](./embedding/overview.md)
-Detailed technical standards for embedding different types of data:
-- Schema.org and JSON-LD usage
-- 3D asset formats (glTF, USD, etc.)
-- Geospatial data integration
-- Authentication and provenance tracking
+### Technical Reference
+Detailed information for implementation:
+- [Terms Glossary](../reference/terms-glossary.md) - Definitions of key terms
+- [Integration Profiles](../reference/integration-profiles.md) - Standard templates for common use cases
+- [Schema Reference](../reference/schema-reference.md) - Detailed property information
 
-### Tools
-- Schema [validation](./tools/validator.md)
+### Examples
+Complete implementation examples:
+- [Basic Asset](../examples/basic-asset.md) - Simple 3D model metadata
+- [Avatar Profile](../examples/avatar-profile.md) - Humanoid character metadata
+- [Virtual Environment](../examples/virtual-environment.md) - Scene and location metadata
 
 ## Common Use Cases
 
 ### "I'm new to Metaverse metadata"
-1. Start with [Concepts](./concepts/overview.md) to understand the basics
-2. Review [Implementation](./implementation/overview.md) for practical guidance
-3. Follow our [Basic Integration Profile](./integration-profiles/basic.md) for your first implementation
+1. Start with [Core Concepts](./core-concepts.md) to understand the basics
+2. Follow the [Create Basic Metadata](../guides/basic/create-metadata.md) guide for your first implementation
+3. Review the [Basic Asset](../examples/basic-asset.md) example for a complete implementation
 
 ### "I need to implement a specific asset type"
-1. Check our [Integration Profiles](./integration-profiles/overview.md) for your asset type
-2. Review relevant [Embedding](./embedding/overview.md) standards
-3. [Validate](./tools/validator.md) your implementation
+1. Check our [Integration Profiles](../reference/integration-profiles.md) for your asset type
+2. Review relevant [Examples](../examples/) for implementation patterns
+3. [Validate](../guides/basic/validate-metadata.md) your implementation
 
 ### "I want to integrate MVMD assets on my platform"
-1. Study our [Implementation](./implementation/overview.md) guide
-2. Review all relevant [Embedding](./embedding/overview.md) standards
-3. Implement proper [Best Practices](./implementation/best-practices.md)
+1. Study the [Fundamentals](./core-concepts.md) to understand the principles
+2. Review the [Technical Reference](../reference/schema-reference.md) for detailed specifications
+3. Implement proper [Best Practices](../guides/advanced/best-practices.md)
 
 ## Next Steps
 
 Choose your path:
-1. **Learn the Basics**: Start with [Concepts](./concepts/overview.md)
-2. **Quick Implementation**: Jump to [Integration Profiles](./integration-profiles/overview.md)
-3. **Technical Details**: Dive into [Embedding](./embedding/overview.md)
-4. **Validate Metadata**: Use the [Validator](./tools/validator.md) to ensure your metadata is correct.
+1. **Learn the Basics**: Start with [Core Concepts](./core-concepts.md)
+2. **Quick Implementation**: Jump to [Create Basic Metadata](../guides/basic/create-metadata.md)
+3. **Technical Details**: Dive into [Technical Reference](../reference/schema-reference.md)
+4. **See Examples**: Explore the [Examples](../examples/) section
