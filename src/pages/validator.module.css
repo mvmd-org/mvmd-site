@@ -1,0 +1,36 @@
+.validatorPage {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--ifm-navbar-height));
+    overflow: hidden;
+}
+
+.header {
+    flex: 0 0 auto;
+    padding: 1rem 2rem;
+    background-color: var(--ifm-background-surface-color);
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+.description p {
+    margin-bottom: 0.5rem;
+}
+
+.description ul {
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+.validatorContainer {
+    flex: 1 1 auto;
+    min-height: 0;
+} 
