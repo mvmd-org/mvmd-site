@@ -102,7 +102,7 @@ Regardless of your specific use case, follow these principles:
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference patterns
 - [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns
 
-## Related Namespaces
+## Related Standards
 
 - [Schema.org](../standards/schema-org.md): Core vocabulary for implementation
 - [glTF](../standards/gltf.md): Implementation patterns for glTF assets

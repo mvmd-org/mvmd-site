@@ -174,3 +174,77 @@ The restructuring will consolidate implementation details into standard files, w
   - Content to create new
 
 ## Phase 2: Content Development and Migration [IN PROGRESS]
+
+### Step 1: Create Standard-Specific Standard Files with Schema Validation [COMPLETED] ✓
+- Created dedicated standard files for key standards:
+  - glTF standard file with complete documentation
+  - USD standard file with complete documentation
+- Developed JSON Schema validation files for each standard:
+  - gltf.schema.json for validating glTF standard usage
+  - usd.schema.json for validating USD standard usage
+- Created JSON-LD context files for semantic mapping:
+  - gltf.context.jsonld for glTF standard
+  - usd.context.jsonld for USD standard
+- Updated 3d-standards.md overview to reference individual standard files
+- Applied consistent documentation structure across standards
+
+### Step 2: Implement Redirects and Navigation Updates [COMPLETED] ✓
+- Updated sidebar navigation with new structure:
+  - Reorganized sidebar.ts to reflect new architecture
+  - Added implementation guides section with use case focus
+  - Added documentation validation tools
+- Implemented redirects for content reorganization:
+  - Added @docusaurus/plugin-client-redirects to handle redirects
+  - Configured redirects in docusaurus.config.ts file
+- Updated sidebar navigation structure to include new standard files
+- Added explicit notes about moved content with links:
+  - Added content notices to 3d-standards.md 
+  - Added redirects from category pages to specific standards
+- Updated cross-references across all documentation
+
+### Step 3: Apply Documentation Templates for Consistency [COMPLETED] ✓
+- Applied standard templates to key documentation types:
+  - Applied concept template to metadata-fundamentals.md
+  - Applied profile template to wearable.md
+  - Applied implementation template to assets.md
+- Ensured consistent structure across document types:
+  - Standardized headings and sections
+  - Implemented proper front matter
+  - Added cross-references between related documents
+- Created comprehensive content following template guidelines:
+  - Added clear explanations 
+  - Included practical implementation examples
+  - Added troubleshooting guidance
+  - Listed related documents and next steps
+- Preserved all existing content while improving organization
+
+### Step 4: Restructure Implementation Guides Based on Use Cases [COMPLETED] ✓
+- Reorganized implementation guides based on use cases:
+  - Reviewed existing cross-platform-assets.md implementation guide
+  - Reviewed existing interactive-assets.md implementation guide
+  - Reviewed existing discovery-optimization.md implementation guide
+- Created implementation guide template for consistency:
+  - Created templates/implementation-guide-template.md
+  - Documented standard sections for implementation guides
+- Updated implementation/overview.md to use consistent terminology:
+  - Changed "Related Namespaces" section to "Related Standards"
+  - Ensured consistent navigation between guides
+- Verified all implementation guides follow consistent structure:
+  - Each guide covers specific use cases 
+  - Each guide provides step-by-step implementation workflow
+  - Each guide includes complete examples and variations
+  - Each guide links to related standards and concepts
+
+### Step 5: Update Profile Templates and Documentation [PLANNED]
+- Apply consistent template across all profiles:
+  - Purpose and use cases
+  - Required properties
+  - Optional properties
+  - Implementation examples
+  - Validation requirements
+  - Related profiles and extensions
+- Merge overlapping profiles:
+  - Combine wearable.md and equipable.md into attachable.md
+  - Consider merging avatar.md and identity.md based on content analysis
+- Update cross-references to standard-specific files
+- Create JSON Schema validation files for each profile
