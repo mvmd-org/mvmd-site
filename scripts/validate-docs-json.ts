@@ -217,6 +217,22 @@ function generateHtmlReport(allIssues: ValidationIssue[], allFilesScannedPaths: 
     const docusaurusPath = getDocusaurusPath(relativePath);
     const hasErrors = fileIssues.length > 0;
 
+    // Group issues by heading and block index for this file
+    const issuesByHeadingAndBlock = new Map<string, Map<number, ValidationIssue[]>>();
+    if (hasErrors) {
+      fileIssues.forEach(issue => {
+        const headingKey = issue.headingAnchor || '_noheading_'; // Use placeholder if no heading
+        if (!issuesByHeadingAndBlock.has(headingKey)) {
+          issuesByHeadingAndBlock.set(headingKey, new Map<number, ValidationIssue[]>());
+        }
+        const issuesByBlock = issuesByHeadingAndBlock.get(headingKey)!;
+        if (!issuesByBlock.has(issue.blockIndex)) {
+          issuesByBlock.set(issue.blockIndex, []);
+        }
+        issuesByBlock.get(issue.blockIndex)!.push(issue);
+      });
+    }
+
     reportHtml += `
   <details ${hasErrors ? 'open' : ''}>
     <summary>
@@ -225,17 +241,34 @@ function generateHtmlReport(allIssues: ValidationIssue[], allFilesScannedPaths: 
     </summary>
 `;
     if (hasErrors) {
-      reportHtml += `    <ul>\n`;
-      fileIssues.forEach(issue => {
-        const linkHref = issue.headingAnchor ? `${docusaurusPath}#${issue.headingAnchor}` : docusaurusPath;
-        const linkText = `[Block ${issue.blockIndex}]`;
-        const listItemHtml = `      <li>
-            <a href="${linkHref}" target="_blank" class="issue-link">${linkText}</a> 
-            <span class="${issue.type}">${issue.type.toUpperCase()}</span>: ${escapeHtml(issue.message)}
-          </li>\n`;
-        reportHtml += listItemHtml;
+      reportHtml += `    <ul class="block-list">\n`; // Changed to block-list class
+
+      // Iterate through headings (or no heading)
+      issuesByHeadingAndBlock.forEach((issuesByBlock, headingKey) => {
+        // Iterate through blocks within this heading
+        issuesByBlock.forEach((blockIssues, blockIndex) => {
+          const headingAnchor = (headingKey === '_noheading_') ? '' : headingKey;
+          const errorMessages = blockIssues.map(issue => `${issue.type.toUpperCase()}: ${issue.message}`);
+          const encodedErrors = encodeURIComponent(JSON.stringify(errorMessages));
+          const primaryAnchor = headingAnchor || `block-${blockIndex}`; // Fallback anchor if no heading
+          const linkHref = `${docusaurusPath}#${primaryAnchor}&validationBlock=${blockIndex}&validationErrors=${encodedErrors}`;
+          const linkText = `[Block ${blockIndex}]`;
+
+          reportHtml += `      <li class="block-item">\n`;
+          reportHtml += `        <a href="${linkHref}" target="_blank" class="issue-link block-link">${linkText}</a>`;
+          if (headingAnchor) {
+            reportHtml += ` <span class="heading-info">(under <a href="${docusaurusPath}#${headingAnchor}" target="_blank">#${headingAnchor}</a>)</span>`;
+          }
+          reportHtml += `        <ul class="error-list">\n`;
+          blockIssues.forEach(issue => {
+            reportHtml += `          <li><span class="${issue.type}">${issue.type.toUpperCase()}</span>: ${escapeHtml(issue.message)}</li>\n`;
+          });
+          reportHtml += `        </ul>\n`;
+          reportHtml += `      </li>\n`; // End block-item
+        });
       });
-      reportHtml += `    </ul>\n`;
+
+      reportHtml += `    </ul>\n`; // End block-list
     } else {
       reportHtml += `    <div class="no-issues">No issues found in this file.</div>\n`;
     }
