@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Implementation Overview
 
-This section provides practical guidance for implementing MVMD in real-world applications. You'll find patterns, best practices, and examples organized by use cases to help you implement metadata for different scenarios.
+This section provides practical guidance for implementing MVMD in real-world applications. You'll find workflow-based implementation guides organized by use cases to help you integrate metadata effectively.
 
 ## Use Case-Based Implementation
 
-We've organized implementation guides based on common use cases rather than specific standards, making it easier to find relevant guidance for your particular needs:
+We've organized our implementation guides based on common use cases, making it easier to find relevant guidance for your specific requirements:
 
 ### Basic Asset Implementation
 
@@ -76,6 +76,29 @@ For complex, multi-component assets:
 
 [Discover Composable Implementation](./composable.md)
 
+## Implementation Workflow
+
+The general workflow for implementing MVMD metadata follows these steps:
+
+1. **Identify Your Use Case**: Determine which implementation guide best fits your needs
+2. **Select Relevant Profiles**: Choose the appropriate [integration profiles](../integration-profiles/overview.md)
+3. **Incorporate Technical Standards**: Add necessary [standard-specific properties](../standards/overview.md)
+4. **Implement Required Properties**: Ensure all required properties are included
+5. **Add Optional Properties**: Enhance with optional properties as needed
+6. **Validate Your Metadata**: Use our [schema validation tools](../validation/schema-validation.md)
+7. **Test Cross-Platform**: Verify functionality across target platforms
+
+## Implementation Examples by Asset Type
+
+| Asset Type | Primary Profile | Key Implementation Guide | Related Standards |
+|------------|-----------------|--------------------------|-------------------|
+| Wearable Items | [Attachable](../integration-profiles/attachable.md) | [Cross-Platform Assets](./cross-platform-assets.md) | [glTF](../standards/gltf.md), [VRM](../standards/vrm.md) |
+| Equipment | [Attachable](../integration-profiles/attachable.md) | [Interactive Assets](./interactive-assets.md) | [glTF](../standards/gltf.md), [OpenXR](../standards/openxr.md) |
+| Avatars | [Avatar](../integration-profiles/avatar.md) | [Cross-Platform Assets](./cross-platform-assets.md) | [VRM](../standards/vrm.md), [glTF](../standards/gltf.md) |
+| Virtual Spaces | [Scene](../integration-profiles/scene.md) | [Composable](./composable.md) | [USD](../standards/usd.md), [glTF](../standards/gltf.md) |
+| Collectibles | [Composable 3D NFT](../integration-profiles/composable-3d-nft.md) | [NFT Metadata](./nfts.md) | [glTF](../standards/gltf.md), [C2PA](../standards/c2pa.md) |
+| Digital Twins | [Digital Twin](../integration-profiles/digital-twin.md) | [Discovery Optimization](./discovery-optimization.md) | [USD](../standards/usd.md), [CityJSON](../standards/cityjson.md) |
+
 ## Implementation Best Practices
 
 Regardless of your specific use case, follow these principles:
@@ -93,18 +116,24 @@ Regardless of your specific use case, follow these principles:
 1. Start with the [Getting Started](./getting-started.md) guide
 2. Choose the appropriate use case for your implementation needs
 3. Use our [templates](../templates/) for consistent implementation
-4. Validate your implementation with our [tools](../reference/validator.md)
+4. Validate your implementation with our [schema validation tools](../validation/schema-validation.md)
 
-## Related Concepts
+## Related Resources
 
+### Concepts
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Core principles
 - [Types of Assets](../concepts/types-of-assets.md): Schema.org types to use
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference patterns
-- [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns
 
-## Related Standards
+### Profiles
+- [Integration Profiles Overview](../integration-profiles/overview.md): Ready-to-use patterns
+- [Basic Profile](../integration-profiles/basic.md): Foundation for all implementations
+- [Attachable Profile](../integration-profiles/attachable.md): For wearable and equipable items
 
+### Standards
 - [Schema.org](../standards/schema-org.md): Core vocabulary for implementation
 - [glTF](../standards/gltf.md): Implementation patterns for glTF assets
 - [USD](../standards/usd.md): Implementation patterns for USD assets
-- [OpenXR](../standards/openxr.md): XR-specific implementation patterns
+
+### Validation
+- [Schema Validation](../validation/schema-validation.md): Validating your implementation

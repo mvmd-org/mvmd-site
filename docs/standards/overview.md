@@ -4,20 +4,20 @@ sidebar_position: 1
 
 # Standards Overview
 
-This section covers the technical standards that can be integrated into your metadata. Standards are incorporated using namespaces, which allow you to combine different metadata systems into a single JSON-LD document.
+This section covers the technical standards that integrate with MVMD through namespaces. Each standard has dedicated documentation on how to properly incorporate it into your metadata.
 
-## Understanding Namespaces
+## Understanding Technical Standards in MVMD
 
-In MVMD, namespaces are identifiers that:
+MVMD uses specific technical standards as namespaces, allowing you to:
 
-- Distinguish properties from different standards
-- Prevent naming conflicts between standards
-- Enable clear attribution of each property's source
-- Allow embedding structured data from specialized standards
+- Include specialized properties from established standards
+- Maintain compatibility with existing tools and ecosystems
+- Provide detailed technical information in a structured format
+- Ensure semantic clarity through proper contextualization
 
-## How Namespaces Work
+## Standards as Namespaces
 
-Namespaces are declared in the `@context` object and then used as prefixes for properties:
+In MVMD, technical standards are incorporated through namespaces in the `@context` object:
 
 ```json
 {
@@ -39,40 +39,73 @@ Namespaces are declared in the `@context` object and then used as prefixes for p
 }
 ```
 
-In this example, `gltf:` identifies properties from the glTF standard.
+## Supported Technical Standards
 
-## Supported Standards
+MVMD provides detailed integration guidance for these technical standards:
 
-MVMD supports integration with multiple technical standards:
+### 3D Standards
 
-- [Schema.org](./schema-org.md): Core vocabulary for general metadata
-- glTF, USD, VRM and other [3D formats](./gltf.md)
-- [Geospatial Standards](./cityjson.md) for location and spatial data
-- [Trust & Provenance Standards](./c2pa.md) for authentication and verification
+- [glTF](./gltf.md): The "JPEG of 3D" for efficient transmission of 3D assets
+- [USD](./usd.md): Universal Scene Description for complex scenes and compositions
+- [VRM](./vrm.md): Humanoid avatar format with specialized metadata
+- [FBX](./fbx.md): Industry standard for 3D content creation workflows
+- [USDZ](./usdz.md): Compressed USD format for AR experiences
 
-## When to Use Standards Integration
+### Interaction & Experience Standards
 
-Integrate standards when you need to:
+- [OpenXR](./openxr.md): Cross-platform standard for virtual and augmented reality
 
-- Embed standard-specific data directly within metadata
-- Combine properties from multiple standards
-- Include technical details from specialized domains
-- Ensure interoperability across platforms
+### Geospatial Standards
 
-For guidance on when to embed versus link to external resources, see [Linking vs Embedding](../concepts/linking-vs-embedding.md).
+- [CityJSON](./cityjson.md): Lightweight city model format
+- [3D Tiles](./3d-tiles.md): Streaming and rendering massive 3D geospatial content
 
-## Best Practices
+### Trust & Provenance
 
-- Define all namespaces in the `@context` object
-- Use consistent namespace prefixes
-- Only embed essential standard-specific data
-- Link to external files for large content
-- Validate embedded data against standard specifications
+- [C2PA](./c2pa.md): Content authenticity and provenance verification
 
-## Getting Started
+### Core Vocabulary
 
-Browse the standards in this section to learn how to:
-1. Properly declare each standard's namespace
-2. Link to standard-specific resources
-3. Embed standard-specific data when appropriate
-4. Follow best practices for each standard 
+- [Schema.org](./schema-org.md): Foundation for all MVMD metadata
+
+## Implementation Guidance
+
+Each standard document includes:
+
+1. **Namespace Declaration**: How to properly reference the standard
+2. **Key Properties**: Most important properties from the standard to include
+3. **Integration Examples**: Complete JSON-LD examples showing proper usage
+4. **Validation**: How to validate against the standard's requirements
+5. **Best Practices**: Recommendations for effective integration
+
+## Choosing Standards
+
+When deciding which standards to integrate:
+
+- **Start with Schema.org**: Always use Schema.org as your foundation
+- **Add format-specific standards**: Include standards relevant to your file formats
+- **Consider specialized domains**: Add domain-specific standards when needed
+- **Balance comprehensiveness with simplicity**: Only include what's necessary
+
+## Cross-References to Implementation Guides
+
+For practical implementation guidance, see these related resources:
+
+- [Cross-Platform Assets Implementation](../implementation/cross-platform-assets.md)
+- [Interactive Assets Implementation](../implementation/interactive-assets.md)
+- [Discovery Optimization](../implementation/discovery-optimization.md)
+
+## Validation Resources
+
+To validate your standard integration:
+
+- [Schema Validation](../validation/schema-validation.md)
+- [MVMD Validator Tool](../tools/validator.md)
+
+## Next Steps
+
+After reviewing the standards documentation:
+
+1. Examine the [integration profiles](../integration-profiles/overview.md) that apply to your assets
+2. Follow the [implementation guides](../implementation/overview.md) for your use case
+3. Validate your metadata using our [validation tools](../validation/schema-validation.md) 

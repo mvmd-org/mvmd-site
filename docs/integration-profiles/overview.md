@@ -23,13 +23,12 @@ MVMD includes the following integration profiles:
 |---------|---------|--------|
 | [Basic](./basic.md) | Core metadata for all assets | Stable |
 | [Avatar](./avatar.md) | Virtual character metadata | Stable |
-| [Wearable](./wearable.md) | Wearable item metadata | Stable |
+| [Attachable](./attachable.md) | Items that can be attached to avatars (wearables, equipment) | Stable |
 | [Scene](./scene.md) | Virtual environment metadata | Stable |
 | [Vehicle](./vehicle.md) | Vehicle asset metadata | Proposed |
 | [Composable 3D NFT](./composable-3d-nft.md) | Composable NFT metadata | Proposed |
 | [Digital Twin](./digital-twin.md) | Physical-digital representation | Proposed |
 | [Identity](./identity.md) | Identity information | Proposed |
-| [Equipable](./equipable.md) | Equipment system metadata | Proposed |
 | [Interactable](./interactable.md) | Interactive object metadata | Proposed |
 | [Royalty](./royalty.md) | Revenue and rights metadata | Proposed |
 | [Future Profiles](./future.md) | Planned developments | In planning |
@@ -39,10 +38,22 @@ MVMD includes the following integration profiles:
 Each integration profile follows a consistent structure:
 
 1. **Purpose and Use Cases**: Description and intended applications
-2. **Required Properties**: Essential metadata properties
-3. **Optional Properties**: Additional metadata enhancements
-4. **Validation Rules**: Constraints and requirements
-5. **Implementation Examples**: Complete examples showing usage
+2. **Profile Overview**: General description of what the profile covers
+3. **Required Properties**: Essential metadata properties
+4. **Optional Properties**: Additional metadata enhancements
+5. **Standards Integration**: How the profile works with technical standards
+6. **Examples**: Basic, standard, and complete examples showing usage
+7. **Validation**: How to validate against profile requirements
+8. **Implementation Considerations**: Best practices and tips
+9. **Common Issues**: Troubleshooting guidance
+10. **Related Profiles**: Links to related profiles
+
+## Schema Validation
+
+Each profile has a corresponding JSON Schema validation file that can be used to validate your metadata:
+
+- [Schema Validation Documentation](../validation/schema-validation.md)
+- [Available Schema Files](../validation/schema-validation.md#available-schema-files)
 
 ## Implementation Approach
 
@@ -50,9 +61,27 @@ When implementing integration profiles:
 
 1. Start with the [Basic Profile](./basic.md)
 2. Add domain-specific profiles as needed
-3. Validate against profile specifications
+3. Validate against profile schema files
 4. Focus on required properties first
 5. Add optional properties based on your specific needs
+
+## Use Case-Based Selection
+
+Select profiles based on your specific use cases:
+
+- **Avatar Customization**: [Avatar](./avatar.md) + [Attachable](./attachable.md)
+- **Virtual Stores**: [Basic](./basic.md) + [Attachable](./attachable.md) + [Royalty](./royalty.md)
+- **Interactive Environments**: [Scene](./scene.md) + [Interactable](./interactable.md)
+- **Virtual Items with Utility**: [Attachable](./attachable.md) + [Interactable](./interactable.md)
+- **Digital Ownership**: [Basic](./basic.md) + [Composable 3D NFT](./composable-3d-nft.md)
+
+## Cross-References to Implementation Guides
+
+For practical implementation guidance, see these related resources:
+
+- [Cross-Platform Assets Implementation](../implementation/cross-platform-assets.md)
+- [Interactive Assets Implementation](../implementation/interactive-assets.md)
+- [Discovery Optimization](../implementation/discovery-optimization.md)
 
 ## Next Steps
 
@@ -60,7 +89,17 @@ When implementing integration profiles:
 - Identify the profiles most relevant to your assets
 - Implement the minimum required properties
 - Extend with optional properties as needed
-- Validate your implementation using the [Validation Tools](../reference/validator.md)
+- Validate your implementation using the [Schema Validation Tools](../validation/schema-validation.md)
+
+## Related Standards
+
+Profiles integrate with these technical standards:
+
+- [Schema.org](../standards/schema-org.md): Core vocabulary for all profiles
+- [glTF](../standards/gltf.md): 3D model format for visual assets
+- [USD](../standards/usd.md): Universal Scene Description for complex assets
+- [OpenXR](../standards/openxr.md): XR-specific implementation patterns
+- [C2PA](../standards/c2pa.md): Authentication and verification
 
 ## Contributing
 

@@ -85,7 +85,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'integration-profiles/overview',
         'integration-profiles/basic',
-        'integration-profiles/wearable',
+        'integration-profiles/attachable',
         'integration-profiles/avatar',
         'integration-profiles/composable-3d-nft',
         'integration-profiles/digital-twin',
@@ -93,19 +93,32 @@ const sidebars: SidebarsConfig = {
         'integration-profiles/identity',
         'integration-profiles/royalty',
         'integration-profiles/scene',
-        'integration-profiles/equipable',
         'integration-profiles/interactable',
         'integration-profiles/future',
       ],
     },
     {
       type: 'category',
+      label: 'Validation',
+      items: [
+        'validation/overview',
+        'validation/schema-validation',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Reference',
       items: [
-        'reference/validator',
         'reference/schemas',
         'reference/api',
         'reference/glossary',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Tools',
+      items: [
+        'tools/validator',
       ],
     },
     {
@@ -131,13 +144,6 @@ const sidebars: SidebarsConfig = {
             'community/supporters/sumset-tech',
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tools',
-      items: [
-        'tools/validator',
       ],
     },
   ],

@@ -53,9 +53,46 @@ Proper organization of metadata ensures:
 
 [Learn about Structural Organization](./structural-organization.md)
 
-## Getting Started
+## Standards as Namespaces
 
-1. Start with [Metadata Fundamentals](./metadata-fundamentals.md) to understand the core JSON-LD approach
-2. Learn about [Types of Assets](./types-of-assets.md) to choose the right type for your content
-3. Understand [Linking vs Embedding](./linking-vs-embedding.md) to make proper architectural decisions
-4. Review [Structural Organization](./structural-organization.md) for best practices in metadata structure
+MVMD uses technical standards as namespaces to integrate specialized vocabulary:
+
+- Each standard has its own namespace identifier in the `@context`
+- Properties from specific standards are prefixed with the namespace
+- Standards integration enables detailed technical information
+- Multiple standards can be combined in a single metadata document
+
+[Explore Standards Integration](../standards/overview.md)
+
+## User Journey Map
+
+Based on your role and goals, we recommend different paths through the documentation:
+
+### For Developers New to Metadata
+1. Start with [Metadata Fundamentals](./metadata-fundamentals.md)
+2. Review [Types of Assets](./types-of-assets.md)
+3. Explore [Basic Implementation](../implementation/assets.md)
+4. Learn about [Basic Profile](../integration-profiles/basic.md)
+5. Review [Validation](../validation/overview.md)
+
+### For 3D Content Creators
+1. Start with [Integration Profiles Overview](../integration-profiles/overview.md)
+2. Review the [Attachable Profile](../integration-profiles/attachable.md) for wearables/equipment
+3. Explore [Avatar Profile](../integration-profiles/avatar.md) for character assets
+4. Learn about [glTF Standard Integration](../standards/gltf.md)
+5. Use [Schema Validation](../validation/schema-validation.md) to verify metadata
+
+### For Platform Developers
+1. Start with [Implementation Overview](../implementation/overview.md)
+2. Review [Cross-Platform Assets](../implementation/cross-platform-assets.md)
+3. Explore [Standards Overview](../standards/overview.md)
+4. Learn about [Schema Validation](../validation/schema-validation.md)
+5. Implement [Best Practices](../implementation/best-practices.md)
+
+## Related Resources
+
+- [Implementation Guides](../implementation/overview.md): Practical how-to guidance
+- [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns
+- [Technical Standards](../standards/overview.md): Standard-specific integration
+- [Validation](../validation/overview.md): Ensuring compliance and quality
+- [Quickstart](../quickstart.md): Fast implementation guide
