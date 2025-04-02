@@ -43,6 +43,8 @@ const sidebars: SidebarsConfig = {
         'namespaces/overview',
         'namespaces/schema-org',
         'namespaces/3d-standards',
+        'namespaces/gltf',
+        'namespaces/usd',
         'namespaces/geospatial-standards',
         'namespaces/trust-provenance',
         'namespaces/openxr',

@@ -6,6 +6,14 @@ sidebar_position: 8
 
 This guide provides practical approaches for implementing MVMD alongside existing industry standards and specifications.
 
+:::info Content Reorganization
+As part of our documentation restructuring, detailed standard-specific implementation information has been moved to dedicated namespace pages:
+- [glTF Namespace](/docs/namespaces/gltf) - For all glTF-specific implementation details and schema
+- [USD Namespace](/docs/namespaces/usd) - For all USD-specific implementation details and schema
+
+This page now focuses on general implementation patterns and approaches to integrating with various standards.
+:::
+
 ## Interoperability Approaches
 
 ### Complementary Standards Integration

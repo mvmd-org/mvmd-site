@@ -24,6 +24,57 @@ const config: Config = {
 
     plugins: [
         // require.resolve('@docusaurus/plugin-debug'),
+        [
+            '@docusaurus/plugin-client-redirects',
+            {
+                redirects: [
+                    // Redirect for glTF content from 3d-standards to the dedicated namespace file
+                    {
+                        from: '/namespaces/3d-standards#gltf',
+                        to: '/namespaces/gltf',
+                    },
+                    // Redirect for USD content from 3d-standards to the dedicated namespace file
+                    {
+                        from: '/namespaces/3d-standards#usd',
+                        to: '/namespaces/usd',
+                    },
+                    // Redirects for implementations mentioned in standards-implementation
+                    {
+                        from: '/implementation/standards-implementation#gltf',
+                        to: '/namespaces/gltf',
+                    },
+                    {
+                        from: '/implementation/standards-implementation#usd',
+                        to: '/namespaces/usd',
+                    },
+                    // Manual redirect pages
+                    {
+                        from: '/namespaces/redirects/gltf-redirect',
+                        to: '/namespaces/gltf',
+                    },
+                    {
+                        from: '/namespaces/redirects/usd-redirect',
+                        to: '/namespaces/usd',
+                    },
+                ],
+                createRedirects(existingPath) {
+                    // Create redirects for content that was moved from 3d-standards.md
+                    if (existingPath.includes('/namespaces/gltf')) {
+                        return [
+                            existingPath.replace('/namespaces/gltf', '/namespaces/3d-standards#gltf'),
+                            existingPath.replace('/namespaces/gltf', '/implementation/standards-implementation#gltf'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/usd')) {
+                        return [
+                            existingPath.replace('/namespaces/usd', '/namespaces/3d-standards#usd'),
+                            existingPath.replace('/namespaces/usd', '/implementation/standards-implementation#usd'),
+                        ];
+                    }
+                    return undefined;
+                },
+            },
+        ],
     ],
 
     presets: [

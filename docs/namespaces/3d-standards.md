@@ -6,6 +6,14 @@ sidebar_position: 3
 
 This page provides an overview of 3D standards and their integration with MVMD through namespaces. For detailed documentation on each standard, please refer to the dedicated namespace pages.
 
+:::info Content Reorganization
+As part of our documentation restructuring, detailed information about specific 3D standards has been moved to dedicated namespace pages:
+- [glTF](/docs/namespaces/gltf) - For all glTF-specific implementation details and schema
+- [USD](/docs/namespaces/usd) - For all USD-specific implementation details and schema
+
+This overview page now serves as a central hub for understanding 3D standards in general.
+:::
+
 ## Supported 3D Standards
 
 MVMD supports integration with the following 3D standards:

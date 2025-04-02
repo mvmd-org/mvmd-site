@@ -11,10 +11,12 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "check-links": "node scripts/check-broken-links.js",
     "typecheck": "tsc"
   },
   "dependencies": {
     "@docusaurus/core": "3.6.3",
+    "@docusaurus/plugin-client-redirects": "3.6.3",
     "@docusaurus/preset-classic": "3.6.3",
     "@mdx-js/react": "^3.0.0",
     "@monaco-editor/react": "^4.7.0",
