@@ -42,30 +42,10 @@ const sidebars: SidebarsConfig = {
       items: [
         'namespaces/overview',
         'namespaces/schema-org',
-        {
-          type: 'category',
-          label: '3D Standards',
-          items: [
-            'namespaces/3d-standards',
-            'namespaces/gltf',
-            'namespaces/usd',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Geospatial Standards',
-          items: [
-            'namespaces/geospatial-standards',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Trust & Provenance',
-          items: [
-            'namespaces/trust-provenance',
-          ],
-        },
+        'namespaces/gltf',
+        'namespaces/usd',
         'namespaces/openxr',
+        // Add other standard-specific namespaces as they are created
       ],
     },
     {
