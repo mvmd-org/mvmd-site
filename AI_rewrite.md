@@ -280,10 +280,211 @@ Based on the content inventory, key actions needed:
 
 ### Step 3: User Journey Analysis [IN PROGRESS]
 - Document 3-5 primary user personas (new user, developer, standards organization, etc.)
+  - These personas have been identified in the "Key User Journeys to Consider" section:
+    1. New User / First-Time Developer
+    2. Implementation-Focused Developer
+    3. Standards Organization Stakeholder
+    4. Multi-Platform Implementer
+    5. Content Creator / Asset Designer
+
 - Map typical user journeys through the documentation for each persona
+  - **New User / First-Time Developer Journey**:
+    1. Entry point: Introduction page or direct link from search engines
+    2. Next steps: 
+       - Introduction → Core Concepts → Basic Implementation
+       - Introduction → Quickstart → Basic Profile
+    3. Key pages visited:
+       - introduction.md
+       - concepts/overview.md
+       - concepts/metadata-fundamentals.md
+       - quickstart.md
+       - implementation/getting-started.md
+       - integration-profiles/basic.md
+    4. Information needs:
+       - What is metadata and why is it important?
+       - How to implement basic metadata
+       - Simple copy-pastable examples
+
+  - **Implementation-Focused Developer Journey**:
+    1. Entry points: 
+       - Direct link to specific standard implementation 
+       - Search result for a specific standard
+    2. Next steps:
+       - Namespaces/[specific standard] → Implementation examples → Integration profiles
+       - Implementation/standards-implementation → Namespaces → Integration profiles
+    3. Key pages visited:
+       - namespaces/3d-standards.md (looking for specific standard)
+       - implementation/standards-implementation.md
+       - implementation/best-practices.md
+       - integration-profiles/[specific profile].md
+       - reference/validator.md
+    4. Information needs:
+       - How to implement a specific standard
+       - Best practices for implementation
+       - Complete code examples
+       - Validation methods
+
+  - **Standards Organization Stakeholder Journey**:
+    1. Entry points:
+       - for-standards-organizations.md
+       - introduction.md
+    2. Next steps:
+       - For Standards Organizations → Namespaces → Concepts
+       - Introduction → Concepts → Namespaces
+    3. Key pages visited:
+       - for-standards-organizations.md
+       - concepts/overview.md
+       - concepts/metadata-fundamentals.md
+       - namespaces/overview.md
+       - community/sdo-integration-guide.md
+    4. Information needs:
+       - How their standard fits into MVMD
+       - Technical integration approaches
+       - High-level architecture
+
+  - **Multi-Platform Implementer Journey**:
+    1. Entry points:
+       - implementation/overview.md
+       - integration-profiles/overview.md
+    2. Next steps:
+       - Implementation → Integration Profiles → Platform-specific guidance
+       - Integration Profiles → Implementation → Namespaces
+    3. Key pages visited:
+       - implementation/overview.md
+       - implementation/best-practices.md
+       - integration-profiles/[relevant profiles].md
+       - namespaces/[relevant standards].md
+    4. Information needs:
+       - Cross-platform compatibility information
+       - Platform-specific constraints
+       - Implementation differences across platforms
+
+  - **Content Creator / Asset Designer Journey**:
+    1. Entry points:
+       - introduction.md
+       - integration-profiles/overview.md
+    2. Next steps:
+       - Introduction → Integration Profiles → Specific asset type
+       - Integration Profiles overview → Specific profile
+    3. Key pages visited:
+       - introduction.md
+       - integration-profiles/overview.md
+       - integration-profiles/[specific asset type].md
+       - reference/validator.md
+    4. Information needs:
+       - Metadata requirements for specific asset types
+       - Validation tools
+       - Examples for their specific content type
+
 - Identify pain points and areas of confusion in current structure
+  - **New User Pain Points**:
+    - Empty metadata-fundamentals.md file leaves critical knowledge gap
+    - Confusing split between implementation and namespaces content
+    - Unclear which implementation approach to follow when multiple options exist
+    - Examples spread across multiple locations
+    - Too many cross-references before understanding the basics
+  
+  - **Implementation Developer Pain Points**:
+    - Standard-specific information split between namespaces and implementation directories
+    - Duplicated examples with slight differences cause confusion
+    - Need to cross-reference multiple files to get complete implementation details
+    - Unclear distinction between general categories and specific standards
+    - No centralized standard-specific files for complete reference
+  
+  - **Standards Organization Pain Points**:
+    - Unable to easily find all references to a specific standard
+    - Unclear how general categories like "3D standards" relate to specific standards
+    - Implementation details mixed with conceptual information
+    - Difficult to understand how their standard fits into the overall architecture
+  
+  - **Multi-Platform Implementer Pain Points**:
+    - Platform-specific information scattered across multiple files
+    - Difficult to compare implementation approaches across platforms
+    - Unclear which integration profiles to use in combination
+    - Inconsistent structure between related profiles (e.g., wearable and equipable)
+  
+  - **Content Creator Pain Points**:
+    - Too much technical implementation detail before getting to requirements
+    - Difficult to find clear requirements for specific asset types
+    - Overlapping profiles create confusion about which to follow
+    - More technical details than needed for content creation tasks
+
 - Document optimal paths for each persona in the proposed structure
+  - **New User Optimal Path**:
+    1. Introduction
+    2. Concepts/metadata-fundamentals (enhanced with clear explanations)
+    3. Quickstart with basic implementation
+    4. Integration-profiles/basic
+    5. Relevant integration profile for their asset type
+  
+  - **Implementation Developer Optimal Path**:
+    1. Introduction or direct to relevant namespace
+    2. Standard-specific namespace file (e.g., namespaces/gltf.md)
+    3. Implementation patterns in that specific file
+    4. Integration profiles relevant to their asset type
+    5. Validation tools
+  
+  - **Standards Organization Optimal Path**:
+    1. for-standards-organizations.md
+    2. concepts/metadata-fundamentals.md (enhanced)
+    3. Similar standard-specific namespace files
+    4. Community/sdo-integration-guide.md
+  
+  - **Multi-Platform Implementer Optimal Path**:
+    1. Introduction or implementation/overview.md
+    2. Standard-specific namespace files for each platform
+    3. Platform-specific sections in integration profiles
+    4. Cross-platform validation guidance
+  
+  - **Content Creator Optimal Path**:
+    1. Introduction
+    2. Quick navigation to relevant integration profile
+    3. Clear metadata requirements in profile
+    4. Validation tools
+    5. Optional: standard-specific details if needed
+
 - **Map how users interact with different technical standards documentation**
+  - **Standard-Specific Interaction Patterns**:
+    - **glTF**: 
+      - 3D model creators need embedding patterns
+      - Game developers need linking patterns and extensions
+      - Platform developers need implementation details
+    
+    - **USD**: 
+      - Scene creators need composition examples
+      - Environment designers need reference patterns
+      - Platform developers need format specifications
+    
+    - **Schema.org**:
+      - All users need basic vocabulary usage
+      - SEO-focused users need discovery patterns
+      - Developers need property specifications
+    
+    - **VRM**:
+      - Avatar creators need rigging specifications
+      - Platform developers need animation implementations
+      - Game developers need integration patterns
+
+  - **Cross-Standard Interaction Needs**:
+    - Combining glTF with VRM for animated avatars
+    - Integrating Schema.org with 3D standards for discoverability
+    - Implementing C2PA with other standards for authentication
+    - Using OpenXR with 3D models for interactive experiences
+
+  - **Technical Standard Implementation Paths**:
+    1. Understand the standard's purpose and scope
+    2. Review declaration patterns for the standard
+    3. Implement linking or embedding based on use case
+    4. Add standard-specific properties
+    5. Validate the implementation
+
+User journey analysis summary:
+- The documentation needs clear, dedicated paths for each user type
+- Standard-specific files should be created to reduce confusion and crossreferencing
+- The metadata-fundamentals.md file is critical and needs to be created with comprehensive content
+- Navigation should be reorganized to support the identified optimal paths
+- Examples should be consolidated within standard-specific files
+- Cross-references need to be updated to reflect the new structure
 
 ### Step 4: Namespace-Implementation Mapping
 - Create detailed table mapping implementation content to namespace files
