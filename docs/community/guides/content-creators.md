@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Guide for Content Creators
@@ -48,7 +48,7 @@ Maximize the visibility of your assets:
 
 ## Next Steps
 
-- Review our [Quickstart Guide](../quickstart.md) for basic implementation
-- Explore [Asset Types](../concepts/asset-types.md) to understand different metadata requirements
-- Check out [Implementation Examples](../recipes/overview.md) for practical guidance
-- Learn about [Validation Tools](../tools/validation.md) to ensure compliance 
+- Review our [Quickstart Guide](../../quickstart.md) for basic implementation
+- Explore [Asset Types](../../concepts/types-of-assets.md) to understand different metadata requirements
+- Check out [Implementation Examples](../../implementation/overview.md) for practical guidance
+- Learn about [Validation Tools](../../reference/validator.md) to ensure compliance 
