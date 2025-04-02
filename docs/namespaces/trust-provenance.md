@@ -10,7 +10,7 @@ This page covers how to integrate trust and provenance standards into your metad
 
 ### C2PA
 
-[C2PA](https://c2pa.org/) (Coalition for Content Provenance and Authenticity) is a standard for content authentication and provenance tracking.
+[C2PA](https://c2pa.org/) (Coalition for Content Provenance and Authenticity) is a standard for content authentication and provenance tracking. It provides a framework for verifying the origin and edit history of digital content.
 
 #### Namespace Declaration
 
@@ -18,6 +18,7 @@ This page covers how to integrate trust and provenance standards into your metad
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "c2pa": "https://c2pa.org/statements/"
   }
 }
@@ -32,9 +33,9 @@ This page covers how to integrate trust and provenance standards into your metad
   },
   "@type": "3DModel",
   "name": "Authenticated Model",
-  "contentUrl": "https://example.com/models/verified-model.glb",
+  "contentUrl": "https://example.com/verified-model.glb",
   "encodingFormat": "model/gltf-binary",
-  "contentAuthenticityVerification": "https://example.com/auth/model-verification.c2pa"
+  "contentAuthenticityVerification": "https://example.com/model-verification.c2pa"
 }
 ```
 
@@ -44,6 +45,7 @@ This page covers how to integrate trust and provenance standards into your metad
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "c2pa": "https://c2pa.org/statements/"
   },
   "@type": "3DModel",
@@ -69,7 +71,7 @@ This page covers how to integrate trust and provenance standards into your metad
 
 ### Digital Signatures
 
-Digital signatures provide a way to verify the authenticity and integrity of content.
+Digital signatures provide cryptographic verification of content authenticity and integrity, ensuring that assets haven't been tampered with since creation.
 
 #### Namespace Declaration
 
@@ -77,6 +79,7 @@ Digital signatures provide a way to verify the authenticity and integrity of con
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "sec": "https://w3id.org/security#"
   }
 }
@@ -91,7 +94,7 @@ Digital signatures provide a way to verify the authenticity and integrity of con
   },
   "@type": "DigitalDocument",
   "name": "Signed Document",
-  "contentUrl": "https://example.com/documents/signed.pdf",
+  "contentUrl": "https://example.com/signed.pdf",
   "encodingFormat": "application/pdf",
   "contentDigest": "sha256-892hs8dh82hsd9h29sd2329s9h"
 }
@@ -103,6 +106,7 @@ Digital signatures provide a way to verify the authenticity and integrity of con
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "sec": "https://w3id.org/security#"
   },
   "@type": "DigitalDocument",
@@ -118,13 +122,13 @@ Digital signatures provide a way to verify the authenticity and integrity of con
 
 ## Implementation Considerations
 
-- Include both authentication and provenance information when possible
-- Use timestamps for all verification events
-- Include creator identification for attribution
-- Consider which parts of the verification data should be embedded vs linked
+- **Complete Attribution**: Include creator and timestamp information
+- **Verification Chain**: Maintain unbroken verification links
+- **Key Security**: Follow best practices for signing key management
+- **Transparency**: Make verification methods accessible
 
 ## Related Concepts
 
-- [Core Metadata Concepts](../concepts/core-metadata-concepts.md)
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md)
-- [Implementation Best Practices](../implementation/best-practices.md) 
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
+- [Types of Assets](../concepts/types-of-assets.md)
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md) 

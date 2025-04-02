@@ -8,23 +8,31 @@ This page covers how to use Schema.org and JSON-LD as the foundation for your me
 
 ## About Schema.org
 
-Schema.org provides a robust, extensible vocabulary for describing digital assets and experiences. As an open-source collaborative project, Schema.org continuously evolves to meet emerging needs across industries and use cases.
+[Schema.org](https://schema.org/) is a collaborative project that creates, maintains, and promotes structured data schemas for the internet. It provides a comprehensive vocabulary for describing digital assets and experiences.
 
-## JSON-LD Integration
+Schema.org is used as the core vocabulary in MVMD because:
+- It's widely adopted and recognized
+- It provides flexible, extensible types and properties
+- It works seamlessly with JSON-LD
+- It has strong search engine and discovery support
 
-JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format for implementing Schema.org. It enables seamless integration of structured data into web applications and supports namespacing.
+## Core Schema.org Types
 
-## Core Schema.org Types for Metaverse Assets
+For metaverse assets, the most important Schema.org types are:
 
-- **CreativeWork**: Most versatile base type for digital assets
-- **MediaObject** and subtypes: For specific media formats
-- **Place**: For locations and environments
+- **CreativeWork**: Base type for most assets
+- **MediaObject/3DModel**: For media content
+- **Place/VirtualLocation**: For locations
+- **Event**: For timed experiences
 - **Person/Organization**: For creators and owners
-- **Action**: For interactive behaviors
+
+For detailed information on these types, see [Types of Assets](../concepts/types-of-assets.md).
 
 ## Implementing the Schema.org Namespace
 
 ### Namespace Declaration
+
+Schema.org is set as the default vocabulary using `@vocab`:
 
 ```json
 {
@@ -39,14 +47,16 @@ JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format f
 
 ### Linking Example
 
+Basic Schema.org implementation with external resource links:
+
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/"
   },
   "@type": "3DModel",
-  "name": "Detailed Chair",
-  "contentUrl": "https://example.com/models/chair.glb",
+  "name": "Virtual Chair",
+  "contentUrl": "https://example.com/chair.glb",
   "encodingFormat": "model/gltf-binary",
   "creator": {
     "@type": "Organization",
@@ -57,6 +67,8 @@ JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format f
 
 ### Embedding Example
 
+Using Schema.org's structured data capabilities:
+
 ```json
 {
   "@context": {
@@ -64,13 +76,19 @@ JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format f
     "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "CreativeWork",
-  "name": "Asset with Properties",
+  "name": "Configurable Asset",
   "additionalProperty": [
     {
       "@type": "PropertyValue",
       "propertyID": "renderQuality",
       "name": "Render Quality",
       "value": "high"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "interactivity",
+      "name": "Interactivity Level",
+      "value": "full"
     }
   ]
 }
@@ -78,13 +96,13 @@ JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format f
 
 ## Implementation Considerations
 
-- Always include the Schema.org context (`"@vocab": "https://schema.org/"`)
-- Choose the most specific type for your asset
-- Use PropertyValue for custom properties
-- Keep the structure clean and organized
+- **Required Properties**: Always include `@context` with Schema.org vocabulary and `@type`
+- **Type Selection**: Choose the most specific appropriate type for your asset
+- **Custom Properties**: Use PropertyValue objects for custom data
+- **Structured Data**: Use nested objects with proper type declarations
 
 ## Related Concepts
 
-- [Core Metadata Concepts](../concepts/core-metadata-concepts.md)
-- [Types of Things](../concepts/types-of-things.md)
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
+- [Types of Assets](../concepts/types-of-assets.md)
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md) 

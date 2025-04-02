@@ -10,7 +10,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 
 ### 3D Tiles
 
-[3D Tiles](https://www.ogc.org/standards/3dtiles) is an OGC standard for streaming massive 3D geospatial datasets.
+[3D Tiles](https://www.ogc.org/standards/3dtiles) is an OGC standard for streaming massive 3D geospatial datasets. It enables efficient visualization of large-scale 3D content such as photogrammetry, 3D buildings, BIM/CAD, point clouds, and vector data.
 
 #### Namespace Declaration
 
@@ -18,6 +18,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "3dtiles": "https://www.ogc.org/standards/3dtiles/"
   }
 }
@@ -43,6 +44,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "3dtiles": "https://www.ogc.org/standards/3dtiles/"
   },
   "@type": "Map",
@@ -65,7 +67,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 
 ### CityJSON
 
-[CityJSON](https://www.cityjson.org/) is a JSON-based encoding for storing 3D city models.
+[CityJSON](https://www.cityjson.org/) is a JSON-based encoding for storing 3D city models. It is a compact and developer-friendly format that implements the CityGML data model, making it ideal for web and mobile applications.
 
 #### Namespace Declaration
 
@@ -73,6 +75,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "cityjson": "https://www.cityjson.org/ns/"
   }
 }
@@ -87,7 +90,7 @@ This page covers how to integrate geospatial standards into your metadata throug
   },
   "@type": "Map",
   "name": "Urban District",
-  "contentUrl": "https://example.com/districts/downtown.json",
+  "contentUrl": "https://example.com/downtown.json",
   "encodingFormat": "application/cityjson"
 }
 ```
@@ -98,6 +101,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "cityjson": "https://www.cityjson.org/ns/"
   },
   "@type": "Map",
@@ -121,13 +125,13 @@ This page covers how to integrate geospatial standards into your metadata throug
 
 ## Implementation Considerations
 
-- Include spatial reference systems for accurate positioning
-- Use standard-specific bounding volumes for better interoperability
-- Consider level of detail requirements for your application
-- Use linking for large datasets and embedding for essential metadata
+- **Spatial References**: Always include spatial reference systems for accurate positioning
+- **Bounding Volumes**: Define clear boundaries for geospatial content
+- **Level of Detail**: Consider progressive loading for large datasets
+- **Coordinate Precision**: Balance precision with data size for performance
 
 ## Related Concepts
 
-- [Core Metadata Concepts](../concepts/core-metadata-concepts.md)
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md)
-- [Implementation Best Practices](../implementation/best-practices.md) 
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
+- [Types of Assets](../concepts/types-of-assets.md)
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md) 

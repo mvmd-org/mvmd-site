@@ -4,35 +4,75 @@ sidebar_position: 1
 
 # Namespaces Overview
 
-This section explains how to use namespaces to incorporate standards into your metadata. Namespaces provide a way to declare, reference, and embed metadata from different standards without conflicts.
+Namespaces allow you to integrate different metadata standards into a single JSON-LD document. This section explains how to declare, reference, and embed standards-specific metadata.
 
 ## What Are Namespaces?
 
-Namespaces are identifiers that distinguish properties and types from different standards. They allow you to combine multiple standards in a single metadata object while maintaining clear attribution of where each property comes from.
+In MVMD, namespaces are identifiers that:
 
-## Core Namespace Concepts
+- Distinguish properties from different standards
+- Prevent naming conflicts between standards
+- Enable clear attribution of each property's source
+- Allow embedding structured data from specialized standards
 
-- Namespace declaration in the `@context` object 
-- Prefixing properties with namespaces
-- Standard-specific data structures
-- Resolving naming conflicts
+## How Namespaces Work
 
-## Available Namespace Standards
+Namespaces are declared in the `@context` object and then used as prefixes for properties:
 
-This section covers the following standards with both linking and embedding approaches:
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "gltf:materials": [
+    {
+      "name": "Skin",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [1.0, 0.8, 0.7, 1.0]
+      }
+    }
+  ]
+}
+```
+
+In this example, `gltf:` identifies properties from the glTF standard.
+
+## Supported Standards
+
+MVMD supports integration with multiple standards through namespaces:
 
 - [Schema.org](./schema-org.md): Core vocabulary for general metadata
-- [3D Standards](./3d-standards.md): Standards for 3D models and scenes (glTF, USD, VRM, etc.)
-- [Geospatial Standards](./geospatial-standards.md): Standards for location and spatial data
-- [Trust & Provenance](./trust-provenance.md): Standards for authentication and verification
+- [3D Standards](./3d-standards.md): For 3D models and scenes (glTF, USD, VRM)
+- [Geospatial Standards](./geospatial-standards.md): For location and spatial data
+- [Trust & Provenance](./trust-provenance.md): For authentication and verification
 
 ## When to Use Namespaces
 
-Use namespaces when:
+Use namespaces when you need to:
 
-- Combining multiple standards in a single metadata object
-- Adding standard-specific properties to basic metadata
-- Embedding data directly instead of using references
-- Creating interoperable metadata for cross-platform assets
+- Embed standard-specific data directly within metadata
+- Combine properties from multiple standards
+- Include technical details from specialized domains
+- Ensure interoperability across platforms
 
-For guidance on when to link versus embed content, see the [Linking vs Embedding](../concepts/linking-vs-embedding.md) section in Core Concepts. 
+For guidance on when to embed versus link to external resources, see [Linking vs Embedding](../concepts/linking-vs-embedding.md).
+
+## Best Practices
+
+- Define all namespaces in the `@context` object
+- Use consistent namespace prefixes
+- Only embed essential standard-specific data
+- Link to external files for large content
+- Validate embedded data against standard specifications
+
+## Getting Started
+
+Browse the standards in this section to learn how to:
+1. Properly declare each namespace
+2. Link to standard-specific resources
+3. Embed standard-specific data when appropriate
+4. Follow best practices for each standard 
