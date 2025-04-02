@@ -988,630 +988,107 @@ This comprehensive validation framework will ensure the documentation restructur
 
 The validation criteria and metrics established in this phase will guide the entire implementation process and provide clear measures of success for the restructuring initiative.
 
-## Phase 2: Implementation
-
-### Step 1: Content Backup
-- Create complete backup of documentation directory
-- Set up version control branch for restructuring
-- Document baseline metrics for comparison
-
-### Step 2: Update Metadata Fundamentals in Concepts Section
-- **Enhance the metadata-fundamentals document in the concepts section to include:**
-  - Clear explanation of what namespaces are and how they work
-  - General principles for implementing namespaces in metadata
-  - How to reference different technical standards
-  - When to use different standards together
-
-### Step 3: Create Standard-Specific Namespace Files
-- **Create a dedicated namespace file for each technical standard:**
-  - `namespaces/gltf.md` (3D model representation)
-  - `namespaces/usd.md` (Complex scene composition)
-  - `namespaces/vrm.md` (Humanoid avatars)
-  - `namespaces/fbx.md` (Animation and rigging)
-  - `namespaces/collada.md` (Asset exchange)
-  - `namespaces/x3d.md` (Web-based 3D graphics)
-  - `namespaces/openxr.md` (VR/AR experiences)
-  - `namespaces/cityjson.md` (Urban environment modeling)
-  - `namespaces/3d-tiles.md` (Large-scale geospatial data)
-  - `namespaces/c2pa.md` (Content authentication)
-  - Additional standards as identified in Phase 1
-
-- **For each standard-specific namespace file, include these consistent sections:**
-  1. **Standard Overview**: Brief description and key features
-  2. **Namespace Declaration**: How to declare and use the namespace in metadata
-  3. **Linking Implementation**: Complete examples of linking to external files with:
-     - URL references
-     - SHA256 hash for content verification
-     - Standard-specific metadata (e.g., transforms for 3D models)
-  4. **Embedding Implementation**: Examples showing how to embed data directly in JSON metadata
-  5. **Implementation Patterns**: Common usage patterns and best practices
-  6. **Integration with Other Standards**: How this standard works with others
-
-- **Add relevant content from implementation files**
-- **Move code examples to appropriate sections**
-- **Add "Best Practices" subsection**
-- **Update cross-references**
-- **Verify all unique content is preserved**
-
-### Step 4: Consolidate Integration Profiles
-- Execute profile mergers based on Phase 1 analysis:
-  - Merge wearable/equipable profiles
-  - Combine avatar/identity profiles
-  - Update example JSONs
-  - Ensure property documentation is comprehensive
-  - **Update profile documentation to reference the new standard-specific namespace files**
-  - **Ensure examples reference standards consistently with the new namespace approach**
-  - Verify no information is lost during consolidation
-
-### Step 5: Update Navigation Structure
-- Modify sidebar configuration to reflect the new structure
-- Update _category_.json files
-- **Organize namespaces section to group standards logically (e.g., by use case or related technology)**
-- Reorganize file structure to match new hierarchy
-- Verify navigation paths align with user journeys from Phase 1
-- **Ensure no redundant "namespace overview" document is created**
-
-### Step 6: Clean Up Redundant Content
-- Remove redundant implementation files after content migration
-- Implement redirects for removed pages
-- Document all deleted files and their content disposition
-- Cross-check against content inventory to ensure nothing valuable is lost
-- **Verify all standard-specific implementation details have been moved to appropriate namespace files**
-- **Remove any documents that incorrectly treat general categories as namespaces**
-
-### Step 7: Fix Internal References
-- Update all internal links to reflect new structure
-- Verify no broken links exist
-- Update cross-references between sections
-- Ensure consistency in terminology and references
-- **Update references to standards to point to dedicated namespace files**
-
-### Step 8: User Journey Validation
-- Test all user journeys identified in Phase 1
-- Verify all critical paths are maintained
-- Check for gaps in content flow
-- Ensure logical progression from basic to advanced topics
-- **Validate standard-specific implementation paths for developers**
-
-### Step 9: Documentation Quality Verification
-- Review all modified files for consistency
-- Verify formatting and style consistency
-- Check for unintended content loss
-- Validate against criteria developed in Phase 1
-- **Ensure each standard's namespace file follows the consistent structure**
-- **Verify no redundant information exists between namespaces and concept sections**
-
-### Step 10: SEO and Discoverability Updates
-- Update meta descriptions
-- Ensure proper heading hierarchy
-- Check for appropriate keyword usage
-- **Add standard-specific keywords to improve findability**
-- Verify search functionality works with new structure
-
-### Step 11: Final Verification and Deployment
-- Conduct final review against Phase 1 content inventory
-- Verify all unique content is preserved
-- Test documentation site functionality
-- Deploy changes to production
-- Monitor user feedback and analytics post-deployment
-
-## Verification Checkpoints
-
-Throughout Phase 2, at each step, verify against Phase 1 data:
-- ✓ All unique content preserved
-- ✓ User journeys maintained or improved
-- ✓ No critical information lost
-- ✓ Navigation remains intuitive
-- ✓ Cross-references updated correctly
-- ✓ Examples remain accessible and relevant
-- ✓ **Each technical standard has a complete namespace file**
-- ✓ **Linking and embedding examples are comprehensive for each standard**
-- ✓ **Standard-specific implementation details are preserved and enhanced**
-- ✓ **No redundant information between namespaces and concepts sections**
-- ✓ **Metadata fundamentals properly explain namespace implementation**
-
-This structured approach ensures we maintain the integrity and comprehensiveness of the documentation while achieving the goals of reducing redundancy and improving clarity through standard-specific organization.
-
-### Step 8: Technical Documentation Planning [IN PROGRESS]
+### Step 8: Technical Documentation Planning [COMPLETED] ✓
 - Create template for standard-specific documentation
 - Plan information architecture for technical documentation
 - Define documentation generation process
 - Create style guide for technical content
 - **Design new navigation structure**
 
-#### Documentation Templates
-
-##### Standard Namespace Template
-
-```markdown
-# [Standard Name] Namespace
-
-## Overview
-
-Brief explanation of what [Standard Name] is and its role in the metaverse.
-
-## Core Concepts
-
-Key concepts and terminology specific to [Standard Name] that are essential for understanding the metadata implementation.
-
-## Namespace Declaration
-
-### JSON-LD Context
-
-```json
-{
-  "@context": {
-    "[prefix]": "https://schema.metaverse.org/[standard-path]#",
-    // Standard-specific terms
-  }
-}
-```
-
-### Core Properties
-
-| Property | Type | Description | Required |
-|----------|------|-------------|----------|
-| [property] | [type] | [description] | [Yes/No] |
-| ... | ... | ... | ... |
-
-## Reference Patterns
-
-### External Reference
-
-How to reference [Standard Name] assets or resources from metadata.
-
-```json
-{
-  "@context": "https://schema.metaverse.org/contexts/[standard-name].jsonld",
-  "@type": "[Standard.Type]",
-  // Reference pattern example
-}
-```
-
-### Embedding Pattern
-
-How to embed [Standard Name] metadata directly.
-
-```json
-{
-  "@context": "https://schema.metaverse.org/contexts/[standard-name].jsonld",
-  "@type": "[Standard.Type]",
-  // Embedding pattern example
-}
-```
-
-## Implementation Examples
-
-### Basic Example
-
-```json
-// Basic implementation example
-```
-
-### Advanced Example
-
-```json
-// Advanced implementation with more features
-```
-
-## Integration with Other Standards
-
-How this standard interacts with other standards in the MVMD ecosystem.
-
-### Schema.org Integration
-
-### Integration with [Related Standard]
-
-## Validation
-
-How to validate metadata using this namespace.
-
-## Best Practices
-
-* Best practice 1
-* Best practice 2
-* ...
-
-## Resources
-
-* [Official documentation](https://example.com)
-* [Tools and validators](https://example.com/tools)
-* [Community resources](https://example.com/community)
-```
-
-##### Integration Profile Template
-
-```markdown
-# [Profile Name] Integration Profile
-
-## Overview
-
-Brief explanation of what this profile represents and its purpose in the metaverse ecosystem.
-
-## Requirements
-
-Core requirements for implementing this profile.
-
-### Required Properties
-
-| Property | Namespace | Description | Validation Rules |
-|----------|-----------|-------------|------------------|
-| [property] | [namespace] | [description] | [rules] |
-| ... | ... | ... | ... |
-
-### Optional Properties
-
-| Property | Namespace | Description | Validation Rules |
-|----------|-----------|-------------|------------------|
-| [property] | [namespace] | [description] | [rules] |
-| ... | ... | ... | ... |
-
-## Implementation Examples
-
-### Basic Example
-
-```json
-// Basic profile implementation
-```
-
-### Complete Example
-
-```json
-// Complete implementation with all optional properties
-```
-
-## Related Standards
-
-* [Standard 1] - How it relates to this profile
-* [Standard 2] - How it relates to this profile
-
-## Platform-Specific Considerations
-
-* [Platform 1] - Special considerations
-* [Platform 2] - Special considerations
-
-## Validation
-
-How to validate metadata against this profile.
-
-## Common Implementation Patterns
-
-* Pattern 1
-* Pattern 2
-* ...
-
-## Resources
-
-* [Example implementations](https://example.com)
-* [Tools](https://example.com/tools)
-```
-
-##### Concept Documentation Template
-
-```markdown
-# [Concept Name]
-
-## Overview
-
-Clear explanation of the concept and its importance in the metaverse context.
-
-## Core Principles
-
-* Principle 1
-* Principle 2
-* ...
-
-## Implementation Approaches
-
-### Approach 1
-
-Description and examples.
-
-### Approach 2
-
-Description and examples.
-
-## Standards Relevance
-
-How this concept applies across different standards.
-
-### In [Standard 1]
-
-### In [Standard 2]
-
-## Best Practices
-
-* Best practice 1
-* Best practice 2
-* ...
-
-## Common Pitfalls
-
-* Pitfall 1 and how to avoid it
-* Pitfall 2 and how to avoid it
-* ...
-
-## Related Concepts
-
-* [Related Concept 1] - How it relates
-* [Related Concept 2] - How it relates
-
-## Resources
-
-* [Further reading](https://example.com)
-* [Tools](https://example.com/tools)
-```
-
-#### Information Architecture
-
-##### Documentation Hierarchy
-
-1. **Core Documentation**
-   - Introduction
-   - Getting Started
-   - Core Concepts
-   - Metadata Fundamentals
-   - Types of Assets
-   - Linking vs. Embedding
-
-2. **Namespace Documentation**
-   - Overview
-   - Standard-Specific Documentation
-     - Schema.org
-     - glTF
-     - USD
-     - VRM
-     - OpenXR
-     - C2PA
-     - CityJSON
-     - 3D Tiles
-     - ERC-721/1155
-
-3. **Integration Profiles**
-   - Overview
-   - Basic
-   - Avatar
-   - Attachable
-   - Scene
-   - Vehicle
-   - Composable 3D NFT
-   - Digital Twin
-   - Identity
-   - Interactable
-   - Royalty
-
-4. **Implementation Guides**
-   - Overview
-   - Assets
-   - NFTs
-   - Composable Experiences
-   - Best Practices
-   - Getting Started
-   - Common Patterns
-
-5. **Reference Materials**
-   - Validator Documentation
-   - JSON-LD Contexts
-   - Schema Definitions
-   - API References
-
-6. **For Standards Organizations**
-   - Integration Guide
-   - Namespace Creation
-   - Extension Patterns
-
-##### Content Organization Strategy
-
-| Content Type | Location | Navigation Structure | Cross-Reference Strategy |
-|--------------|----------|----------------------|--------------------------|
-| Core Concepts | /concepts/*.md | Top-level nav item with dropdown | Referenced from all implementation docs |
-| Namespace Docs | /namespaces/*.md | Top-level nav item with standard-specific dropdowns | Referenced from profiles and implementation |
-| Integration Profiles | /integration-profiles/*.md | Top-level nav item with profile dropdowns | Cross-referenced with standards and concepts |
-| Implementation Guides | /implementation/*.md | Top-level nav item with guide dropdowns | References to all other documentation types |
-| Reference Materials | /reference/*.md | Top-level utility section | Referenced from implementation guides |
-| Standards Organization | /for-standards-organizations/*.md | Separate section for specialized audience | References to namespace patterns |
-
-#### Documentation Generation Process
-
-1. **Content Creation Workflow**
-   - Use Markdown templates for all new content
-   - Store templates in `/templates` directory
-   - Follow standardized filename conventions: `[category]-[name].md`
-   - Use frontmatter for metadata about the document
-
-2. **Documentation Build Process**
-   - Generate documentation site using static site generator
-   - Auto-generate navigation from frontmatter and directory structure
-   - Create JSON-LD contexts from schema definitions
-   - Validate all documentation examples during build
-
-3. **Example Generation Process**
-   - Create example generator for each template
-   - Store examples in `/examples` directory
-   - Validate all examples against schemas during build
-   - Generate annotated versions for documentation
-
-4. **Documentation Testing**
-   - Implement automated tests for all examples
-   - Create link validator to ensure cross-references are valid
-   - Test readability metrics against style guide requirements
-   - Implement user journey test automation for key paths
-
-5. **Documentation Deployment**
-   - Implement CI/CD pipeline for documentation changes
-   - Create staging environment for review before production
-   - Implement version control for documentation releases
-   - Create change log generation process
-
-#### Documentation Style Guide
-
-##### Writing Style
-
-* **Technical Accuracy**: All technical information must be precise and verifiable
-* **Clarity**: Prefer simple explanations over complex ones
-* **Consistency**: Use consistent terminology throughout
-* **Active Voice**: Use active voice for instructions and guidance
-* **Second Person**: Address the reader directly using "you" and "your"
-* **Present Tense**: Use present tense for descriptions and instructions
-* **Conciseness**: Eliminate unnecessary words and phrases
-* **Audience Awareness**: Write for the target audience's technical level
-
-##### Terminology Standards
-
-| Term | Definition | Usage |
-|------|------------|-------|
-| Metadata | Structured data that describes assets | Use instead of "data about data" |
-| Asset | Digital content with metadata | Use instead of "item" or "object" |
-| Namespace | Collection of terms from a standard | Use instead of "vocabulary" |
-| Reference | Link to external content | Use instead of "link" when describing metadata relationships |
-| Embedding | Including content directly | Use instead of "inline" |
-| Profile | Set of requirements for a use case | Use instead of "template" or "pattern" |
-| Implementation | Instance of metadata | Use instead of "example" when referring to real-world usage |
-
-##### Documentation Formatting
-
-* **Headings**: Use sentence case for all headings
-* **Code Blocks**: Always specify language for syntax highlighting
-* **Tables**: Use tables for property definitions and comparisons
-* **Lists**: Use bulleted lists for collections of related items
-* **Notes**: Use blockquotes with a "Note:" prefix for important callouts
-* **Warnings**: Use blockquotes with a "Warning:" prefix for critical information
-* **Links**: Use descriptive link text instead of "click here"
-* **Images**: Include alt text for all images and diagrams
-
-##### Example Formatting
-
-* **JSON Examples**: Format with 2-space indentation
-* **Example Annotations**: Use line comments to explain key aspects
-* **Example Completeness**: Show complete examples that can be copied directly
-* **Progressive Examples**: Start with simple examples and progress to more complex ones
-* **Consistent Keys**: Use consistent property names across examples
-* **Realistic Values**: Use realistic data values in examples
-
-#### Navigation Structure Design
-
-##### Primary Navigation
-
-* **Introduction** - Entry point for all users
-* **Concepts** - Fundamental conceptual information
-  * Overview
-  * Metadata Fundamentals
-  * Types of Assets
-  * Linking vs. Embedding
-  * Asset Relationships
-  * Extensibility
-* **Namespaces** - Standard-specific documentation
-  * Overview
-  * Schema.org
-  * 3D Standards
-    * glTF
-    * USD
-    * VRM
-  * Geospatial Standards
-    * CityJSON
-    * 3D Tiles
-  * Trust & Provenance
-    * C2PA
-    * DID
-  * OpenXR
-  * NFT Standards
-    * ERC-721
-    * ERC-1155
-* **Integration Profiles** - Use case implementations
-  * Overview
-  * Basic
-  * Avatar
-  * Attachable
-  * Scene
-  * Vehicle
-  * Composable 3D NFT
-  * Digital Twin
-  * Identity
-  * Interactable
-  * Royalty
-* **Implementation** - Practical guidance
-  * Overview
-  * Getting Started
-  * Assets
-  * NFTs
-  * Composable Experiences
-  * Best Practices
-  * Common Patterns
-* **Reference** - Technical reference material
-  * Validator
-  * JSON-LD Contexts
-  * Schema Definitions
-  * API Reference
-* **For Standards Organizations** - Specialized guidance
-  * Integration Guide
-  * Namespace Creation
-  * Extension Patterns
-
-##### Secondary Navigation Elements
-
-* **Search** - Global search functionality
-* **Quick Links** - Common destinations
-  * Getting Started
-  * Validator Tool
-  * Examples Repository
-  * Community Forum
-* **Version Selector** - For viewing different documentation versions
-* **Language Selector** - For internationalization (future)
-* **Breadcrumbs** - For navigational context
-
-##### Responsive Navigation Considerations
-
-* **Mobile Navigation**: Collapsible sections
-* **Tablet Layout**: Simplified navigation with dropdowns
-* **Desktop Layout**: Full navigation with expanded sections
-* **Navigation States**: Clear indication of current location
-* **Progressive Disclosure**: Show relevant sub-navigation based on context
-
-#### Documentation Roadmap
-
-##### Phase 1: Template and Structure Development
-* Create and approve all documentation templates
-* Develop information architecture and navigation structure
-* Implement style guide and terminology standards
-* Set up documentation generation infrastructure
-
-##### Phase 2: Core Content Migration
-* Migrate and restructure core conceptual documentation
-* Create initial namespace documentation for critical standards
-* Develop key integration profile documentation
-* Implement cross-referencing structure
-
-##### Phase 3: Complete Standard Documentation
-* Complete all standard-specific namespace documentation
-* Finalize all integration profile documentation
-* Create comprehensive implementation guides
-* Develop reference material documentation
-
-##### Phase 4: Enhancement and Optimization
-* Implement search optimization
-* Add interactive examples
-* Create visualizations for complex concepts
-* Implement user feedback mechanisms
-
-##### Phase 5: Advanced Features
-* Implement versioning system
-* Add internationalization support
-* Create personalized documentation paths
-* Develop documentation analytics
-
-#### Technical Documentation Success Criteria
-
-| Criteria | Measurement | Target |
-|----------|-------------|--------|
-| Template Coverage | Percentage of content using templates | 100% |
-| Navigation Effectiveness | User task completion rate | >90% |
-| Cross-Reference Integrity | Percentage of valid cross-references | 100% |
-| Example Validity | Percentage of examples that validate | 100% |
-| Build Process Reliability | Successful build rate | >99% |
-| Documentation Completeness | Coverage of required sections | 100% |
-| Style Guide Compliance | Adherence to style standards | >95% |
-| Terminology Consistency | Consistent use of defined terms | >95% |
-| User Satisfaction | User satisfaction survey results | >4.5/5 |
-| Search Effectiveness | Relevant first-page results | >80% |
-
-This comprehensive technical documentation plan establishes the foundation for creating consistent, high-quality documentation across all standards and use cases. It ensures that users can easily navigate the documentation, find relevant information, and implement metadata according to best practices. 
+## Phase 2: Implementation
+
+### Step 1: Create Standard-Specific Namespace Files with Schema Validation [UPDATED]
+- Extract standards from category files into dedicated namespace files
+- Create documentation structure using templates from Phase 1
+- Implement consistent format for all standards documentation
+- **Develop JSON Schema and JSON-LD context files for each standard simultaneously**
+- Validate examples against schemas during creation
+
+### Step 2: Create and Implement Redirects for Content Integrity [NEW POSITION]
+- Create redirect files for all renamed or moved content
+- Implement HTML meta redirects from old URLs to new URLs
+- Update sidebar navigation structure to reflect new organization
+- Add explicit notes about moved content with links to new locations
+- Set up monitoring to detect broken internal links
+
+### Step 3: Implement Documentation Templates [NEW]
+- Apply standard namespace template to all standard documentation
+- Implement integration profile template for all profiles
+- Apply concept documentation template to core concepts
+- Create template-based file structure for all documentation
+- Verify template compliance for structural consistency
+
+### Step 4: Restructure Implementation Guides
+- Reorganize guides based on use cases rather than standards
+- Create consistent implementation workflow guidance
+- Add standard-specific implementation details in appropriate sections
+- Ensure cross-references to relevant standards
+- Validate examples against schemas
+
+### Step 5: Merge and Align Integration Profiles [EXPANDED]
+- Merge Wearable and Equipable profiles into Attachable Items profile
+- **Align Avatar and Identity profiles for consistent representation**
+- Standardize metadata patterns across all profiles
+- Ensure consistent property naming and patterns
+- **Create clear extensions between related profiles**
+- Validate all profile examples against schemas
+
+### Step 6: Content Validation Process [NEW]
+- Implement validation checklist from Phase 1
+- Validate content against standard-specific criteria
+- Document validation status for each content section
+- Address gaps in validation requirements
+- Create reporting mechanism for validation status
+
+### Step 7: Standardize Implementation Examples [NEW]
+- Standardize example format across all documentation
+- Replace incorrect or inconsistent examples
+- Add progressive example complexity where appropriate
+- Validate all examples against schemas
+- Annotate examples with explanatory comments
+
+### Step 8: Update Cross-References
+- Update all internal links to point to new locations
+- Implement consistent linking patterns
+- Create bidirectional references between related content
+- Verify all cross-references for validity
+- Create centralized reference maps for maintenance
+
+### Step 9: Create Visual Documentation Aids [UPDATED]
+- Create visualization of standard relationships
+- Develop diagrams showing metadata structure
+- **Visualize connections between standards and profiles**
+- Add flowcharts for implementation decision-making
+- Create visual navigation aids
+
+### Step 10: Implement Navigation Improvements
+- Apply navigation structure from Phase 1
+- Create clear hierarchical navigation
+- Implement contextual sub-navigation
+- Add breadcrumb navigation for context
+- Ensure mobile-responsive navigation design
+
+### Step 11: Documentation Testing [NEW]
+- Implement user journey tests from validation criteria
+- Test documentation with representative users
+- Measure documentation against success criteria
+- Document test results and improvements
+- Iterate based on testing feedback
+
+### Step 12: Improve Search Functionality
+- Implement metadata-enhanced search
+- Create search index with appropriate weighting
+- Add search hints and suggestions
+- Implement faceted search for filtering results
+- Test search effectiveness against key terms
+
+### Step 13: Add Version Information
+- Add version tags to all documentation
+- Implement version history for tracking changes
+- Create change logs for major updates
+- Document deprecation timelines where applicable
+- Ensure backward compatibility guidance
+
+## Phase 3: Validation and Refinement
+
+// ... existing code continues ...
