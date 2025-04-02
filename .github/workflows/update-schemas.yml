@@ -1,0 +1,45 @@
+# .github/workflows/update-schemas.yml
+
+name: Update Schema.org Definitions
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+  schedule:
+    # Runs weekly on Sunday at 03:30 UTC
+    - cron: '30 3 * * 0'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "update"
+  update:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Sets up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Or your preferred Node.js version
+          cache: 'npm' # Optional: Caches npm dependencies if your script had any
+
+      # Runs the update script
+      - name: Run update script
+        run: node scripts/update-schemas.js
+
+      # Checks for changes and commits them
+      - name: Commit updated schema definitions
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: Update Schema.org definitions'
+          # Specify the file pattern to commit
+          file_pattern: 'src/lib/schemaDefinitions.json'
+          commit_user_name: 'github-actions[bot]' # Name of the committer
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com' # Email of the committer
+          commit_author: 'GitHub Actions <github-actions[bot]@users.noreply.github.com>' # Name and email of the author 

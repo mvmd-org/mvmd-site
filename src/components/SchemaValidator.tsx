@@ -1,6 +1,35 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Editor from "@monaco-editor/react";
 import styles from './SchemaValidator.module.css';
+import { X } from 'lucide-react';
+// Import the generated definitions
+import schemaDefinitionsData from '../lib/schemaDefinitions.json';
+// Import the validation function
+import { performValidation } from '../lib/validationLogic';
+
+// Define interfaces based on the structure of schemaDefinitions.json
+interface SchemaPropertyDefinition {
+    id: string;
+    label: string;
+    comment: string;
+    domainIncludes: string[];
+    rangeIncludes: string[];
+}
+
+interface SchemaTypeDefinition {
+    id: string;
+    label: string;
+    comment: string;
+    properties: string[]; // IDs of properties associated with this type
+}
+
+interface SchemaDefinitions {
+    types: { [key: string]: SchemaTypeDefinition };
+    properties: { [key: string]: SchemaPropertyDefinition };
+}
+
+// Cast the imported JSON data to our interface
+const schemaDefinitions: SchemaDefinitions = schemaDefinitionsData as SchemaDefinitions;
 
 interface ValidationResult {
   isValid: boolean;
@@ -47,66 +76,13 @@ interface SchemaType {
   required?: string[];
 }
 
-const schemaTypes: { [key: string]: SchemaType } = {
-  VideoObject: {
-    properties: {
-      '@type': {
-        type: ['string'],
-        description: 'The type of the item.',
-        required: true
-      },
-      '@context': {
-        type: ['string', 'object'],
-        description: 'The context for the schema.',
-        required: true
-      },
-      name: {
-        type: ['string'],
-        description: 'The name of the video.',
-        required: true
-      },
-      description: {
-        type: ['string'],
-        description: 'A description of the video.',
-        required: true
-      },
-      thumbnailUrl: {
-        type: ['string', 'URL'],
-        description: 'A thumbnail image for the video.'
-      },
-      uploadDate: {
-        type: ['string', 'Date'],
-        description: 'The date the video was uploaded.',
-        required: true
-      },
-      duration: {
-        type: ['string', 'Duration'],
-        description: 'The duration of the video.'
-      },
-      contentUrl: {
-        type: ['string', 'URL'],
-        description: 'The URL of the video content.',
-        required: true
-      },
-      embedUrl: {
-        type: ['string', 'URL'],
-        description: 'The URL for embedding the video.'
-      },
-      interactionStatistic: {
-        type: ['object'],
-        description: 'Statistics about video interaction.'
-      }
-    },
-    required: ['@type', '@context', 'name', 'description', 'uploadDate', 'contentUrl']
-  },
-  // Add more schema types as needed
-};
-
 const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) => {
   const [jsonInput, setJsonInput] = useState(initialJson);
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [shareUrl, setShareUrl] = useState<string>('');
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
+  const [popupContent, setPopupContent] = useState<'errors' | 'warnings' | null>(null);
   const editorRef = useRef<any>(null);
 
   const findLineNumber = (json: string, path: string): number | undefined => {
@@ -213,203 +189,82 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
     setIsLoading(true);
     setValidationResult(null);
 
-    const buildPath = (currentPath: string, key: string | number): string => {
-      if (typeof key === 'number') {
-        return `${currentPath}[${key}]`;
-      }
-      return currentPath ? `${currentPath}.${key}` : key;
-    };
-
     try {
-      const parsedJson = JSON.parse(jsonToValidate);
-      const properties: PropertyValidation[] = [];
-      const errorLocations: ErrorLocation[] = [];
-      const result: ValidationResult = {
-        isValid: true,
-        errors: [],
+        // Call the external validation logic
+        const resultFromLogic = performValidation(jsonToValidate);
+
+        // Need to reconstruct the `properties` array for the UI breakdown,
+        // as the external function might not return it in the required detail.
+        // Or adjust `performValidation` to return properties if needed.
+        // For now, let's parse again to build the properties breakdown.
+        let propertiesForDisplay: PropertyValidation[] = [];
+        try {
+            const parsedJsonForDisplay = JSON.parse(jsonToValidate);
+            const buildPath = (currentPath: string, key: string | number): string => {
+                if (typeof key === 'number') return `${currentPath}[${key}]`;
+                return currentPath ? `${currentPath}.${key}` : key;
+            };
+            const collectProperties = (node: any, currentPath: string) => {
+                if (typeof node !== 'object' || node === null) return;
+                Object.entries(node).forEach(([key, value]) => {
+                    const propertyPath = buildPath(currentPath, key);
+                    const lineNumber = findLineNumber(jsonToValidate, propertyPath);
+                    const expectedTypeError = resultFromLogic.errorLocations.find(loc => loc.parentPath === currentPath && loc.message.includes(`Invalid value type for "${key}"`));
+                    const expectedType = expectedTypeError?.message.match(/Expected (.*?),/)?.[1];
+
+                    propertiesForDisplay.push({
+                        name: key,
+                        value: value,
+                        type: Array.isArray(value) ? 'Array' : typeof value,
+                        path: propertyPath,
+                        lineNumber: lineNumber,
+                        expectedType: expectedType
+                        // Assign errors/warnings based on resultFromLogic if needed for display
+                    });
+                    if (typeof value === 'object') collectProperties(value, propertyPath);
+                });
+            };
+            collectProperties(parsedJsonForDisplay, '');
+        } catch {
+            // If JSON is invalid, properties array remains empty
+        }
+
+        // Set the state with results from logic and reconstructed properties
+        setValidationResult({
+            ...resultFromLogic,
+            properties: propertiesForDisplay, // Use reconstructed properties for UI
+        });
+
+    } catch (error) { // Catch errors during the performValidation call itself (unlikely now)
+      console.error("Error during validation call:", error);
+       setValidationResult({
+        isValid: false,
+        errors: ['Error during validation process.'],
         warnings: [],
         properties: [],
         errorLocations: [],
-        unspecifiedType: false
-      };
-
-      // Get the schema type from the @type property
-      const schemaType = parsedJson['@type'];
-      const schemaDefinition = schemaTypes[schemaType];
-
-      if (!schemaType) {
-        result.unspecifiedType = true;
-        // Find the root object's line number for highlighting
-        const rootLineNumber = findLineNumber(jsonToValidate, '');
-        if (rootLineNumber) {
-          errorLocations.push({
-            startLineNumber: rootLineNumber,
-            endLineNumber: rootLineNumber,
-            message: 'Schema type is unspecified',
-            severity: 'warning',
-            parentPath: ''
-          });
-        }
-      } else if (!schemaDefinition) {
-        result.warnings.push(`Schema type "${schemaType}" is not in our validation set`);
-      }
-
-      // Function to recursively validate and collect line numbers
-      const validateWithPath = (obj: any, currentPath: string = '') => {
-        if (Array.isArray(obj)) {
-          obj.forEach((item, index) => {
-            const path = buildPath(currentPath, index);
-            if (typeof item === 'object' && item !== null) {
-              validateWithPath(item, path);
-            } else {
-              const lineNumber = findLineNumber(jsonToValidate, path);
-              const propertyValidation = validateProperty(
-                `[${index}]`,
-                item,
-                path,
-                undefined,
-                lineNumber
-              );
-              properties.push(propertyValidation);
-            }
-          });
-        } else {
-          Object.entries(obj).forEach(([key, value]) => {
-            const path = buildPath(currentPath, key);
-            const lineNumber = findLineNumber(jsonToValidate, path);
-            
-            const propertyValidation = validateProperty(
-              key,
-              value,
-              path,
-              schemaDefinition?.properties[key],
-              lineNumber
-            );
-            properties.push(propertyValidation);
-            
-            if (propertyValidation.errors?.length) {
-              result.isValid = false;
-              result.errors.push(...propertyValidation.errors);
-              if (lineNumber) {
-                propertyValidation.errors.forEach(error => {
-                  errorLocations.push({
-                    startLineNumber: lineNumber,
-                    endLineNumber: lineNumber,
-                    message: error,
-                    severity: 'error'
-                  });
-                });
-              }
-            }
-            
-            if (propertyValidation.warnings?.length) {
-              result.warnings.push(...propertyValidation.warnings);
-              if (lineNumber) {
-                propertyValidation.warnings.forEach(warning => {
-                  errorLocations.push({
-                    startLineNumber: lineNumber,
-                    endLineNumber: lineNumber,
-                    message: warning,
-                    severity: 'warning'
-                  });
-                });
-              }
-            }
-
-            // Recursively validate nested objects and arrays
-            if (typeof value === 'object' && value !== null) {
-              validateWithPath(value, path);
-            }
-          });
-        }
-      };
-
-      validateWithPath(parsedJson);
-
-      // Check for missing required properties
-      if (schemaDefinition?.required) {
-        for (const requiredProp of schemaDefinition.required) {
-          if (!(requiredProp in parsedJson)) {
-            result.isValid = false;
-            const error = `Missing required property: ${requiredProp}`;
-            result.errors.push(error);
-            
-            // Find the parent object's line number
-            const parentLineNumber = findLineNumber(jsonToValidate, '');
-            if (parentLineNumber) {
-              errorLocations.push({
-                startLineNumber: parentLineNumber,
-                endLineNumber: parentLineNumber,
-                message: error,
-                severity: 'error',
-                parentPath: ''
-              });
-            }
-          }
-        }
-      }
-
-      result.properties = properties;
-      result.errorLocations = errorLocations;
-      setValidationResult(result);
-
-      // Update editor decorations
-      if (editorRef.current) {
-        const editor = editorRef.current;
-        const monaco = editor.getModel();
-        
-        const decorations = errorLocations.map(loc => ({
-          range: new monaco.Range(
-            loc.startLineNumber,
-            1,
-            loc.endLineNumber,
-            1
-          ),
-          options: {
-            isWholeLine: true,
-            className: loc.severity === 'error' ? styles.errorLine : styles.warningLine,
-            glyphMarginClassName: loc.severity === 'error' ? styles.errorGlyph : styles.warningGlyph,
-            hoverMessage: { value: loc.message }
-          }
-        }));
-        
-        editor.deltaDecorations([], decorations);
-      }
-
-    } catch (error) {
-      // Create a single property for the invalid JSON
-      const errorResult: ValidationResult = {
-        isValid: false,
-        errors: ['Invalid JSON syntax: ' + (error as Error).message],
-        warnings: [],
-        properties: [{
-          name: 'root',
-          value: jsonToValidate,
-          type: 'invalid',
-          path: 'root',
-          errors: ['Invalid JSON syntax: ' + (error as Error).message],
-          warnings: [],
-          properties: []
-        }],
-        errorLocations: [{
-          startLineNumber: 1,
-          endLineNumber: 1,
-          message: 'Invalid JSON syntax: ' + (error as Error).message,
-          severity: 'error'
-        }]
-      };
-      setValidationResult(errorResult);
+      });
     } finally {
       setIsLoading(false);
     }
   }, [jsonInput]);
 
   useEffect(() => {
-    if (initialJson && !jsonInput) {  // Only set if we have initialJson and no current input
-      setJsonInput(initialJson);
-      validateSchema(initialJson);
+    // Initialize with initialJson if provided and input is empty
+    const queryParams = new URLSearchParams(window.location.search);
+    const codeFromQuery = queryParams.get('code');
+    const initialValue = codeFromQuery || initialJson;
+
+    if (initialValue && !jsonInput) {
+      setJsonInput(initialValue);
+      // Automatically validate if there's initial value
+      validateSchema(initialValue);
+    } else if (initialValue && initialValue !== jsonInput) {
+        // If query param changes, update and re-validate
+        setJsonInput(initialValue);
+        validateSchema(initialValue);
     }
-  }, [initialJson, validateSchema, jsonInput]);
+  }, [initialJson, validateSchema]); // Rerun if initialJson changes
 
   const generateShareUrl = () => {
     try {
@@ -436,31 +291,30 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
     }
   };
 
-  const openSchemaOrgValidator = () => {
+  const validateWithSchemaOrg = () => {
     try {
-      // Ensure the JSON is valid before proceeding
+      // Make sure the JSON is valid first
       JSON.parse(jsonInput);
       
-      // Create the Schema.org validator URL
+      // Create the schema.org validator URL
       const encodedJson = encodeURIComponent(jsonInput);
       const validatorUrl = `https://validator.schema.org/?code=${encodedJson}`;
       
-      // Open in a new tab
+      // Open in new tab
       window.open(validatorUrl, '_blank');
     } catch (error) {
-      alert('Please enter valid JSON before attempting to validate with Schema.org');
+      alert('Please enter valid JSON before validating with Schema.org');
     }
   };
 
   const handleErrorClick = (location: ErrorLocation) => {
     if (editorRef.current) {
       const editor = editorRef.current;
-      // Reveal the line in the editor
       editor.revealLineInCenter(location.startLineNumber);
-      // Set the cursor to the line
       editor.setPosition({ lineNumber: location.startLineNumber, column: 1 });
-      // Focus the editor
       editor.focus();
+      setShowErrorPopup(false);
+      setPopupContent(null);
     }
   };
 
@@ -653,18 +507,62 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
     );
   };
 
+  const openPopup = (type: 'errors' | 'warnings') => {
+    setPopupContent(type);
+    setShowErrorPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowErrorPopup(false);
+    setPopupContent(null);
+  };
+
   return (
     <div className={styles.container}>
+      {showErrorPopup && validationResult && popupContent && (
+        <div className={styles.popupOverlay} onClick={closePopup}>
+          <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.popupCloseButton} onClick={closePopup}>
+              <X size={18} />
+            </button>
+            <h3>Detailed {popupContent === 'errors' ? 'Errors' : 'Warnings'}</h3>
+            <div className={styles.popupList}>
+              {(popupContent === 'errors' ? validationResult.errors : validationResult.warnings).map((item, index) => {
+                const location = validationResult.errorLocations.find(loc => loc.message === item && loc.severity === popupContent.slice(0, -1));
+                return (
+                  <div
+                    key={index}
+                    className={popupContent === 'errors' ? styles.popupErrorItem : styles.popupWarningItem}
+                    onClick={() => location && handleErrorClick(location)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (location && (e.key === 'Enter' || e.key === ' ')) {
+                        handleErrorClick(location);
+                      }
+                    }}
+                  >
+                    <span className={styles.popupItemLocation}>
+                      {location ? `Line ${location.startLineNumber}${location.parentPath ? ` (in ${location.parentPath})` : ''}` : 'Location Unknown'}:
+                    </span>
+                    <span className={styles.popupItemMessage}>{item}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className={styles.splitPane}>
         <div className={styles.leftPane}>
           <div className={styles.editorHeader}>
             <h3>JSON-LD Input</h3>
-            <div className={styles.editorHeaderButtons}>
+            <div className={styles.headerButtons}>
               <button
-                className={styles.shareButton}
-                onClick={openSchemaOrgValidator}
+                className={styles.schemaOrgButton}
+                onClick={validateWithSchemaOrg}
                 disabled={!jsonInput.trim()}
-                title="Validate current code with schema.org validator"
               >
                 Schema.org
               </button>
@@ -679,10 +577,10 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
           </div>
           <div className={styles.editorContainer}>
             <Editor
-              height="100%"
-              defaultLanguage="json"
-              value={jsonInput}
-              onChange={(value) => setJsonInput(value || '')}
+              height={"100%" as any}
+              defaultLanguage={"json" as any}
+              value={jsonInput as any}
+              onChange={(value: any) => setJsonInput(value || '')}
               options={{
                 minimap: { enabled: false },
                 lineNumbers: 'on',
@@ -691,8 +589,8 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
                 lineDecorationsWidth: 5,
                 formatOnPaste: true,
                 scrollBeyondLastLine: false
-              }}
-              onMount={(editor) => {
+              } as any}
+              onMount={(editor: any) => {
                 editorRef.current = editor;
               }}
             />
@@ -721,10 +619,26 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
                 </h3>
                 <div className={styles.resultSummary}>
                   {validationResult.errors.length > 0 && (
-                    <span className={styles.errorCount}>{validationResult.errors.length} ERRORS</span>
+                    <span
+                      className={`${styles.errorCount} ${styles.clickableSummary}`}
+                      onClick={() => openPopup('errors')}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPopup('errors'); }}
+                    >
+                      {validationResult.errors.length} ERRORS
+                    </span>
                   )}
                   {validationResult.warnings.length > 0 && (
-                    <span className={styles.warningCount}>&nbsp;{validationResult.warnings.length} WARNINGS</span>
+                    <span
+                     className={`${styles.warningCount} ${styles.clickableSummary}`}
+                     onClick={() => openPopup('warnings')}
+                     role="button"
+                     tabIndex={0}
+                     onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') openPopup('warnings'); }}
+                    >
+                     &nbsp;{validationResult.warnings.length} WARNINGS
+                    </span>
                   )}
                 </div>
               </div>
@@ -735,56 +649,31 @@ const SchemaValidator: React.FC<SchemaValidatorProps> = ({ initialJson = '' }) =
                 </div>
               )}
 
-              {validationResult.errors.length > 0 && (
+              {validationResult.errors.length > 0 && !showErrorPopup && (
                 <div className={styles.errorList}>
+                  <h4>Errors:</h4>
                   {validationResult.errors.map((error, i) => (
                     <div
                       key={i}
                       className={styles.propertyError}
-                      onClick={() => {
-                        const location = validationResult.errorLocations.find(loc => loc.message === error);
-                        if (location) {
-                          handleErrorClick(location);
-                        }
-                      }}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          const location = validationResult.errorLocations.find(loc => loc.message === error);
-                          if (location) {
-                            handleErrorClick(location);
-                          }
-                        }
-                      }}
                     >
                       ⚠ {error}
                     </div>
                   ))}
                 </div>
               )}
-
-              {/* New Warning List Section */}
-              {validationResult.warnings.length > 0 && (
-                <div className={styles.warningList}> {/* Use a new style class */} 
-                  {validationResult.errorLocations
-                    .filter(loc => loc.severity === 'warning')
-                    .map((warningLocation, i) => (
-                      <div
-                        key={`warning-${i}`}
-                        className={styles.propertyWarning} // Reuse existing style for individual items
-                        onClick={() => handleErrorClick(warningLocation)} // Reuse existing handler
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            handleErrorClick(warningLocation);
-                          }
-                        }}
-                      >
-                        ℹ {warningLocation.message}
-                      </div>
-                    ))}
+              
+              {validationResult.warnings.length > 0 && !showErrorPopup && (
+                <div className={styles.warningList}>
+                   <h4>Warnings:</h4>
+                   {validationResult.warnings.map((warning, i) => (
+                     <div
+                      key={i}
+                      className={styles.propertyWarning}
+                     >
+                      ℹ {warning}
+                     </div>
+                   ))}
                 </div>
               )}
 
