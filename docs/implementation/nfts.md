@@ -261,6 +261,6 @@ Specify creator royalties:
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for NFT metadata
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification for NFTs
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D NFT assets
+- [Schema.org](../standards/schema-org.md): Core vocabulary for NFT metadata
+- [Trust & Provenance](../standards/overview.md): Authentication and verification for NFTs
+- [3D Standards](../standards/overview.md): Implementation patterns for 3D NFT assets

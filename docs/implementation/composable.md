@@ -348,6 +348,6 @@ Specify dependencies between components:
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for composable assets
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D components
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation for composable assets
+- [Schema.org](../standards/schema-org.md): Core vocabulary for composable assets
+- [3D Standards](../standards/overview.md): Implementation patterns for 3D components
+- [OpenXR Standards](../standards/openxr.md): XR-specific implementation for composable assets

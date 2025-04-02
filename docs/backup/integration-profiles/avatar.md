@@ -342,4 +342,4 @@ The Avatar Profile includes the following optional properties to enhance functio
 - [Basic Profile](./basic.md): Foundation for all assets including avatars
 - [Wearable Profile](./wearable.md): For items that can be equipped by avatars
 - [Identity Profile](./identity.md): For connecting avatars to user identity
-- [3D Standards Namespace](../namespaces/3d-standards.md): Details on VRM and other avatar formats
+- [3D Standards Namespace](../standards/overview.md): Details on VRM and other avatar formats

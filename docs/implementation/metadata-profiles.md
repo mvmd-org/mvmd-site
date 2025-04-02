@@ -249,8 +249,8 @@ To ensure your customized profiles remain compatible:
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for metadata profiles
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
-- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data profiles
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification profiles
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation profiles
+- [Schema.org](../standards/schema-org.md): Core vocabulary for metadata profiles
+- [3D Standards](../standards/overview.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../standards/overview.md): Location data profiles
+- [Trust & Provenance](../standards/overview.md): Authentication and verification profiles
+- [OpenXR Standards](../standards/openxr.md): XR-specific implementation profiles

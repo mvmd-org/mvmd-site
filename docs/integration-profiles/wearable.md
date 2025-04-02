@@ -378,5 +378,5 @@ To validate this profile, ensure:
 
 ## Related Standards
 
-- [glTF Namespace](../namespaces/gltf.md): 3D format standard
-- [3D Standards Overview](../namespaces/3d-standards.md): Additional 3D standards
+- [glTF Standard](../standards/gltf.md): 3D format standard
+- [3D Standards Overview](../standards/overview.md): Additional 3D standards

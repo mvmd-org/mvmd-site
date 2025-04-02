@@ -302,6 +302,6 @@ When integrating USD with MVMD metadata:
 
 ## Related Concepts
 
-- [3D Standards Overview](/docs/standards/3d-standards)
-- [glTF Namespace](/docs/standards/gltf)
+- [3D Standards Overview](/docs/standards/overview)
+- [glTF Standard](/docs/standards/gltf)
 - [3D Asset Profiles](/docs/profiles/3d-asset) 

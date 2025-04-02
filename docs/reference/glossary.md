@@ -120,5 +120,5 @@ A tool that checks metadata against schema definitions to ensure correctness and
 ## Related Resources
 
 - [Schema Definitions](./schemas.md): Technical schema definitions
-- [Schema.org Namespace](../namespaces/schema-org.md): Core vocabulary details
+- [Schema.org Standard](../standards/schema-org.md): Core vocabulary details
 - [Types of Assets](../concepts/types-of-assets.md): Asset classification 

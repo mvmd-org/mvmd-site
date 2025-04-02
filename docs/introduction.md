@@ -44,7 +44,7 @@ MVMD uses Schema.org and JSON-LD as its foundation because:
 
 ### For Developers
 1. Begin with [Core Concepts](./concepts/overview.md) for fundamentals
-2. Explore [Namespaces](./namespaces/overview.md) for standard integration
+2. Explore [Namespaces]../standards/overview.md) for standard integration
 3. Study [Implementation Patterns](./implementation/overview.md) for practical guidance
 4. Reference [Integration Profiles](./integration-profiles/overview.md) for standard templates
 
@@ -55,14 +55,14 @@ MVMD uses Schema.org and JSON-LD as its foundation because:
 
 ### For Standards Organizations
 1. Read [For Standards Organizations](./for-standards-organizations.md) for specific guidance
-2. Explore how your standard can be integrated in the [Namespaces](./namespaces/overview.md) section
+2. Explore how your standard can be integrated in the [Namespaces]../standards/overview.md) section
 
 ## Documentation Structure
 
 Our documentation is organized to help you find information quickly:
 
 - **[Core Concepts](./concepts/overview.md)**: Fundamental principles and patterns
-- **[Namespaces](./namespaces/overview.md)**: Standards integration and embedding 
+- **[Namespaces]../standards/overview.md)**: Standards integration and embedding 
 - **[Implementation](./implementation/overview.md)**: Practical implementation guidance
 - **[Integration Profiles](./integration-profiles/overview.md)**: Ready-to-use templates
 - **[Reference](./reference/validator.md)**: Technical details and tools
@@ -73,6 +73,6 @@ Choose the path that matches your needs:
 
 1. **Understanding the Basics**: Start with [Core Concepts](./concepts/overview.md)
 2. **Implementing Quickly**: Jump to [Integration Profiles](./integration-profiles/overview.md)
-3. **Integrating Standards**: Explore [Namespaces](./namespaces/overview.md)
+3. **Integrating Standards**: Explore [Namespaces]../standards/overview.md)
 4. **Validating Metadata**: Use our [Validator](./reference/validator.md)
 

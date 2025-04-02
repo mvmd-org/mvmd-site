@@ -134,4 +134,4 @@ To use MVMD's JSON Schema definitions in your projects:
 
 - [Validator](./validator.md): Interactive validation tool
 - [Basic Profile](../integration-profiles/basic.md): Standard implementation profile
-- [Schema.org Namespace](../namespaces/schema-org.md): Core vocabulary details 
+- [Schema.org Standard](../standards/schema-org.md): Core vocabulary details 

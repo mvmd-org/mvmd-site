@@ -104,5 +104,5 @@ A basic metadata example showing fundamental structure:
 ## Implementation References
 
 - [Getting Started](../implementation/getting-started.md): Implementing your first metadata
-- [Schema.org Namespace](../namespaces/schema-org.md): Core vocabulary implementation
+- [Schema.org Standard](../standards/schema-org.md): Core vocabulary implementation
 - [Validation Tools](../reference/validator.md): Tools for validating your metadata 

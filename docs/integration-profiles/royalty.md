@@ -454,5 +454,5 @@ The Royalty Integration Profile defines metadata for tracking, distributing, and
 ## Next Steps
 
 - Review [Basic Profile](./basic.md) for core metadata integration
-- See [C2PA Standard](../namespaces/trust-provenance.md) for authentication and verification
+- See [C2PA Standard](../standards/overview.md) for authentication and verification
 - Check [Validation Tools](../reference/validator.md) for testing 

@@ -456,5 +456,5 @@ When implementing the X3D namespace, keep these considerations in mind:
 
 - [Interactive Asset Implementation](../implementation/interactive-assets.md)
 - [Web-Based Implementation](../implementation/cross-platform-assets.md)
-- [OpenXR Namespace](./openxr.md)
+- [OpenXR Standard](./openxr.md)
 - [Cross-Platform Asset Implementation](../implementation/cross-platform-assets.md) 

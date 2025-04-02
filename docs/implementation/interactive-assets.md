@@ -609,5 +609,5 @@ Each platform handles interactions differently:
 - [Basic Asset Implementation](./assets.md)
 - [Cross-Platform Asset Implementation](./cross-platform-assets.md)
 - [Composable Asset Implementation](./composable.md)
-- [glTF Namespace](../namespaces/gltf.md)
+- [glTF Standard](../standards/gltf.md)
 - [Integration Profiles: Interactable](../integration-profiles/interactable.md) 

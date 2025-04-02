@@ -75,5 +75,5 @@ The MVMD community welcomes contributions to existing profiles and proposals for
 ## Related Resources
 
 - [Types of Assets](../concepts/types-of-assets.md): Core asset classifications
-- [Namespaces](../namespaces/overview.md): Standard-specific metadata properties
+- [Namespaces](../standards/overview.md): Standard-specific metadata properties
 - [Implementation Best Practices](../implementation/best-practices.md): General metadata guidance

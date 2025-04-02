@@ -222,7 +222,7 @@ It uses the hasPart attribute to define the individual parts of the model, so th
 
 ## Implementation Details
 
-For detailed implementation patterns for 3D models, including glTF-specific properties and extensions, refer to the [3D Standards](../namespaces/3d-standards.md) namespace documentation.
+For detailed implementation patterns for 3D models, including glTF-specific properties and extensions, refer to the [3D Standards](../standards/overview.md) namespace documentation.
 
 ## Next Steps
 
@@ -232,6 +232,6 @@ For detailed implementation patterns for 3D models, including glTF-specific prop
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for NFT metadata
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D NFT assets
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification for NFTs
+- [Schema.org](../standards/schema-org.md): Core vocabulary for NFT metadata
+- [3D Standards](../standards/overview.md): Implementation patterns for 3D NFT assets
+- [Trust & Provenance](../standards/overview.md): Authentication and verification for NFTs

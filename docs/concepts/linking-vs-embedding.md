@@ -67,12 +67,12 @@ When deciding between linking and embedding, consider:
 
 ## Implementation in Namespaces
 
-Each [namespace](../namespaces/overview.md) supports both linking and embedding patterns with specific implementation details:
+Each [namespace](../standards/overview.md) supports both linking and embedding patterns with specific implementation details:
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for both patterns
-- [3D Standards](../namespaces/3d-standards.md): 3D-specific implementation
-- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication information
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation
+- [Schema.org](../standards/schema-org.md): Core vocabulary for both patterns
+- [3D Standards](../standards/overview.md): 3D-specific implementation
+- [Geospatial Standards](../standards/overview.md): Location data patterns
+- [Trust & Provenance](../standards/overview.md): Authentication information
+- [OpenXR Standards](../standards/openxr.md): XR-specific implementation
 
 For detailed implementation examples and patterns for each standard, refer to the respective namespace documentation.

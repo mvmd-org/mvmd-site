@@ -289,4 +289,4 @@ The Basic Profile can be extended with type-specific properties based on the ass
 
 - [Types of Assets](../concepts/types-of-assets.md): Different asset types supported by MVMD
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Core metadata principles
-- [Schema.org Namespace](../namespaces/schema-org.md): Detailed information on Schema.org properties
+- [Schema.org Standard](../standards/schema-org.md): Detailed information on Schema.org properties

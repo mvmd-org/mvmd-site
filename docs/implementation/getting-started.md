@@ -175,13 +175,13 @@ After implementing your first metadata:
 
 1. Explore the [Integration Profiles](../integration-profiles/overview.md) for your specific asset type
 2. Review [Implementation Best Practices](./best-practices.md) for optimization tips
-3. Learn about [Namespaces](../namespaces/overview.md) for integrating specialized standards
+3. Learn about [Standards](../standards/overview.md) for integrating specialized standards
 4. Consider [Composable Assets](./composable.md) for complex, multi-component objects
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for getting started
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
-- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns
+- [Schema.org](../standards/schema-org.md): Core vocabulary for getting started
+- [3D Standards](../standards/overview.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../standards/overview.md): Location data patterns
+- [Trust & Provenance](../standards/overview.md): Authentication and verification
+- [OpenXR Standards](../standards/openxr.md): XR-specific implementation patterns

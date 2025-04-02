@@ -403,6 +403,6 @@ When implementing the USDZ namespace, keep these considerations in mind:
 
 ## Related Documentation
 
-- [USD Namespace](./usd.md)
+- [USD Standard](./usd.md)
 - [Cross-Platform Asset Implementation](../implementation/cross-platform-assets.md)
 - [E-Commerce Integration](../implementation/cross-platform-assets.md#e-commerce-integration) 

@@ -403,6 +403,6 @@ When implementing the COLLADA namespace, keep these considerations in mind:
 ## Related Documentation
 
 - [Cross-Platform Asset Implementation](../implementation/cross-platform-assets.md)
-- [glTF Namespace](./gltf.md)
+- [glTF Standard](./gltf.md)
 - [FBX Namespace](./fbx.md)
 - [Asset Implementation](../implementation/assets.md) 

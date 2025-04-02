@@ -406,5 +406,5 @@ When implementing the FBX namespace, keep these considerations in mind:
 
 - [Animation Implementation](../implementation/interactive-assets.md)
 - [Cross-Platform Asset Implementation](../implementation/cross-platform-assets.md)
-- [glTF Namespace](./gltf.md)
+- [glTF Standard](./gltf.md)
 - [COLLADA Namespace](./collada.md) 

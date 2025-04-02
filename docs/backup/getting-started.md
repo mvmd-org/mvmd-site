@@ -175,5 +175,5 @@ After implementing your first metadata:
 
 1. Explore the [Integration Profiles](../integration-profiles/overview.md) for your specific asset type
 2. Review [Implementation Best Practices](./best-practices.md) for optimization tips
-3. Learn about [Namespaces](../namespaces/overview.md) for integrating specialized standards
+3. Learn about [Standards](../standards/overview.md) for integrating specialized standards
 4. Consider [Composable Assets](./composable.md) for complex, multi-component objects

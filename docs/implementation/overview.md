@@ -104,7 +104,7 @@ Regardless of your specific use case, follow these principles:
 
 ## Related Namespaces
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for implementation
-- [glTF](../namespaces/gltf.md): Implementation patterns for glTF assets
-- [USD](../namespaces/usd.md): Implementation patterns for USD assets
-- [OpenXR](../namespaces/openxr.md): XR-specific implementation patterns
+- [Schema.org](../standards/schema-org.md): Core vocabulary for implementation
+- [glTF](../standards/gltf.md): Implementation patterns for glTF assets
+- [USD](../standards/usd.md): Implementation patterns for USD assets
+- [OpenXR](../standards/openxr.md): XR-specific implementation patterns

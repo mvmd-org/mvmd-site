@@ -334,5 +334,5 @@ When implementing the VRM namespace, keep these considerations in mind:
 
 - [Avatar Integration Profile](../integration-profiles/avatar.md)
 - [Identity Integration Profile](../integration-profiles/identity.md)
-- [glTF Namespace](./gltf.md)
+- [glTF Standard](./gltf.md)
 - [Cross-Platform Asset Implementation](../implementation/cross-platform-assets.md) 

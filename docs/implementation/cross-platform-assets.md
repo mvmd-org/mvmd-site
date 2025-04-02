@@ -439,6 +439,6 @@ A comprehensive cross-platform asset implementation:
 
 - [Basic Asset Implementation](./assets.md)
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
-- [glTF Namespace](../namespaces/gltf.md)
-- [USD Namespace](../namespaces/usd.md)
+- [glTF Standard](../standards/gltf.md)
+- [USD Standard](../standards/usd.md)
 - [Validation Tools](../reference/validator.md) 

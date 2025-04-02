@@ -138,9 +138,9 @@ When deciding between linking and embedding, consider:
 
 ## Implementation in Namespaces
 
-Each [namespace](../namespaces/overview.md) supports both linking and embedding patterns:
+Each [namespace](../standards/overview.md) supports both linking and embedding patterns:
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for both patterns
-- [3D Standards](../namespaces/3d-standards.md): 3D-specific implementation
-- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication information
+- [Schema.org](../standards/schema-org.md): Core vocabulary for both patterns
+- [3D Standards](../standards/overview.md): 3D-specific implementation
+- [Geospatial Standards](../standards/overview.md): Location data patterns
+- [Trust & Provenance](../standards/overview.md): Authentication information
