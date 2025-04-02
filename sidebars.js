@@ -42,9 +42,16 @@ const sidebars = {
       type: 'category',
       label: 'Community',
       items: [
-        'contributing',
-        'supporting-organizations',
+        'community/contributing',
+        'community/supporters',
         'community/guidelines',
+        {
+          type: 'category',
+          label: 'User Guides',
+          items: [
+            'community/guides/content-creators',
+          ],
+        },
       ],
     },
   ],
