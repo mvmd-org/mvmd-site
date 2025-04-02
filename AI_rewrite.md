@@ -786,6 +786,208 @@ Link Analysis Summary:
 - **Create standards-specific validation criteria for each namespace**
 - Establish metrics for documentation quality and completeness
 
+#### Content Preservation Checklist
+
+| Content Type | Validation Criteria | Priority | Verification Method |
+|--------------|---------------------|----------|---------------------|
+| Core Concepts | All fundamental metadata concepts preserved and enhanced | Critical | Manual review of concepts/*.md files |
+| Technical Standard Documentation | Complete documentation for each standard with no information loss | Critical | Diff comparison between original and new content |
+| Implementation Examples | All unique code examples preserved with proper context | High | Code extraction and comparison tool |
+| Best Practices | All guidance preserved and properly associated with relevant standards | High | Manual review with checklist |
+| Integration Profiles | All profile requirements and examples preserved | High | JSON schema validation of examples |
+| User Guidance | All usage instructions and guidance preserved | Medium | User journey testing |
+| Cross-References | All valuable cross-references maintained or enhanced | Medium | Link validation script |
+| Diagrams & Visualizations | All visual elements preserved with proper context | Medium | Manual review |
+| External References | All citations and external links maintained | Low | Automated link checker |
+
+#### Key User Journey Test Cases
+
+| User Type | Journey Description | Test Steps | Success Criteria |
+|-----------|---------------------|------------|------------------|
+| New User | First-time metadata implementation | 1. Start at Introduction<br>2. Navigate to Core Concepts<br>3. Review Metadata Fundamentals<br>4. Implement Basic Profile<br>5. Validate implementation | User can successfully create valid basic metadata without prior knowledge |
+| Implementation Developer | Implementing glTF 3D model metadata | 1. Locate glTF namespace documentation<br>2. Review declaration pattern<br>3. Implement linking example<br>4. Implement embedding example<br>5. Validate against schema | Developer can produce valid glTF-referenced metadata with complete implementation |
+| Standards Organization | Understanding how to integrate a standard | 1. Start at For Standards Organizations<br>2. Review metadata fundamentals<br>3. Examine similar standard implementations<br>4. Review namespace declaration patterns<br>5. Identify integration points | Standards organization can understand how to create namespace for their standard |
+| Multi-Platform Implementer | Creating cross-platform avatar metadata | 1. Review Avatar profile<br>2. Examine platform-specific requirements<br>3. Implement VRM namespace references<br>4. Test on multiple platforms<br>5. Validate against schema | Implementer can create metadata that works across specified platforms |
+| Content Creator | Creating wearable item metadata | 1. Locate Wearable profile<br>2. Review requirements<br>3. Implement metadata with glTF references<br>4. Validate against profile requirements<br>5. Test with validator tool | Creator can produce valid wearable metadata without deep technical knowledge |
+
+#### Success Criteria for Restructuring
+
+| Goal | Success Criteria | Measurement Method |
+|------|------------------|-------------------|
+| Reduced Content Redundancy | >80% reduction in duplicated content | Automated text similarity analysis |
+| Improved Information Access | Average time to find implementation details decreased by 30% | User testing with timed tasks |
+| Enhanced Standard Documentation | Each standard has complete namespace documentation | Checklist verification for sections |
+| Clearer Navigation Structure | >90% of test users can find specified information | Usability testing |
+| Preserved Content Integrity | No loss of unique information | Comprehensive diff comparison |
+| Consistent Documentation Structure | >95% adherence to documentation templates | Template compliance check |
+| Improved Cross-Referencing | All references point to correct locations | Automated link validation |
+| Better User Journey Support | All test cases for key user journeys pass | User journey testing |
+| Reduced Maintenance Burden | Update time for standards reduced by 40% | Time tracking for documentation updates |
+| Enhanced Searchability | Search relevance improved by 25% | Search effectiveness testing |
+
+#### Standards-Specific Validation Criteria
+
+**Core Schema.org Namespace Validation**
+- [ ] Complete explanation of Schema.org integration purpose and approach
+- [ ] Documentation of all critical Schema.org types used in MVMD
+- [ ] Property mappings between Schema.org and MVMD concepts
+- [ ] Example JSON-LD declarations with context
+- [ ] Clear extension patterns for Schema.org types
+- [ ] Guidance on when to use native vs. extended properties
+- [ ] Integration with other standards documentation
+- [ ] Best practices for Schema.org usage in the metaverse
+
+**glTF Namespace Validation**
+- [ ] Complete explanation of glTF purpose and use cases
+- [ ] Documentation of core glTF features relevant to metadata
+- [ ] Namespace declaration pattern with complete JSON-LD context
+- [ ] External reference pattern with glTF-specific properties
+- [ ] Embedding pattern for glTF properties and extensions
+- [ ] Well-documented examples for each pattern
+- [ ] Integration with Schema.org and other relevant standards
+- [ ] Material, texture, and animation metadata patterns
+- [ ] Best practices for glTF integration
+- [ ] Validation guidance for glTF references
+
+**USD Namespace Validation**
+- [ ] Complete explanation of USD purpose and use cases
+- [ ] Documentation of core USD concepts relevant to metadata
+- [ ] Namespace declaration pattern with complete JSON-LD context
+- [ ] External reference pattern with USD-specific properties
+- [ ] Embedding pattern for USD properties and schemas
+- [ ] Stage and layer representation in metadata
+- [ ] Variant set handling in metadata
+- [ ] Composition structures and references
+- [ ] Integration with other standards documentation
+- [ ] Best practices for USD integration
+
+**VRM Namespace Validation**
+- [ ] Complete explanation of VRM purpose and use cases
+- [ ] Documentation of core VRM features for avatars
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with VRM-specific properties
+- [ ] Embedding pattern for VRM properties
+- [ ] Humanoid structure representation
+- [ ] Expression and animation metadata
+- [ ] Integration with Schema.org and glTF documentation
+- [ ] Best practices for avatar representation
+- [ ] Validation guidance for VRM references
+
+**OpenXR Namespace Validation**
+- [ ] Complete explanation of OpenXR purpose and use cases
+- [ ] Documentation of core OpenXR concepts relevant to metadata
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with OpenXR-specific properties
+- [ ] Embedding pattern for OpenXR features
+- [ ] Input and interaction metadata patterns
+- [ ] Device and capability representation
+- [ ] Integration with other standards documentation
+- [ ] Best practices for XR metadata
+- [ ] Validation guidance for OpenXR references
+
+**C2PA Namespace Validation**
+- [ ] Complete explanation of C2PA purpose and use cases
+- [ ] Documentation of core C2PA concepts for content provenance
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with C2PA manifests
+- [ ] Embedding pattern for C2PA claims and assertions
+- [ ] Authentication and verification metadata patterns
+- [ ] Chain of custody representation
+- [ ] Integration with other standards documentation
+- [ ] Best practices for provenance metadata
+- [ ] Validation guidance for C2PA references
+
+**CityJSON Namespace Validation**
+- [ ] Complete explanation of CityJSON purpose and use cases
+- [ ] Documentation of core CityJSON concepts for urban models
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with CityJSON-specific properties
+- [ ] Embedding pattern for CityJSON features
+- [ ] Geospatial reference system representation
+- [ ] City object metadata patterns
+- [ ] Integration with other standards documentation
+- [ ] Best practices for urban model metadata
+- [ ] Validation guidance for CityJSON references
+
+**3D Tiles Namespace Validation**
+- [ ] Complete explanation of 3D Tiles purpose and use cases
+- [ ] Documentation of core 3D Tiles concepts for large datasets
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with 3D Tiles-specific properties
+- [ ] Embedding pattern for tileset properties
+- [ ] Spatial reference system representation
+- [ ] Tileset metadata patterns
+- [ ] Integration with other geospatial standards
+- [ ] Best practices for large-scale geospatial metadata
+- [ ] Validation guidance for 3D Tiles references
+
+**ERC-721/1155 Namespace Validation**
+- [ ] Complete explanation of NFT standards purpose and use cases
+- [ ] Documentation of core NFT concepts relevant to metadata
+- [ ] Namespace declaration pattern with JSON-LD context
+- [ ] External reference pattern with NFT-specific properties
+- [ ] Embedding pattern for NFT attributes and features
+- [ ] Token identification and verification metadata
+- [ ] Ownership and rights representation
+- [ ] Integration with other standards documentation
+- [ ] Best practices for NFT metadata
+- [ ] Validation guidance for NFT standard references
+
+#### Documentation Quality Metrics
+
+| Metric | Measurement Method | Target | Rationale |
+|--------|-------------------|--------|-----------|
+| **Completeness** | Percentage of required sections present | >95% | Ensures comprehensive coverage |
+| **Accuracy** | Error rate in technical information | <2% | Maintains technical integrity |
+| **Consistency** | Adherence to style and terminology guidelines | >90% | Provides unified experience |
+| **Clarity** | Readability score (Flesch-Kincaid) | 45-55 | Appropriate for technical documentation |
+| **Example Quality** | Percentage of examples that validate | 100% | Ensures usable reference code |
+| **Cross-Reference Integrity** | Percentage of valid internal links | 100% | Maintains navigation paths |
+| **Structure Adherence** | Compliance with document templates | >95% | Ensures predictable organization |
+| **User Task Support** | Success rate for common user tasks | >90% | Confirms practical usability |
+| **Search Relevance** | First-page hit rate for key terms | >80% | Supports discoverability |
+| **Update Recency** | Examples updated within 6 months | >90% | Ensures continued relevance |
+
+#### Validation Implementation Plan
+
+**Pre-Implementation Validation:**
+1. Create checklist spreadsheet with all validation criteria
+2. Establish baseline metrics for current documentation
+3. Map all unique content to be preserved
+4. Identify high-risk content areas requiring special attention
+
+**During Implementation Validation:**
+1. Use content preservation checklist at each step
+2. Validate each namespace file against standards-specific criteria
+3. Track all content moves and transformations
+4. Regularly test user journeys on in-progress documentation
+
+**Post-Implementation Validation:**
+1. Complete full validation against all established criteria
+2. Conduct A/B testing with current and new documentation structures
+3. Run automated tests for link integrity and example validation
+4. Perform user acceptance testing with representatives from each persona group
+5. Measure final metrics against targets and document results
+
+This comprehensive validation framework will ensure the documentation restructuring preserves all valuable content while improving organization, reducing redundancy, and enhancing the user experience for all user types. It provides clear, measurable criteria for success and specific checkpoints for each technical standard's documentation.
+
+#### Documentation Restructuring Risk Assessment
+
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|------------|--------|---------------------|
+| Content loss during restructuring | Medium | Critical | Complete content inventory and validation after each step |
+| Broken navigation paths | High | High | Comprehensive link validation and redirection plan |
+| Inconsistent standard documentation | Medium | High | Strict template adherence and review process |
+| Incomplete user journeys | Medium | High | User journey testing throughout implementation |
+| Degraded search effectiveness | Low | Medium | Search term verification and metadata enhancement |
+| Implementation errors in examples | Medium | High | Automated validation of all code examples |
+| Confusion during transition | High | Medium | Clear communication and temporary guidance |
+| Profile inconsistency after mergers | Medium | Medium | Detailed mapping of all profile requirements before merging |
+| Standards version compatibility issues | Low | Medium | Version documentation and backward compatibility notes |
+| Documentation drift after restructuring | Medium | Medium | Maintenance plan and update documentation |
+
+The validation criteria and metrics established in this phase will guide the entire implementation process and provide clear measures of success for the restructuring initiative.
+
 ## Phase 2: Implementation
 
 ### Step 1: Content Backup
