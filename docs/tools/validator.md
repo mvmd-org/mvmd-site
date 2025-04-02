@@ -207,4 +207,4 @@ The upcoming MVMD validation tools will provide:
 
 1. Review [Metadata Fundamentals](/implementation/metadata-fundamentals.md)
 2. Check [Best Practices](/implementation/best-practices.md)
-3. Explore [Profile Requirements](/implementation/metadata-profiles/basic-profile.md)
+3. Explore [Profile Requirements](/integration-profiles/basic.md)

@@ -257,6 +257,6 @@ For detailed information, you can refer to the official VRM documentation: [VRM 
 
 ## Next Steps
 
-- Review [Avatar Profiles](../avatar-profile.md)
+- Review [Avatar Profiles](../../integration-profiles/avatar.md)
 - See [Animation Standards](./animation.md)
 - Check [Validation](../../reference/validator.md)

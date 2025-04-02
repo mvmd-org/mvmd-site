@@ -335,6 +335,6 @@ For detailed information, you can refer to the official 3D Tiles Specification: 
 
 ## Next Steps
 
-- Review [Environment Profile](/implementation/metadata-profiles/environment-profile.md) for integration
+- Review [Environment Profile](/integration-profiles/scene.md) for integration
 - See [CityGML Standard](./citygml.md) for urban modeling
 - Check [Validation Tools](../reference/validator.md) for testing

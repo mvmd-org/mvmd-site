@@ -332,6 +332,6 @@ For detailed information, you can refer to the official CityJSON website: [CityJ
 
 ## Next Steps
 
-- Review [Environment Profile](/implementation/metadata-profiles/environment-profile.md) for integration
+- Review [Environment Profile](/integration-profiles/scene.md) for integration
 - See [3D Tiles Standard](./3d-tiles.md) for large-scale environments
 - Check [Validation Tools](../reference/validator.md) for testing

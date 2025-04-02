@@ -223,6 +223,6 @@ It uses the hasPart attribute to define the individual parts of the model, so th
 
 ## Next Steps
 
-- Review [Environment Profile](./environment-profile.md) for spatial context
-- Check [Avatar Profile](./avatar-profile.md) for character-specific properties
+- Review [Environment Profile](./scene.md) for spatial context
+- Check [Avatar Profile](./avatar.md) for character-specific properties
 - See [Validation Tools](../reference/validator.md) for testing

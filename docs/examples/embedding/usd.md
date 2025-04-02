@@ -292,6 +292,6 @@ For detailed information, you can refer to the official USD documentation: [Intr
 
 ## Next Steps
 
-- Review [Environment Profile](/metadata-profiles/environment-profile.md)
+- Review [Environment Profile](/integration-profiles/scene.md)
 - See [Combining Standards](/combining-standards.md)
-- Check [Validation](../reference/validator.md)
+- Check [Validation](../../reference/validator.md)

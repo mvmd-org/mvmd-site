@@ -155,6 +155,6 @@ This approach merges Schema.org properties directly into the root of the NFT met
 
 ## Next Steps
 
-- Review [Metadata Profiles](/implementation/metadata-profiles/basic-profile.md) for specific asset types
+- Review [Metadata Profiles](/integration-profiles/basic.md) for specific asset types
 - See [Validation Tools](../reference/validator.md) for testing metadata
 - Check [Best Practices](/implementation/best-practices.md) for implementation guidance
