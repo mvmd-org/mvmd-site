@@ -5,6 +5,7 @@ Table of Contents
 
 - Overview
 - Prerequisites
+- Validator
 - Updating the Documentation
 - Building and Deploying
 - Custom Domain
@@ -21,6 +22,57 @@ Before making changes, ensure you have the following tools installed:
 - Node.js (v16.x recommended)
 - npm (comes with Node.js)
 - Git
+
+## Validator
+
+The MVMD site includes a comprehensive JSON-LD schema validator that checks documentation against Schema.org standards. The validator consists of two main components:
+
+1. **Interactive Validator** (`/validator`): A web-based tool for validating JSON-LD metadata in real-time
+2. **Documentation Validator**: A script that validates all JSON code blocks in the documentation
+
+### Running the Documentation Validator
+
+To validate all JSON code blocks in the documentation:
+
+```bash
+npx ts-node scripts/validate-docs-json.ts
+```
+
+This will:
+1. Scan all markdown files in the `docs/` directory
+2. Extract JSON code blocks
+3. Validate them against Schema.org standards
+4. Generate a validation report at `static/docs-validation-report.html`
+
+To view the validation report:
+1. Start the development server: `npm run start`
+2. Visit `http://localhost:3000/validation-report` or `http://localhost:3000/docs-validation-report.html`
+
+### Schema.org Updates
+
+The validator uses Schema.org definitions from `src/lib/schemaDefinitions.json`. To update these definitions:
+
+1. Visit [Schema.org's latest definitions](https://schema.org/version/latest/schemaorg-current-https.jsonld)
+2. Download the latest JSON-LD definitions
+3. Update `src/lib/schemaDefinitions.json` with the new definitions
+
+### Validation Rules
+
+The validator checks for:
+- Valid JSON-LD syntax
+- Proper `@type` declarations
+- Valid property types according to Schema.org
+- Required properties for specific types
+- Custom namespace handling (properties with `:` in their names)
+
+### Troubleshooting Validation
+
+If you encounter validation issues:
+1. Check the validation report for specific error messages
+2. Verify JSON-LD syntax in your code blocks
+3. Ensure all required properties are present
+4. Check property types against Schema.org definitions
+5. Review custom namespace usage
 
 ## Updating the Documentation
 
