@@ -45,6 +45,7 @@ const sidebars: SidebarsConfig = {
         'namespaces/3d-standards',
         'namespaces/geospatial-standards',
         'namespaces/trust-provenance',
+        'namespaces/openxr',
       ],
     },
     {
