@@ -42,12 +42,22 @@ const sidebars: SidebarsConfig = {
       items: [
         'namespaces/overview',
         'namespaces/schema-org',
+        // Category redirects
+        'namespaces/redirects/3d-standards-redirect',
+        'namespaces/redirects/geospatial-standards-redirect',
+        'namespaces/redirects/trust-provenance-redirect',
+        // Individual namespace pages
         'namespaces/gltf',
         'namespaces/usd',
         'namespaces/usdz',
         'namespaces/vrm',
+        'namespaces/fbx',
+        'namespaces/collada',
+        'namespaces/x3d',
         'namespaces/openxr',
-        // Add other standard-specific namespaces as they are created
+        'namespaces/cityjson',
+        'namespaces/3d-tiles',
+        'namespaces/c2pa',
       ],
     },
     {

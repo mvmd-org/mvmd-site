@@ -4,196 +4,107 @@ sidebar_position: 3
 
 # 3D Standards Namespaces
 
-This page covers how to integrate 3D standards into your metadata through namespaces.
+This page provides an overview of 3D standards and their integration with MVMD through namespaces. For detailed documentation on each standard, please refer to the dedicated namespace pages.
+
+:::info Content Reorganization
+As part of our documentation restructuring, detailed information about specific 3D standards has been moved to dedicated namespace pages:
+- [glTF](/docs/namespaces/gltf) - For all glTF-specific implementation details and schema
+- [USD](/docs/namespaces/usd) - For all USD-specific implementation details and schema
+
+This overview page now serves as a central hub for understanding 3D standards in general.
+:::
 
 ## Supported 3D Standards
 
-### glTF
+MVMD supports integration with the following 3D standards:
 
-[glTF](https://www.khronos.org/gltf/) (GL Transmission Format) is a royalty-free specification for efficient transmission and loading of 3D scenes and models. It's widely adopted as the standard format for 3D assets on the web.
+- [glTF](/docs/namespaces/gltf) - GL Transmission Format for efficient 3D asset delivery
+- [USD](/docs/namespaces/usd) - Universal Scene Description for complex scenes and environments
+- VRM - 3D humanoid avatars with standardized rigging
+- USDZ - AR-optimized USD format for Apple platforms
+- FBX - Widely-used exchange format for 3D content
+- OBJ/MTL - Simple mesh and material format
+- 3D Tiles - For massive geospatial and BIM datasets
 
-#### Namespace Declaration
+Each standard has been extracted into its own dedicated namespace documentation with complete JSON Schema validation and examples.
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "gltf": "https://www.khronos.org/gltf/"
-  }
-}
-```
+## Namespace Structure
 
-#### Linking Example
+All 3D standard namespaces follow a consistent structure:
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "3DModel",
-  "name": "Character Model",
-  "contentUrl": "https://example.com/character.glb",
-  "encodingFormat": "model/gltf-binary"
-}
-```
+1. **Overview** - Introduction to the standard and its purpose
+2. **Core Concepts** - Key features and components relevant to metadata
+3. **Implementation** - How to use the namespace in MVMD
+   - Namespace declaration
+   - External reference pattern
+   - Embedding pattern
+4. **Use Cases** - Common applications and scenarios
+5. **Implementation Examples** - Complete JSON examples
+6. **Schema Validation** - JSON Schema for validating implementation
+7. **JSON-LD Context** - Semantic mapping for the namespace
+8. **Implementation Considerations** - Best practices and guidelines
 
-#### Embedding Example
+## Integration Approach
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "3DModel",
-  "name": "Character Model",
-  "gltf:asset": {
-    "version": "2.0",
-    "generator": "MetaverseBuilder 2.1"
-  },
-  "gltf:materials": [
-    {
-      "name": "Skin",
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [1.0, 0.8, 0.7, 1.0],
-        "metallicFactor": 0.0,
-        "roughnessFactor": 0.5
-      }
-    }
-  ]
-}
-```
+When integrating 3D standards with MVMD, consider the following approaches:
 
-### USD
+### Reference vs. Embedding
 
-[USD](https://openusd.org/) (Universal Scene Description) is an extensible framework for describing, composing, and collaborating within 3D worlds. Developed by Pixar and now open source, USD is gaining adoption for complex scenes and environments.
+You can choose between referencing 3D assets externally or embedding metadata directly:
 
-#### Namespace Declaration
+- **Reference Pattern**: Links to external 3D assets with minimal metadata
+- **Embedding Pattern**: Includes detailed 3D standard properties within the MVMD metadata
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "usd": "https://openusd.org/ns/"
-  }
-}
-```
+### Common Best Practices
 
-#### Linking Example
+Regardless of the 3D standard used, follow these best practices:
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "3DModel",
-  "name": "Environment Scene",
-  "contentUrl": "https://example.com/environment.usd",
-  "encodingFormat": "model/vnd.usd"
-}
-```
+1. **Format Selection**:
+   - Choose the appropriate format for your use case
+   - Consider platform compatibility
+   - Evaluate size and performance requirements
+   - Assess feature needs (e.g., animations, materials)
 
-#### Embedding Example
+2. **Asset Optimization**:
+   - Compress textures appropriately
+   - Optimize geometry complexity
+   - Use level of detail (LOD) where appropriate
+   - Balance quality and performance
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
-  },
-  "@type": "3DModel",
-  "name": "Environment Scene",
-  "usd:stage": {
-    "upAxis": "Y",
-    "metersPerUnit": 1.0
-  },
-  "usd:layers": [
-    {
-      "name": "base",
-      "path": "/Environment/Base"
-    },
-    {
-      "name": "details",
-      "path": "/Environment/Details"
-    }
-  ]
-}
-```
+3. **Metadata Integration**:
+   - Keep metadata concise and relevant
+   - Include licensing information
+   - Document format-specific features
+   - Maintain version information
 
-### VRM
+4. **Quality Assurance**:
+   - Test on target platforms
+   - Validate format compliance
+   - Check material rendering
+   - Verify animation playback
 
-[VRM](https://vrm.dev/en/) is a file format for handling humanoid 3D avatar data. It extends glTF to add specialized components for avatars, including facial expressions, look-at controls, and humanoid rig definitions.
+### Troubleshooting Common Issues
 
-#### Namespace Declaration
+1. **Format Compatibility**:
+   - Verify format version support
+   - Check extension compatibility
+   - Test cross-platform behavior
+   - Validate material conversions
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "vrm": "https://vrm.dev/ns/"
-  }
-}
-```
+2. **Performance Issues**:
+   - Optimize asset size
+   - Check texture resolution
+   - Monitor memory usage
+   - Profile loading times
 
-#### Linking Example
+3. **Integration Problems**:
+   - Verify namespace declarations
+   - Check property references
+   - Validate JSON-LD syntax
+   - Test format-specific features
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "3DModel",
-  "name": "Humanoid Avatar",
-  "contentUrl": "https://example.com/character.vrm",
-  "encodingFormat": "model/vrm"
-}
-```
+## Related Resources
 
-#### Embedding Example
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "vrm": "https://vrm.dev/ns/"
-  },
-  "@type": "3DModel",
-  "name": "Humanoid Avatar",
-  "vrm:humanoid": {
-    "version": "1.0",
-    "humanBones": {
-      "hips": { "node": 1 },
-      "spine": { "node": 2 },
-      "head": { "node": 5 }
-    }
-  },
-  "vrm:expressions": {
-    "happy": {
-      "morphTargetBinds": [
-        { "index": 0, "weight": 1.0 }
-      ]
-    },
-    "sad": {
-      "morphTargetBinds": [
-        { "index": 1, "weight": 1.0 }
-      ]
-    }
-  }
-}
-```
-
-## Implementation Considerations
-
-- **Standard Selection**: Choose the appropriate 3D standard for your use case
-- **Embedding Scope**: Only embed essential metadata, not the entire 3D structure
-- **Mixed Approach**: Use linking for large assets and embedding for critical configuration
-- **Path Management**: Keep file paths consistent and valid across platforms
-
-## Related Concepts
-
-- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
-- [Types of Assets](../concepts/types-of-assets.md)
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md) 
+- [3D Asset Profiles](/docs/profiles/3d-asset)
+- [Asset Implementation Guide](/docs/implementation/asset-implementation)
+- [Standards Implementation](/docs/implementation/standards-implementation) 
