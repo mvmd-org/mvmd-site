@@ -605,6 +605,68 @@ Namespace-Implementation Mapping Summary:
   - **Technical standards referenced**
   - Recommended action (keep, merge, deprecate)
 
+Integration Profile Analysis Table:
+
+| Profile Name | Purpose/Use Cases | Required Properties | Optional Properties | Overlap with Other Profiles | Completeness/Maturity | Usage Frequency | Technical Standards Referenced | Recommended Action |
+|--------------|------------------|---------------------|---------------------|----------------------------|----------------------|-----------------|--------------------------------|-------------------|
+| Basic | Fundamental metadata for all assets | @context, @type, name, description, identifier, creator, dateCreated, license, contentUrl, encodingFormat | version, dateModified, thumbnail, contributor, keywords, copyrightHolder, maintainer, fileSize | Foundation for all other profiles | Complete (Stable) | Very High | Schema.org | Keep as foundation |
+| Wearable | Digital fashion items and wearable accessories | @type (ImageObject), category, attachmentPoint, associatedMedia | compatibility, technicalRequirements, customizationOptions, variants, animations | Significant overlap with Equipable (attachment system) | Complete (Stable) | High | Schema.org, glTF | Merge with Equipable into "Attachable Items" |
+| Equipable | Tools, weapons, and equipped items | @type (3DModel), category, equipableType, handedness, attachmentPoints, interactions | physics, effects, animations, usage | Significant overlap with Wearable (attachment system) | Complete (Proposed) | High | Schema.org, glTF | Merge with Wearable into "Attachable Items" |
+| Avatar | Virtual characters and user representations | @type (VirtualCharacter), avatarProperties (type, style, skeleton, measurements), animationSupport | customization, expressiveness, equipmentSupport | Some overlap with Identity (personal representation) | Complete (Stable) | Very High | Schema.org, VRM | Keep, but align with Identity |
+| Identity | Cross-platform digital identity | @type (Person), identityType, privacyLevel, authentication | representation, privacy, reputation, achievements, social | Some overlap with Avatar (visual representation) | Comprehensive (Proposed) | Medium | Schema.org, DID | Keep, but align with Avatar |
+| Scene | Virtual environments and spaces | @type (Place), spatialInformation, environmentSettings | interactivity, navigation, lighting, physics, audio | Minor overlap with Digital Twin (environmental aspects) | Complete (Stable) | High | Schema.org, glTF, USD | Keep as is |
+| Vehicle | Transportation and vehicle assets | vehicleType, specifications, performanceMetrics | physics, controlModel, animations, interiorLayout | None significant | Complete (Proposed) | Medium | Schema.org, glTF | Keep as is |
+| Composable-3D-NFT | Blockchain-linked 3D assets with composable parts | NFT metadata, hasPart elements with gltf:properties | collection, attributes, thumbnails, alternate renderings | Minor overlap with other 3D profiles | Complete (Proposed) | Medium | Schema.org, glTF, ERC-721/1155 | Keep as is |
+| Digital-Twin | Physical-digital representation | physicalAsset, digitalRepresentation, sensorData | telemetry, simulation, fidelity, updateFrequency | Minor overlap with Scene (environmental aspects) | Detailed (Proposed) | Low | Schema.org, glTF, IoT standards | Keep as is |
+| Royalty | Revenue and rights management | rightsOwner, paymentDetails, revenueModel | splits, tiers, restrictions, transferRights | None significant | Detailed (Proposed) | Medium | Schema.org, ERC-2981 | Keep as is |
+| Interactable | Interactive objects and elements | interactionType, triggers, responses | behavior, state, conditions, feedback | Some overlap with Equipable (interactions) | Minimal (Proposed) | Low | Schema.org, JSON-LD | Keep but enhance with Equipable interaction patterns |
+| Future | Upcoming profile types | N/A | N/A | N/A | Planning | N/A | N/A | Keep as planning document |
+
+Integration Profile Analysis Findings:
+
+1. **Profile Maturity Assessment**:
+   - Most mature profiles: Basic, Wearable, Avatar, Scene
+   - Intermediate maturity: Equipable, Composable-3D-NFT, Vehicle
+   - Early stage: Identity, Digital-Twin, Royalty, Interactable
+
+2. **Content Overlap Analysis**:
+   - Highest overlap: Wearable and Equipable (attachment system, 3D model requirements)
+   - Moderate overlap: Avatar and Identity (representation and personalization)
+   - Minor overlaps: Interactable with Equipable, Digital-Twin with Scene
+
+3. **Technical Standards Coverage**:
+   - Schema.org is used by all profiles (core vocabulary)
+   - glTF is referenced in most 3D-related profiles
+   - Specialized standards (VRM, ERC-721/1155, DID) have limited presence
+   - Some standards referenced in profiles are not yet represented as namespaces
+
+4. **Recommended Actions**:
+   - **Merge Wearable and Equipable profiles** into a consolidated "Attachable Items" profile
+   - **Keep but align Avatar and Identity** profiles for consistent representation
+   - **Enhance Interactable** with patterns from Equipable
+   - **Maintain Basic profile** as the foundation
+   - **Keep other profiles separate** due to their unique purposes
+
+5. **Profile Consistency Issues**:
+   - Inconsistent property naming across profiles
+   - Varying levels of detail in examples and requirements
+   - Inconsistent use of @type values
+   - Varying approaches to referencing technical standards
+   - Inconsistent use of additionalProperty pattern
+
+6. **Implementation Gaps**:
+   - Limited validation rules in some profiles
+   - Inconsistent cross-referencing between profiles
+   - Varying levels of example completeness
+   - Limited guidance on combining multiple profiles
+
+7. **Profile Restructuring Priorities**:
+   - Address Wearable/Equipable merger first (highest overlap)
+   - Establish consistent pattern for technical standard references
+   - Standardize property naming conventions
+   - Create clear guidance for profile combinations
+   - Ensure all profiles reference appropriate standard-specific namespace files
+
 ### Step 6: Link and Reference Analysis
 - Document all internal links between files
 - Identify potential broken links after restructuring
