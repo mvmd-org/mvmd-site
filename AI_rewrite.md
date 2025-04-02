@@ -216,7 +216,7 @@ These visualizations will help ensure our restructured documentation accommodate
     * x3d.md - From relevant content across documentation
     * fbx.md - From relevant content across documentation
 
-### Step 2: Content Inventory [IN PROGRESS]
+### Step 2: Content Inventory [COMPLETED] ✓
 - Create spreadsheet with the following columns:
   - File path
   - Content type (conceptual, reference, example, etc.)
@@ -278,7 +278,7 @@ Based on the content inventory, key actions needed:
 6. Remove or consolidate duplicated content between implementation and namespaces
 7. Ensure all examples reference specific standards rather than general categories
 
-### Step 3: User Journey Analysis
+### Step 3: User Journey Analysis [IN PROGRESS]
 - Document 3-5 primary user personas (new user, developer, standards organization, etc.)
 - Map typical user journeys through the documentation for each persona
 - Identify pain points and areas of confusion in current structure
