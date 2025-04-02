@@ -470,6 +470,6 @@ This comprehensive example shows many concepts working together (Note: Some prop
 
 With these fundamentals, you can explore:
 -   [Types of Things](./types-of-things.md): Deep dive into specific Schema.org types.
--   [Embedding and Reference](./embedding-and-reference.md): Detailed guide on connecting assets and data. (**Note: Link target will be renamed later**)
+-   [Linking vs Embedding Strategy](./linking-vs-embedding.md): Detailed guide on connecting assets and data.
 -   [File Organization](./file-organization.md): How to structure your metadata files.
 -   [Embedding](/embedding/overview.md): Practical examples for specific embedding use cases.

@@ -575,6 +575,6 @@ Platform-specific content variants:
 ## Next Steps
 
 - Review [File Organization](./file-organization.md) for structure guidance
-- See [Core Metadata Concepts](./metadata-fundamentals.md) for fundamental concepts
+- See [Core Metadata Concepts](./core-metadata-concepts.md) for fundamental concepts
 - Check [Types of Things](./types-of-things.md) for specific Schema.org types
 - Explore [Embedding](/embedding/overview.md) for detailed examples
