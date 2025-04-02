@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "usd": "https://mvmd.io/namespaces/usd/",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    
+    "asset": {
+      "@id": "usd:asset",
+      "@type": "@json"
+    },
+    "format": {
+      "@id": "usd:format",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "usd:version",
+      "@type": "xsd:string"
+    },
+    
+    "stage": {
+      "@id": "usd:stage",
+      "@type": "@json"
+    },
+    "defaultPrim": {
+      "@id": "usd:defaultPrim",
+      "@type": "xsd:string"
+    },
+    "upAxis": {
+      "@id": "usd:upAxis",
+      "@type": "xsd:string"
+    },
+    "metersPerUnit": {
+      "@id": "usd:metersPerUnit",
+      "@type": "xsd:float"
+    },
+    "timeCodesPerSecond": {
+      "@id": "usd:timeCodesPerSecond",
+      "@type": "xsd:float"
+    },
+    
+    "prims": {
+      "@id": "usd:prims",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "path": {
+      "@id": "usd:path",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "usd:type",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "usd:active",
+      "@type": "xsd:boolean"
+    },
+    "purpose": {
+      "@id": "usd:purpose",
+      "@type": "xsd:string"
+    },
+    
+    "variants": {
+      "@id": "usd:variants",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "selections": {
+      "@id": "usd:selections",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    
+    "layers": {
+      "@id": "usd:layers",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "subLayers": {
+      "@id": "usd:subLayers",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    
+    "payloadPolicy": {
+      "@id": "usd:payloadPolicy",
+      "@type": "xsd:string"
+    },
+    
+    "references": {
+      "@id": "usd:references",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "prim": {
+      "@id": "usd:prim",
+      "@type": "xsd:string"
+    },
+    "target": {
+      "@id": "usd:target",
+      "@type": "xsd:string"
+    },
+    
+    "cameras": {
+      "@id": "usd:cameras",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "projection": {
+      "@id": "usd:projection",
+      "@type": "xsd:string"
+    }
+  }
+} 

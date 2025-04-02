@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MVMD glTF Namespace Schema",
+  "description": "Schema for validating glTF namespace usage in MVMD metadata",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "gltf": {
+          "type": "string",
+          "format": "uri",
+          "description": "The glTF namespace URI"
+        }
+      }
+    },
+    "gltf:asset": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The glTF version",
+          "enum": ["2.0"]
+        },
+        "generator": {
+          "type": "string",
+          "description": "The tool that generated the glTF content"
+        },
+        "copyright": {
+          "type": "string",
+          "description": "Copyright information"
+        }
+      },
+      "required": ["version"]
+    },
+    "gltf:materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Material name"
+          },
+          "technique": {
+            "type": "string",
+            "description": "Rendering technique"
+          },
+          "pbrMetallicRoughness": {
+            "type": "object",
+            "properties": {
+              "baseColorFactor": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "metallicFactor": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "roughnessFactor": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "required": ["name"]
+      }
+    },
+    "gltf:animations": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": ["name"]
+          }
+        }
+      ]
+    },
+    "gltf:requirements": {
+      "type": "object",
+      "properties": {
+        "minVersion": {
+          "type": "string",
+          "description": "Minimum glTF version required"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required glTF extensions"
+        }
+      }
+    },
+    "gltf:meshes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Mesh name"
+          },
+          "primitiveCount": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Number of primitives in the mesh"
+          }
+        }
+      }
+    },
+    "gltf:nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Node name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Node type (e.g., mesh, camera, light)"
+          }
+        }
+      }
+    },
+    "gltf:textures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Texture name"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Texture resolution (e.g., 1024x1024)"
+          },
+          "usage": {
+            "type": "string",
+            "description": "Texture usage (e.g., baseColor, normal, metallic)"
+          }
+        }
+      }
+    },
+    "gltf:extensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "glTF extensions used in the model"
+    }
+  }
+} 

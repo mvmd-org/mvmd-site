@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MVMD USD Namespace Schema",
+  "description": "Schema for validating USD namespace usage in MVMD metadata",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "usd": {
+          "type": "string",
+          "format": "uri",
+          "description": "The USD namespace URI"
+        }
+      }
+    },
+    "usd:asset": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI to the USD file"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["USD", "USDA", "USDC", "USDZ"],
+          "description": "Format of the USD file"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the USD specification used"
+        }
+      },
+      "required": ["format"]
+    },
+    "usd:stage": {
+      "type": "object",
+      "properties": {
+        "defaultPrim": {
+          "type": "string",
+          "description": "The default prim path for the stage"
+        },
+        "upAxis": {
+          "type": "string",
+          "enum": ["Y", "Z"],
+          "description": "The up axis for the stage"
+        },
+        "metersPerUnit": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Scale factor for converting units to meters"
+        },
+        "timeCodesPerSecond": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Number of time codes per second"
+        }
+      }
+    },
+    "usd:prims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path to the prim in the scene graph"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the prim (e.g., Xform, Mesh)"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the prim is active"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": ["default", "render", "proxy", "guide"],
+            "description": "Purpose of the prim"
+          }
+        },
+        "required": ["path", "type"]
+      }
+    },
+    "usd:variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the variant set"
+          },
+          "selections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Selected variants within the variant set"
+          }
+        },
+        "required": ["name", "selections"]
+      }
+    },
+    "usd:layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Identifier for the layer"
+          },
+          "path": {
+            "type": "string",
+            "description": "Path to the layer file"
+          },
+          "subLayers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of sublayer paths"
+          }
+        },
+        "required": ["name", "path"]
+      }
+    },
+    "usd:payloadPolicy": {
+      "type": "string",
+      "enum": ["onDemand", "immediate", "never"],
+      "description": "Policy for loading payloads"
+    },
+    "usd:references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prim": {
+            "type": "string",
+            "description": "Prim path that has the reference"
+          },
+          "target": {
+            "type": "string",
+            "description": "Target of the reference"
+          }
+        },
+        "required": ["prim", "target"]
+      }
+    },
+    "usd:cameras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path to the camera prim"
+          },
+          "projection": {
+            "type": "string",
+            "enum": ["perspective", "orthographic"],
+            "description": "Projection type of the camera"
+          }
+        },
+        "required": ["path"]
+      }
+    }
+  }
+} 

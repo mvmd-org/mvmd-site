@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "gltf": "https://mvmd.io/namespaces/gltf/",
+    "schema": "http://schema.org/",
+    
+    "asset": {
+      "@id": "gltf:asset",
+      "@type": "@json"
+    },
+    "version": {
+      "@id": "gltf:version",
+      "@type": "xsd:string"
+    },
+    "generator": {
+      "@id": "gltf:generator",
+      "@type": "xsd:string"
+    },
+    "copyright": {
+      "@id": "gltf:copyright",
+      "@type": "xsd:string"
+    },
+    
+    "materials": {
+      "@id": "gltf:materials",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "pbrMetallicRoughness": {
+      "@id": "gltf:pbrMetallicRoughness",
+      "@type": "@json"
+    },
+    "baseColorFactor": {
+      "@id": "gltf:baseColorFactor",
+      "@type": "@json"
+    },
+    "metallicFactor": {
+      "@id": "gltf:metallicFactor",
+      "@type": "xsd:float"
+    },
+    "roughnessFactor": {
+      "@id": "gltf:roughnessFactor",
+      "@type": "xsd:float"
+    },
+    
+    "animations": {
+      "@id": "gltf:animations",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "duration": {
+      "@id": "gltf:duration",
+      "@type": "xsd:float"
+    },
+    
+    "requirements": {
+      "@id": "gltf:requirements",
+      "@type": "@json"
+    },
+    "minVersion": {
+      "@id": "gltf:minVersion",
+      "@type": "xsd:string"
+    },
+    "extensions": {
+      "@id": "gltf:extensions",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    
+    "meshes": {
+      "@id": "gltf:meshes",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "primitiveCount": {
+      "@id": "gltf:primitiveCount",
+      "@type": "xsd:integer"
+    },
+    
+    "nodes": {
+      "@id": "gltf:nodes",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "nodeType": {
+      "@id": "gltf:type",
+      "@type": "xsd:string"
+    },
+    
+    "textures": {
+      "@id": "gltf:textures",
+      "@type": "@json",
+      "@container": "@list"
+    },
+    "resolution": {
+      "@id": "gltf:resolution",
+      "@type": "xsd:string"
+    },
+    "usage": {
+      "@id": "gltf:usage",
+      "@type": "xsd:string"
+    },
+    
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    }
+  }
+} 
