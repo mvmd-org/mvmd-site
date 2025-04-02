@@ -42,11 +42,29 @@ const sidebars: SidebarsConfig = {
       items: [
         'namespaces/overview',
         'namespaces/schema-org',
-        'namespaces/3d-standards',
-        'namespaces/gltf',
-        'namespaces/usd',
-        'namespaces/geospatial-standards',
-        'namespaces/trust-provenance',
+        {
+          type: 'category',
+          label: '3D Standards',
+          items: [
+            'namespaces/3d-standards',
+            'namespaces/gltf',
+            'namespaces/usd',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Geospatial Standards',
+          items: [
+            'namespaces/geospatial-standards',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Trust & Provenance',
+          items: [
+            'namespaces/trust-provenance',
+          ],
+        },
         'namespaces/openxr',
       ],
     },
@@ -57,8 +75,17 @@ const sidebars: SidebarsConfig = {
         'implementation/overview',
         'implementation/getting-started',
         'implementation/assets',
-        'implementation/nfts',
-        'implementation/composable',
+        {
+          type: 'category',
+          label: 'Use Case Guides',
+          items: [
+            'implementation/cross-platform-assets',
+            'implementation/interactive-assets',
+            'implementation/discovery-optimization',
+            'implementation/nfts',
+            'implementation/composable',
+          ],
+        },
         'implementation/best-practices',
         'implementation/metadata-profiles',
         'implementation/standards-implementation',
