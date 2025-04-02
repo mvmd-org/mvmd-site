@@ -15,6 +15,9 @@ const sidebars: SidebarsConfig = {
                 'concepts/composition',
                 'concepts/references',
                 'concepts/uris-vs-embedding',
+                'concepts/file-organization',
+                'concepts/embedding-and-reference',
+                'concepts/metadata-fundamentals'
             ],
         },
         {
@@ -26,6 +29,9 @@ const sidebars: SidebarsConfig = {
                 'implementation/nfts',
                 'implementation/composable',
                 'implementation/best-practices',
+                'implementation/getting-started',
+                'implementation/standards-implementation',
+                'implementation/metadata-profiles'
             ],
         },
         {
@@ -33,34 +39,18 @@ const sidebars: SidebarsConfig = {
             label: 'Integration Profiles',
             items: [
                 'integration-profiles/overview',
-                // 'integration-profiles/basic',
-                // 'integration-profiles/wearable',
-                // 'integration-profiles/avatar',
+                'integration-profiles/basic',
+                'integration-profiles/wearable',
+                'integration-profiles/avatar',
                 'integration-profiles/composable-3d-nft',
-                {
-                    type: 'doc',
-                    id: 'integration-profiles/digital-twin',
-                    label: 'Digital Twin'
-                },
-                {
-                    type: 'doc',
-                    id: 'integration-profiles/vehicle',
-                    label: 'Vehicle'
-                },
-                {
-                    type: 'doc',
-                    id: 'integration-profiles/identity',
-                    label: 'Identity'
-                },
-                {
-                    type: 'doc',
-                    id: 'integration-profiles/royalty',
-                    label: 'Royalty'
-                },
-                // 'integration-profiles/scene',
-                // 'integration-profiles/equipable',
-                // 'integration-profiles/interactable',
-                'integration-profiles/future',
+                'integration-profiles/digital-twin',
+                'integration-profiles/vehicle',
+                'integration-profiles/identity',
+                'integration-profiles/royalty',
+                'integration-profiles/scene',
+                'integration-profiles/equipable',
+                'integration-profiles/interactable',
+                'integration-profiles/future'
             ],
         },
         {
@@ -68,14 +58,10 @@ const sidebars: SidebarsConfig = {
             label: 'Embedding',
             items: [
                 'embedding/overview',
-                // {
-                //     type: 'category',
-                //     label: 'Schema',
-                //     items: [
-                //         // 'embedding/schema/schema-org',
-                //         // 'embedding/schema/json-ld',
-                //     ],
-                // },
+                'embedding/combining-standards',
+                'embedding/media-content',
+                'embedding/general-metadata',
+                'embedding/3d-virtual-world',
                 {
                     type: 'category',
                     label: '3D Assets',
@@ -114,6 +100,8 @@ const sidebars: SidebarsConfig = {
                 'community/become-supporter',
                 'community/contributors',
                 'community/sdo-integration-guide',
+                'supporting-organizations',
+                'contributing'
             ],
         },
         {
