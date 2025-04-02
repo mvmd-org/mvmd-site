@@ -2,96 +2,139 @@
 sidebar_position: 3
 ---
 
-# Avatar
+# Avatar Profile
 
-The Avatar Recipe extends the Basic Profile with properties specific to virtual characters and avatars. This profile combines properties from multiple standards to describe customizable, interactive characters.
+## Purpose and Use Cases
 
-## Core Structure
+The Avatar Profile extends the Basic Profile with properties specific to virtual characters and avatars. It defines metadata structures for customizable, interactive characters that can represent users or NPCs in virtual environments.
+
+**Key Use Cases:**
+- User representation in virtual worlds and social platforms
+- Non-player characters (NPCs) in games and interactive experiences
+- Digital identity visualization
+- Cross-platform avatar portability
+- Virtual influencers and digital humans
+
+## Required Properties
+
+The Avatar Profile inherits all required properties from the [Basic Profile](./basic.md) and adds the following avatar-specific properties:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "VirtualCharacter",
   
-  "name": "Default Avatar",
-  "description": "Customizable humanoid character with standard animations",
+  // Basic Profile required properties...
   
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "MVMD-ID",
-    "value": "avatar-2024-001"
-  },
-  
-  "creator": {
-    "@type": "Organization",
-    "name": "Virtual Characters Inc."
-  }
-}
-```
-
-## Required Properties
-
-### Basic Information (from Basic Profile)
-- `@context`
-- `@type`: Must be "VirtualCharacter"
-- `name`
-- `description`
-- `identifier`
-- `creator`
-- `contentUrl`
-- `encodingFormat`
-
-### Avatar Properties
-- Character type
-- Base measurements
-- Animation support
-- Customization options
-- Interaction capabilities
-
-## Avatar Specifications
-
-### Character Properties
-```json
-{
-  "avatarProperties": {
-    "type": "humanoid",
-    "gender": "neutral",
-    "age": "adult",
-    "style": "realistic",
-    "measurements": {
-      "height": 1.75,
-      "proportions": "standard",
-      "unit": "meters"
-    }
-  }
-}
-```
-
-### Animation Support
-```json
-{
-  "gltf:animations": [
+  "additionalProperty": [
     {
-      "name": "idle",
-      "type": "loop",
-      "duration": 3.0
+      "@type": "PropertyValue",
+      "propertyID": "avatarProperties",
+      "name": "Avatar Properties",
+      "value": {
+        "type": "humanoid",
+        "style": "stylized",
+        "skeleton": "standard-humanoid",
+        "measurements": {
+          "height": 1.75,
+          "unit": "meters"
+        }
+      }
     },
     {
-      "name": "walk",
-      "type": "loop",
-      "duration": 1.2
-    },
-    {
-      "name": "run",
-      "type": "loop",
-      "duration": 0.8
+      "@type": "PropertyValue",
+      "propertyID": "animationSupport",
+      "name": "Animation Support",
+      "value": {
+        "supported": ["idle", "walk", "run"]
+      }
     }
   ]
 }
 ```
+
+| Property | Description | Type | Notes |
+|----------|-------------|------|-------|
+| `@type` | Asset type | String | Must be "VirtualCharacter" |
+| `avatarProperties.type` | Character topology | String | E.g., "humanoid", "creature", "robot" |
+| `avatarProperties.style` | Visual style | String | E.g., "realistic", "stylized", "cartoon" |
+| `avatarProperties.skeleton` | Rigging system | String | Standard rig identifier |
+| `avatarProperties.measurements` | Basic dimensions | Object | At minimum, include height |
+| `animationSupport.supported` | Supported animations | Array | List of basic animation names |
+
+## Optional Properties
+
+The Avatar Profile includes the following optional properties to enhance functionality:
+
+```json
+{
+  // Required properties as above...
+  
+  "additionalProperty": [
+    // Required additional properties...
+    
+    {
+      "@type": "PropertyValue",
+      "propertyID": "customization",
+      "name": "Customization Options",
+      "value": {
+        "features": [
+          {
+            "category": "face",
+            "options": ["eyes", "nose", "mouth", "ears"],
+            "blendshapes": true
+          },
+          {
+            "category": "hair",
+            "options": ["style", "color"]
+          },
+          {
+            "category": "body",
+            "options": ["build", "height"]
+          }
+        ],
+        "textures": [
+          {
+            "category": "skin",
+            "resolution": "2048x2048",
+            "customizable": true
+          }
+        ]
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "expressiveness",
+      "name": "Expressiveness",
+      "value": {
+        "facialExpressions": true,
+        "voiceSupport": false,
+        "lipSync": false,
+        "emotionTriggers": ["happy", "sad", "angry", "surprised"]
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "equipmentSupport",
+      "name": "Equipment Support",
+      "value": {
+        "slots": ["head", "body", "hands", "feet"],
+        "attachmentPoints": ["rightHand", "leftHand", "back"]
+      }
+    }
+  ]
+}
+```
+
+| Property | Description | Type | Notes |
+|----------|-------------|------|-------|
+| `customization.features` | Customizable features | Array | User-modifiable aspects |
+| `customization.textures` | Texture customization | Array | Modifiable texture maps |
+| `expressiveness` | Emotional capabilities | Object | Expression capabilities |
+| `equipmentSupport` | Equipment compatibility | Object | Attachment points for items |
 
 ## Complete Example
 
@@ -99,12 +142,12 @@ The Avatar Recipe extends the Basic Profile with properties specific to virtual 
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "VirtualCharacter",
   
-  "name": "Customizable Avatar",
-  "description": "Highly customizable humanoid character with extensive animation support",
+  "name": "Universal Avatar",
+  "description": "Highly customizable humanoid avatar with extensive animation support and cross-platform compatibility",
   
   "identifier": {
     "@type": "PropertyValue",
@@ -119,271 +162,184 @@ The Avatar Recipe extends the Basic Profile with properties specific to virtual 
   },
   
   "dateCreated": "2024-03-15",
+  "dateModified": "2024-03-20T14:30:00Z",
+  "version": "1.2.0",
+  
   "license": "https://creativecommons.org/licenses/by/4.0/",
   
-  "contentUrl": "https://example.com/avatars/customizable.glb",
+  "contentUrl": "https://example.com/avatars/universal.glb",
   "encodingFormat": "model/gltf-binary",
+  "fileSize": 3145728,
+  
   "thumbnail": "https://example.com/thumbnails/avatar.jpg",
   
-  "avatarProperties": {
-    "type": "humanoid",
-    "gender": "neutral",
-    "age": "adult",
-    "style": "realistic",
-    "measurements": {
-      "height": 1.75,
-      "proportions": "standard",
-      "unit": "meters"
-    }
-  },
+  "keywords": ["avatar", "humanoid", "customizable", "cross-platform"],
   
-  "customization": {
-    "features": [
-      {
-        "category": "face",
-        "options": [
-          "eyes",
-          "nose",
-          "mouth",
-          "ears",
-          "jawline"
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "avatarProperties",
+      "name": "Avatar Properties",
+      "value": {
+        "type": "humanoid",
+        "style": "stylized",
+        "skeleton": "standard-humanoid-v2",
+        "measurements": {
+          "height": 1.75,
+          "proportions": "standard",
+          "unit": "meters"
+        }
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "animationSupport",
+      "name": "Animation Support",
+      "value": {
+        "supported": ["idle", "walk", "run", "jump", "sit", "wave", "dance"],
+        "format": "glTF animations",
+        "retargetable": true
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "customization",
+      "name": "Customization Options",
+      "value": {
+        "features": [
+          {
+            "category": "face",
+            "options": ["eyes", "nose", "mouth", "ears", "jaw", "cheeks"],
+            "blendshapes": true,
+            "parameters": 24
+          },
+          {
+            "category": "hair",
+            "options": ["style", "color", "length", "texture"],
+            "presets": 12
+          },
+          {
+            "category": "body",
+            "options": ["build", "height", "weight", "musculature"],
+            "parameters": 18
+          }
         ],
-        "blendshapes": true
-      },
-      {
-        "category": "hair",
-        "options": [
-          "style",
-          "color",
-          "length"
-        ]
-      },
-      {
-        "category": "body",
-        "options": [
-          "build",
-          "height",
-          "proportions"
+        "textures": [
+          {
+            "category": "skin",
+            "resolution": "2048x2048",
+            "maps": ["diffuse", "normal", "roughness"],
+            "customizable": true
+          },
+          {
+            "category": "clothing",
+            "resolution": "2048x2048",
+            "maps": ["diffuse", "normal", "roughness"],
+            "customizable": true
+          }
         ]
       }
-    ],
-    "textures": [
-      {
-        "category": "skin",
-        "resolution": "2048x2048",
-        "customizable": true
-      },
-      {
-        "category": "clothing",
-        "resolution": "2048x2048",
-        "customizable": true
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "expressiveness",
+      "name": "Expressiveness",
+      "value": {
+        "facialExpressions": true,
+        "blendshapeCount": 52,
+        "voiceSupport": true,
+        "lipSync": true,
+        "emotionTriggers": ["happy", "sad", "angry", "surprised", "disgusted", "fearful", "neutral"]
       }
-    ]
-  },
-  
-  "gltf:animations": [
-    {
-      "name": "idle",
-      "type": "loop",
-      "duration": 3.0
     },
     {
-      "name": "walk",
-      "type": "loop",
-      "duration": 1.2
+      "@type": "PropertyValue",
+      "propertyID": "equipmentSupport",
+      "name": "Equipment Support",
+      "value": {
+        "slots": ["head", "upper_body", "lower_body", "hands", "feet", "accessories"],
+        "attachmentPoints": ["rightHand", "leftHand", "back", "hip", "shoulder"],
+        "supportedWearableFormats": ["glTF", "VRM"]
+      }
     },
     {
-      "name": "run",
-      "type": "loop",
-      "duration": 0.8
+      "@type": "PropertyValue",
+      "propertyID": "platformSupport",
+      "name": "Platform Support",
+      "value": {
+        "vrmSupport": true,
+        "readyPlayerMeCompatible": true,
+        "vrChatCompatible": true,
+        "testedPlatforms": ["unity", "unreal", "mozilla-hubs", "meta-horizon"]
+      }
     },
     {
-      "name": "jump",
-      "type": "oneshot",
-      "duration": 1.0
-    },
-    {
-      "name": "emote_wave",
-      "type": "oneshot",
-      "duration": 2.0
+      "@type": "PropertyValue",
+      "propertyID": "performanceOptions",
+      "name": "Performance Options",
+      "value": {
+        "lod": [
+          {
+            "level": 0,
+            "triangles": 50000,
+            "textureSize": 2048
+          },
+          {
+            "level": 1,
+            "triangles": 25000,
+            "textureSize": 1024
+          },
+          {
+            "level": 2,
+            "triangles": 10000,
+            "textureSize": 512
+          }
+        ]
+      }
     }
-  ],
-  
-  "gltf:rig": {
-    "type": "humanoid",
-    "joints": 65,
-    "skeleton": "mixamo-compatible"
-  },
-  
-  "interaction": {
-    "expressions": [
-      {
-        "name": "smile",
-        "blendshapes": ["smile_left", "smile_right"],
-        "intensity": "variable"
-      },
-      {
-        "name": "frown",
-        "blendshapes": ["frown_left", "frown_right"],
-        "intensity": "variable"
-      }
-    ],
-    "gestures": [
-      {
-        "name": "wave",
-        "animation": "emote_wave",
-        "duration": 2.0
-      }
-    ],
-    "physics": {
-      "collider": "capsule",
-      "mass": 70,
-      "height": 1.75
-    }
-  },
-  
-  "performance": {
-    "polycount": {
-      "high": 50000,
-      "medium": 25000,
-      "low": 10000
-    },
-    "textureResolution": {
-      "high": "2048x2048",
-      "medium": "1024x1024",
-      "low": "512x512"
-    },
-    "boneCount": 65,
-    "blendshapeCount": 52
-  }
+  ]
 }
 ```
 
 ## Validation Rules
 
-### Character Properties
-- Valid character type
-- Proper measurements
-- Standard proportions
-- Supported styles
-- Age categories
+### Required Fields Validation
+- All required fields from Basic Profile must be present
+- `@type` must be "VirtualCharacter"
+- `avatarProperties` must include at minimum:
+  - `type`: String value describing topology
+  - `measurements.height`: Numeric value with unit
+- `animationSupport.supported` must contain at least one animation name
 
-### Animation Properties
-- Required animations
-- Proper durations
-- Valid types
-- Clear names
-- Proper format
+### Optional Fields Validation
+- `customization.features` must be an array if present
+- `customization.textures` must be an array if present
+- `expressiveness` should include appropriate boolean values
+- `equipmentSupport.slots` and `equipmentSupport.attachmentPoints` should be arrays if present
 
-### Customization Properties
-- Valid feature sets
-- Proper textures
-- Clear categories
-- Supported options
-- Format specifications
+## Implementation Considerations
 
-## Best Practices
+### Cross-Platform Compatibility
+- Use standard bone/joint naming conventions following major platform guidelines
+- Provide VRM metadata when possible for wider compatibility
+- Test across multiple platforms to ensure consistent appearance and animations
+- Include LOD variants for different performance requirements
 
-1. **Character Design**
-    - Universal proportions
-    - Standard measurements
-    - Clear customization
-    - Consistent style
-    - Proper scaling
+### Animation Implementation
+- Ensure animations are properly retargetable
+- Provide base locomotion animations at minimum (idle, walk, run)
+- Test facial animations across platforms if implemented
+- Document platform-specific animation limitations
 
-2. **Animation Management**
-    - Essential movements
-    - Smooth transitions
-    - Proper timing
-    - Clear naming
-    - Efficient organization
+### Customization Support
+- Follow platform-specific guidelines for customization parameters
+- Document the range and limits of each customizable feature
+- Consider providing default presets for quick setup
+- Test customization across different rendering engines
 
-3. **Customization System**
-    - Logical categories
-    - Clear options
-    - Efficient textures
-    - Proper blendshapes
-    - Resource management
+## Related Resources
 
-4. **Performance Optimization**
-    - LOD support
-    - Efficient textures
-    - Optimized meshes
-    - Proper compression
-    - Resource loading
-
-## Integration Examples
-
-### With Virtual Environments
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/",
-    "usd": "https://openusd.org/ns/"
-  },
-  "@type": "VirtualCharacter",
-  "name": "Environment Avatar",
-  
-  "avatarProperties": {
-    "type": "humanoid",
-    "style": "realistic"
-  },
-  
-  "usd:stage": {
-    "upAxis": "Y",
-    "metersPerUnit": 1.0
-  }
-}
-```
-
-### With Interactive Systems
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/",
-    "x3d": "https://www.web3d.org/specifications/x3d-4.0/"
-  },
-  "@type": "VirtualCharacter",
-  "name": "Interactive Avatar",
-  
-  "gltf:animations": [
-    {
-      "name": "wave",
-      "type": "oneshot"
-    }
-  ],
-  
-  "x3d:interaction": {
-    "sensors": [
-      {
-        "type": "TouchSensor",
-        "name": "avatar_interact"
-      }
-    ]
-  }
-}
-```
-
-## Common Issues
-
-1. **Animation Compatibility**
-    - Format compatibility
-    - Transition handling
-    - Timing issues
-    - Blend conflicts
-    - Performance impact
-
-2. **Customization Limits**
-    - Resource constraints
-    - Texture memory
-    - Blend shape limits
-    - Option combinations
-    - Update handling
-
-## Next Steps
-
-- Review [Environment Profile](./environment-profile.md) for spatial integration
-- See [glTF Standard](../standards/gltf.md) for technical details
-- Check [Validation Tools](../tools/validation.md) for testing
+- [Basic Profile](./basic.md): Foundation for all assets including avatars
+- [Wearable Profile](./wearable.md): For items that can be equipped by avatars
+- [Identity Profile](./identity.md): For connecting avatars to user identity
+- [3D Standards Namespace](../namespaces/3d-standards.md): Details on VRM and other avatar formats

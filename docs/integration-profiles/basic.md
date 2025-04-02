@@ -1,18 +1,29 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Basic
+# Basic Profile
 
-The Basic Recipe defines essential metadata properties that should be included with all Metaverse assets. This profile serves as the foundation for more specific asset profiles.
+## Purpose and Use Cases
 
-## Core Properties
+The Basic Profile defines essential metadata properties that should be included with all metaverse assets, regardless of their specific type or application. This profile serves as the foundation for all other integration profiles and ensures a minimum level of interoperability across platforms.
 
-### Required Properties
+**Key Use Cases:**
+- Asset discovery and search functionality
+- Basic asset management and organization
+- Attribution and rights management
+- Cross-platform asset sharing
+
+## Required Properties
+
+The following properties must be included in all metaverse assets:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "CreativeWork",
   
   "name": "Asset Name",
@@ -38,13 +49,25 @@ The Basic Recipe defines essential metadata properties that should be included w
 }
 ```
 
-### Optional Properties
+| Property | Description | Type | Notes |
+|----------|-------------|------|-------|
+| `@context` | Vocabulary declaration | Object | Must include Schema.org |
+| `@type` | Asset type | String | Must be a valid Schema.org type |
+| `name` | Asset name | String | Max 100 characters |
+| `description` | Detailed description | String | Max 1000 characters |
+| `identifier` | Unique identifier | Object | Must include propertyID and value |
+| `creator` | Asset creator | Object | Must include name |
+| `dateCreated` | Creation date | String | ISO 8601 format |
+| `license` | Usage license | String | Valid URL |
+| `contentUrl` | Asset location | String | Valid URL |
+| `encodingFormat` | File format | String | Valid MIME type |
+
+## Optional Properties
+
+The following properties enhance asset functionality and can be included as needed:
 
 ```json
 {
-  "@context": "https://schema.org/",
-  "@type": "CreativeWork",
-  
   // Required properties as above...
   
   "version": "1.0.0",
@@ -74,12 +97,29 @@ The Basic Recipe defines essential metadata properties that should be included w
 }
 ```
 
+| Property | Description | Type | Notes |
+|----------|-------------|------|-------|
+| `version` | Asset version | String | Semantic versioning recommended |
+| `dateModified` | Modification date | String | ISO 8601 format |
+| `thumbnail` | Preview image | String | Valid URL |
+| `contributor` | Additional contributors | Array | List of persons or organizations |
+| `keywords` | Search terms | Array | List of relevant terms |
+| `copyrightHolder` | Rights owner | Object | Person or Organization |
+| `maintainer` | Maintenance entity | Object | Person or Organization |
+| `fileSize` | File size in bytes | Number | Integer value |
+
 ## Type-Specific Properties
 
-### 3D Model Base
+The Basic Profile can be extended with type-specific properties based on the asset's `@type` value:
+
+### 3D Model Properties
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   
   // Required properties as above...
@@ -89,41 +129,42 @@ The Basic Recipe defines essential metadata properties that should be included w
   "additionalProperty": [
     {
       "@type": "PropertyValue",
-      "name": "polyCount",
-      "value": "10000"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "textureResolution",
-      "value": "2048"
+      "propertyID": "geometryProperties",
+      "name": "Geometry Properties",
+      "value": {
+        "polyCount": 10000,
+        "textureResolution": 2048,
+        "materialCount": 5
+      }
     }
   ]
 }
 ```
 
-### Virtual Space Base
+### Virtual Space Properties
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "Place",
   
   // Required properties as above...
   
   "maximumAttendeeCapacity": 100,
   
-  "amenityFeature": [
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "spawnPoint",
-      "value": true
-    }
-  ],
-  
   "additionalProperty": [
     {
       "@type": "PropertyValue",
-      "name": "worldSize",
-      "value": "1000x1000"
+      "propertyID": "spaceProperties",
+      "name": "Space Properties",
+      "value": {
+        "worldSize": "1000x1000",
+        "spawnPoints": 2,
+        "environmentType": "indoor"
+      }
     }
   ]
 }
@@ -131,9 +172,9 @@ The Basic Recipe defines essential metadata properties that should be included w
 
 ## Validation Rules
 
-### Required Fields
+### Required Fields Validation
 - `@context`: Must include Schema.org
-- `@type`: Must be a valid type
+- `@type`: Must be a valid Schema.org type
 - `name`: Non-empty string, max 100 characters
 - `description`: Non-empty string, max 1000 characters
 - `identifier`: Must include propertyID and value
@@ -143,19 +184,22 @@ The Basic Recipe defines essential metadata properties that should be included w
 - `contentUrl`: Valid URL
 - `encodingFormat`: Valid MIME type
 
-### Optional Fields
-- `version`: Semantic version recommended
+### Optional Fields Validation
+- `version`: String, recommended semantic versioning
 - `dateModified`: ISO 8601 format
 - `thumbnail`: Valid URL
 - `contributor`: Must include name
 - `keywords`: Array of strings
-- `fileSize`: Number in bytes
+- `fileSize`: Positive integer
 
 ## Complete Example
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   
   "name": "Modern Office Chair",
@@ -194,53 +238,55 @@ The Basic Recipe defines essential metadata properties that should be included w
   "additionalProperty": [
     {
       "@type": "PropertyValue",
-      "name": "polyCount",
-      "value": "12500"
+      "propertyID": "geometryProperties",
+      "name": "Geometry Properties",
+      "value": {
+        "polyCount": 12500,
+        "textureResolution": 2048,
+        "materialCount": 3,
+        "animationCount": 0
+      }
     },
     {
       "@type": "PropertyValue",
-      "name": "textureResolution",
-      "value": "2048"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "renderPipeline",
-      "value": "PBR"
+      "propertyID": "physicalProperties",
+      "name": "Physical Properties",
+      "value": {
+        "dimensions": {
+          "width": 0.65,
+          "height": 1.2,
+          "depth": 0.65,
+          "unit": "meters"
+        },
+        "weight": {
+          "value": 15,
+          "unit": "kg"
+        }
+      }
     }
-  ],
-  
-  "maintainer": {
-    "@type": "Organization",
-    "name": "Virtual Furnishings Support",
-    "email": "support@example.com"
-  }
+  ]
 }
 ```
 
-## Usage Guidelines
+## Implementation Considerations
 
-1. **Start with Required Properties**
-    - Include all required fields
-    - Use appropriate types
-    - Follow format specifications
+### Cross-Platform Compatibility
+- Use standard Schema.org types and properties wherever possible
+- Provide fallback values for platform-specific properties
+- Test across multiple platforms to ensure consistent rendering
 
-2. **Add Optional Properties**
-    - Include relevant optional fields
-    - Maintain consistent structure
-    - Follow property guidelines
+### Performance Optimization
+- Include appropriate file sizes for different target platforms
+- Consider providing multiple levels of detail (LOD)
+- Optimize thumbnail images for quick loading
 
-3. **Add Type-Specific Properties**
-    - Use appropriate type base
-    - Include relevant additional properties
-    - Follow type-specific patterns
+### Rights Management
+- Ensure license field accurately reflects usage rights
+- Include attribution requirements in the description if needed
+- Document any platform-specific rights limitations
 
-4. **Validate Metadata**
-    - Check required fields
-    - Verify formats
-    - Validate URLs
+## Related Resources
 
-## Next Steps
-
-- Review [3D Object Profile](./3d-object-profile.md) for 3D-specific metadata
-- Check [Avatar Profile](./avatar-profile.md) for character metadata
-- See [Environment Profile](./environment-profile.md) for space metadata
+- [Types of Assets](../concepts/types-of-assets.md): Different asset types supported by MVMD
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Core metadata principles
+- [Schema.org Namespace](../namespaces/schema-org.md): Detailed information on Schema.org properties

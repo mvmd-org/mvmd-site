@@ -4,92 +4,72 @@ sidebar_position: 1
 
 # Integration Profiles Overview
 
-The Integration Profiles section provides standardized metadata templates for common Metaverse asset types. These profiles combine multiple standards and best practices into ready-to-use patterns that ensure interoperability and functionality across different platforms and environments.
+Integration Profiles provide standardized metadata templates for common metaverse asset types and use cases. These profiles combine Schema.org, MVMD, and domain-specific standards into ready-to-use patterns that ensure interoperability across platforms.
 
-## Available Integration Profiles
+## Purpose of Integration Profiles
 
-### Composable 3D NFT Integration Profile
-Currently our only published profile, defining metadata for complex 3D NFTs that can be broken down into component parts:
-- Modular asset structure
-- Component relationships
-- Composition rules
-- Validation requirements
-- Implementation examples
-- Best practices
+Integration Profiles serve several key purposes:
 
-Jump to the [Composable 3D NFT Integration Profile](./composable-3d-nft.md).
+- **Standardization**: Define consistent metadata structures for specific asset types and use cases
+- **Interoperability**: Ensure assets work reliably across different platforms and environments
+- **Completeness**: Provide all necessary metadata properties for functional implementation
+- **Validation**: Enable automated verification of metadata quality and compliance
+- **Simplification**: Reduce implementation complexity through tested patterns
 
-## Planned Integration Profiles
+## Profile Structure
 
-We have several integration profiles in development that will be released after community review:
+Each Integration Profile follows a consistent structure:
 
-### Digital Twin
-- Physical-digital synchronization
-- Sensor data integration
-- State management
-- Update mechanisms
-- Access control
+1. **Purpose and Use Cases**: The specific scenarios and applications the profile addresses
+2. **Required Properties**: Essential properties that must be included for basic functionality
+3. **Optional Properties**: Additional properties that enhance functionality in specific contexts
+4. **Validation Rules**: Requirements for property values, relationships, and structure
+5. **Complete Example**: A comprehensive reference implementation of the profile
+6. **Implementation Considerations**: Guidance for effective implementation across platforms
 
-### Vehicle
-- Physics properties
-- Control systems
-- Interaction points
-- Animation states
-- Sound configuration
+## Available Profiles
 
-### Identity
-- Cross-platform identifiers
-- Reputation systems
-- Achievement tracking
-- Social connections
-- Privacy controls
+The following Integration Profiles are currently available:
 
-### Royalty
-- Revenue distribution
-- Usage tracking
-- Payment systems
-- Rights management
-- Validation rules
+| Profile | Description | Key Applications |
+|---------|-------------|------------------|
+| [Basic](./basic.md) | Foundation profile with essential metadata | All metaverse assets |
+| [Avatar](./avatar.md) | Virtual character metadata with customization | User representations |
+| [Wearable](./wearable.md) | Digital fashion and equipment | Avatar accessories |
+| [Composable 3D NFT](./composable-3d-nft.md) | Component-based 3D assets | Modular collectibles |
+| [Vehicle](./vehicle.md) | Transportation-related asset metadata | Drivable vehicles |
+| [Scene](./scene.md) | Virtual environment metadata | Spaces and environments |
+| [Digital Twin](./digital-twin.md) | Physical-digital representation | Industrial metaverse |
+| [Identity](./identity.md) | Cross-platform user identity | User accounts |
+| [Equipable](./equipable.md) | Items that can be equipped or used | Interactive items |
+| [Interactable](./interactable.md) | Interactive object behaviors | Interactive objects |
+| [Royalty](./royalty.md) | Revenue distribution metadata | Creator economy |
 
-Additional integration profiles under consideration:
-- Wearable items
-- Equipment systems
-- Interactive objects
-- Virtual environments
-- Scene composition
-- Character animation
-- Physics simulation
-- Social interaction
-- Economic systems
+Additional profiles are under development for other important use cases. See [Future Profiles](./future.md) for roadmap details.
 
-Jump to the [Future Integration Profiles](./future.md) to learn more about upcoming templates.
+## Implementation Approach
 
-## Contributing New Integration Profiles
+When implementing Integration Profiles:
 
-The MVMD Integration Profiles section is designed to grow and evolve with the Metaverse ecosystem. We actively encourage contributions from:
-- Platform developers
-- Standards organizations
-- Content creators
-- Tool developers
-- Community members
+1. **Start with the Basic Profile** as the foundation for all assets
+2. **Add the appropriate specialized profile** based on your asset type or use case
+3. **Include all required properties** to ensure core functionality
+4. **Add optional properties** as needed for your specific application
+5. **Validate your implementation** against the profile's validation rules
+6. **Test across platforms** to verify compatibility and functionality
 
-To submit a new integration profile or propose changes to existing ones:
+## Contributing
+
+The MVMD community welcomes contributions to existing profiles and proposals for new profiles:
+
 1. Fork our GitHub repository
-2. Create a new branch for your profile
-3. Follow the integration profile template structure
-4. Include:
-   - Clear use cases
-   - Implementation examples
-   - Validation rules
-   - Best practices
-   - Common issues
-   - Next steps
+2. Create a new branch for your profile changes
+3. Follow the standard profile structure
+4. Include examples and validation rules
 5. Submit a pull request
 
-## Next Steps
+## Related Resources
 
-Start with our published [Composable 3D NFT Integration Profile](./composable-3d-nft.md) to understand how integration profiles combine multiple standards into practical implementation patterns. Monitor our GitHub repository for new profile releases and opportunities to contribute to upcoming templates.
-
-For contributing organizations: review the [Future Integration Profiles](./future.md) section to identify gaps and opportunities for new profiles that could benefit the broader Metaverse ecosystem.
-
-Remember that integration profiles are living documents that will evolve as standards mature and new use cases emerge. Your contributions help build a more interoperable and robust Metaverse for everyone.
+- [Types of Assets](../concepts/types-of-assets.md): Core asset classifications
+- [Namespaces](../namespaces/overview.md): Standard-specific metadata properties
+- [Implementation Best Practices](../implementation/best-practices.md): General metadata guidance
