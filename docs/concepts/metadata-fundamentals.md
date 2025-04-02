@@ -2,71 +2,106 @@
 
 Metadata is structured information that describes, explains, or locates virtual assets and experiences in the Metaverse. Well-structured metadata enables interoperability, discoverability, and management of digital assets across different platforms and environments.
 
-## Required Elements
+At its core, MVMD builds upon Schema.org's vocabulary and JSON-LD's syntax to create a standardized way to describe Metaverse assets.
 
-Every metadata object MUST include two fundamental elements:
+## Core Technologies
+
+### Schema.org Foundation
+
+(Please review the official docs at [schema.org](https://schema.org/))
+
+Schema.org is a collaborative, community-driven effort to create and maintain a shared vocabulary for structured data. It provides a standardized vocabulary for describing digital content, well-defined types and properties, and broad industry adoption. MVMD uses Schema.org as its foundation because it's widely supported, has a rich vocabulary for digital assets, is extensible, and integrates well with search engines and data systems.
+
+### JSON-LD
+
+(Please review the official docs at [json-ld.org](https://json-ld.org/))
+
+JSON-LD (JavaScript Object Notation for Linked Data) is our chosen format because it is easy for humans and machines to read and write, supports namespacing for combining different vocabularies, enables linked data connections, and maintains compatibility with regular JSON.
+
+## Required Metadata Elements
+
+Every MVMD metadata object MUST include two core elements within the `@context` object, plus a `@type` declaration:
 
 ### 1. Context (@context)
 
-The `@context` must be provided as an object that defines the vocabulary and rules for interpreting metadata:
+The `@context` object defines the vocabularies and rules for interpreting the metadata. It **must** include:
+
+-   `"@vocab": "https://schema.org/"`: Sets Schema.org as the default vocabulary for terms without a prefix.
+-   `"mvmd": "https://mvmd.org/v1/"`: Indicates compliance with MVMD standards and enables version-specific features.
+
+You can add **additional contexts** (namespaces) to include terms from other standards like glTF or USD when needed for embedding data or using standard-specific properties.
 
 ```json
 {
   "@context": {
-    "@vocab": "https://schema.org/",
+    "@vocab": "https://schema.org/", // Required Schema.org vocabulary
+    "mvmd": "https://mvmd.org/v1/",  // Required MVMD version indicator
+    // Optional additional namespaces:
     "gltf": "https://www.khronos.org/gltf/",
     "usd": "https://openusd.org/ns/"
   }
+  // ... @type and properties follow
 }
 ```
 
 ### 2. Type (@type)
 
-The `@type` must be a valid Schema.org type. For maximum compatibility and functionality, consider using these base types:
+The `@type` property specifies the primary Schema.org type for the object being described. This determines the core set of properties available. Choose the most specific relevant type.
 
-- **CreativeWork**: Most versatile base type
-    - Supports rich relationships (`hasPart`, `associatedMedia`)
-    - Ideal for complex virtual assets
-    - Can be specialized using `additionalType`
-- **MediaObject** and subtypes:
-    - 3DModel: Three-dimensional representations
-    - AudioObject: Sound files
-    - ImageObject: Image files
-    - VideoObject: Video content
-- **Place**: Physical location representations
-- **SoftwareApplication**: Interactive applications
-- **DigitalDocument**: Documentation and text
-- **LearningResource**: Educational content
-
-## Property Value Handling
-
-### Simple Values
-For basic properties, use direct values:
+-   **CreativeWork**: Most versatile base type, supports rich relationships (`hasPart`, `associatedMedia`), ideal for complex virtual assets, can be specialized using `additionalType`.
+-   **MediaObject** subtypes (e.g., `3DModel`, `AudioObject`, `ImageObject`, `VideoObject`): For specific media formats.
+-   **Place**: For digital twins or representations of locations.
+-   **SoftwareApplication**: For interactive experiences.
+-   **DigitalDocument**: For documentation.
+-   **LearningResource**: For educational content.
 
 ```json
 {
   "@context": {
-    "@vocab": "https://schema.org/"
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "CreativeWork",
-  "name": "Simple Asset",
-  "description": "Basic asset example"
+  "@type": "CreativeWork", // Specifies the type of the main object
+  "name": "My Asset"
+  // ... other properties
 }
 ```
 
-### Additional Properties
-When adding custom properties, use PropertyValue structure:
+_(We cover root object types in detail in the [Types of Things](./types-of-things.md) page.)_
+
+## Property Value Handling
+
+MVMD follows specific patterns for handling different types of values:
+
+### Simple Values
+
+For basic properties defined by Schema.org, use direct JSON values (strings, numbers, booleans):
 
 ```json
 {
+  "@context": { "@vocab": "https://schema.org/", "mvmd": "https://mvmd.org/v1/" },
+  "@type": "CreativeWork",
+  "name": "Simple Asset", // Simple string value
+  "description": "Basic asset example", // Simple string value
+  "version": 1 // Simple number value
+}
+```
+
+### Structured Values (Additional Properties)
+
+When adding custom properties not defined in Schema.org or providing more detail about a value, use the `additionalProperty` property with nested `PropertyValue` objects:
+
+```json
+{
+  "@context": { "@vocab": "https://schema.org/", "mvmd": "https://mvmd.org/v1/" },
   "@type": "CreativeWork",
   "name": "Complex Asset",
-  "additionalProperty": [
+  "additionalProperty": [ // Use an array for multiple PropertyValues
     {
       "@type": "PropertyValue",
-      "propertyID": "capacity",
-      "name": "Maximum Capacity",
-      "value": 100
+      "propertyID": "capacity",    // A machine-readable identifier for the property
+      "name": "Maximum Capacity", // A human-readable name (optional)
+      "value": 100               // The actual value
     },
     {
       "@type": "PropertyValue",
@@ -74,64 +109,62 @@ When adding custom properties, use PropertyValue structure:
       "name": "Render Quality",
       "value": "high"
     }
+    // Add more PropertyValue objects here if needed
   ]
 }
 ```
+*   **`propertyID`**: A unique identifier for the custom property (e.g., camelCase, snake_case).
+*   **`name`**: Optional human-readable label.
+*   **`value`**: The property's value (can be string, number, boolean, or even another structured object).
 
-### Complex Values
-For complex data structures, use namespaced properties:
+### Embedding Data with Namespaces
+
+To embed data structures from other standards (like glTF, USD, CityJSON, etc.) or use properties defined outside Schema.org, use **namespaces** defined in the `@context`.
+
+**Simple Namespace Usage:** Prefix the property name with the namespace defined in the `@context`. This is suitable for occasional namespaced properties.
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/" // Define glTF namespace
   },
   "@type": "CreativeWork",
-  "name": "Asset with Complex Properties",
-  "additionalProperty": [
+  "name": "Asset with glTF Material Info",
+  // Prefixed property from the glTF namespace:
+  "gltf:materials": [
     {
-      "@type": "PropertyValue",
-      "propertyID": "quality",
-      "name": "Quality Settings",
-      "value": "high-performance"
+      // Note: types within embedded data often don't need explicit @type
+      // IF the structure is defined by the external standard itself.
+      // Check specific standard's embedding guidelines.
+      "name": "Metal",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 1.0,
+        "roughnessFactor": 0.5
+      }
     }
-  ],
-  "usd:renderSettings": {
-    "quality": "high",
-    "shadows": "enabled",
-    "reflections": "realtime"
-  }
+  ]
 }
 ```
+_(For detailed examples of embedding data from specific standards, see the [Examples & Recipes > Embedding Examples](#) section - **Note: Link to be updated later**)_
 
-## Handling Multiple Namespaces with Inheritance
+**Advanced Namespace Handling (Inheritance Pattern):**
 
-When working with metadata that incorporates terms from multiple standards or vocabularies beyond Schema.org, managing namespaces effectively is crucial. A naive approach might involve prefixing every single property from an external namespace, leading to verbose and difficult-to-maintain JSON-LD.
+When embedding larger blocks of data from another standard, prefixing every property becomes verbose. A cleaner approach uses a "namespace inheritance" pattern:
 
-**Problem with Verbose Prefixing:**
+1.  **Declare Namespace:** Define the namespace (e.g., `"ns1": "..."`) in the main `@context`.
+2.  **Create Root Namespaced Property:** Create a single root-level property using the prefix (e.g., `"ns1:metadataBlock"`).
+3.  **Declare `@type` within Block:** Inside the namespaced object, include an `@type` that *also* uses the prefix (e.g., `"@type": "ns1:MetadataType"`). The type name (`MetadataType`) should correspond to a relevant class within that namespace's specification.
+4.  **Inherited Namespace:** Properties *within* this block (like `version`, `tags`) now implicitly belong to `ns1` and don't need the prefix.
 
-- Requires repeating namespace prefixes for every property (e.g., `ns1:version`, `ns1:tags`).
-- Creates bloated, hard-to-read JSON-LD documents.
-- Makes maintenance difficult when adding new properties to a namespaced block.
-- Can lead to schema validation issues if not structured correctly.
-
-**Improved Namespace Inheritance Pattern:**
-
-A more efficient and cleaner approach leverages JSON-LD's context processing to create "namespace inheritance" within specific parts of the document:
-
-1.  **Declare All Namespaces:** Define all required namespace prefixes and their corresponding URIs in the main `@context` object. Include `@vocab` for the default namespace (usually Schema.org).
-2.  **Use a Root Schema.org `@type`:** Ensure the top-level object has a valid `@type` from Schema.org (e.g., `CreativeWork`, `Product`).
-3.  **Create Root-Level Namespaced Properties:** For each external namespace you need to use for a block of related properties, create a single root-level property using the namespace prefix (e.g., `"ns1:metadata"`).
-4.  **Declare `@type` within Namespaced Object:** Inside the value of this namespaced property (which should be an object), include an `@type` declaration. The value of this `@type` should *also* use the same namespace prefix (e.g., `"@type": "ns1:Metadata"`). The type name itself (`Metadata` in this case) should correspond to a relevant class or concept within that namespace's specification.
-5.  **Inherited Namespace:** All properties defined *within* this namespaced object will now automatically inherit the namespace defined by the parent property's prefix. You do *not* need to repeat the prefix for child properties (like `version` or `tags` in the example below).
-
-**Example Implementation:**
+**Example:**
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "ns1": "https://standard1.org/v1/",
     "ns2": "https://standard2.org/v1/"
   },
@@ -139,6 +172,8 @@ A more efficient and cleaner approach leverages JSON-LD's context processing to 
   "name": "Multi-standard Complex Asset",
   "description": "This is a schema.org property",
   "identifier": "PROD-12345",
+
+  // Group ns1 properties under a namespaced object with its own ns1:@type
   "ns1:metadata": {
     "@type": "ns1:Metadata", // Type declaration using the ns1 prefix
     // Properties below inherit the "ns1" namespace implicitly
@@ -147,13 +182,11 @@ A more efficient and cleaner approach leverages JSON-LD's context processing to 
     "nestedObject": {
       // Nested properties also inherit ns1
       "setting1": "enabled",
-      "setting2": 42,
-      "complexSetting": {
-        "enabled": true,
-        "parameters": [10, 20, 30]
-      }
+      "setting2": 42
     }
   },
+
+  // Group ns2 properties similarly
   "ns2:technicalDetails": {
     "@type": "ns2:TechnicalSpec", // Type declaration using the ns2 prefix
     // Properties below inherit the "ns2" namespace implicitly
@@ -166,227 +199,98 @@ A more efficient and cleaner approach leverages JSON-LD's context processing to 
 }
 ```
 
-**Benefits of This Approach:**
-
-1.  **Reduced Verbosity**: Only specify the namespace prefix once for the parent object, not on every child property.
-2.  **Clear Namespace Boundaries**: Properties belonging to a specific standard are logically grouped under their namespaced parent.
-3.  **Schema.org Validation**: The structure remains valid according to Schema.org because the root object uses a Schema.org type, and external properties are nested.
-4.  **Scalability**: Adding new properties (e.g., a new setting within `ns1:metadata`) doesn't require modifying the `@context`, only adding the property name within the appropriate block.
-5.  **Maintenance Efficiency**: If a namespace URI changes, it only needs to be updated in the central `@context`. Renaming the top-level property (`ns1:metadata`) or its `@type` (`ns1:Metadata`) is localized.
-6.  **Improved Readability**: The JSON structure is much cleaner and easier to understand at a glance.
-
-**Before and After Comparison:**
-
-Consider adding technical specifications from `standard2` and metadata from `standard1`.
-
-*Before (Verbose Prefixing):*
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "ns1": "https://standard1.org/v1/",
-    "ns2": "https://standard2.org/v1/"
-  },
-  "@type": "Product",
-  "name": "Multi-standard Complex Asset (Old Way)",
-  // Properties from ns1 prefixed individually
-  "ns1:version": "1.0.3",
-  "ns1:tags": ["stable", "verified"],
-  // Properties from ns2 prefixed individually
-  "ns2:compatibility": ["Windows", "MacOS"],
-  "ns2:requirements": {
-      // Nested properties also need prefixes
-      "ns2:memory": "8GB"
-  }
-  // ... potentially many more prefixed properties ...
-}
-```
-
-*After (Namespace Inheritance Pattern):*
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "ns1": "https://standard1.org/v1/",
-    "ns2": "https://standard2.org/v1/"
-  },
-  "@type": "Product",
-  "name": "Multi-standard Complex Asset",
-  // Group ns1 properties under a namespaced object with its own @type
-  "ns1:metadata": {
-    "@type": "ns1:Metadata",
-    "version": "1.0.3", // No prefix needed
-    "tags": ["stable", "verified"] // No prefix needed
-  },
-  // Group ns2 properties under a namespaced object with its own @type
-  "ns2:technicalDetails": {
-    "@type": "ns2:TechnicalSpec",
-    "compatibility": ["Windows", "MacOS"], // No prefix needed
-    "requirements": {
-      "memory": "8GB" // No prefix needed
-    }
-  }
-}
-```
-
-**Technical Explanation:**
-
-This pattern works because of how JSON-LD processors handle contexts and typed nodes. When an object like `"ns1:metadata": { ... }` contains its own `@type` declaration that also uses the `ns1` prefix (`"@type": "ns1:Metadata"`), the processor understands that the properties *within* this object (`version`, `tags`, `nestedObject`) belong to the vocabulary associated with the `ns1` prefix in the `@context`. This effectively creates a localized context or "scope" for that namespace within that branch of the JSON tree, allowing for the omission of prefixes on child properties.
+**Benefits:** Reduced verbosity, clear boundaries, scalability, improved readability.
 
 ## Relationship Properties
 
-Schema.org provides several ways to define relationships between content:
+Schema.org provides several properties to define relationships between the described entity and other resources or concepts. Understanding these is key to linking assets.
+
+_(For a detailed guide on the strategy of linking vs. embedding and how to use these properties effectively, see the [Linking vs. Embedding Strategy](./linking-vs-embedding.md) page - **Note: Link target will be renamed later**)_
+
+Here's a brief overview of common relationship properties:
 
 ### hasPart
-Used to indicate components or pieces that make up the whole. Example showing multiple components, including namespaced `gltf:transform` data following the inheritance pattern:
+Indicates components or pieces that make up the whole (e.g., a car `hasPart` wheels, engine).
 
 ```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/" // Define gltf namespace
-  },
-  "@type": "CreativeWork",
-  "name": "Complex Asset",
+// ... assumes "@context" includes "gltf": "..."
   "hasPart": [
     {
       "@type": "3DModel",
       "name": "Main Component",
-      "encodingFormat": "model/gltf-binary",
       "contentUrl": "https://example.com/main.glb",
-      // Use the namespaced property for the GLTF transform data block
-      "gltf:transform": {
-        "@type": "gltf:Transform", // Declare the type within the GLTF namespace
-        // Properties inherit the 'gltf' namespace
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0, 0, 1],
-        "translation": [0, 1, 0]
-      }
-    },
-    {
-      "@type": "3DModel",
-      "name": "Secondary Component",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/secondary.glb",
-      // Repeat pattern for the second component
+      // Can include namespaced data related to the part
       "gltf:transform": {
         "@type": "gltf:Transform",
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0.707, 0, 0.707],
-        "translation": [1, 0, 0]
+        "scale": [1.0, 1.0, 1.0]
+        // ... other transform properties
       }
     }
+    // ... more parts
   ]
-}
 ```
 
 ### associatedMedia
-Used to reference related media content:
+References related media content that is not strictly a 'part' (e.g., a product `associatedMedia` includes tutorial videos, texture files).
 
 ```json
-{
-  "@type": "CreativeWork",
-  "name": "Asset with Media",
   "associatedMedia": [
     {
       "@type": "VideoObject",
       "name": "Asset Preview",
-      "encodingFormat": "video/mp4",
       "contentUrl": "https://example.com/preview.mp4"
-    },
-    {
-      "@type": "ImageObject",
-      "name": "Asset Thumbnail",
-      "encodingFormat": "image/png",
-      "contentUrl": "https://example.com/thumbnail.png"
     }
   ]
-}
 ```
 
 ### encodesCreativeWork
-Used to reference creative works encoded in this object:
+References creative works that are encoded *within* the described entity (e.g., a 3D model of a kiosk `encodesCreativeWork` representing the image displayed on its screen).
 
 ```json
-{
-  "@type": "CreativeWork",
-  "name": "Asset Container",
   "encodesCreativeWork": [
     {
       "@type": "ImageObject",
       "name": "Concept Art",
-      "encodingFormat": "image/png",
       "contentUrl": "https://example.com/concept.png"
-    },
-    {
-      "@type": "TextObject",
-      "name": "Background Story",
-      "encodingFormat": "text/markdown",
-      "contentUrl": "https://example.com/story.md"
     }
   ]
-}
 ```
 
 ### mainEntity
-Used to indicate the primary entity described by the creative work:
+Indicates the primary subject *described by* this metadata (e.g., an `ImageObject` showing a preview might have `mainEntity` pointing to the actual `3DModel`).
 
 ```json
-{
-  "@type": "CreativeWork",
-  "name": "Character Profile",
   "mainEntity": {
     "@type": "Person",
-    "name": "Character Name",
-    "description": "Character background and story",
-    "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "propertyID": "class",
-        "name": "Character Class",
-        "value": "Warrior"
-      }
-    ]
+    "name": "Character Name"
+    // ... properties of the character
   }
-}
 ```
+
+*(Other relationship properties like `subjectOf`, `sameAs`, `image`, `thumbnail`, `url` are covered in the Linking vs. Embedding Strategy page.)*
 
 ## Location Types
 
 ### Virtual-Only Locations
-For purely virtual spaces, use CreativeWork with additionalType:
+For purely virtual spaces without a direct real-world counterpart, use `CreativeWork` and add `"additionalType": "VirtualLocation"`:
 
 ```json
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
-  },
+  "@context": { "@vocab": "https://schema.org/", "mvmd": "https://mvmd.org/v1/" },
   "@type": "CreativeWork",
-  "name": "Fantasy Arena",
   "additionalType": "VirtualLocation",
-  "description": "Floating combat arena",
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "capacity",
-      "name": "Maximum Attendee Capacity",
-      "value": 100
-    }
-  ]
+  "name": "Fantasy Arena",
+  "description": "Floating combat arena"
+  // ... other properties like capacity using additionalProperty
 }
 ```
 
 ### Digital Twins
-For digital representations of real places, use Place:
+For digital representations of real-world places, use the Schema.org `Place` type and its properties (like `geo` for coordinates):
 
 ```json
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": { "@vocab": "https://schema.org/", "mvmd": "https://mvmd.org/v1/" },
   "@type": "Place",
   "name": "Digital Museum",
   "description": "Digital twin of physical museum",
@@ -401,220 +305,95 @@ For digital representations of real places, use Place:
 
 ## Complete Example
 
-This comprehensive example shows all major metadata concepts working together:
+This comprehensive example shows many concepts working together (Note: Some properties like `contentSize`, `width`, `height`, `url` are specific to the chosen `@type`, in this case `ImageObject` representing the gallery preview image, which also acts as a `VirtualLocation`).
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/", // Remember required MVMD context
     "gltf": "https://www.khronos.org/gltf/",
     "usd": "https://openusd.org/ns/"
   },
-  "@type": "ImageObject",
+  "@type": "ImageObject", // Primary type is the preview image
+  "additionalType": "VirtualLocation", // Also represents a virtual location
   "name": "Virtual Gallery Experience",
   "description": "Interactive virtual art gallery with multiple components",
   "encodingFormat": "image/png",
   "contentSize": "3.216 MB",
   "width": 4000,
   "height": 4000,
-  "url": "https://path/to/image_thumbnail.png",
-  "additionalType": "VirtualLocation",
+  "url": "https://path/to/image_thumbnail.png", // URL of the image itself
+
+  // Custom properties describing the location aspect
   "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "capacity",
-      "name": "Maximum Attendee Capacity",
-      "value": 100
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "lighting",
-      "name": "Lighting System",
-      "value": "dynamic"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "physics",
-      "name": "Physics System",
-      "value": "custom"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "interactivity",
-      "name": "Interactivity Level",
-      "value": "full"
-    }
+    { "@type": "PropertyValue", "propertyID": "capacity", "name": "Maximum Attendee Capacity", "value": 100 },
+    { "@type": "PropertyValue", "propertyID": "lighting", "name": "Lighting System", "value": "dynamic" },
+    { "@type": "PropertyValue", "propertyID": "physics", "name": "Physics System", "value": "custom" },
+    { "@type": "PropertyValue", "propertyID": "interactivity", "name": "Interactivity Level", "value": "full" }
   ],
+
+  // Embedded data using namespace inheritance pattern
   "usd:environment": {
-    "lighting": {
-      "type": "dynamic",
-      "shadows": true,
-      "quality": "high"
-    },
-    "physics": {
-      "type": "custom",
-      "gravity": -9.81,
-      "collisions": true
-    },
-    "interactivity": {
-      "mode": "full",
-      "gestures": ["grab", "point", "wave"]
-    }
+    "@type": "usd:Environment", // Using a hypothetical USD type
+    "lighting": { "type": "dynamic", "shadows": true, "quality": "high" },
+    "physics": { "type": "custom", "gravity": -9.81, "collisions": true },
+    "interactivity": { "mode": "full", "gestures": ["grab", "point", "wave"] }
   },
+
+  // Components of the gallery using hasPart
   "hasPart": [
     {
-      "@type": "3DModel",
-      "name": "Main Gallery Hall",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/hall.glb",
-      "gltf:transform": {
-        "scale": [2.0, 1.0, 2.0],
-        "rotation": [0, 0, 0, 1],
-        "translation": [0, 0, 0]
-      }
+      "@type": "3DModel", "name": "Main Gallery Hall", "contentUrl": "https://example.com/hall.glb",
+      "gltf:transform": { "@type": "gltf:Transform", "scale": [2.0, 1.0, 2.0], "rotation": [0, 0, 0, 1], "translation": [0, 0, 0] }
     },
     {
-      "@type": "3DModel",
-      "name": "Exhibition Wing A",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/wing_a.glb",
-      "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0.707, 0, 0.707],
-        "translation": [20, 0, 0]
-      }
+      "@type": "3DModel", "name": "Exhibition Wing A", "contentUrl": "https://example.com/wing_a.glb",
+      "gltf:transform": { "@type": "gltf:Transform", "scale": [1.0, 1.0, 1.0], "rotation": [0, 0.707, 0, 0.707], "translation": [20, 0, 0] }
     },
     {
-      "@type": "3DModel",
-      "name": "Exhibition Wing B",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/wing_b.glb",
-      "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, -0.707, 0, 0.707],
-        "translation": [-20, 0, 0]
-      }
+      "@type": "3DModel", "name": "Exhibition Wing B", "contentUrl": "https://example.com/wing_b.glb",
+      "gltf:transform": { "@type": "gltf:Transform", "scale": [1.0, 1.0, 1.0], "rotation": [0, -0.707, 0, 0.707], "translation": [-20, 0, 0] }
     }
   ],
+
+  // Associated media
   "associatedMedia": [
-    {
-      "@type": "VideoObject",
-      "name": "Gallery Walkthrough",
-      "encodingFormat": "video/mp4",
-      "contentUrl": "https://example.com/walkthrough.mp4"
-    }
+    { "@type": "VideoObject", "name": "Gallery Walkthrough", "contentUrl": "https://example.com/walkthrough.mp4" }
   ],
+
+  // Encoded works (part of the gallery experience)
   "encodesCreativeWork": [
-    {
-      "@type": "ImageObject",
-      "name": "Gallery Floor Plan",
-      "encodingFormat": "image/png",
-      "contentUrl": "https://example.com/floorplan.png"
-    },
-    {
-      "@type": "TextObject",
-      "name": "Visitor Guide",
-      "encodingFormat": "text/markdown",
-      "contentUrl": "https://example.com/guide.md"
-    }
+    { "@type": "ImageObject", "name": "Gallery Floor Plan", "contentUrl": "https://example.com/floorplan.png" },
+    { "@type": "TextObject", "name": "Visitor Guide", "contentUrl": "https://example.com/guide.md" }
   ],
+
+  // Main entity described by the preview image
   "mainEntity": {
     "@type": "Place",
     "name": "Virtual Modern Art Gallery",
     "description": "A contemporary art space in the metaverse",
     "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "propertyID": "curator",
-        "name": "Gallery Curator",
-        "value": "Virtual Arts Foundation"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "exhibitions",
-        "name": "Current Exhibitions",
-        "value": ["Digital Realism", "NFT Showcase", "Interactive Installations"]
-      }
+      { "@type": "PropertyValue", "propertyID": "curator", "name": "Gallery Curator", "value": "Virtual Arts Foundation" },
+      { "@type": "PropertyValue", "propertyID": "exhibitions", "name": "Current Exhibitions", "value": ["Digital Realism", "NFT Showcase", "Interactive Installations"] }
     ]
   }
 }
 ```
 
-## Best Practices
+## Best Practices Summary
 
-1. **Type Selection**
-    - Choose type based on needed properties
-    - Consider Schema.org compatibility
-    - Use additionalType for specialization
-    - Verify property support for chosen type
+*   **Foundation:** Always include `@context` (with `@vocab` and `mvmd`) and `@type`.
+*   **Types:** Choose the most appropriate Schema.org type. Use `additionalType` for specialization (like `VirtualLocation`).
+*   **Values:** Use direct values for standard properties. Use `additionalProperty` + `PropertyValue` for custom data.
+*   **Embedding:** Use namespaces for external standard properties or data blocks. Prefer the inheritance pattern for larger blocks.
+*   **Relationships:** Use properties like `hasPart`, `associatedMedia`, `mainEntity` etc. correctly to link resources (See Linking vs Embedding Strategy page).
+*   **Validation:** Regularly validate your metadata against Schema.org and any relevant standards.
 
-2. **Property Organization**
-    - Group related properties
-    - Use clear property names
-    - Maintain consistent structure
-    - Document relationships clearly
+## Next Steps
 
-3. **Value Handling**
-    - Use appropriate value structure
-    - Namespace complex objects
-    - Maintain data type consistency
-    - Follow Schema.org value types
-
-4. **Relationship Definition**
-    - Use appropriate relationship properties
-    - Maintain clear hierarchies
-    - Document dependencies
-    - Consider relationship direction
-
-5. **Namespace Usage**
-    - Define all namespaces in @context
-    - Use appropriate namespace prefixes
-    - Keep namespace usage consistent
-    - Document namespace purposes
-
-6. **Metadata Validation**
-    - Validate against Schema.org
-    - Check namespace compliance
-    - Verify property values
-    - Test relationship integrity
-
-## Common Patterns
-
-1. **Base Type Selection**
-   ```json
-   {
-     "@type": "CreativeWork",
-     "additionalType": "VirtualLocation"
-   }
-   ```
-
-2. **Property Value Structure**
-   ```json
-   "additionalProperty": [
-     {
-       "@type": "PropertyValue",
-       "propertyID": "customField",
-       "name": "Custom Field Name",
-       "value": "custom value"
-     }
-   ]
-   ```
-
-3. **Namespaced Properties**
-   ```json
-   "gltf:transform": {
-     "scale": [1.0, 1.0, 1.0]
-   }
-   ```
-
-4. **Relationships**
-   ```json
-   "hasPart": [
-     {
-       "@type": "3DModel",
-       "name": "Component"
-     }
-   ]
-   ```
-
-These patterns ensure maximum compatibility while enabling rich descriptions of virtual assets and experiences. When implementing metadata, always consider Schema.org compatibility, proper value handling, and clear relationship definition.
+With these fundamentals, you can explore:
+-   [Types of Things](./types-of-things.md): Deep dive into specific Schema.org types.
+-   [Linking vs. Embedding Strategy](./linking-vs-embedding.md): Detailed guide on connecting assets and data. (**Note: Link target will be renamed later**)
+-   [File Organization](./file-organization.md): How to structure your metadata files.
+-   [Examples & Recipes](#): Practical examples for specific use cases. (**Note: Link to be updated later**)
