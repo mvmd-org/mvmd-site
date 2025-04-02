@@ -8,6 +8,10 @@ sidebar_position: 4
 
 The Metaverse Metadata Directory (MVMD) is an open, collaborative project that welcomes contributions from individuals, organizations, and standards bodies. This guide outlines how you can contribute to MVMD's development and evolution.
 
+## Authors and Contributors
+
+The initial Metaverse Metadata Directory concept and versions were authored by Grig Bilham from [SumSetTech](https://sumset.tech). You can reach Grig on Discord (grig#8276), [X](https://x.com/SpiritBits), and [BlueSky](https://bsky.app/profile/spiritbits.bsky.social).
+
 ## Ways to Contribute
 
 ### 1. Documentation Improvements
