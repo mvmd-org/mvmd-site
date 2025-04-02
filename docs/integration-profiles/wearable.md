@@ -1,15 +1,61 @@
-# Wearables
+---
+sidebar_position: 3
+---
 
-This recipe defines the metadata structure for wearable items in the metaverse, ensuring interoperability across different platforms and standards compliance.
+# Wearable Integration Profile
 
-## Overview
+Digital wearable items that can be attached to avatars across different metaverse platforms with consistent behavior and appearance.
 
-Wearable metadata must:
-- Use ImageObject as the root type to represent the wearable's preview/thumbnail
-- Include proper Schema.org context and type declarations
-- Specify attachment points and compatibility information
-- Include technical specifications for 3D models
-- Follow Schema.org validation requirements
+## Purpose and Use Cases
+
+Wearable metadata ensures consistent representation and behavior of digital fashion and accessory items across platforms.
+
+- Avatar customization with digital fashion items
+- Cross-platform inventory compatibility
+- Virtual fashion marketplaces and e-commerce
+- Digital identity expression through fashion
+- Brand extension into the digital realm
+
+## Profile Overview
+
+The wearable profile defines metadata for digital items that can be worn by avatars. It covers attachment points, compatibility specifications, technical requirements, and visual representation. This profile follows Schema.org patterns while adding metaverse-specific properties.
+
+## Required Properties
+
+The following properties are **required** for all assets using this profile:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `@type` | String | Must be "ImageObject" to represent the wearable's preview |
+| `name` | String | Name of the wearable item |
+| `contentUrl` | URL | URL to the preview image of the wearable |
+| `encodingFormat` | String | MIME type of the preview image |
+| `additionalProperty` | Array | Must include at least one property with propertyID "attachmentPoint" |
+| `associatedMedia` | Array | Must include at least one 3DModel object with the actual 3D asset |
+
+## Optional Properties
+
+The following properties are **optional** but recommended for this profile:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `identifier` | PropertyValue | Unique ID for the wearable |
+| `description` | String | Detailed description of the wearable |
+| `creator` | Person/Organization | Creator information |
+| `license` | URL | License information for usage rights |
+| `thumbnail` | ImageObject | Smaller preview image |
+| `additionalProperty` with "category" | PropertyValue | Type of wearable (headwear, footwear, etc.) |
+| `additionalProperty` with "compatibility" | PropertyValue | Avatar type compatibility |
+| `additionalProperty` with "technicalRequirements" | PropertyValue | Technical specifications |
+
+## Standards Integration
+
+This profile combines the following standards:
+
+- **Schema.org**: Core vocabulary and structure following ImageObject type
+- **glTF**: 3D model format for the wearable asset
+- **JSON-LD**: Linked data format for semantic metadata
+- **Avatar Standards**: References to attachment points and compatibility
 
 ## Basic Example
 
@@ -212,52 +258,37 @@ Here's a comprehensive example showing all features while maintaining Schema.org
       "@type": "PropertyValue",
       "propertyID": "compatibility",
       "name": "Avatar Compatibility",
-      "value": "humanoid"
+      "value": ["humanoid", "stylized"]
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "minRequirements",
-      "name": "Minimum Requirements",
-      "value": "polyCount:8000;textureSize:1024;materials:2"
+      "propertyID": "technicalRequirements",
+      "name": "Technical Requirements",
+      "value": {
+        "polyCount": 22500,
+        "textureSize": 2048,
+        "materials": 3,
+        "animations": 2
+      }
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "recommendedRequirements",
-      "name": "Recommended Requirements",
-      "value": "polyCount:25000;textureSize:4096;materials:4"
+      "propertyID": "effects",
+      "name": "Special Effects",
+      "value": ["glow", "particles", "sound"]
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "physicsProperties",
-      "name": "Physics Properties",
-      "value": "mass:0.3;collisionEnabled:true;restitution:0.3;friction:0.5"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "renderingProperties",
-      "name": "Rendering Properties",
-      "value": "castShadows:true;receiveShadows:true;reflective:true"
+      "propertyID": "rarity",
+      "name": "Rarity",
+      "value": "legendary"
     }
   ],
-
-  "gltf:asset": {
-    "@type": "gltf:Asset",
-    "version": "2.0",
-    "generator": "Digital Fashion Studio Creator v1.0",
-    "copyright": "© 2024 Digital Fashion Studio"
-  },
-
-  "gltf:transform": {
-    "@type": "gltf:Transform",
-    "scale": [1.0, 1.0, 1.0],
-    "rotation": [0, 0, 0, 1],
-    "translation": [0, 0.15, 0]
-  },
 
   "associatedMedia": [
     {
       "@type": "3DModel",
-      "name": "High Quality Model",
+      "name": "Crown 3D Model - High Quality",
       "contentUrl": "https://example.com/models/crown_high.glb",
       "encodingFormat": "model/gltf-binary",
       "additionalProperty": [
@@ -269,149 +300,83 @@ Here's a comprehensive example showing all features while maintaining Schema.org
         },
         {
           "@type": "PropertyValue",
-          "propertyID": "polyCount",
-          "name": "Polygon Count",
-          "value": "25000"
+          "propertyID": "lod",
+          "name": "Level of Detail",
+          "value": 0
         }
       ]
     },
     {
       "@type": "3DModel",
-      "name": "Low Quality Model",
-      "contentUrl": "https://example.com/models/crown_low.glb",
+      "name": "Crown 3D Model - Medium Quality",
+      "contentUrl": "https://example.com/models/crown_medium.glb",
       "encodingFormat": "model/gltf-binary",
       "additionalProperty": [
         {
           "@type": "PropertyValue",
           "propertyID": "quality",
           "name": "Quality Level",
-          "value": "low"
+          "value": "medium"
         },
         {
           "@type": "PropertyValue",
-          "propertyID": "polyCount",
-          "name": "Polygon Count",
-          "value": "8000"
+          "propertyID": "lod",
+          "name": "Level of Detail",
+          "value": 1
         }
       ]
     },
     {
       "@type": "ImageObject",
-      "name": "Base Color Map",
-      "contentUrl": "https://example.com/textures/crown_basecolor.jpg",
-      "encodingFormat": "image/jpeg",
-      "width": 2048,
-      "height": 2048
-    },
-    {
-      "@type": "ImageObject",
       "name": "Normal Map",
       "contentUrl": "https://example.com/textures/crown_normal.jpg",
-      "encodingFormat": "image/jpeg",
-      "width": 2048,
-      "height": 2048
+      "encodingFormat": "image/jpeg"
     },
     {
       "@type": "ImageObject",
-      "name": "Metallic-Roughness Map",
-      "contentUrl": "https://example.com/textures/crown_mer.jpg",
-      "encodingFormat": "image/jpeg",
-      "width": 2048,
-      "height": 2048
+      "name": "Environment Map",
+      "contentUrl": "https://example.com/textures/crown_env.hdr",
+      "encodingFormat": "image/vnd.radiance"
+    },
+    {
+      "@type": "AudioObject",
+      "name": "Crown Effect Sound",
+      "contentUrl": "https://example.com/audio/crown_magic.mp3",
+      "encodingFormat": "audio/mpeg"
     }
   ]
 }
 ```
 
-## Required Properties
+## Implementation Considerations
 
-### Core Properties
-- `@context`: Context definition including Schema.org
-- `@type`: "ImageObject" for root object
-- `name`: Wearable name
-- `description`: Detailed description
-- `contentUrl`: URL to preview image
-- `encodingFormat`: MIME type of preview
-- `identifier`: Unique identifier structure
-- `creator`: Creator information
+- Use ImageObject as the root type to represent the wearable's preview/thumbnail
+- Include proper Schema.org context and type declarations
+- Specify attachment points clearly to ensure proper positioning
+- Use additionalProperty for metaverse-specific attributes
+- Provide multiple quality levels for different platform requirements
+- Include technical specifications about polygon count, textures, etc.
+- Consider animation requirements for interactive wearables
 
-### Wearable-Specific Properties
-Must be included in additionalProperty array:
-- Category
-- Attachment point(s)
-- Avatar compatibility
-- Technical requirements
+## Validation Requirements
 
-### Associated Media
-Must include at least one 3D model:
-- High quality version
-- Optional low quality version
-- Required textures and maps
+To validate this profile, ensure:
 
-## Best Practices
+- The root @type is "ImageObject"
+- At least one attachmentPoint is specified in additionalProperty
+- At least one 3DModel is included in associatedMedia
+- All required properties are present
+- All JSON is valid and follows Schema.org patterns
+- The 3D model is accessible at the specified contentUrl
+- Technical requirements are appropriate for target platforms
 
-### Property Organization
-- Group related properties together
-- Use consistent property naming
-- Include complete type declarations
-- Validate all examples
+## Related Profiles
 
-### Technical Requirements
-- Specify both minimum and recommended specs
-- Include detailed material information
-- Define physics properties when applicable
-- List supported features and capabilities
+- [Avatar Profile](./avatar.md): For creating compatible avatars
+- [Equipable Profile](./equipable.md): For items that provide functional benefits
+- [Composable 3D NFT Profile](./composable-3d-nft.md): For tokenized wearables
 
-### Media Management
-- Provide multiple quality levels
-- Include all required textures
-- Specify exact dimensions
-- Use appropriate formats
+## Related Standards
 
-## Implementation Notes
-
-1. **Avatar Compatibility**
-    - Define clear attachment points
-    - Specify scaling rules
-    - Include fit adjustments
-    - Handle different avatar types
-
-2. **Technical Requirements**
-    - Specify polygon count limits
-    - Define texture resolution ranges
-    - List required materials
-    - Include physics properties
-
-3. **Platform Support**
-    - Define required features
-    - List supported platforms
-    - Specify rendering requirements
-    - Include fallback options
-
-## Common Issues and Solutions
-
-1. **Schema Validation**
-    - Use only valid Schema.org types
-    - Include all required properties
-    - Properly structure nested objects
-    - Validate complex properties
-
-2. **3D Asset Integration**
-    - Provide appropriate LOD models
-    - Include all required textures
-    - Define clear material properties
-    - Specify technical requirements
-
-3. **Compatibility**
-    - Define clear attachment methods
-    - Specify avatar requirements
-    - Include platform constraints
-    - List supported features
-
-## Next Steps
-
-1. Validate metadata using Schema.org validator
-2. Test with target platforms
-3. Verify all required properties
-4. Check media accessibility
-5. Confirm technical requirements
+- [glTF Namespace](../namespaces/gltf.md): 3D format standard
+- [3D Standards Overview](../namespaces/3d-standards.md): Additional 3D standards

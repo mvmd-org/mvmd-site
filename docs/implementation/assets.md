@@ -4,13 +4,32 @@ sidebar_position: 3
 
 # Basic Asset Implementation
 
-This guide covers fundamental implementation patterns for digital assets, focusing on proper metadata structure and integration approaches.
+This guide covers fundamental implementation patterns for digital assets in the metaverse.
 
-## Core Implementation Patterns
+## Use Cases
 
-### Complete Asset Metadata
+Basic asset implementation provides a foundation for all types of metaverse assets:
 
-A complete asset implementation includes essential information plus platform-specific details. For specific implementation examples, refer to the [3D Standards](../namespaces/3d-standards.md) namespace documentation.
+- 3D assets that need consistent representation across platforms
+- Digital items with rich metadata for discoverability
+- Assets requiring proper attribution and licensing information
+- Content that needs technical specifications for compatibility
+- Interoperable assets for cross-platform experiences
+
+## Prerequisites
+
+Before implementing basic asset metadata, ensure you have:
+
+- A clear understanding of your asset's purpose and properties
+- Appropriate Schema.org types for your content (3DModel, ImageObject, etc.)
+- Knowledge of any platform-specific requirements
+- Access to any external resources your asset references
+
+## Implementation Steps
+
+### 1. Create Core Asset Metadata
+
+Start with basic Schema.org properties that all assets should have:
 
 ```json
 {
@@ -35,9 +54,9 @@ A complete asset implementation includes essential information plus platform-spe
 }
 ```
 
-### Storage Strategy Options
+### 2. Add Storage and Delivery Information
 
-Include information about how your asset is stored and accessed. For detailed implementation patterns, see the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+Include details about how your asset is stored and accessed:
 
 ```json
 {
@@ -67,9 +86,9 @@ Include information about how your asset is stored and accessed. For detailed im
 }
 ```
 
-### Cross-Platform Compatibility
+### 3. Specify Platform Compatibility
 
-Define how your asset works across different platforms. For platform-specific implementation details, refer to the relevant namespace documentation.
+Define how your asset works across different platforms:
 
 ```json
 {
@@ -101,11 +120,107 @@ Define how your asset works across different platforms. For platform-specific im
 }
 ```
 
-## Extended Properties
+## Complete Example
 
-### Access Control
+A complete asset implementation with all essential components:
 
-Define access restrictions and requirements. For authentication and trust implementation details, see the [Trust & Provenance](../namespaces/trust-provenance.md) namespace documentation.
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
+  },
+  "@type": "3DModel",
+  "name": "Ergonomic Office Chair",
+  "description": "Modern office chair with adjustable height and lumbar support",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "assetId",
+    "value": "asset-2024-001"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Virtual Furnishings Inc.",
+    "url": "https://virtualfurnishings.example.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://virtualfurnishings.example.com/logo.png"
+    }
+  },
+  "contentUrl": "https://assets.example.com/chair.glb",
+  "encodingFormat": "model/gltf-binary",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "image": "https://assets.example.com/chair-preview.jpg",
+  "dateCreated": "2024-03-15",
+  "version": "1.2.0",
+  "sameAs": [
+    "ipfs://QmXaXa1XaX...",
+    "ar://asset/chair123"
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "storagePolicy",
+      "name": "Storage Policy",
+      "value": {
+        "redundancy": "multi-regional",
+        "persistence": "permanent",
+        "cacheTTL": 86400
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "platformCompatibility",
+      "name": "Platform Compatibility",
+      "value": {
+        "supported": ["platform-a", "platform-b", "platform-c"],
+        "requirements": {
+          "minVersion": "2.0",
+          "features": ["advanced-materials", "physics"]
+        },
+        "optimization": {
+          "polycount": 12500,
+          "textureSize": 2048,
+          "animations": 5
+        }
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "accessControl",
+      "name": "Access Control",
+      "value": {
+        "permissions": ["premium-tier"],
+        "regions": ["US", "EU"],
+        "minimumAge": 13,
+        "platformRequirements": ["physics-v2"]
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "searchMetadata",
+      "name": "Search Metadata",
+      "value": {
+        "tags": ["furniture", "office", "ergonomic", "chair"],
+        "category": "Furniture/Office",
+        "featuredIn": ["virtual-office-demo", "productivity-space"]
+      }
+    }
+  ],
+  "gltf:asset": {
+    "version": "2.0",
+    "generator": "Studio Modeler 2024",
+    "copyright": "© 2024 Virtual Furnishings Inc."
+  }
+}
+```
+
+## Variations
+
+### Access Control Variation
+
+For assets with access restrictions:
 
 ```json
 {
@@ -131,9 +246,9 @@ Define access restrictions and requirements. For authentication and trust implem
 }
 ```
 
-### Content Updates
+### Content Updates Variation
 
-Include information about updates and versioning. For specific implementation patterns, refer to the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+For assets with update management:
 
 ```json
 {
@@ -160,9 +275,9 @@ Include information about updates and versioning. For specific implementation pa
 }
 ```
 
-### Discovery Enhancement
+### Discovery Enhancement Variation
 
-Add properties to improve discoverability. For detailed implementation examples, see the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+For optimizing asset discoverability:
 
 ```json
 {
@@ -189,35 +304,28 @@ Add properties to improve discoverability. For detailed implementation examples,
 }
 ```
 
-## Implementation Best Practices
+## Troubleshooting
 
-### Storage & Delivery
-- Use CDNs for fast global delivery
-- Implement content-addressed storage for integrity
-- Consider both centralized and decentralized options
-- Plan for appropriate caching strategies
+### Missing Required Properties
 
-### Cross-Platform Support
-- Document platform-specific requirements clearly
-- Provide optimized assets for different performance tiers
-- Include fallback options for unsupported features
-- Test thoroughly across target platforms
+**Issue**: Schema validation fails due to missing required properties.
 
-### Metadata Maintenance
-- Keep metadata up-to-date with asset changes
-- Maintain version history for tracking
-- Use consistent property naming conventions
-- Validate metadata regularly
+**Solution**: Ensure that all required Schema.org properties for your chosen type are included. For 3DModel type, always include at minimum: name, contentUrl, and encodingFormat.
+
+### Incompatible Type Declarations
+
+**Issue**: Properties don't align with the declared @type.
+
+**Solution**: Verify that all properties are appropriate for the Schema.org type you've selected. Use additionalProperty for platform-specific or custom properties that aren't part of the standard Schema.org vocabulary.
 
 ## Related Concepts
 
-- [Types of Assets](../concepts/types-of-assets.md): Schema.org types for different asset types
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md): Strategies for references
-- [Integration Profiles](../integration-profiles/overview.md): Predefined asset profiles
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
+- [Types of Assets](../concepts/types-of-assets.md)
+- [Linking vs. Embedding](../concepts/linking-vs-embedding.md)
 
-## Related Namespaces
+## Next Steps
 
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for asset metadata
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns
+- [Standards Implementation](./standards-implementation.md)
+- [NFT Implementation](./nfts.md)
+- [Composable Assets](./composable.md)
