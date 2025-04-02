@@ -674,6 +674,111 @@ Integration Profile Analysis Findings:
 - Plan for redirects or updates to maintain link integrity
 - **Map references to technical standards across documentation**
 
+#### Link Analysis Table
+
+| Source File | Target Files | Link Type | Number of Links | Potential Impact |
+|-------------|--------------|-----------|----------------|------------------|
+| docs/introduction.md | concepts/overview.md, integration-profiles/basic.md, reference/validator.md, namespaces/overview.md, implementation/overview.md, implementation/best-practices.md, for-standards-organizations.md | Internal Navigation | 12+ | Medium - Home page has numerous crucial links |
+| docs/quickstart.md | introduction.md | Redirect | 1 | Low - Currently redirecting to introduction.md |
+| docs/namespaces/overview.md | schema-org.md, 3d-standards.md, geospatial-standards.md, trust-provenance.md, concepts/linking-vs-embedding.md | Index to Namespaces | 5+ | High - Primary navigation to namespace files |
+| docs/namespaces/schema-org.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, concepts/linking-vs-embedding.md | Reference | 3+ | Medium - Links to conceptual information |
+| docs/namespaces/3d-standards.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, concepts/linking-vs-embedding.md | Reference | 3+ | High - Contains content for multiple standards |
+| docs/namespaces/geospatial-standards.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, concepts/linking-vs-embedding.md | Reference | 3+ | High - Contains content for multiple standards |
+| docs/namespaces/trust-provenance.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, concepts/linking-vs-embedding.md | Reference | 3+ | High - Contains content for multiple standards |
+| docs/namespaces/openxr.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, concepts/linking-vs-embedding.md | Reference | 3+ | Medium - Already a standard-specific file |
+| docs/implementation/overview.md | assets.md, nfts.md, composable.md, best-practices.md, getting-started.md, reference/validator.md, concepts/*.md, namespaces/*.md | Implementation Index | 15+ | High - Primary navigation to implementation documents |
+| docs/implementation/assets.md | namespaces/3d-standards.md, namespaces/schema-org.md, namespaces/trust-provenance.md, concepts/*.md, namespaces/*.md | Implementation Reference | 10+ | Medium - References standards that will be split |
+| docs/implementation/standards-implementation.md | integration-profiles/overview.md, concepts/*.md, namespaces/*.md | Standards Reference | 10+ | Very High - Contains duplicated content and many links |
+| docs/implementation/nfts.md | concepts/types-of-assets.md, integration-profiles/overview.md, nft/concepts.md, nft/examples.md, namespaces/*.md | NFT Reference | 8+ | Medium - Contains ERC-721 content to be extracted |
+| docs/implementation/composable.md | composable/*.md, concepts/linking-vs-embedding.md, namespaces/*.md | Composable Reference | 7+ | Medium - References standards that will be split |
+| docs/implementation/best-practices.md | concepts/metadata-fundamentals.md, concepts/types-of-assets.md, reference/validator.md, namespaces/*.md | Best Practices | 8+ | Medium - References that need updating |
+| docs/implementation/getting-started.md | reference/validator.md, integration-profiles/overview.md, best-practices.md, namespaces/overview.md, composable.md, namespaces/*.md | Getting Started | 10+ | Medium - Important for new users |
+| docs/implementation/metadata-profiles.md | concepts/types-of-assets.md, integration-profiles/overview.md, reference/validator.md, namespaces/*.md | Profiles Reference | 8+ | High - Contains redundant content |
+| docs/integration-profiles/overview.md | basic.md, avatar.md, wearable.md, scene.md, vehicle.md, composable-3d-nft.md, digital-twin.md, identity.md, equipable.md, interactable.md, royalty.md, future.md, reference/validator.md, concepts/types-of-assets.md, namespaces/overview.md, implementation/best-practices.md, namespaces/*.md | Profiles Index | 20+ | High - Primary navigation to integration profiles |
+| docs/integration-profiles/avatar.md | basic.md, wearable.md, identity.md, namespaces/3d-standards.md | Avatar Profile | 4+ | Medium - References VRM standard |
+| docs/integration-profiles/wearable.md | namespaces/3d-standards.md | Wearable Profile | 1+ | Medium - Will merge with equipable.md |
+| docs/integration-profiles/equipable.md | namespaces/3d-standards.md | Equipable Profile | 1+ | Medium - Will merge with wearable.md |
+| docs/integration-profiles/identity.md | avatar.md, namespaces/trust-provenance.md, reference/validator.md | Identity Profile | 3+ | Medium - References DID standard |
+| docs/integration-profiles/composable-3d-nft.md | namespaces/3d-standards.md, scene.md, avatar.md, reference/validator.md, namespaces/schema-org.md, namespaces/trust-provenance.md | Composable NFT Profile | 6+ | Medium - References multiple standards |
+| docs/integration-profiles/basic.md | concepts/types-of-assets.md, concepts/metadata-fundamentals.md, namespaces/schema-org.md | Basic Profile | 3+ | Medium - Foundation for other profiles |
+| Other Integration Profiles | Various | Various | Varies | Medium - References to standards and other profiles |
+
+#### Old URL to New URL Mapping
+
+| Old URL | New URL | Type | Notes |
+|---------|---------|------|-------|
+| /namespaces/3d-standards.md#gltf | /namespaces/gltf.md | Standard Extraction | glTF section moves to dedicated file |
+| /namespaces/3d-standards.md#usd | /namespaces/usd.md | Standard Extraction | USD section moves to dedicated file |
+| /namespaces/3d-standards.md#vrm | /namespaces/vrm.md | Standard Extraction | VRM section moves to dedicated file |
+| /namespaces/geospatial-standards.md#cityjson | /namespaces/cityjson.md | Standard Extraction | CityJSON section moves to dedicated file |
+| /namespaces/geospatial-standards.md#3d-tiles | /namespaces/3d-tiles.md | Standard Extraction | 3D Tiles section moves to dedicated file |
+| /namespaces/trust-provenance.md#c2pa | /namespaces/c2pa.md | Standard Extraction | C2PA section moves to dedicated file |
+| /namespaces/trust-provenance.md#did | /namespaces/did.md | Standard Extraction | DID section moves to dedicated file |
+| /implementation/nfts.md | /namespaces/erc721.md | Standard Extraction | ERC-721 content moving to namespace |
+| /integration-profiles/wearable.md | /integration-profiles/attachable.md | Profile Merge | Merged with equipable.md |
+| /integration-profiles/equipable.md | /integration-profiles/attachable.md | Profile Merge | Merged with wearable.md |
+| /implementation/standards-implementation.md | Multiple namespace files | Content Distribution | Content distributed to relevant namespace files |
+| /implementation/metadata-profiles.md | Various integration profile files | Content Distribution | Content merged into relevant profiles |
+
+#### Technical Standards Reference Mapping
+
+| Technical Standard | Primary File | Secondary References | Implementation Examples | Notes |
+|-------------------|--------------|----------------------|-------------------------|-------|
+| Schema.org | namespaces/schema-org.md | All files | integration-profiles/basic.md | Core vocabulary used throughout |
+| glTF | namespaces/3d-standards.md#gltf | implementation/standards-implementation.md, integration-profiles/wearable.md, integration-profiles/avatar.md, integration-profiles/composable-3d-nft.md | implementation/standards-implementation.md | To be moved to gltf.md |
+| USD | namespaces/3d-standards.md#usd | implementation/standards-implementation.md, implementation/composable.md | implementation/standards-implementation.md | To be moved to usd.md |
+| VRM | namespaces/3d-standards.md#vrm | integration-profiles/avatar.md | namespaces/3d-standards.md | To be moved to vrm.md |
+| CityJSON | namespaces/geospatial-standards.md#cityjson | implementation/standards-implementation.md | namespaces/geospatial-standards.md | To be moved to cityjson.md |
+| 3D Tiles | namespaces/geospatial-standards.md#3d-tiles | implementation/standards-implementation.md | namespaces/geospatial-standards.md | To be moved to 3d-tiles.md |
+| C2PA | namespaces/trust-provenance.md#c2pa | integration-profiles/royalty.md, integration-profiles/identity.md | namespaces/trust-provenance.md | To be moved to c2pa.md |
+| DID | namespaces/trust-provenance.md#did | integration-profiles/identity.md | namespaces/trust-provenance.md | To be moved to did.md |
+| OpenXR | namespaces/openxr.md | implementation/standards-implementation.md | namespaces/openxr.md | Already in dedicated file |
+| ERC-721/1155 | implementation/nfts.md | integration-profiles/composable-3d-nft.md | implementation/nfts.md | To be moved to erc721.md |
+
+#### Link Integrity Preservation Plan
+
+1. **Redirection Strategy**:
+   - Create redirect files for all renamed or moved content
+   - Implement HTML meta redirects from old URLs to new URLs
+   - Update all direct links throughout documentation to point to new locations
+   - Add explicit notes about moved content with links to new locations
+
+2. **Link Update Process**:
+   - Phase 1: Create all new standard-specific namespace files
+   - Phase 2: Update all references to these standards in other files
+   - Phase 3: Remove or redirect original categorized files once all content is migrated
+   - Phase 4: Implement redirects for merged profiles (wearable/equipable)
+
+3. **Critical Path Links**:
+   - Introduction page links should be prioritized for updates
+   - Links from integration profiles to standards must be updated immediately when standards content moves
+   - Navigation sidebar structure must be updated to reflect new organization
+   - Overview page links need comprehensive updates to reflect new hierarchy
+
+4. **Standards Reference Consistency Plan**:
+   - Create a consistent URL pattern for all standards (e.g., namespaces/[standard-name].md)
+   - Update all implementation examples to reference the specific standard file
+   - Ensure all profiles reference the specific standard files rather than category files
+   - Update internal linking in implementation files to point to standard-specific files
+   - Replace all references to general categories with specific standards where appropriate
+
+5. **Documentation Completeness Check**:
+   - Develop a link validation script to detect broken internal links
+   - Validate all cross-references after restructuring
+   - Ensure every standard referenced in examples links to its proper documentation
+   - Verify no orphaned pages exist after restructuring
+   - Create a comprehensive sitemap reflecting the new structure
+
+Link Analysis Summary:
+
+1. The restructuring will have a major impact on documentation links, with approximately 150+ internal links affected.
+2. The highest impact will be on splitting categorized namespace files into standard-specific files.
+3. Critical navigation paths from introduction, concepts, and overview pages must be carefully maintained.
+4. Integration profiles will need significant updates to reference proper standard-specific files.
+5. Implementation examples must be coordinated with namespace changes to maintain consistency.
+6. Content distribution from standards-implementation.md will require careful tracking of all examples and references.
+7. The proposed redirects and link updates will help maintain documentation integrity during the transition.
+
 ### Step 7: Validation Criteria Development
 - Develop checklist for content preservation
 - Create test cases for key user journeys
