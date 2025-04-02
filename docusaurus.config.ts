@@ -28,139 +28,213 @@ const config: Config = {
             '@docusaurus/plugin-client-redirects',
             {
                 redirects: [
-                    // Redirect for category pages to namespaces overview
+                    // Redirect from namespaces to standards
+                    {
+                        from: '/namespaces/overview',
+                        to: '/standards/overview',
+                    },
+                    {
+                        from: '/namespaces/schema-org',
+                        to: '/standards/schema-org',
+                    },
+                    {
+                        from: '/namespaces/gltf',
+                        to: '/standards/gltf',
+                    },
+                    {
+                        from: '/namespaces/usd',
+                        to: '/standards/usd',
+                    },
+                    {
+                        from: '/namespaces/usdz',
+                        to: '/standards/usdz',
+                    },
+                    {
+                        from: '/namespaces/vrm',
+                        to: '/standards/vrm',
+                    },
+                    {
+                        from: '/namespaces/fbx',
+                        to: '/standards/fbx',
+                    },
+                    {
+                        from: '/namespaces/collada',
+                        to: '/standards/collada',
+                    },
+                    {
+                        from: '/namespaces/x3d',
+                        to: '/standards/x3d',
+                    },
+                    {
+                        from: '/namespaces/openxr',
+                        to: '/standards/openxr',
+                    },
+                    {
+                        from: '/namespaces/cityjson',
+                        to: '/standards/cityjson',
+                    },
+                    {
+                        from: '/namespaces/3d-tiles',
+                        to: '/standards/3d-tiles',
+                    },
+                    {
+                        from: '/namespaces/c2pa',
+                        to: '/standards/c2pa',
+                    },
+                    // Redirect for category pages to standards overview
                     {
                         from: '/namespaces/3d-standards',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     {
                         from: '/namespaces/geospatial-standards',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     {
                         from: '/namespaces/trust-provenance',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     // Redirects for implementations mentioned in standards-implementation
                     {
                         from: '/implementation/standards-implementation',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     // Manual redirect pages
                     {
                         from: '/namespaces/redirects/gltf-redirect',
-                        to: '/namespaces/gltf',
+                        to: '/standards/gltf',
                     },
                     {
                         from: '/namespaces/redirects/usd-redirect',
-                        to: '/namespaces/usd',
+                        to: '/standards/usd',
                     },
                     {
                         from: '/namespaces/redirects/usdz-redirect',
-                        to: '/namespaces/usdz',
+                        to: '/standards/usdz',
                     },
                     {
                         from: '/namespaces/redirects/vrm-redirect',
-                        to: '/namespaces/vrm',
+                        to: '/standards/vrm',
                     },
                     {
                         from: '/namespaces/redirects/fbx-redirect',
-                        to: '/namespaces/fbx',
+                        to: '/standards/fbx',
                     },
                     {
                         from: '/namespaces/redirects/collada-redirect',
-                        to: '/namespaces/collada',
+                        to: '/standards/collada',
                     },
                     {
                         from: '/namespaces/redirects/x3d-redirect',
-                        to: '/namespaces/x3d',
+                        to: '/standards/x3d',
                     },
                     {
                         from: '/namespaces/redirects/openxr-redirect',
-                        to: '/namespaces/openxr',
+                        to: '/standards/openxr',
                     },
                     {
                         from: '/namespaces/redirects/cityjson-redirect',
-                        to: '/namespaces/cityjson',
+                        to: '/standards/cityjson',
                     },
                     {
                         from: '/namespaces/redirects/3d-tiles-redirect',
-                        to: '/namespaces/3d-tiles',
+                        to: '/standards/3d-tiles',
                     },
                     {
                         from: '/namespaces/redirects/c2pa-redirect',
-                        to: '/namespaces/c2pa',
+                        to: '/standards/c2pa',
                     },
                     {
                         from: '/namespaces/redirects/3d-standards-redirect',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     {
                         from: '/namespaces/redirects/geospatial-standards-redirect',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                     {
                         from: '/namespaces/redirects/trust-provenance-redirect',
-                        to: '/namespaces/overview',
+                        to: '/standards/overview',
                     },
                 ],
                 createRedirects(existingPath) {
-                    // Create redirects for content that was moved from category pages
-                    if (existingPath.includes('/namespaces/gltf')) {
+                    // Create redirects for content that was moved from category pages to standards
+                    if (existingPath.includes('/standards/gltf')) {
                         return [
-                            existingPath.replace('/namespaces/gltf', '/namespaces/3d-standards'),
-                            existingPath.replace('/namespaces/gltf', '/implementation/standards-implementation'),
+                            existingPath.replace('/standards/gltf', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/gltf', '/namespaces/gltf'),
+                            existingPath.replace('/standards/gltf', '/implementation/standards-implementation'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/usd')) {
+                    if (existingPath.includes('/standards/usd')) {
                         return [
-                            existingPath.replace('/namespaces/usd', '/namespaces/3d-standards'),
-                            existingPath.replace('/namespaces/usd', '/implementation/standards-implementation'),
+                            existingPath.replace('/standards/usd', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/usd', '/namespaces/usd'),
+                            existingPath.replace('/standards/usd', '/implementation/standards-implementation'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/usdz')) {
+                    if (existingPath.includes('/standards/usdz')) {
                         return [
-                            existingPath.replace('/namespaces/usdz', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/usdz', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/usdz', '/namespaces/usdz'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/vrm')) {
+                    if (existingPath.includes('/standards/vrm')) {
                         return [
-                            existingPath.replace('/namespaces/vrm', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/vrm', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/vrm', '/namespaces/vrm'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/fbx')) {
+                    if (existingPath.includes('/standards/fbx')) {
                         return [
-                            existingPath.replace('/namespaces/fbx', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/fbx', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/fbx', '/namespaces/fbx'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/collada')) {
+                    if (existingPath.includes('/standards/collada')) {
                         return [
-                            existingPath.replace('/namespaces/collada', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/collada', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/collada', '/namespaces/collada'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/x3d')) {
+                    if (existingPath.includes('/standards/x3d')) {
                         return [
-                            existingPath.replace('/namespaces/x3d', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/x3d', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/x3d', '/namespaces/x3d'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/openxr')) {
+                    if (existingPath.includes('/standards/openxr')) {
                         return [
-                            existingPath.replace('/namespaces/openxr', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/openxr', '/namespaces/3d-standards'),
+                            existingPath.replace('/standards/openxr', '/namespaces/openxr'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/cityjson')) {
+                    if (existingPath.includes('/standards/cityjson')) {
                         return [
-                            existingPath.replace('/namespaces/cityjson', '/namespaces/geospatial-standards'),
+                            existingPath.replace('/standards/cityjson', '/namespaces/geospatial-standards'),
+                            existingPath.replace('/standards/cityjson', '/namespaces/cityjson'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/3d-tiles')) {
+                    if (existingPath.includes('/standards/3d-tiles')) {
                         return [
-                            existingPath.replace('/namespaces/3d-tiles', '/namespaces/geospatial-standards'),
+                            existingPath.replace('/standards/3d-tiles', '/namespaces/geospatial-standards'),
+                            existingPath.replace('/standards/3d-tiles', '/namespaces/3d-tiles'),
                         ];
                     }
-                    if (existingPath.includes('/namespaces/c2pa')) {
+                    if (existingPath.includes('/standards/c2pa')) {
                         return [
-                            existingPath.replace('/namespaces/c2pa', '/namespaces/trust-provenance'),
+                            existingPath.replace('/standards/c2pa', '/namespaces/trust-provenance'),
+                            existingPath.replace('/standards/c2pa', '/namespaces/c2pa'),
+                        ];
+                    }
+                    if (existingPath.includes('/standards/overview')) {
+                        return [
+                            existingPath.replace('/standards/overview', '/namespaces/overview'),
+                        ];
+                    }
+                    if (existingPath.includes('/standards/schema-org')) {
+                        return [
+                            existingPath.replace('/standards/schema-org', '/namespaces/schema-org'),
                         ];
                     }
                     return undefined;
