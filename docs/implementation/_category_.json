@@ -1,8 +1,8 @@
 {
-  "label": "Implementation Guide",
-  "position": 3,
+  "label": "Implementation",
+  "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "Guidelines and best practices for implementing Metaverse metadata"
+    "type": "doc",
+    "id": "implementation/overview"
   }
 }
