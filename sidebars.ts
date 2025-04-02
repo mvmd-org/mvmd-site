@@ -44,6 +44,7 @@ const sidebars: SidebarsConfig = {
         'namespaces/schema-org',
         'namespaces/gltf',
         'namespaces/usd',
+        'namespaces/usdz',
         'namespaces/vrm',
         'namespaces/openxr',
         // Add other standard-specific namespaces as they are created
