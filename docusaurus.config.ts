@@ -28,6 +28,19 @@ const config: Config = {
             '@docusaurus/plugin-client-redirects',
             {
                 redirects: [
+                    // Redirect for category pages to namespaces overview
+                    {
+                        from: '/namespaces/3d-standards',
+                        to: '/namespaces/overview',
+                    },
+                    {
+                        from: '/namespaces/geospatial-standards',
+                        to: '/namespaces/overview',
+                    },
+                    {
+                        from: '/namespaces/trust-provenance',
+                        to: '/namespaces/overview',
+                    },
                     // Redirect for glTF content from 3d-standards to the dedicated namespace file
                     {
                         from: '/namespaces/3d-standards#gltf',
@@ -37,6 +50,51 @@ const config: Config = {
                     {
                         from: '/namespaces/3d-standards#usd',
                         to: '/namespaces/usd',
+                    },
+                    // USDZ redirects
+                    {
+                        from: '/namespaces/3d-standards#usdz',
+                        to: '/namespaces/usdz',
+                    },
+                    // VRM redirects
+                    {
+                        from: '/namespaces/3d-standards#vrm',
+                        to: '/namespaces/vrm',
+                    },
+                    // FBX redirects
+                    {
+                        from: '/namespaces/3d-standards#fbx',
+                        to: '/namespaces/fbx',
+                    },
+                    // COLLADA redirects
+                    {
+                        from: '/namespaces/3d-standards#collada',
+                        to: '/namespaces/collada',
+                    },
+                    // X3D redirects
+                    {
+                        from: '/namespaces/3d-standards#x3d',
+                        to: '/namespaces/x3d',
+                    },
+                    // OpenXR redirects
+                    {
+                        from: '/namespaces/3d-standards#openxr',
+                        to: '/namespaces/openxr',
+                    },
+                    // CityJSON redirects
+                    {
+                        from: '/namespaces/geospatial-standards#cityjson',
+                        to: '/namespaces/cityjson',
+                    },
+                    // 3D Tiles redirects
+                    {
+                        from: '/namespaces/geospatial-standards#3d-tiles',
+                        to: '/namespaces/3d-tiles',
+                    },
+                    // C2PA redirects
+                    {
+                        from: '/namespaces/trust-provenance#c2pa',
+                        to: '/namespaces/c2pa',
                     },
                     // Redirects for implementations mentioned in standards-implementation
                     {
@@ -55,6 +113,54 @@ const config: Config = {
                     {
                         from: '/namespaces/redirects/usd-redirect',
                         to: '/namespaces/usd',
+                    },
+                    {
+                        from: '/namespaces/redirects/usdz-redirect',
+                        to: '/namespaces/usdz',
+                    },
+                    {
+                        from: '/namespaces/redirects/vrm-redirect',
+                        to: '/namespaces/vrm',
+                    },
+                    {
+                        from: '/namespaces/redirects/fbx-redirect',
+                        to: '/namespaces/fbx',
+                    },
+                    {
+                        from: '/namespaces/redirects/collada-redirect',
+                        to: '/namespaces/collada',
+                    },
+                    {
+                        from: '/namespaces/redirects/x3d-redirect',
+                        to: '/namespaces/x3d',
+                    },
+                    {
+                        from: '/namespaces/redirects/openxr-redirect',
+                        to: '/namespaces/openxr',
+                    },
+                    {
+                        from: '/namespaces/redirects/cityjson-redirect',
+                        to: '/namespaces/cityjson',
+                    },
+                    {
+                        from: '/namespaces/redirects/3d-tiles-redirect',
+                        to: '/namespaces/3d-tiles',
+                    },
+                    {
+                        from: '/namespaces/redirects/c2pa-redirect',
+                        to: '/namespaces/c2pa',
+                    },
+                    {
+                        from: '/namespaces/redirects/3d-standards-redirect',
+                        to: '/namespaces/overview',
+                    },
+                    {
+                        from: '/namespaces/redirects/geospatial-standards-redirect',
+                        to: '/namespaces/overview',
+                    },
+                    {
+                        from: '/namespaces/redirects/trust-provenance-redirect',
+                        to: '/namespaces/overview',
                     },
                 ],
                 createRedirects(existingPath) {
