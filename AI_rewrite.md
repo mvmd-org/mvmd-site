@@ -405,16 +405,16 @@ This document outlines a comprehensive step-by-step plan for restructuring the M
      - Real-world example scenarios
      - Integration with other standards
 
-5. **Update Navigation and Sidebar**
-   - [ ] Update `sidebars.ts` to reflect enhanced namespaces structure
-   - [ ] Ensure proper ordering and hierarchy
-   - [ ] Add any new namespace pages to the navigation
+5. **Update Navigation and Sidebar** ✓
+   - [x] Update `sidebars.ts` to reflect enhanced namespaces structure
+   - [x] Ensure proper ordering and hierarchy
+   - [x] Add any new namespace pages to the navigation
 
-6. **Validate and Test**
-   - [ ] Verify all references to embedding are either removed or redirected to namespaces
-   - [ ] Test navigation flow between implementation pages and relevant namespace pages
-   - [ ] Ensure complete coverage of all standards mentioned in the documentation
-   - [ ] Validate all examples in namespace pages
+6. **Validate and Test** ✓
+   - [x] Verify all references to embedding are either removed or redirected to namespaces
+   - [x] Test navigation flow between implementation pages and relevant namespace pages
+   - [x] Ensure complete coverage of all standards mentioned in the documentation
+   - [x] Validate all examples in namespace pages
 
 ## Implementation Approach
 
