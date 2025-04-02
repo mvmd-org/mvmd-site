@@ -8,15 +8,44 @@ At its core, MVMD builds upon Schema.org's vocabulary and JSON-LD's syntax to cr
 
 ### Schema.org Foundation
 
-(Please review the official docs at [schema.org](https://schema.org/))
+Please review the official docs at [schema.org](https://schema.org/).
 
-Schema.org is a collaborative, community-driven effort to create and maintain a shared vocabulary for structured data. It provides a standardized vocabulary for describing digital content, well-defined types and properties, and broad industry adoption. MVMD uses Schema.org as its foundation because it's widely supported, has a rich vocabulary for digital assets, is extensible, and integrates well with search engines and data systems.
+Schema.org is a collaborative, community-driven effort to create and maintain a shared vocabulary for structured data.
+It provides:
+
+- A standardized vocabulary for describing digital content
+- Well-defined types and properties
+- Regular updates and improvements
+- Broad industry adoption
+
+MVMD uses Schema.org as its foundation because:
+
+- It's widely supported across platforms
+- It has a rich vocabulary for digital assets
+- It's extensible for specialized needs
+- It integrates well with search engines and data systems
 
 ### JSON-LD
 
-(Please review the official docs at [json-ld.org](https://json-ld.org/))
+Please review the official docs at [json-ld.org](https://json-ld.org/).
 
-JSON-LD (JavaScript Object Notation for Linked Data) is our chosen format because it is easy for humans and machines to read and write, supports namespacing for combining different vocabularies, enables linked data connections, and maintains compatibility with regular JSON.
+JSON-LD (JavaScript Object Notation for Linked Data) is our chosen format because it:
+
+- Is easy to read and write
+- Supports namespacing and context
+- Enables linked data connections
+- Supports complex references to avoid repeating data
+- Maintains compatibility with regular JSON
+
+Basic JSON-LD structure:
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Thing",
+  "name": "Example Object"
+}
+```
 
 ## Required Metadata Elements
 
@@ -117,6 +146,32 @@ When adding custom properties not defined in Schema.org or providing more detail
 *   **`name`**: Optional human-readable label.
 *   **`value`**: The property's value (can be string, number, boolean, or even another structured object).
 
+### Multiple Values
+
+Use arrays for multiple values, ensuring each object has proper type declarations:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "CreativeWork",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "field1",
+      "value": "value1"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "field2",
+      "value": "value2"
+    }
+  ]
+}
+```
+
 ### Embedding Data with Namespaces
 
 To embed data structures from other standards (like glTF, USD, CityJSON, etc.) or use properties defined outside Schema.org, use **namespaces** defined in the `@context`.
@@ -147,7 +202,7 @@ To embed data structures from other standards (like glTF, USD, CityJSON, etc.) o
   ]
 }
 ```
-_(For detailed examples of embedding data from specific standards, see the [Examples & Recipes > Embedding Examples](#) section - **Note: Link to be updated later**)_
+_(For detailed examples of embedding data from specific standards, see the [Embedding](/embedding/overview.md) section.)_
 
 **Advanced Namespace Handling (Inheritance Pattern):**
 
@@ -205,7 +260,7 @@ When embedding larger blocks of data from another standard, prefixing every prop
 
 Schema.org provides several properties to define relationships between the described entity and other resources or concepts. Understanding these is key to linking assets.
 
-_(For a detailed guide on the strategy of linking vs. embedding and how to use these properties effectively, see the [Linking vs. Embedding Strategy](./linking-vs-embedding.md) page - **Note: Link target will be renamed later**)_
+_(For a detailed guide on the strategy of linking vs. embedding and how to use these properties effectively, see the [Embedding and Reference](./embedding-and-reference.md) page - **Note: Link target will be renamed later**)_
 
 Here's a brief overview of common relationship properties:
 
@@ -267,7 +322,7 @@ Indicates the primary subject *described by* this metadata (e.g., an `ImageObjec
   }
 ```
 
-*(Other relationship properties like `subjectOf`, `sameAs`, `image`, `thumbnail`, `url` are covered in the Linking vs. Embedding Strategy page.)*
+*(Other relationship properties like `subjectOf`, `sameAs`, `image`, `thumbnail`, `url` are covered in the Embedding and Reference page.)*
 
 ## Location Types
 
@@ -300,6 +355,27 @@ For digital representations of real-world places, use the Schema.org `Place` typ
     "latitude": 51.5009,
     "longitude": -0.1774
   }
+}
+```
+
+## Extension Points
+
+MVMD provides several standard ways to extend metadata:
+
+### Additional Properties
+
+Use for custom data that doesn't fit standard properties:
+
+```json
+{
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "customMetric",
+      "name": "Custom Metric",
+      "value": 42
+    }
+  ]
 }
 ```
 
@@ -387,13 +463,13 @@ This comprehensive example shows many concepts working together (Note: Some prop
 *   **Types:** Choose the most appropriate Schema.org type. Use `additionalType` for specialization (like `VirtualLocation`).
 *   **Values:** Use direct values for standard properties. Use `additionalProperty` + `PropertyValue` for custom data.
 *   **Embedding:** Use namespaces for external standard properties or data blocks. Prefer the inheritance pattern for larger blocks.
-*   **Relationships:** Use properties like `hasPart`, `associatedMedia`, `mainEntity` etc. correctly to link resources (See Linking vs Embedding Strategy page).
+*   **Relationships:** Use properties like `hasPart`, `associatedMedia`, `mainEntity` etc. correctly to link resources (See Embedding and Reference page).
 *   **Validation:** Regularly validate your metadata against Schema.org and any relevant standards.
 
 ## Next Steps
 
 With these fundamentals, you can explore:
 -   [Types of Things](./types-of-things.md): Deep dive into specific Schema.org types.
--   [Linking vs. Embedding Strategy](./linking-vs-embedding.md): Detailed guide on connecting assets and data. (**Note: Link target will be renamed later**)
+-   [Embedding and Reference](./embedding-and-reference.md): Detailed guide on connecting assets and data. (**Note: Link target will be renamed later**)
 -   [File Organization](./file-organization.md): How to structure your metadata files.
--   [Examples & Recipes](#): Practical examples for specific use cases. (**Note: Link to be updated later**)
+-   [Embedding](/embedding/overview.md): Practical examples for specific embedding use cases.
