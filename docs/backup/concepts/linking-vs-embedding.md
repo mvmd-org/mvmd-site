@@ -15,7 +15,24 @@ Each approach has distinct advantages for different use cases.
 
 ## Linking Pattern
 
-Linking uses URIs to reference external resources. This pattern creates a connection between your metadata and external resources without duplicating content.
+Linking uses URIs to reference external resources:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "contentUrl": "https://example.com/model.glb",
+  "encodingFormat": "model/gltf-binary",
+  "creator": {
+    "@type": "Organization",
+    "name": "Design Studio",
+    "url": "https://example.com/studio"
+  }
+}
+```
 
 ### When to Use Linking
 
@@ -34,7 +51,31 @@ Linking uses URIs to reference external resources. This pattern creates a connec
 
 ## Embedding Pattern
 
-Embedding includes metadata directly within the asset or its associated metadata file. This pattern ensures that critical information stays with the asset.
+Embedding includes metadata directly within the asset:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "encodingFormat": "model/gltf-binary",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "modelProperties",
+      "name": "Model Properties",
+      "value": {
+        "polyCount": 12500,
+        "materialCount": 5,
+        "animationCount": 3
+      }
+    }
+  ]
+}
+```
 
 ### When to Use Embedding
 
@@ -53,7 +94,37 @@ Embedding includes metadata directly within the asset or its associated metadata
 
 ## Mixed Approach
 
-Many implementations use both patterns, linking to external resources while embedding critical metadata directly. This hybrid approach balances flexibility with reliability.
+Many implementations use both patterns:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "contentUrl": "https://example.com/model.glb",
+  "encodingFormat": "model/gltf-binary",
+  "creator": {
+    "@type": "Organization",
+    "name": "Design Studio",
+    "url": "https://example.com/studio"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "renderSettings",
+      "name": "Render Settings",
+      "value": {
+        "preferredRenderer": "PBR",
+        "lightingModel": "standard",
+        "shadowQuality": "high"
+      }
+    }
+  ]
+}
+```
 
 ## Decision Criteria
 
@@ -67,12 +138,9 @@ When deciding between linking and embedding, consider:
 
 ## Implementation in Namespaces
 
-Each [namespace](../namespaces/overview.md) supports both linking and embedding patterns with specific implementation details:
+Each [namespace](../namespaces/overview.md) supports both linking and embedding patterns:
 
 - [Schema.org](../namespaces/schema-org.md): Core vocabulary for both patterns
 - [3D Standards](../namespaces/3d-standards.md): 3D-specific implementation
 - [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
 - [Trust & Provenance](../namespaces/trust-provenance.md): Authentication information
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation
-
-For detailed implementation examples and patterns for each standard, refer to the respective namespace documentation.

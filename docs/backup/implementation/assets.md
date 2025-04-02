@@ -10,7 +10,7 @@ This guide covers fundamental implementation patterns for digital assets, focusi
 
 ### Complete Asset Metadata
 
-A complete asset implementation includes essential information plus platform-specific details. For specific implementation examples, refer to the [3D Standards](../namespaces/3d-standards.md) namespace documentation.
+A complete asset implementation includes essential information plus platform-specific details:
 
 ```json
 {
@@ -37,7 +37,7 @@ A complete asset implementation includes essential information plus platform-spe
 
 ### Storage Strategy Options
 
-Include information about how your asset is stored and accessed. For detailed implementation patterns, see the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+Include information about how your asset is stored and accessed:
 
 ```json
 {
@@ -69,7 +69,7 @@ Include information about how your asset is stored and accessed. For detailed im
 
 ### Cross-Platform Compatibility
 
-Define how your asset works across different platforms. For platform-specific implementation details, refer to the relevant namespace documentation.
+Define how your asset works across different platforms:
 
 ```json
 {
@@ -105,7 +105,7 @@ Define how your asset works across different platforms. For platform-specific im
 
 ### Access Control
 
-Define access restrictions and requirements. For authentication and trust implementation details, see the [Trust & Provenance](../namespaces/trust-provenance.md) namespace documentation.
+Define access restrictions and requirements:
 
 ```json
 {
@@ -133,7 +133,7 @@ Define access restrictions and requirements. For authentication and trust implem
 
 ### Content Updates
 
-Include information about updates and versioning. For specific implementation patterns, refer to the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+Include information about updates and versioning:
 
 ```json
 {
@@ -162,7 +162,7 @@ Include information about updates and versioning. For specific implementation pa
 
 ### Discovery Enhancement
 
-Add properties to improve discoverability. For detailed implementation examples, see the [Schema.org](../namespaces/schema-org.md) namespace documentation.
+Add properties to improve discoverability:
 
 ```json
 {
@@ -214,10 +214,3 @@ Add properties to improve discoverability. For detailed implementation examples,
 - [Types of Assets](../concepts/types-of-assets.md): Schema.org types for different asset types
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Strategies for references
 - [Integration Profiles](../integration-profiles/overview.md): Predefined asset profiles
-
-## Related Namespaces
-
-- [Schema.org](../namespaces/schema-org.md): Core vocabulary for asset metadata
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns
