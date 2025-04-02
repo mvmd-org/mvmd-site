@@ -381,100 +381,25 @@ This document outlines a comprehensive step-by-step plan for restructuring the M
 
 ### Phase 9: Namespaces Enhancement and Embedding Consolidation
 
-1. **Expand Namespaces Section With Standard-Specific Content**
+1. **Expand Namespaces Section With Standard-Specific Content** ✓
    - [x] Create backup of current namespace files before enhancing
    - [x] Each standard should have its own page
-   - [x] Enhance `docs/namespaces/3d-standards.md` to include dedicated subsections for each 3D standard:
-     ```
-     ## glTF
-     - Overview and use cases
-     - Core properties and extensions
-     - Embedding patterns
-     - External reference patterns
-     - Implementation examples
-     - Best practices
+   - [x] Enhance `docs/namespaces/3d-standards.md` to include dedicated subsections for each 3D standard
+   - [x] Enhance `docs/namespaces/geospatial-standards.md` with detailed subsections
+   - [x] Enhance `docs/namespaces/trust-provenance.md` with detailed subsections
+   - [x] Create `docs/namespaces/openxr.md` for XR-specific standards
 
-     ## USD (Universal Scene Description)
-     - Overview and use cases
-     - Core properties and extensions
-     - Embedding patterns
-     - External reference patterns
-     - Implementation examples
-     - Best practices
+2. **Remove Embedding Content from Other Sections** ✓
+   - [x] Create backup of files to be modified
+   - [x] Audit all files outside the namespaces directory for embedding-specific content
 
-     ## VRM
-     // Similar structure
+3. **Add Cross-References to Namespaces Section** ✓
+   - [x] Update all files that previously contained embedding details to point to the namespaces section
+   - [x] Add "Related Namespaces" sections at the end of implementation documents
+   - [x] Include links to relevant namespace pages from integration profiles
 
-     ## FBX
-     // Similar structure
-
-     ## Collada
-     // Similar structure
-
-     ## X3D
-     // Similar structure
-     ```
-
-   - [x] Enhance `docs/namespaces/geospatial-standards.md` with detailed subsections:
-     ```
-     ## CityJSON
-     - Overview and use cases
-     - Core properties and extensions
-     - Embedding patterns
-     - External reference patterns
-     - Implementation examples
-     - Best practices
-
-     ## 3D Tiles
-     // Similar structure
-     ```
-
-   - [x] Enhance `docs/namespaces/trust-provenance.md` with detailed subsections:
-     ```
-     ## C2PA
-     - Overview and use cases
-     - Core properties and extensions
-     - Embedding patterns
-     - External reference patterns
-     - Implementation examples
-     - Best practices
-     ```
-
-   - [x] Create `docs/namespaces/openxr.md` for XR-specific standards:
-     ```
-     # OpenXR Standards
-     
-     ## Overview
-     - Introduction to OpenXR in metaverse metadata
-     - Key use cases and applications
-     
-     ## Standards and Extensions
-     - Core standards overview
-     - Common extensions
-     - Integration patterns with MVMD
-     
-     ## Implementation 
-     - Embedding patterns
-     - External reference patterns
-     - Implementation examples
-     - Best practices
-     ```
-
-2. **Remove Embedding Content from Other Sections**
-   - [ ] Create backup of files to be modified
-   - [ ] Audit all files outside the namespaces directory for embedding-specific content:
-     - `docs/concepts/linking-vs-embedding.md`: Refocus on the conceptual decision, remove format-specific implementation details
-     - `docs/implementation/*.md`: Remove format-specific embedding details, add references to namespaces section
-     - `docs/examples/*.md`: Update to reference namespace-specific examples instead of duplicating
-     - `docs/integration-profiles/*.md`: Replace embedding details with references to namespace sections
-
-3. **Add Cross-References to Namespaces Section**
-   - [ ] Update all files that previously contained embedding details to point to the namespaces section
-   - [ ] Add "Related Namespaces" sections at the end of implementation documents
-   - [ ] Include links to relevant namespace pages from integration profiles
-
-4. **Create Practical Implementation Guides for Each Namespace**
-   - [ ] For each standard in the namespaces section, create a practical implementation guide:
+4. **Create Practical Implementation Guides for Each Namespace** ✓
+   - [x] For each standard in the namespaces section, create a practical implementation guide:
      - Step-by-step implementation instructions
      - Common pitfalls and solutions
      - Real-world example scenarios
