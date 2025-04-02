@@ -1,0 +1,365 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mvmd.org/schemas/avatar.schema.json",
+  "title": "Avatar Profile Schema",
+  "description": "Schema for validating metaverse avatar assets",
+  "type": "object",
+  "required": [
+    "@context",
+    "@type",
+    "name",
+    "contentUrl",
+    "encodingFormat",
+    "additionalProperty"
+  ],
+  "properties": {
+    "@context": {
+      "type": "object",
+      "required": ["@vocab"],
+      "properties": {
+        "@vocab": {
+          "type": "string",
+          "const": "https://schema.org/"
+        },
+        "mvmd": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "@type": {
+      "type": "string",
+      "const": "VirtualCharacter"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the avatar"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the avatar"
+    },
+    "identifier": {
+      "type": "object",
+      "required": ["@type", "propertyID", "value"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "PropertyValue"
+        },
+        "propertyID": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "creator": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "enum": ["Person", "Organization"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "logo": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "string",
+              "const": "ImageObject"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateModified": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string",
+      "format": "uri"
+    },
+    "contentUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the avatar's 3D model"
+    },
+    "encodingFormat": {
+      "type": "string",
+      "description": "MIME type of the content"
+    },
+    "fileSize": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "thumbnail": {
+      "type": ["string", "object"],
+      "description": "URL to a thumbnail or an ImageObject"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "additionalProperty": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@type", "propertyID", "name", "value"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "PropertyValue"
+          },
+          "propertyID": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": ["string", "number", "object", "array", "boolean"]
+          }
+        }
+      },
+      "contains": {
+        "type": "object",
+        "required": ["propertyID", "value"],
+        "properties": {
+          "propertyID": {
+            "type": "string",
+            "const": "avatarProperties"
+          },
+          "value": {
+            "type": "object",
+            "required": ["type", "measurements"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["humanoid", "creature", "robot", "abstract"]
+              },
+              "style": {
+                "type": "string",
+                "enum": ["realistic", "stylized", "cartoon", "abstract"]
+              },
+              "skeleton": {
+                "type": "string"
+              },
+              "measurements": {
+                "type": "object",
+                "required": ["height"],
+                "properties": {
+                  "height": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "proportions": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "default": "meters"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "contains": {
+        "type": "object",
+        "required": ["propertyID", "value"],
+        "properties": {
+          "propertyID": {
+            "type": "string",
+            "const": "animationSupport"
+          },
+          "value": {
+            "type": "object",
+            "required": ["supported"],
+            "properties": {
+              "supported": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "format": {
+                "type": "string"
+              },
+              "retargetable": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "customizationFeature": {
+      "type": "object",
+      "required": ["category", "options"],
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blendshapes": {
+          "type": "boolean"
+        },
+        "parameters": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "presets": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "customizationTexture": {
+      "type": "object",
+      "required": ["category", "resolution"],
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "resolution": {
+          "type": "string",
+          "pattern": "^[0-9]+x[0-9]+$"
+        },
+        "maps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customizable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "expressiveness": {
+      "type": "object",
+      "properties": {
+        "facialExpressions": {
+          "type": "boolean"
+        },
+        "blendshapeCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "voiceSupport": {
+          "type": "boolean"
+        },
+        "lipSync": {
+          "type": "boolean"
+        },
+        "emotionTriggers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "equipmentSupport": {
+      "type": "object",
+      "properties": {
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attachmentPoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supportedWearableFormats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "platformSupport": {
+      "type": "object",
+      "properties": {
+        "vrmSupport": {
+          "type": "boolean"
+        },
+        "readyPlayerMeCompatible": {
+          "type": "boolean"
+        },
+        "vrChatCompatible": {
+          "type": "boolean"
+        },
+        "testedPlatforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "performanceOptions": {
+      "type": "object",
+      "properties": {
+        "lod": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["level", "triangles", "textureSize"],
+            "properties": {
+              "level": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "triangles": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "textureSize": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
