@@ -1,82 +1,80 @@
 ---
-sidebar_position: X
+sidebar_position: [position]
 ---
 
-# [PROFILE NAME] Integration Profile
+# [Profile Name] Profile
 
-[One-sentence summary of what this integration profile is designed for]
+[Brief introduction to the profile and its purpose]
 
 ## Purpose and Use Cases
 
-[Brief description of the profile's purpose and when to use it]
-
-- [Use case 1]
-- [Use case 2]
-- [Use case 3]
+[Explanation of when and why to use this profile]
 
 ## Profile Overview
 
-[General description of what this profile includes and how it works]
+[Overview of what this profile represents and how it relates to metaverse assets]
 
 ## Required Properties
 
-The following properties are **required** for all assets using this profile:
-
 | Property | Type | Description |
 |----------|------|-------------|
-| `[property1]` | [Type] | [Description of property1] |
-| `[property2]` | [Type] | [Description of property2] |
-| `[property3]` | [Type] | [Description of property3] |
+| `property1` | `[type]` | [Description] |
+| `property2` | `[type]` | [Description] |
+| `property3` | `[type]` | [Description] |
 
 ## Optional Properties
 
-The following properties are **optional** but recommended for this profile:
-
 | Property | Type | Description |
 |----------|------|-------------|
-| `[property4]` | [Type] | [Description of property4] |
-| `[property5]` | [Type] | [Description of property5] |
-| `[property6]` | [Type] | [Description of property6] |
+| `property4` | `[type]` | [Description] |
+| `property5` | `[type]` | [Description] |
+| `property6` | `[type]` | [Description] |
 
 ## Standards Integration
 
-This profile combines the following standards:
+[Explanation of how this profile integrates with specific standards]
 
-- [Standard 1]: [Brief description of how it's used]
-- [Standard 2]: [Brief description of how it's used]
-- [Standard 3]: [Brief description of how it's used]
+## Examples
 
-## Complete Example
-
-[Single comprehensive example that demonstrates the complete profile]
+### Basic Example
 
 ```json
 {
-  // Complete example JSON implementing the profile
+  // Basic implementation example
 }
 ```
+
+### Standard Example
+
+```json
+{
+  // Standard implementation example with common properties
+}
+```
+
+### Complete Example
+
+```json
+{
+  // Complete implementation example with all relevant properties
+}
+```
+
+## Validation
+
+[Information about validating metadata against this profile]
 
 ## Implementation Considerations
 
 - [Consideration 1]
 - [Consideration 2]
 - [Consideration 3]
-- [Consideration 4]
 
-## Validation Requirements
+## Common Issues
 
-To validate this profile, ensure:
-
-- [Validation requirement 1]
-- [Validation requirement 2]
-- [Validation requirement 3]
+[Troubleshooting guidance for common problems]
 
 ## Related Profiles
 
-- [Link to related profile 1](../path/to/profile1.md): [Brief relationship explanation]
-- [Link to related profile 2](../path/to/profile2.md): [Brief relationship explanation]
-
-## Related Standards
-
-- [Link to related namespace 1](../path/to/namespace1.md)
-- [Link to related namespace 2](../path/to/namespace2.md) 
+- [Related profile 1]: [Brief description and link]
+- [Related profile 2]: [Brief description and link] 

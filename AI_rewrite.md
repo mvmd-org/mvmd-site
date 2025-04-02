@@ -235,16 +235,29 @@ The restructuring will consolidate implementation details into standard files, w
   - Each guide includes complete examples and variations
   - Each guide links to related standards and concepts
 
-### Step 5: Update Profile Templates and Documentation [PLANNED]
-- Apply consistent template across all profiles:
-  - Purpose and use cases
-  - Required properties
-  - Optional properties
-  - Implementation examples
-  - Validation requirements
-  - Related profiles and extensions
-- Merge overlapping profiles:
-  - Combine wearable.md and equipable.md into attachable.md
-  - Consider merging avatar.md and identity.md based on content analysis
-- Update cross-references to standard-specific files
-- Create JSON Schema validation files for each profile
+### Step 5: Update Profile Templates and Documentation [COMPLETED] ✓
+- Applied consistent template across all profiles:
+  - Created templates/profile-template.md with standardized structure
+  - Established consistent sections: Purpose, Required Properties, Optional Properties, Examples, etc.
+  - Ensured all profiles follow the same documentation pattern
+- Merged overlapping profiles:
+  - Combined wearable.md and equipable.md into new attachable.md profile
+  - Consolidated attachment points, interaction capabilities, and technical specifications
+  - Created unified examples that demonstrate both wearable and equipable use cases
+- Updated cross-references and terminology:
+  - Ensured consistent use of "Standards" instead of "Namespaces"
+  - Added proper relationships between profiles
+- Created validation criteria for profile implementations:
+  - Added clear validation steps for each profile
+  - Documented common issues and troubleshooting guidance
+
+### Step 6: Develop Schema Validation Files [PLANNED]
+- Create JSON Schema validation files for each profile:
+  - Develop attachable.schema.json with merged validation rules 
+  - Create avatar.schema.json with updated validation rules
+  - Build comprehensive validation for all required and optional properties
+- Implement validation examples and documentation:
+  - Add validation code snippets for multiple languages
+  - Create schema validation workflow documentation
+- Update validator tool to support new schema validation files
+- Test validation against example files
