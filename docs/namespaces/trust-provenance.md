@@ -685,4 +685,270 @@ Complete asset with multiple verifiable credentials:
 
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
 - [Types of Assets](../concepts/types-of-assets.md)
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md) 
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md)
+
+## Practical Implementation Guide
+
+### Step 1: Basic Trust Setup
+
+1. **Choose Authentication Method**:
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "c2pa": "https://c2pa.org/schema/",
+    "did": "https://www.w3.org/ns/did#"
+  },
+  "@type": "3DModel",
+  "name": "Trusted Asset",
+  "description": "A verified and authenticated 3D model"
+}
+```
+
+2. **Add Creator Identity**:
+```json
+{
+  // ... basic properties ...
+  "creator": {
+    "@type": "Person",
+    "name": "Jane Creator",
+    "identifier": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "url": "https://creator.example.com"
+  }
+}
+```
+
+### Step 2: Content Authentication
+
+1. **C2PA Implementation**:
+```json
+{
+  // ... previous properties ...
+  "c2pa:claim": {
+    "assertionVersion": "1.0",
+    "claimGenerator": "Creation Tool 1.0",
+    "timestamp": "2024-04-02T10:15:30Z",
+    "digitalSignature": {
+      "signatureType": "ed25519",
+      "signature": "base64-encoded-signature-data",
+      "certificate": "base64-encoded-certificate-data"
+    },
+    "assertions": [
+      {
+        "label": "c2pa.creator",
+        "data": {
+          "name": "Jane Creator",
+          "identifier": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+        }
+      }
+    ]
+  }
+}
+```
+
+2. **Digital Signature Implementation**:
+```json
+{
+  // ... previous properties ...
+  "sec:signature": {
+    "type": "Ed25519Signature2020",
+    "created": "2024-04-02T10:15:30Z",
+    "verificationMethod": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK#key1",
+    "proofValue": "z58DAdFfa9SkqZMVPxAQpic6gPFzVZ4eHgtoAX4Rh2mXTX7..."
+  }
+}
+```
+
+### Step 3: Provenance Tracking
+
+1. **Creation History**:
+```json
+{
+  // ... previous properties ...
+  "c2pa:history": {
+    "actions": [
+      {
+        "action": "created",
+        "timestamp": "2024-04-01T14:30:00Z",
+        "softwareAgent": "3D Creator Pro 2024",
+        "actor": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+      },
+      {
+        "action": "modified",
+        "timestamp": "2024-04-02T09:45:00Z",
+        "softwareAgent": "Texture Studio 2024",
+        "actor": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+      }
+    ]
+  }
+}
+```
+
+2. **Source Attribution**:
+```json
+{
+  // ... previous properties ...
+  "c2pa:ingredients": [
+    {
+      "title": "Base Mesh",
+      "format": "model/gltf-binary",
+      "hash": "sha256:a1b2c3d4e5f6...",
+      "creator": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}
+```
+
+### Step 4: Verifiable Credentials
+
+1. **Basic Credential**:
+```json
+{
+  // ... previous properties ...
+  "verifiableCredential": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://example.org/metaverse/credentials/v1"
+    ],
+    "type": ["VerifiableCredential", "AssetQualityCredential"],
+    "issuer": "did:web:certifier.example.com",
+    "issuanceDate": "2024-04-02T11:00:00Z",
+    "credentialSubject": {
+      "id": "https://example.com/model.glb",
+      "qualityLevel": "Professional",
+      "verifiedDate": "2024-04-02T10:45:00Z"
+    }
+  }
+}
+```
+
+2. **Multiple Credentials**:
+```json
+{
+  // ... previous properties ...
+  "verifiableCredentials": [
+    {
+      "type": ["VerifiableCredential", "AssetQualityCredential"],
+      "issuer": "did:web:certifier.example.com",
+      "credentialSubject": {
+        "qualityLevel": "Professional"
+      }
+    },
+    {
+      "type": ["VerifiableCredential", "CreatorCredential"],
+      "issuer": "did:web:creators-guild.example.com",
+      "credentialSubject": {
+        "membershipLevel": "Verified Creator"
+      }
+    }
+  ]
+}
+```
+
+### Step 5: Complete Trust Implementation
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
+    "c2pa": "https://c2pa.org/schema/",
+    "did": "https://www.w3.org/ns/did#"
+  },
+  "@type": "3DModel",
+  "name": "Fully Verified Asset",
+  "contentUrl": "https://example.com/model.glb",
+  "encodingFormat": "model/gltf-binary",
+  "creator": {
+    "@type": "Person",
+    "name": "Jane Creator",
+    "identifier": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+  },
+  "c2pa:claim": {
+    "assertionVersion": "1.0",
+    "timestamp": "2024-04-02T11:30:00Z",
+    "assertions": [
+      {
+        "label": "c2pa.creator",
+        "data": {
+          "name": "Jane Creator",
+          "identifier": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+        }
+      }
+    ],
+    "digitalSignature": {
+      "signatureType": "ed25519",
+      "signature": "base64-encoded-signature",
+      "certificate": "base64-encoded-certificate"
+    }
+  },
+  "verifiableCredential": {
+    "type": ["VerifiableCredential", "AssetQualityCredential"],
+    "issuer": "did:web:certifier.example.com",
+    "credentialSubject": {
+      "id": "https://example.com/model.glb",
+      "qualityLevel": "Professional"
+    },
+    "proof": {
+      "type": "Ed25519Signature2020",
+      "created": "2024-04-02T11:30:00Z",
+      "verificationMethod": "did:web:certifier.example.com#key1",
+      "proofValue": "z58DAdFfa9SkqZMVPxAQpic6gPFzVZ4..."
+    }
+  }
+}
+```
+
+### Best Practices for Implementation
+
+1. **Identity Management**:
+   - Use DIDs for persistent identifiers
+   - Include verification methods
+   - Link to public profiles
+   - Maintain key security
+
+2. **Content Authentication**:
+   - Sign all important content
+   - Include timestamps
+   - Maintain signature chains
+   - Verify before trusting
+
+3. **Provenance Tracking**:
+   - Document all modifications
+   - Include software tools used
+   - Reference source materials
+   - Maintain audit trails
+
+4. **Credential Management**:
+   - Use appropriate credential types
+   - Include expiration dates
+   - Verify issuer authority
+   - Keep proofs accessible
+
+### Troubleshooting Common Issues
+
+1. **Signature Verification**:
+   - Check key validity
+   - Verify signature format
+   - Validate certificate chain
+   - Check timestamp validity
+
+2. **DID Resolution**:
+   - Ensure DID is resolvable
+   - Check method support
+   - Verify key ownership
+   - Handle method rotation
+
+3. **Credential Validation**:
+   - Check credential status
+   - Verify issuer identity
+   - Validate proof chain
+   - Check revocation status
+
+4. **Integration Problems**:
+   - Verify namespace usage
+   - Check context declarations
+   - Validate JSON-LD syntax
+   - Test verification flow 

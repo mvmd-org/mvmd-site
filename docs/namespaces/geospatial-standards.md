@@ -534,6 +534,270 @@ Points of interest collection with styling:
 - **Integration with Non-Spatial Data**: Consider how geospatial content connects to other metadata
 - **Client Capabilities**: Be aware of implementation support for different geospatial formats
 
+## Practical Implementation Guide
+
+### Step 1: Basic Location Setup
+
+1. **Choose a Spatial Reference System**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "Place",
+     "name": "City Center",
+     "geo": {
+       "@type": "GeoCoordinates",
+       "latitude": 37.7749,
+       "longitude": -122.4194,
+       "elevation": 16.0
+     },
+     "spatialReference": {
+       "@type": "SpatialReferenceSystem",
+       "name": "WGS84",
+       "code": "EPSG:4326"
+     }
+   }
+   ```
+
+2. **Define Bounding Volume**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "Place",
+     "name": "City District",
+     "boundingVolume": {
+       "@type": "BoundingBox",
+       "minLat": 37.7749,
+       "minLng": -122.4194,
+       "maxLat": 37.7849,
+       "maxLng": -122.4094,
+       "minHeight": 0,
+       "maxHeight": 100
+     }
+   }
+   ```
+
+### Step 2: CityJSON Implementation
+
+1. **Basic Building Model**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "3DModel",
+     "name": "Office Building",
+     "encodingFormat": "CityJSON",
+     "content": {
+       "type": "CityJSON",
+       "version": "1.1",
+       "CityObjects": {
+         "building-1": {
+           "type": "Building",
+           "geometry": [
+             {
+               "type": "Solid",
+               "boundaries": [[[[0,0,0], [10,0,0], [10,10,0], [0,10,0], [0,0,0]]]]
+             }
+           ]
+         }
+       }
+     }
+   }
+   ```
+
+2. **Add Building Attributes**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "3DModel",
+     "name": "Office Building",
+     "encodingFormat": "CityJSON",
+     "content": {
+       "type": "CityJSON",
+       "version": "1.1",
+       "CityObjects": {
+         "building-1": {
+           "type": "Building",
+           "attributes": {
+             "height": 30,
+             "floors": 8,
+             "usage": "commercial",
+             "constructionYear": 2020
+           }
+         }
+       }
+     }
+   }
+   ```
+
+### Step 3: 3D Tiles Implementation
+
+1. **Basic Tileset**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "3DModel",
+     "name": "City Model",
+     "encodingFormat": "3D Tiles",
+     "content": {
+       "asset": {
+         "version": "1.1",
+         "tilesetVersion": "1.0"
+       },
+       "geometricError": 500,
+       "root": {
+         "boundingVolume": {
+           "region": [-122.4194, 37.7749, -122.4094, 37.7849, 0, 100]
+         },
+         "geometricError": 100,
+         "refine": "ADD",
+         "content": {
+           "uri": "buildings/tile1.b3dm"
+         }
+       }
+     }
+   }
+   ```
+
+2. **Add Styling**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "3DModel",
+     "name": "City Model",
+     "encodingFormat": "3D Tiles",
+     "content": {
+       "asset": {
+         "version": "1.1",
+         "tilesetVersion": "1.0"
+       },
+       "geometricError": 500,
+       "root": {
+         "boundingVolume": {
+           "region": [-122.4194, 37.7749, -122.4094, 37.7849, 0, 100]
+         },
+         "geometricError": 100,
+         "refine": "ADD",
+         "content": {
+           "uri": "buildings/tile1.b3dm"
+         },
+         "style": {
+           "color": {
+             "conditions": [
+               ["${height} > 50", "color('red', 0.8)"],
+               ["${height} > 20", "color('blue', 0.8)"],
+               ["true", "color('gray', 0.8)"]
+             ]
+           }
+         }
+       }
+     }
+   }
+   ```
+
+### Step 4: GeoJSON Implementation
+
+1. **Basic Feature Collection**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "Dataset",
+     "name": "City Points of Interest",
+     "encodingFormat": "GeoJSON",
+     "content": {
+       "type": "FeatureCollection",
+       "features": [
+         {
+           "type": "Feature",
+           "geometry": {
+             "type": "Point",
+             "coordinates": [-122.4194, 37.7749]
+           },
+           "properties": {
+             "name": "City Hall",
+             "type": "government",
+             "description": "Main government building"
+           }
+         }
+       ]
+     }
+   }
+   ```
+
+2. **Add Styling and Metadata**
+   ```json
+   {
+     "@context": "https://schema.org",
+     "@type": "Dataset",
+     "name": "City Points of Interest",
+     "encodingFormat": "GeoJSON",
+     "content": {
+       "type": "FeatureCollection",
+       "features": [
+         {
+           "type": "Feature",
+           "geometry": {
+             "type": "Point",
+             "coordinates": [-122.4194, 37.7749]
+           },
+           "properties": {
+             "name": "City Hall",
+             "type": "government",
+             "description": "Main government building",
+             "style": {
+               "color": "#FF0000",
+               "icon": "building",
+               "scale": 1.5
+             },
+             "metadata": {
+               "lastUpdated": "2024-03-15",
+               "source": "City GIS Department",
+               "accessibility": ["wheelchair", "public-transport"]
+             }
+           }
+         }
+       ]
+     }
+   }
+   ```
+
+### Best Practices for Implementation
+
+1. **Spatial Reference Systems**
+   - Always specify the coordinate system
+   - Use appropriate precision for coordinates
+   - Consider vertical reference systems for 3D data
+
+2. **Data Organization**
+   - Use hierarchical tiling for large datasets
+   - Implement level of detail (LOD) appropriately
+   - Consider data volume and streaming requirements
+
+3. **Performance Optimization**
+   - Implement proper bounding volumes
+   - Use appropriate geometric error values
+   - Consider client-side capabilities
+
+4. **Integration**
+   - Maintain consistent coordinate systems
+   - Link spatial and non-spatial data effectively
+   - Consider cross-format compatibility
+
+### Troubleshooting Common Issues
+
+1. **Coordinate System Mismatches**
+   - Verify spatial reference system declarations
+   - Check coordinate transformations
+   - Validate bounding volumes
+
+2. **Performance Problems**
+   - Review tile sizes and LOD settings
+   - Check geometric error values
+   - Optimize data structures
+
+3. **Integration Issues**
+   - Verify format compatibility
+   - Check property mappings
+   - Validate cross-references
+
 ## Related Concepts
 
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
