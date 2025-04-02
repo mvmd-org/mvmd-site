@@ -499,6 +499,100 @@ User journey analysis summary:
   - **Linking examples that demonstrate the standard**
   - **Embedding examples that demonstrate the standard**
 
+Namespace-Implementation Mapping Table (Initial Standards):
+
+#### glTF Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/3d-standards.md | namespaces/gltf.md | Overview and use cases, Core properties and extensions | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete model example with textures and animations | Use .glb format, Include only essential metadata, Compress textures, Specify accurate MIME types | Basic content reference example, Versioning example | Material properties example, Animation properties example |
+| implementation/standards-implementation.md | namespaces/gltf.md | Integration with Schema.org | Complementary standards integration approach | glTF character model with materials and animations | None unique (duplicates namespace content) | None unique (duplicates namespace content) | None unique (duplicates namespace content) |
+| implementation/assets.md | namespaces/gltf.md | Asset management context | None unique (covered elsewhere) | None unique (duplicates namespace content) | Model optimization guidance | None unique (duplicates namespace content) | None unique (duplicates namespace content) |
+| integration-profiles/wearable.md | namespaces/gltf.md | Wearable context with glTF | None unique (covered elsewhere) | None unique (covered in profiles) | glTF format for wearables | glTF format references | None unique (covered in profiles) |
+
+#### USD Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/3d-standards.md | namespaces/usd.md | Overview and use cases, Core components and schemas | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete example with variants and references | Optimize with instancing, Use composition capabilities, Consider file size and loading performance | Basic content reference, Variant sets reference | Stage and layers embedding |
+| implementation/standards-implementation.md | namespaces/usd.md | Integration with Schema.org | Complementary standards integration approach | USD architectural scene with metadata | None unique (duplicates namespace content) | None unique (duplicates namespace content) | Stage and layers example |
+| implementation/composable.md | namespaces/usd.md | Composability aspects of USD | Scene composition patterns | None unique (covered elsewhere) | Composition workflow guidance | None unique (covered elsewhere) | None unique (covered elsewhere) |
+
+#### VRM Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/3d-standards.md | namespaces/vrm.md | Overview and use cases, Core properties, VRM Extensions | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete avatar example with expressions and physics | None unique (to be developed) | Basic avatar reference | Expressions and humanoid examples |
+| integration-profiles/avatar.md | namespaces/vrm.md | Avatar profile context | None unique (covered in profiles) | None unique (covered in profiles) | VRM-specific avatar guidance | None unique (covered in profiles) | None unique (covered in profiles) |
+| implementation/assets.md | namespaces/vrm.md | Asset management context | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) |
+
+#### OpenXR Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/openxr.md | namespaces/openxr.md | Core components and concepts | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete XR experience with detailed configuration | None specified | Basic app reference, Hardware requirements reference | Configuration data example, Input actions configuration |
+| implementation/standards-implementation.md | namespaces/openxr.md | Integration with WebXR | WebXR + MVMD bridging approach | WebXR experience with embedded metadata | None unique (duplicates namespace content) | None unique (duplicates namespace content) | None unique (duplicates namespace content) |
+
+#### C2PA Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/trust-provenance.md | namespaces/c2pa.md | Overview and use cases, Core components and concepts | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete 3D asset with creation history and provenance | Ensure complete signature chains, Include all relevant editing steps, Reference source files, Provide verification services | C2PA manifest file reference, Verification service reference | Claim data embedding |
+| implementation/standards-implementation.md | namespaces/c2pa.md | Integration context | None unique (covered elsewhere) | None unique (duplicates namespace content) | None unique (duplicates namespace content) | None unique (duplicates namespace content) | None unique (duplicates namespace content) |
+
+#### CityJSON Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/geospatial-standards.md | namespaces/cityjson.md | Overview and use cases, Core properties | Namespace declaration pattern, External reference pattern, Embedding pattern | Complete urban district with semantic information | Use compression techniques, Implement proper LOD structure, Follow CityGML semantic model, Include proper metadata for coordinate reference systems | Basic asset reference, Version-specific reference | CityJSON metadata embedding |
+| implementation/standards-implementation.md | namespaces/cityjson.md | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) |
+
+#### 3D-Tiles Standard Mapping
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| namespaces/geospatial-standards.md | namespaces/3d-tiles.md | Overview and use cases, Core components and features | Namespace declaration pattern, External reference pattern, Embedding pattern | Examples specific to 3D Tiles | Best practices related to 3D Tiles implementation | Tileset reference patterns | Tileset metadata embedding |
+| implementation/standards-implementation.md | namespaces/3d-tiles.md | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) |
+
+#### NFT Standards Mapping (ERC-721/ERC-1155)
+
+| Source File | Target File | Unique Content | Implementation Patterns | Examples to Migrate | Best Practices | Linking Examples | Embedding Examples |
+|-------------|-------------|----------------|-------------------------|---------------------|----------------|------------------|-------------------|
+| implementation/nfts.md | namespaces/erc721.md | NFT standards overview, Properties and integration | NFT metadata patterns | NFT Standards + MVMD integration example | NFT metadata best practices | NFT metadata reference | MVMD embedding in NFT metadata |
+| implementation/standards-implementation.md | namespaces/erc721.md | Integration context | NFT integration patterns | None unique (duplicates nfts.md) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) |
+| integration-profiles/composable-3d-nft.md | namespaces/erc721.md | Profile-specific implementation | None unique (covered elsewhere) | None unique (covered in profiles) | None unique (covered elsewhere) | None unique (covered elsewhere) | None unique (covered elsewhere) |
+
+Namespace-Implementation Mapping Summary:
+
+1. Content Distribution Pattern:
+   - Most technical standard content is currently in categorized files (3d-standards.md, geospatial-standards.md, trust-provenance.md)
+   - Implementation examples are duplicated between namespace files and implementation/standards-implementation.md
+   - Profile-specific implementations reference standards but contain minimal unique implementation patterns
+
+2. Content Overlap Analysis:
+   - High overlap between namespaces/3d-standards.md and implementation/standards-implementation.md
+   - Moderate overlap between standards implementation and various integration profiles
+   - Best practices are scattered across files with inconsistent coverage across standards
+
+3. Migration Strategy:
+   - Split categorical namespace files into standard-specific files (highest priority)
+   - Consolidate implementation examples from standards-implementation.md into namespace files
+   - Preserve unique implementation contexts when migrating content
+   - Ensure consistent structure across all standard namespace files
+   - Create cross-references from integration profiles to standard namespace files
+
+4. Linking & Embedding Examples:
+   - Most standards have both linking and embedding examples already documented
+   - Ensure each standard namespace file maintains complete examples of both patterns
+   - Standardize example format and complexity across all standards
+   - Include appropriate cross-references to other related standards
+
+5. Implementation Gaps:
+   - Several standards lack specific best practices sections
+   - Inconsistent depth of implementation examples across standards
+   - Integration with other standards inconsistently documented
+   - Some standards lack validation guidance
+
 ### Step 5: Integration Profile Analysis
 - Create table evaluating all current profiles:
   - Profile name
