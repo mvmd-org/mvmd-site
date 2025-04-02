@@ -62,4 +62,4 @@ We welcome contributions to these planned profiles. If you're interested in help
 4. Propose technical specifications
 5. Test draft implementations
 
-See our [Contribution Guide](../community/contributors.md) for more details on how to get involved.
+See our [Contribution Guide](../community/contributing.md) for more details on how to get involved.

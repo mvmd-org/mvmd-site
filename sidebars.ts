@@ -59,23 +59,6 @@ const sidebars: SidebarsConfig = {
         'implementation/best-practices',
         'implementation/metadata-profiles',
         'implementation/standards-implementation',
-        {
-          type: 'category',
-          label: 'Composable',
-          items: [
-            'implementation/composable/assembly-patterns',
-            'implementation/composable/concepts',
-            'implementation/composable/schema-parts',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'NFT',
-          items: [
-            'implementation/nft/concepts',
-            'implementation/nft/examples',
-          ],
-        },
       ],
     },
     {
@@ -134,64 +117,9 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Examples',
+      label: 'Tools',
       items: [
-        'examples/README',
-        'examples/combining-standards',
-        {
-          type: 'category',
-          label: 'Embedding',
-          items: [
-            'examples/embedding/README',
-            'examples/embedding/gltf',
-            'examples/embedding/usd',
-            'examples/embedding/fbx',
-            'examples/embedding/vrm',
-            'examples/embedding/collada',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Embedding (Legacy)',
-      items: [
-        'embedding/overview',
-        'embedding/media-content',
-        'embedding/general-metadata',
-        'embedding/3d-virtual-world',
-        'embedding/geospacial',
-        {
-          type: 'category',
-          label: 'Schema',
-          items: [
-            'embedding/schema/schema-org',
-            'embedding/schema/json-ld',
-          ],
-        },
-        {
-          type: 'category',
-          label: '3D Assets',
-          items: [
-            'embedding/3d-assets/x3d',
-            'embedding/3d-assets/openxr',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Geospatial',
-          items: [
-            'embedding/geospatial/cityjson',
-            'embedding/geospatial/3d-tiles',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Trust and Provenance',
-          items: [
-            'embedding/trust/c2pa',
-          ],
-        },
+        'tools/validator',
       ],
     },
   ],
