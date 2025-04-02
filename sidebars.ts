@@ -38,22 +38,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Examples',
+      label: 'Namespaces',
       items: [
-        'examples/README',
-        'examples/combining-standards',
-        {
-          type: 'category',
-          label: 'Embedding',
-          items: [
-            'examples/embedding/README',
-            'examples/embedding/gltf',
-            'examples/embedding/usd',
-            'examples/embedding/fbx',
-            'examples/embedding/vrm',
-            'examples/embedding/collada',
-          ],
-        },
+        'namespaces/overview',
+        'namespaces/schema-org',
+        'namespaces/3d-standards',
+        'namespaces/geospatial-standards',
+        'namespaces/trust-provenance',
       ],
     },
     {
@@ -108,18 +99,62 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Namespaces',
+      label: 'Reference',
       items: [
-        'namespaces/overview',
-        'namespaces/schema-org',
-        'namespaces/3d-standards',
-        'namespaces/geospatial-standards',
-        'namespaces/trust-provenance',
+        'reference/validator',
+        'reference/schemas',
+        'reference/api',
+        'reference/glossary',
       ],
     },
     {
       type: 'category',
-      label: 'Embedding',
+      label: 'Community',
+      items: [
+        'community/supporters',
+        'community/become-supporter',
+        'community/contributing',
+        'community/sdo-integration-guide',
+        {
+          type: 'category',
+          label: 'Guides',
+          items: [
+            'community/guides/content-creators',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Supporters',
+          items: [
+            'community/supporters/nftr-pro',
+            'community/supporters/sumset-tech',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Examples',
+      items: [
+        'examples/README',
+        'examples/combining-standards',
+        {
+          type: 'category',
+          label: 'Embedding',
+          items: [
+            'examples/embedding/README',
+            'examples/embedding/gltf',
+            'examples/embedding/usd',
+            'examples/embedding/fbx',
+            'examples/embedding/vrm',
+            'examples/embedding/collada',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Embedding (Legacy)',
       items: [
         'embedding/overview',
         'embedding/media-content',
@@ -157,48 +192,6 @@ const sidebars: SidebarsConfig = {
             'embedding/trust/c2pa',
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Community',
-      items: [
-        'community/supporters',
-        'community/become-supporter',
-        'contributing',
-        'community/sdo-integration-guide',
-        {
-          type: 'category',
-          label: 'Supporters',
-          items: [
-            'community/supporters/nftr-pro',
-            'community/supporters/sumset-tech',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tools',
-      items: [
-        'tools/validator',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Reference',
-      items: [
-        'reference/api',
-        'reference/schemas',
-        'reference/validator',
-        'reference/glossary',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Guides',
-      items: [
-        'guides/content-creators',
       ],
     },
   ],
