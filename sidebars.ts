@@ -32,7 +32,24 @@ const sidebars: SidebarsConfig = {
                 'implementation/best-practices',
                 'implementation/getting-started',
                 'implementation/standards-implementation',
-                'implementation/metadata-profiles'
+                'implementation/metadata-profiles',
+                {
+                    type: 'category',
+                    label: 'Composable',
+                    items: [
+                        'implementation/composable/assembly-patterns',
+                        'implementation/composable/concepts',
+                        'implementation/composable/schema-parts'
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'NFT',
+                    items: [
+                        'implementation/nft/concepts',
+                        'implementation/nft/examples'
+                    ],
+                }
             ],
         },
         {
@@ -63,6 +80,15 @@ const sidebars: SidebarsConfig = {
                 'embedding/media-content',
                 'embedding/general-metadata',
                 'embedding/3d-virtual-world',
+                'embedding/geospacial',
+                {
+                    type: 'category',
+                    label: 'Schema',
+                    items: [
+                        'embedding/schema/schema-org',
+                        'embedding/schema/json-ld'
+                    ],
+                },
                 {
                     type: 'category',
                     label: '3D Assets',
@@ -101,6 +127,14 @@ const sidebars: SidebarsConfig = {
                 'community/become-supporter',
                 'community/contributors',
                 'community/sdo-integration-guide',
+                {
+                    type: 'category',
+                    label: 'Supporters',
+                    items: [
+                        'community/supporters/nftr-pro',
+                        'community/supporters/sumset-tech'
+                    ],
+                },
                 'supporting-organizations',
                 'contributing'
             ],
@@ -110,6 +144,13 @@ const sidebars: SidebarsConfig = {
             label: 'Tools',
             items: [
                 'tools/validator'
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Guides',
+            items: [
+                'guides/content-creators'
             ],
         }
     ],
