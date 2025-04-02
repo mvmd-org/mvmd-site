@@ -18,6 +18,7 @@ interface ValidationIssue {
   message: string;
   type: 'error' | 'warning';
   headingAnchor?: string; // Added heading anchor ID
+  codeContent?: string; // Added field for the code block content
 }
 
 // --- Helper function to generate Docusaurus link ---
@@ -55,6 +56,7 @@ async function validateJsonInFile(filePath: string): Promise<ValidationIssue[]> 
     let blockIndex = 0;
     let lastHeadingText = '';
     let lastHeadingAnchor = '';
+    let blockCodeContentForIssues = ''; // Temporarily store code for the current block
 
     for (const line of lines) {
       if (line.trim().startsWith('```json')) {
@@ -66,6 +68,7 @@ async function validateJsonInFile(filePath: string): Promise<ValidationIssue[]> 
 
       if (line.trim() === '```' && isInsideJsonBlock) {
         isInsideJsonBlock = false;
+        blockCodeContentForIssues = currentJsonBlock; // Store code before processing
         // Process the completed JSON block
         if (currentJsonBlock.trim()) {
           try {
@@ -78,12 +81,11 @@ async function validateJsonInFile(filePath: string): Promise<ValidationIssue[]> 
                   blockIndex,
                   message: error,
                   type: 'error',
-                  headingAnchor: lastHeadingAnchor // Store anchor found *before* this block
+                  headingAnchor: lastHeadingAnchor, 
+                  codeContent: blockCodeContentForIssues // Add code content to issue
                 });
               });
             }
-            // Reset for next potential block under same heading
-            // lastHeadingAnchor = ''; 
           } catch (validationError) {
             issues.push({
               file: filePath,
@@ -91,7 +93,8 @@ async function validateJsonInFile(filePath: string): Promise<ValidationIssue[]> 
               blockIndex,
               message: `Validation function error: ${(validationError as Error).message}`,
               type: 'error',
-              headingAnchor: lastHeadingAnchor
+              headingAnchor: lastHeadingAnchor,
+              codeContent: blockCodeContentForIssues // Add code content to issue
             });
           }
         }
@@ -201,6 +204,27 @@ function generateHtmlReport(allIssues: ValidationIssue[], allFilesScannedPaths: 
     .no-issues { padding: 10px 0 0 25px; color: #3c763d; font-style: italic; }
     .issue-link { color: inherit; text-decoration: none; }
     .issue-link:hover { text-decoration: underline; }
+    .code-block-container { margin-top: 8px; }
+    .code-block {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      max-height: 200px; /* Limit height and make scrollable */
+      overflow: auto;
+      white-space: pre; /* Keep whitespace */
+    }
+    .code-block code {
+      background-color: transparent; /* Override general code style */
+      padding: 0;
+      font-family: monospace;
+      color: #333;
+    }
+    .block-list { padding-left: 0; }
+    .block-item { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; border-radius: 5px; background: #fff; }
+    .block-link { font-weight: bold; margin-right: 5px; }
+    .heading-info { font-size: 0.9em; color: #666; }
+    .error-list { margin-top: 8px; padding-left: 15px; list-style: disc; border-top: none; }
   </style>
 </head>
 <body>
@@ -253,12 +277,19 @@ function generateHtmlReport(allIssues: ValidationIssue[], allFilesScannedPaths: 
           const primaryAnchor = headingAnchor || `block-${blockIndex}`; // Fallback anchor if no heading
           const linkHref = `${docusaurusPath}#${primaryAnchor}&validationBlock=${blockIndex}&validationErrors=${encodedErrors}`;
           const linkText = `[Block ${blockIndex}]`;
+          // Get code content from the first issue in the block (it's the same for all issues in a block)
+          const codeContent = blockIssues[0]?.codeContent || ''; 
 
           reportHtml += `      <li class="block-item">\n`;
           reportHtml += `        <a href="${linkHref}" target="_blank" class="issue-link block-link">${linkText}</a>`;
           if (headingAnchor) {
             reportHtml += ` <span class="heading-info">(under <a href="${docusaurusPath}#${headingAnchor}" target="_blank">#${headingAnchor}</a>)</span>`;
           }
+          // Add the code block section
+          reportHtml += `        <div class="code-block-container">\n`;
+          reportHtml += `          <pre class="code-block"><code>${escapeHtml(codeContent)}</code></pre>\n`;
+          reportHtml += `        </div>\n`;
+          // Add the error list section
           reportHtml += `        <ul class="error-list">\n`;
           blockIssues.forEach(issue => {
             reportHtml += `          <li><span class="${issue.type}">${issue.type.toUpperCase()}</span>: ${escapeHtml(issue.message)}</li>\n`;

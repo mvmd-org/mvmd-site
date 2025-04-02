@@ -1,0 +1,20 @@
+.reportContainer {
+  padding: 2rem;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
+.reportContainer h1 {
+  margin-bottom: 1rem;
+}
+
+.reportContainer p {
+  margin-bottom: 1.5rem;
+}
+
+.reportFrame {
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+} 

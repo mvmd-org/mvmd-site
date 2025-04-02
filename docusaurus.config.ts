@@ -110,6 +110,10 @@ const config: Config = {
                             label: 'GitHub',
                             href: 'https://github.com/mvmd-org',
                         },
+                        {
+                            label: 'Docs Validation Report',
+                            to: '/validation-report',
+                        },
                     ],
                 },
             ],
