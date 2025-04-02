@@ -41,69 +41,10 @@ const config: Config = {
                         from: '/namespaces/trust-provenance',
                         to: '/namespaces/overview',
                     },
-                    // Redirect for glTF content from 3d-standards to the dedicated namespace file
-                    {
-                        from: '/namespaces/3d-standards#gltf',
-                        to: '/namespaces/gltf',
-                    },
-                    // Redirect for USD content from 3d-standards to the dedicated namespace file
-                    {
-                        from: '/namespaces/3d-standards#usd',
-                        to: '/namespaces/usd',
-                    },
-                    // USDZ redirects
-                    {
-                        from: '/namespaces/3d-standards#usdz',
-                        to: '/namespaces/usdz',
-                    },
-                    // VRM redirects
-                    {
-                        from: '/namespaces/3d-standards#vrm',
-                        to: '/namespaces/vrm',
-                    },
-                    // FBX redirects
-                    {
-                        from: '/namespaces/3d-standards#fbx',
-                        to: '/namespaces/fbx',
-                    },
-                    // COLLADA redirects
-                    {
-                        from: '/namespaces/3d-standards#collada',
-                        to: '/namespaces/collada',
-                    },
-                    // X3D redirects
-                    {
-                        from: '/namespaces/3d-standards#x3d',
-                        to: '/namespaces/x3d',
-                    },
-                    // OpenXR redirects
-                    {
-                        from: '/namespaces/3d-standards#openxr',
-                        to: '/namespaces/openxr',
-                    },
-                    // CityJSON redirects
-                    {
-                        from: '/namespaces/geospatial-standards#cityjson',
-                        to: '/namespaces/cityjson',
-                    },
-                    // 3D Tiles redirects
-                    {
-                        from: '/namespaces/geospatial-standards#3d-tiles',
-                        to: '/namespaces/3d-tiles',
-                    },
-                    // C2PA redirects
-                    {
-                        from: '/namespaces/trust-provenance#c2pa',
-                        to: '/namespaces/c2pa',
-                    },
                     // Redirects for implementations mentioned in standards-implementation
                     {
-                        from: '/implementation/standards-implementation#gltf',
-                        to: '/namespaces/gltf',
-                    },
-                    {
-                        from: '/implementation/standards-implementation#usd',
-                        to: '/namespaces/usd',
+                        from: '/implementation/standards-implementation',
+                        to: '/namespaces/overview',
                     },
                     // Manual redirect pages
                     {
@@ -164,17 +105,62 @@ const config: Config = {
                     },
                 ],
                 createRedirects(existingPath) {
-                    // Create redirects for content that was moved from 3d-standards.md
+                    // Create redirects for content that was moved from category pages
                     if (existingPath.includes('/namespaces/gltf')) {
                         return [
-                            existingPath.replace('/namespaces/gltf', '/namespaces/3d-standards#gltf'),
-                            existingPath.replace('/namespaces/gltf', '/implementation/standards-implementation#gltf'),
+                            existingPath.replace('/namespaces/gltf', '/namespaces/3d-standards'),
+                            existingPath.replace('/namespaces/gltf', '/implementation/standards-implementation'),
                         ];
                     }
                     if (existingPath.includes('/namespaces/usd')) {
                         return [
-                            existingPath.replace('/namespaces/usd', '/namespaces/3d-standards#usd'),
-                            existingPath.replace('/namespaces/usd', '/implementation/standards-implementation#usd'),
+                            existingPath.replace('/namespaces/usd', '/namespaces/3d-standards'),
+                            existingPath.replace('/namespaces/usd', '/implementation/standards-implementation'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/usdz')) {
+                        return [
+                            existingPath.replace('/namespaces/usdz', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/vrm')) {
+                        return [
+                            existingPath.replace('/namespaces/vrm', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/fbx')) {
+                        return [
+                            existingPath.replace('/namespaces/fbx', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/collada')) {
+                        return [
+                            existingPath.replace('/namespaces/collada', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/x3d')) {
+                        return [
+                            existingPath.replace('/namespaces/x3d', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/openxr')) {
+                        return [
+                            existingPath.replace('/namespaces/openxr', '/namespaces/3d-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/cityjson')) {
+                        return [
+                            existingPath.replace('/namespaces/cityjson', '/namespaces/geospatial-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/3d-tiles')) {
+                        return [
+                            existingPath.replace('/namespaces/3d-tiles', '/namespaces/geospatial-standards'),
+                        ];
+                    }
+                    if (existingPath.includes('/namespaces/c2pa')) {
+                        return [
+                            existingPath.replace('/namespaces/c2pa', '/namespaces/trust-provenance'),
                         ];
                     }
                     return undefined;
