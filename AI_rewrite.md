@@ -366,11 +366,11 @@ This document outlines a comprehensive step-by-step plan for restructuring the M
    - [x] Run linting/validation tools if available
 
 2. **Editorial Review**
-   - [ ] Check for consistent terminology
-   - [ ] Verify consistent formatting across all pages
-   - [ ] Standardize phrasing and tone
-   - [ ] Remove unnecessary verbosity
-   - [ ] Ensure all headings follow a consistent pattern
+   - [x] Check for consistent terminology
+   - [x] Verify consistent formatting across all pages
+   - [x] Standardize phrasing and tone
+   - [x] Remove unnecessary verbosity
+   - [x] Ensure all headings follow a consistent pattern
 
 3. **Final Verification**
    - [ ] Build the documentation site locally
@@ -383,6 +383,7 @@ This document outlines a comprehensive step-by-step plan for restructuring the M
 
 1. **Expand Namespaces Section With Standard-Specific Content**
    - [ ] Create backup of current namespace files before enhancing
+   - [ ] Each standard should have its own page
    - [ ] Enhance `docs/namespaces/3d-standards.md` to include dedicated subsections for each 3D standard:
      ```
      ## glTF
