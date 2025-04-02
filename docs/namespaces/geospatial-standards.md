@@ -67,7 +67,7 @@ This page covers how to integrate geospatial standards into your metadata throug
 
 ### CityJSON
 
-[CityJSON](https://www.cityjson.org/) is a JSON-based encoding for storing 3D city models. It is a compact and developer-friendly format that implements the CityGML data model, making it ideal for web and mobile applications.
+[CityJSON](https://cityjson.org/) is a format for encoding 3D city models with a JSON encoding of the CityGML data model. It's designed for web-based applications and services.
 
 #### Namespace Declaration
 
@@ -76,7 +76,7 @@ This page covers how to integrate geospatial standards into your metadata throug
   "@context": {
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/",
-    "cityjson": "https://www.cityjson.org/ns/"
+    "cityJson": "https://cityjson.org/ns/"
   }
 }
 ```
@@ -89,7 +89,7 @@ This page covers how to integrate geospatial standards into your metadata throug
     "@vocab": "https://schema.org/"
   },
   "@type": "Map",
-  "name": "Urban District",
+  "name": "Downtown District Model",
   "contentUrl": "https://example.com/downtown.json",
   "encodingFormat": "application/cityjson"
 }
@@ -101,24 +101,22 @@ This page covers how to integrate geospatial standards into your metadata throug
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "cityjson": "https://www.cityjson.org/ns/"
+    "cityJson": "https://cityjson.org/ns/"
   },
   "@type": "Map",
-  "name": "Urban District",
-  "cityjson:version": "1.0",
-  "cityjson:metadata": {
-    "referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/4326"
+  "name": "Downtown District Model",
+  "cityJson:metadata": {
+    "geographicalExtent": [
+      13.3365, 52.5143, 0,
+      13.3374, 52.5162, 30
+    ],
+    "referenceSystem": "urn:ogc:def:crs:EPSG::4326"
   },
-  "cityjson:CityObjects": {
-    "building_1": {
-      "type": "Building",
-      "attributes": {
-        "function": "residential",
-        "yearBuilt": 2010,
-        "height": 12.5
-      }
-    }
+  "cityJson:cityObjects": {
+    "type": "summary",
+    "buildings": 42,
+    "roads": 17,
+    "vegetation": 8
   }
 }
 ```

@@ -1,41 +1,21 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
-
-> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
 # Digital Twin Integration Profile
 
-The Digital Twin Integration Profile defines metadata for virtual representations of physical objects, environments, or systems. This profile enables synchronization between physical entities and their digital counterparts, supporting real-time monitoring, simulation, and control.
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
-## Core Structure
+## Purpose and Use Cases
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "DigitalDocument",
-  
-  "name": "Factory Equipment Twin",
-  "description": "Digital twin of manufacturing equipment with real-time sensor data",
-  
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "MVMD-ID",
-    "value": "twin-2024-001"
-  },
-  
-  "subjectOf": {
-    "@type": "Thing",
-    "name": "Industrial Robot Arm",
-    "manufacturer": "Industrial Robotics Inc.",
-    "serialNumber": "IR-2024-X7-42",
-    "productionDate": "2024-01-15"
-  }
-}
-```
+The Digital Twin profile defines metadata for digital representations of physical objects, places, or systems. This profile enables synchronization between physical and virtual entities, supporting simulation, monitoring, and interactive experiences.
+
+**Key Use Cases:**
+- Industrial equipment simulation and monitoring
+- Urban planning and smart city applications
+- Physical product visualization and configuration
+- Education and training for physical systems
+- Remote monitoring and control systems
 
 ## Required Properties
 

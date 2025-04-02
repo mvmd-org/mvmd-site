@@ -2,264 +2,145 @@
 sidebar_position: 4
 ---
 
-# Linking vs Embedding
+# Linking vs. Embedding
 
-A core decision in metadata design is whether to embed data directly or link to external resources. This guide explains when to use each approach.
+## Overview
 
-## Strategic Overview
+MVMD supports two approaches for including metadata with digital assets:
 
-### When to Use Links/References
+1. **Linking**: References external resources with URIs
+2. **Embedding**: Includes metadata directly within the asset or metadata file
 
-- **Large Content**: Media files, 3D models, textures
-- **Cacheable Content**: Frequently reused resources
-- **Shared Components**: Assets used across multiple objects
-- **Independent Updates**: Resources that change separately
-- **Progressive Loading**: Content that doesn't need immediate loading
+Each approach has distinct advantages for different use cases.
 
-### When to Use Embedding
+## Linking Pattern
 
-- **Small Data**: Configuration, parameters, metadata
-- **Asset-Specific Data**: Information unique to this asset
-- **Critical Information**: Data needed for immediate display/use
-- **Offline Support**: Content that must work without network
-- **Data Consistency**: Information that must stay synchronized
-
-## Reference Types
-
-### Direct URL (contentUrl)
-
-The primary way to reference the main content:
+Linking uses URIs to reference external resources:
 
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "3DModel",
-  "contentUrl": "https://example.com/model.glb"
-}
-```
-
-### Thumbnails and Images
-
-```json
-{
-  "@type": "3DModel",
-  "thumbnail": "https://example.com/thumb.jpg"
-}
-```
-
-Or with detailed metadata:
-
-```json
-{
-  "@type": "3DModel",
-  "thumbnail": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/thumb.jpg",
-    "width": "256",
-    "height": "256"
-  }
-}
-```
-
-### Alternative URLs (sameAs)
-
-Multiple locations for the same content:
-
-```json
-{
-  "@type": "3DModel",
+  "name": "Character Model",
   "contentUrl": "https://example.com/model.glb",
-  "sameAs": [
-    "https://other-cdn.com/model.glb",
-    "ipfs://QmXaXa1XaX..."
-  ]
-}
-```
-
-## Relationship Properties
-
-### Component Parts (hasPart)
-
-For describing composite assets with direct components:
-
-```json
-{
-  "@type": "CreativeWork",
-  "name": "Vehicle Asset",
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Chassis", 
-      "contentUrl": "https://example.com/chassis.glb"
-    },
-    {
-      "@type": "3DModel",
-      "name": "Wheels",
-      "contentUrl": "https://example.com/wheels.glb"
-    }
-  ]
-}
-```
-
-### Associated Media (associatedMedia)
-
-For related but not structural content:
-
-```json
-{
-  "@type": "CreativeWork",
-  "name": "Product",
-  "associatedMedia": [
-    {
-      "@type": "VideoObject",
-      "name": "Tutorial",
-      "contentUrl": "https://example.com/tutorial.mp4"
-    },
-    {
-      "@type": "ImageObject",
-      "name": "Gallery Image 1",
-      "contentUrl": "https://example.com/gallery1.jpg"
-    }
-  ]
-}
-```
-
-### Main Subject (mainEntity)
-
-For the primary subject described by the metadata:
-
-```json
-{
-  "@type": "ImageObject",
-  "name": "Character Preview Image",
-  "contentUrl": "https://example.com/preview.jpg",
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Character Name"
+  "encodingFormat": "model/gltf-binary",
+  "creator": {
+    "@type": "Organization",
+    "name": "Design Studio",
+    "url": "https://example.com/studio"
   }
 }
 ```
 
-## Direct Embedding
+### When to Use Linking
 
-### Using Namespaces
+- Large assets that would be inefficient to embed
+- Resources that need to be independently updated
+- Assets used across multiple contexts
+- Resources managed by different systems
+- Public or widely shared content
 
-Embedding data from other standards using namespaces:
+### Advantages of Linking
+
+- Reduced file size for the metadata document
+- Independent update cycles for linked resources
+- Shared resources can be referenced from multiple places
+- Clear separation of concerns between systems
+
+## Embedding Pattern
+
+Embedding includes metadata directly within the asset:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
-  "name": "Model with Materials",
-  "gltf:materials": [
+  "name": "Character Model",
+  "encodingFormat": "model/gltf-binary",
+  "additionalProperty": [
     {
-      "name": "Metal",
-      "pbrMetallicRoughness": {
-        "metallicFactor": 1.0,
-        "roughnessFactor": 0.5
+      "@type": "PropertyValue",
+      "propertyID": "modelProperties",
+      "name": "Model Properties",
+      "value": {
+        "polyCount": 12500,
+        "materialCount": 5,
+        "animationCount": 3
       }
     }
   ]
 }
 ```
 
-### Custom Properties
+### When to Use Embedding
 
-Embedding custom data with PropertyValue:
+- Critical metadata that must stay with the asset
+- Self-contained assets that need to work offline
+- Properties that rarely change
+- Data that is small in size
+- Core configuration details
+
+### Advantages of Embedding
+
+- Self-contained resources that work offline
+- No dependency on external resource availability
+- Simplified asset distribution and management
+- Guaranteed data consistency with the asset
+
+## Mixed Approach
+
+Many implementations use both patterns:
 
 ```json
 {
-  "@type": "CreativeWork",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Character Model",
+  "contentUrl": "https://example.com/model.glb",
+  "encodingFormat": "model/gltf-binary",
+  "creator": {
+    "@type": "Organization",
+    "name": "Design Studio",
+    "url": "https://example.com/studio"
+  },
   "additionalProperty": [
     {
       "@type": "PropertyValue",
       "propertyID": "renderSettings",
       "name": "Render Settings",
       "value": {
-        "quality": "high",
-        "shadows": true,
-        "antialiasing": true
+        "preferredRenderer": "PBR",
+        "lightingModel": "standard",
+        "shadowQuality": "high"
       }
     }
   ]
 }
 ```
 
-## Implementation Patterns
+## Decision Criteria
 
-### Combined Approach Example
+When deciding between linking and embedding, consider:
 
-A complete example showing both linking and embedding:
+1. **File size**: Large data should be linked, small data can be embedded
+2. **Update frequency**: Frequently changing data should be linked
+3. **Distribution model**: Widely distributed assets benefit from embedding essential data
+4. **Offline requirements**: Assets that need to work offline should embed critical metadata
+5. **Dependency management**: Independent resources should be linked
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "CreativeWork",
-  "name": "Avatar Asset",
-  
-  // Linked components
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Base Mesh",
-      "contentUrl": "https://example.com/base.glb"
-    },
-    {
-      "@type": "3DModel",
-      "name": "Clothing",
-      "contentUrl": "https://example.com/clothing.glb"
-    }
-  ],
-  
-  // Associated media
-  "associatedMedia": [
-    {
-      "@type": "ImageObject",
-      "name": "Preview Image",
-      "contentUrl": "https://example.com/preview.jpg"
-    }
-  ],
-  
-  // Embedded data
-  "gltf:animations": [
-    {
-      "name": "Walk",
-      "duration": 1.2
-    },
-    {
-      "name": "Run",
-      "duration": 0.8
-    }
-  ],
-  
-  // Custom properties
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "avatarType",
-      "value": "humanoid"
-    }
-  ]
-}
-```
+## Implementation in Namespaces
 
-## Best Practices
+Each [namespace](../namespaces/overview.md) supports both linking and embedding patterns:
 
-1. **Balance Performance**: Link large assets, embed small critical data
-2. **Consider Caching**: Link shared resources for efficient caching
-3. **Maintain Clarity**: Use appropriate relationship properties
-4. **Plan for Updates**: Link content that changes independently
-5. **Document Dependencies**: Clearly document all external references
-
-## Related Concepts
-
-- [Metadata Fundamentals](./metadata-fundamentals.md): Core principles of metadata
-- [Types of Assets](./types-of-assets.md): Schema.org types for different assets
-- [Structural Organization](./structural-organization.md): Organization patterns
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for both patterns
+- [3D Standards](../namespaces/3d-standards.md): 3D-specific implementation
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication information

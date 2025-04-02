@@ -10,7 +10,7 @@ This page covers how to integrate trust and provenance standards into your metad
 
 ### C2PA
 
-[C2PA](https://c2pa.org/) (Coalition for Content Provenance and Authenticity) is a standard for content authentication and provenance tracking. It provides a framework for verifying the origin and edit history of digital content.
+[C2PA](https://c2pa.org/) (Coalition for Content Provenance and Authenticity) is a technical standard for certifying source and history of media content. C2PA provides key capabilities for establishing trust and authenticity of digital assets.
 
 #### Namespace Declaration
 
@@ -19,7 +19,7 @@ This page covers how to integrate trust and provenance standards into your metad
   "@context": {
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/",
-    "c2pa": "https://c2pa.org/statements/"
+    "c2pa": "https://c2pa.org/schema/"
   }
 }
 ```
@@ -32,10 +32,10 @@ This page covers how to integrate trust and provenance standards into your metad
     "@vocab": "https://schema.org/"
   },
   "@type": "3DModel",
-  "name": "Authenticated Model",
-  "contentUrl": "https://example.com/verified-model.glb",
-  "encodingFormat": "model/gltf-binary",
-  "contentAuthenticityVerification": "https://example.com/model-verification.c2pa"
+  "name": "Verified 3D Asset",
+  "contentUrl": "https://example.com/model.glb",
+  "encoding": "model/gltf-binary",
+  "contentAuthenticityCredential": "https://verify.example.com/model.glb.c2pa"
 }
 ```
 
@@ -45,26 +45,19 @@ This page covers how to integrate trust and provenance standards into your metad
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "c2pa": "https://c2pa.org/statements/"
+    "c2pa": "https://c2pa.org/schema/"
   },
   "@type": "3DModel",
-  "name": "Authenticated Model",
+  "name": "Verified 3D Asset",
   "c2pa:claim": {
-    "title": "Original Creation",
-    "dateCreated": "2024-03-15T10:30:00Z",
-    "producer": {
-      "name": "Virtual Studios Inc.",
-      "identifier": "did:example:creator123"
-    },
-    "signatures": [
-      {
-        "type": "ECDSASignature2019",
-        "created": "2024-03-15T10:35:00Z",
-        "verificationMethod": "did:example:creator123#key1",
-        "signatureValue": "zBdL3v9...dks382D"
-      }
-    ]
+    "assertionVersion": "1.0",
+    "assertionType": "Digital Provenance",
+    "claimGenerator": "CreationSuite 1.0",
+    "digitalSignature": {
+      "signatureType": "ed25519",
+      "signature": "...",
+      "certificate": "..."
+    }
   }
 }
 ```
