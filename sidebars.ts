@@ -33,8 +33,8 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/fundamentals',
-                    label: 'Fundamentals'
+                    id: 'concepts/core-metadata-concepts',
+                    label: 'Core Metadata Concepts'
                 },
                 {
                     type: 'doc',
@@ -43,33 +43,65 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/composition',
-                    label: 'Composition'
-                },
-                {
-                    type: 'doc',
-                    id: 'concepts/references',
-                    label: 'References'
-                },
-                {
-                    type: 'doc',
-                    id: 'concepts/uris-vs-embedding',
-                    label: 'URIs vs Embedding'
+                    id: 'concepts/linking-vs-embedding',
+                    label: 'Linking vs Embedding'
                 },
                 {
                     type: 'doc',
                     id: 'concepts/file-organization',
                     label: 'File Organization'
+                }
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Examples',
+            items: [
+                {
+                    type: 'doc',
+                    id: 'examples/README',
+                    label: 'Overview'
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/embedding-and-reference',
-                    label: 'Embedding and Reference'
+                    id: 'examples/combining-standards',
+                    label: 'Combining Standards'
                 },
                 {
-                    type: 'doc',
-                    id: 'concepts/metadata-fundamentals',
-                    label: 'Metadata Fundamentals'
+                    type: 'category',
+                    label: 'Embedding',
+                    items: [
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/README',
+                            label: 'Overview'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/gltf',
+                            label: 'glTF'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/usd',
+                            label: 'USD'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/fbx',
+                            label: 'FBX'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/vrm',
+                            label: 'VRM'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'examples/embedding/collada',
+                            label: 'COLLADA'
+                        }
+                    ],
                 }
             ],
         },
@@ -238,11 +270,6 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'embedding/combining-standards',
-                    label: 'Combining Standards'
-                },
-                {
-                    type: 'doc',
                     id: 'embedding/media-content',
                     label: 'Media Content'
                 },
@@ -283,38 +310,13 @@ const sidebars: SidebarsConfig = {
                     items: [
                         {
                             type: 'doc',
-                            id: 'embedding/3d-assets/gltf',
-                            label: 'glTF'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'embedding/3d-assets/usd',
-                            label: 'USD'
-                        },
-                        {
-                            type: 'doc',
                             id: 'embedding/3d-assets/x3d',
                             label: 'X3D'
                         },
                         {
                             type: 'doc',
-                            id: 'embedding/3d-assets/fbx',
-                            label: 'FBX'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'embedding/3d-assets/vrm',
-                            label: 'VRM'
-                        },
-                        {
-                            type: 'doc',
                             id: 'embedding/3d-assets/openxr',
                             label: 'OpenXR'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'embedding/3d-assets/collada',
-                            label: 'COLLADA'
                         }
                     ],
                 },
@@ -363,8 +365,8 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'community/contributors',
-                    label: 'Contributors'
+                    id: 'contributing',
+                    label: 'Contributing'
                 },
                 {
                     type: 'doc',
@@ -386,16 +388,6 @@ const sidebars: SidebarsConfig = {
                             label: 'Sumset Tech'
                         }
                     ],
-                },
-                {
-                    type: 'doc',
-                    id: 'supporting-organizations',
-                    label: 'Supporting Organizations'
-                },
-                {
-                    type: 'doc',
-                    id: 'contributing',
-                    label: 'Contributing'
                 }
             ],
         },
