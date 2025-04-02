@@ -1,440 +1,400 @@
 # MVMD Documentation Restructuring Plan
 
-This document outlines a comprehensive step-by-step plan for restructuring the MVMD documentation to eliminate redundancy, improve clarity, and create a more maintainable structure.
+## Purpose
 
-## Objectives
+The purpose of this restructuring plan is to streamline the MVMD documentation by reducing redundancy and improving clarity while preserving all essential content. The current structure has significant content overlap between implementation, namespaces, and integration profiles sections. 
 
-1. Consolidate redundant content
-2. Create a new Namespaces section to replace the Embedding section
-3. Simplify examples (one per concept)
-4. Improve navigation and information hierarchy
-5. Standardize document structure across sections
+Through this restructuring, we will consolidate implementation details into namespace files, with **each technical standard (glTF, USD, VRM, OpenXR, etc.) having its own dedicated namespace document**. This approach organizes implementation details by standard rather than by concept, reducing duplication and creating a single source of truth for each standard's implementation patterns. Each namespace document will follow a consistent structure showing how to declare the namespace, link to external files (with complete examples including URLs and hashes), and embed data directly in metadata.
 
-## Implementation Plan
+**Important Note**: Only specific technical standards (glTF, USD, VRM, etc.) will be represented as namespaces. General categories like schema.org, "3D standards," "geospatial standards," or "trust and provenance" are not individual namespaces and should not have dedicated namespace files. Instead, the concepts section will cover the fundamental principles of metadata, including how to implement namespaces in the metadata-fundamentals document.
 
-### Phase 1: Content Audit and Mapping ✓
+We will also simplify integration profiles and create a more intuitive information hierarchy without losing valuable information. The restructured documentation will provide clearer navigation paths for different user types (new users, developers, and standards organizations) while maintaining comprehensive coverage of all concepts.
 
-1. **Create Content Inventory** ✓
-   - [x] Create a spreadsheet with the following columns:
-     - File path
-     - Primary topic
-     - Secondary topics
-     - Key concepts
-     - Examples included
-     - Target audience
-     - Proposed action (keep, modify, consolidate, remove)
-   
-2. **Identify Redundant Content** ✓
-   - [x] Mark duplicate explanations of concepts
-   - [x] Identify overlapping examples
-   - [x] List sections that explain the same concepts in different places
-   
-3. **Map Content Relationships** ✓
-   - [x] Identify which documents reference each other
-   - [x] Note circular references
-   - [x] Document content dependencies
+## Key User Journeys to Consider
 
-4. **Categorize Documents by New Structure** ✓
-   - [x] Assign each document to its new section:
-     - Introduction
-     - Core Concepts
-     - Namespaces
-     - Implementation Patterns
-     - Integration Profiles
-     - Reference
+Understanding the different ways users interact with our documentation is essential for effective restructuring. The following key user journeys must be preserved and enhanced:
 
-### Phase 2: Create New Directory Structure
+### 1. New User / First-Time Developer
 
-1. **Set Up Directory Framework**
-   - [ ] Create `/docs/namespaces` directory for the new section
-   - [ ] Create `/docs/reference` directory for technical references
-   - [ ] Create `/docs/community/guides` directory for user guides (ensure parent directory exists)
-   - [ ] Add placeholder files for namespace structure:
-     ```
-     /docs/namespaces/
-       _category_.json       # Controls sidebar display
-       overview.md           # Introduction to namespaces
-       schema-org.md         # Schema.org + JSON-LD
-       3d-standards.md       # All 3D formats (glTF, USD, etc.)
-       geospatial-standards.md # Geospatial standards
-       trust-provenance.md   # Authentication standards
-     ```
-   - [ ] Add placeholder files for reference structure:
-     ```
-     /docs/reference/
-       _category_.json
-       validator.md          # Moved from tools/
-       schemas.md            # Technical schema definitions
-       glossary.md           # Terminology reference
-       api.md                # API documentation
-     ```
-   
-2. **Create Template Documents**
-   - [ ] Create standardized templates for each document type with the following considerations:
-     - **Namespace page template**: Include sections for standard description, core properties, linking example, embedding example, implementation considerations
-     - **Concept page template**: Include purpose, explanation, single clear example, relationship to other concepts
-     - **Implementation pattern template**: Include task-oriented headings, practical steps, single example, troubleshooting
-     - **Integration profile template**: Include purpose, required properties, optional properties, one comprehensive example, implementation considerations
-   - [ ] Each template should include:
-     - Standard front matter with sidebar_position
-     - Consistent heading structure
-     - Placeholders for examples
-     - Cross-reference format
-     - Related concepts section
+**Journey Path:**
+- Starts with Introduction → Core Concepts → Basic Implementation
+- Needs clear progression from fundamentals to practical application
+- Typically follows a linear path through the documentation
 
-3. **Update Category Definition Files**
-   - [ ] Create or update `_category_.json` files for each directory:
-     ```
-     // Example for namespaces category
-     {
-       "label": "Namespaces",
-       "position": 3,
-       "link": {
-         "type": "doc",
-         "id": "namespaces/overview"
-       }
-     }
-     ```
+**Key Needs:**
+- Clear explanation of core concepts without technical jargon
+- Step-by-step getting started guides
+- Basic examples that can be implemented quickly
+- Visual diagrams showing relationships between concepts
+- Consistent terminology and progressive disclosure of complexity
 
-### Phase 3: Content Migration - Core Sections
+### 2. Implementation-Focused Developer
 
-1. **Streamline Introduction Section**
-   - [ ] Create backup of original files before editing
-   - [ ] Consolidate content from:
-     - `docs/introduction.md`
-     - `docs/quickstart.md` 
-   - [ ] Remove redundant explanations of MVMD benefits (identified in redundancy analysis)
-   - [ ] Create clear pathways to different sections based on user roles
-   - [ ] Focus on essential information only
-   - [ ] Ensure all cross-references use new file paths
+**Journey Path:**
+- Often enters directly at a specific standard's namespace documentation
+- Jumps between implementation examples and reference documentation
+- Searches for specific use cases or patterns
 
-2. **Simplify Core Concepts**
-   - [ ] Create backup of original files before editing
-   - [ ] Revise `docs/concepts/core-metadata-concepts.md`:
-     - Remove implementation-specific details identified in our analysis
-     - Focus on foundational principles
-     - Include only one clear example per concept
-     - Remove duplicate JSON-LD explanations that will be in schema-org.md
-   - [ ] Update `docs/concepts/types-of-things.md`:
-     - Simplify explanations
-     - Consolidate with relevant parts from implementation docs
-     - Ensure consistent terminology
-     - Reference schema-org.md for more detailed information
-   - [ ] Replace `docs/concepts/linking-vs-embedding.md` with simplified version:
-     - Focus on decision criteria
-     - Provide one clear example of each approach
-     - Remove excessive technical details
-     - Add references to namespace-specific implementation
-   - [ ] Revise `docs/concepts/file-organization.md`:
-     - Focus on practical guidelines
-     - Remove redundant explanations
-     - Simplify examples
-     - Update references to new file structure
+**Key Needs:**
+- Complete, copy-pastable examples
+- Consistent structure across all standard implementations
+- Clear distinctions between required and optional properties
+- Troubleshooting guidance for common issues
+- Cross-references to related standards when implementing complex assets
 
-3. **Create Namespaces Section**
-   - [ ] Write `docs/namespaces/overview.md`:
-     - Explain namespace concept clearly
-     - Provide guidance on namespace selection
-     - Include patterns for namespace declaration
-     - Reference content from embedding/overview.md
-   
-   - [ ] Create `docs/namespaces/schema-org.md`:
-     - Brief description of Schema.org
-     - Core properties/vocabulary
-     - One minimal example showing both linking and embedding
-     - Implementation considerations
-     - Consolidate from embedding/schema/schema-org.md and embedding/schema/json-ld.md
-   
-   - [ ] Create `docs/namespaces/3d-standards.md`:
-     - Overview of 3D standards (glTF, USD, VRM, etc.)
-     - One example per standard showing both linking and embedding
-     - Focus on integration patterns
-     - Consolidate from embedding/3d-assets/* and examples/embedding/* files
-     - Use subsections for each standard to maintain organization
-   
-   - [ ] Create `docs/namespaces/geospatial-standards.md`:
-     - Overview of geospatial standards
-     - Examples of both linking and embedding
-     - Guidelines for implementation
-     - Consolidate from embedding/geospatial/* and embedding/geospacial.md
-   
-   - [ ] Create `docs/namespaces/trust-provenance.md`:
-     - Overview of trust and provenance standards
-     - Examples of both linking and embedding
-     - Implementation guidance
-     - Consolidate from embedding/trust/c2pa.md and related content
+### 3. Standards Organization Stakeholder
 
-### Phase 4: Content Migration - Implementation & Profiles
+**Journey Path:**
+- Focuses on conceptual overview and alignment with existing standards
+- Reviews integration approaches and extension mechanisms
+- Evaluates compatibility with their own standards
 
-1. **Consolidate Implementation Patterns**
-   - [ ] Create backup of original files before editing
-   - [ ] Revise `docs/implementation/overview.md`:
-     - Create task-oriented structure
-     - Remove theoretical content covered in concepts
-     - Focus on practical implementation scenarios
-     - Use clear job-based navigation ("I want to...")
-   
-   - [ ] Process implementation documents in this order (to handle dependencies):
-     1. `docs/implementation/getting-started.md`
-     2. `docs/implementation/assets.md`
-     3. `docs/implementation/nfts.md` (merge in nft/*)
-     4. `docs/implementation/composable.md` (merge in composable/*)
-     5. `docs/implementation/best-practices.md`
-     6. Create `docs/implementation/combining-standards.md` from examples/combining-standards.md
-   
-   - [ ] For each implementation document:
-     - Remove content that duplicates core concepts (based on redundancy analysis)
-     - Focus on practical tasks and workflows
-     - Include only one clear example per pattern
-     - Ensure consistent terminology
-     - Reference appropriate namespace pages for standard-specific details
+**Key Needs:**
+- High-level architectural overview
+- Explanations of design decisions and rationale
+- Clear integration patterns for combining standards
+- Examples of extending the metadata model
+- Technical specifications without implementation details
 
-2. **Standardize Integration Profiles**
-   - [ ] Create backup of original files before editing
-   - [ ] Create standard structure for all profile documents:
-     - Profile purpose and use cases
-     - Required properties
-     - Optional properties
-     - One comprehensive example
-     - Implementation considerations
-   
-   - [ ] Update each integration profile in this order (to handle dependencies):
-     1. `docs/integration-profiles/overview.md`
-     2. `docs/integration-profiles/basic.md`
-     3. Remaining profiles:
-        - `docs/integration-profiles/avatar.md`
-        - `docs/integration-profiles/scene.md`
-        - `docs/integration-profiles/vehicle.md`
-        - `docs/integration-profiles/wearable.md`
-        - `docs/integration-profiles/composable-3d-nft.md`
-        - `docs/integration-profiles/digital-twin.md`
-        - `docs/integration-profiles/equipable.md`
-        - `docs/integration-profiles/identity.md`
-        - `docs/integration-profiles/royalty.md`
-        - `docs/integration-profiles/interactable.md`
-        - `docs/integration-profiles/future.md`
-   
-   - [ ] For each profile document:
-     - Remove explanations of concepts covered elsewhere
-     - Focus on profile-specific requirements
-     - Ensure one clear, complete example
-     - Add cross-references to relevant concepts and namespaces
-     - Update references to embedding/* to point to namespace/* files
+### 4. Multi-Platform Implementer
 
-### Phase 5: Reference and Community Sections
+**Journey Path:**
+- Compares implementation approaches across platforms
+- Focuses on integration profiles that ensure cross-platform compatibility
+- Needs to understand platform-specific constraints
 
-1. **Create Reference Section**
-   - [ ] Move and update validator.md from tools/ to reference/
-   - [ ] Create reference/schemas.md for technical schema definitions:
-     - JSON Schema definitions
-     - Advanced validation patterns
-     - Technical implementation details
-   - [ ] Create reference/glossary.md with terms from across the documentation
-   - [ ] Create reference/api.md for programmatic access documentation
+**Key Needs:**
+- Side-by-side comparison of implementation approaches
+- Platform-specific considerations and limitations
+- Validation tools to ensure cross-platform compatibility
+- Examples showing the same asset implemented across platforms
 
-2. **Organize Community Section**
-   - [ ] Move contributing.md to community/contributing.md
-   - [ ] Create community/guides directory if needed
-   - [ ] Move guides/content-creators.md to community/guides/content-creators.md
-   - [ ] Ensure all community files have consistent formatting
+### 5. Content Creator / Asset Designer
 
-### Phase 6: Navigation Updates
+**Journey Path:**
+- Primarily interested in metadata requirements for specific asset types
+- Focuses on integration profiles over implementation details
+- Needs to understand how metadata affects discoverability and functionality
 
-1. **Revise Sidebar Configuration**
-   - [ ] Update `sidebars.ts` to reflect new structure:
-     ```typescript
-     // New structure example
-     const sidebars = {
-       tutorialSidebar: [
-         {
-           type: 'doc',
-           id: 'introduction',
-           label: 'Introduction'
-         },
-         {
-           type: 'doc',
-           id: 'for-standards-organizations',
-           label: 'For Standards Organizations'
-         },
-         {
-           type: 'category',
-           label: 'Core Concepts',
-           items: [
-             'concepts/overview',
-             'concepts/core-metadata-concepts',
-             'concepts/types-of-things',
-             'concepts/linking-vs-embedding',
-             'concepts/file-organization',
-           ],
-         },
-         {
-           type: 'category',
-           label: 'Namespaces',
-           items: [
-             'namespaces/overview',
-             'namespaces/schema-org',
-             'namespaces/3d-standards',
-             'namespaces/geospatial-standards',
-             'namespaces/trust-provenance',
-           ],
-         },
-         {
-           type: 'category',
-           label: 'Implementation',
-           items: [
-             'implementation/overview',
-             'implementation/getting-started',
-             'implementation/assets',
-             'implementation/nfts',
-             'implementation/composable',
-             'implementation/combining-standards',
-             'implementation/best-practices',
-           ],
-         },
-         {
-           type: 'category',
-           label: 'Integration Profiles',
-           items: [
-             'integration-profiles/overview',
-             'integration-profiles/basic',
-             // Additional profiles...
-           ],
-         },
-         {
-           type: 'category',
-           label: 'Reference',
-           items: [
-             'reference/validator',
-             'reference/schemas',
-             'reference/glossary',
-             'reference/api',
-           ],
-         },
-         {
-           type: 'category',
-           label: 'Community',
-           items: [
-             'community/contributing',
-             // Additional community pages...
-           ],
-         },
-       ],
-     };
-     ```
+**Key Needs:**
+- Clear property requirements for each asset type
+- Guidelines for enhancing asset metadata
+- Tools for validating their metadata implementation
+- Examples specific to their asset type
 
-2. **Update Cross-References**
-   - [ ] Audit all internal links to ensure they point to new file paths (can use grep to find all markdown links)
-   - [ ] Fix broken references caused by file moves and consolidation
-   - [ ] Update navigation paths in overview documents
-   - [ ] Check for references to examples/ and embedding/ directories and update them
+## Visualization of User Journeys
 
-3. **Review Navigation Flow**
-   - [ ] Test documentation flow for different user journeys:
-     - New user journey
-     - Developer journey
-     - Standards organization journey
-   - [ ] Verify logical progression from basic to advanced topics
-   - [ ] Ensure consistent breadcrumb navigation
+The documentation restructuring should include visualizations of these key user journeys, showing:
 
-### Phase 7: Cleanup and Content Removal
+- Entry points to the documentation for different user types
+- Typical navigation paths through the content
+- Key decision points where users branch to different sections
+- Cross-references between related content areas
+- Progressive complexity layers that users can navigate as their needs evolve
 
-1. **Create Archive of Original Content**
-   - [x] Create a backup branch in Git to preserve the original structure
-   - [x] Zip or archive all original content for reference
+These visualizations will help ensure our restructured documentation accommodates all essential user journeys while reducing redundancy and improving clarity.
 
-2. **Remove Redundant Files**
-   - [x] Verify all content has been migrated before removal (use the categorization spreadsheet as a checklist)
-   - [x] Remove entire `/docs/embedding` directory
-   - [x] Remove `/docs/examples` directory
-   - [x] Remove duplicate implementation files (nft/*, composable/*)
-   - [x] Delete any other redundant files identified in the content audit
-   - [x] Remove `/docs/introduction/concepts.md` after content distribution
+## Phase 1: Research and Analysis
 
-3. **Clean Up Repo**
-   - [x] Remove outdated files from Git tracking
-   - [x] Update `.gitignore` if needed
-   - [x] Clean up any temporary files
-   - [x] Commit final documentation structure
+### Step 1: Document the Current Structure [IN PROGRESS]
+- Map the entire documentation structure using a tree diagram
+  - Current documentation structure:
+    ```
+    /docs
+    ├── introduction.md
+    ├── quickstart.md
+    ├── for-standards-organizations.md
+    ├── concepts/
+    │   ├── overview.md
+    │   ├── metadata-fundamentals.md
+    │   ├── types-of-assets.md
+    │   ├── structural-organization.md
+    │   └── linking-vs-embedding.md
+    ├── namespaces/
+    │   ├── overview.md
+    │   ├── schema-org.md
+    │   ├── 3d-standards.md (contains glTF, USD, VRM, etc.)
+    │   ├── geospatial-standards.md (contains CityJSON, 3D-Tiles, etc.)
+    │   ├── trust-provenance.md (contains C2PA, etc.)
+    │   └── openxr.md
+    ├── implementation/
+    │   ├── overview.md
+    │   ├── getting-started.md
+    │   ├── assets.md
+    │   ├── nfts.md
+    │   ├── composable.md
+    │   ├── best-practices.md
+    │   ├── metadata-profiles.md
+    │   └── standards-implementation.md (overlaps with namespaces content)
+    ├── integration-profiles/
+    │   ├── overview.md
+    │   ├── basic.md
+    │   ├── wearable.md
+    │   ├── avatar.md
+    │   ├── composable-3d-nft.md
+    │   ├── digital-twin.md
+    │   ├── vehicle.md
+    │   ├── identity.md
+    │   ├── royalty.md
+    │   ├── scene.md
+    │   ├── equipable.md (significant overlap with wearable.md)
+    │   ├── interactable.md
+    │   └── future.md
+    ├── reference/
+    │   ├── validator.md
+    │   ├── schemas.md
+    │   ├── api.md
+    │   └── glossary.md
+    ├── community/
+    │   ├── supporters.md
+    │   ├── become-supporter.md
+    │   ├── contributing.md
+    │   ├── sdo-integration-guide.md
+    │   ├── guides/
+    │   │   └── content-creators.md
+    │   └── supporters/
+    │       ├── nftr-pro.md
+    │       └── sumset-tech.md
+    └── tools/
+        └── validator.md
+    ```
+- Document all files, their sizes, and last modified dates
+  - Completed initial file listing with sizes and dates
+- Identify primary sections and their relationships
+  - Found current organization: Introduction leads to different paths based on user type
+  - Overlap found between Implementation and Namespaces sections
+  - General categories (3d-standards, geospatial-standards, trust-provenance) currently treated as namespaces
+  - Standards-implementation.md contains implementation details that should be moved to individual namespace files
+  - Wearable.md and equipable.md have significant content overlap
+- Create visualization of cross-references between sections
+  - Cross-reference diagram:
+    ```
+    Introduction
+    ↓
+    Concepts ←→ Namespaces
+         ↓         ↓
+    Implementation ←→ Integration Profiles
+         ↓
+    Reference
+    ```
+  - Key cross-references identified:
+    * Introduction links to Concepts, Namespaces, and Integration Profiles
+    * Namespaces section references implementation patterns from Implementation
+    * Implementation section references namespace declarations from Namespaces
+    * Implementation/standards-implementation.md contains examples duplicated in namespaces files
+    * Integration Profiles reference both Namespaces and Implementation details
+    * Wearable and Equipable profiles have overlapping attachment point properties
+- **Identify all technical standards currently covered across the documentation**
+  - Comprehensive list of technical standards identified:
+    * Schema.org (Basic metadata structure)
+    * glTF (3D model format by Khronos Group)
+    * USD (Universal Scene Description by Pixar)
+    * VRM (Humanoid avatar format)
+    * USDZ (USD packaged format for AR)
+    * FBX (Animation and rigging format)
+    * X3D (Web-based 3D graphics)
+    * COLLADA (Asset exchange format)
+    * OpenXR (AR/VR standard)
+    * WebXR (Web-based AR/VR)
+    * CityJSON (Urban environment modeling)
+    * 3D-Tiles (Large-scale geospatial data)
+    * C2PA (Content authentication)
+    * ERC-721/ERC-1155 (NFT standards)
+- **Clarify which standards should be represented as namespaces vs. general concepts**
+  - Current approach incorrectly treats categories like "3D standards" as namespaces
+  - Need to separate specific technical standards (glTF, USD, VRM, etc.) into individual namespace files
+  - Individual files should be created for:
+    * gltf.md - From content in 3d-standards.md and standards-implementation.md
+    * usd.md - From content in 3d-standards.md and standards-implementation.md
+    * vrm.md - From content in 3d-standards.md
+    * openxr.md - Already has dedicated file, needs reorganization
+    * cityjson.md - From content in geospatial-standards.md
+    * 3d-tiles.md - From content in geospatial-standards.md
+    * c2pa.md - From content in trust-provenance.md
+    * erc721.md - From content in implementation/nfts.md
+    * collada.md - From relevant content across documentation
+    * x3d.md - From relevant content across documentation
+    * fbx.md - From relevant content across documentation
 
-### Phase 8: Review and Polish
+### Step 2: Content Inventory
+- Create spreadsheet with the following columns:
+  - File path
+  - Content type (conceptual, reference, example, etc.)
+  - Key topics covered
+  - **Technical standards referenced**
+  - Unique information
+  - Duplicated information
+  - Cross-references to other files
+  - Primary audience (new users, developers, standards organizations)
+  - Current status/completeness
+  - Recommended action (keep, move, merge, delete)
 
-1. **Technical Review**
-   - [x] Verify all examples work correctly
-   - [x] Check internal consistency
-   - [x] Test all links and references
-   - [x] Ensure all code examples are valid
-   - [x] Run linting/validation tools if available
+### Step 3: User Journey Analysis
+- Document 3-5 primary user personas (new user, developer, standards organization, etc.)
+- Map typical user journeys through the documentation for each persona
+- Identify pain points and areas of confusion in current structure
+- Document optimal paths for each persona in the proposed structure
+- **Map how users interact with different technical standards documentation**
 
-2. **Editorial Review**
-   - [x] Check for consistent terminology
-   - [x] Verify consistent formatting across all pages
-   - [x] Standardize phrasing and tone
-   - [x] Remove unnecessary verbosity
-   - [x] Ensure all headings follow a consistent pattern
+### Step 4: Namespace-Implementation Mapping
+- Create detailed table mapping implementation content to namespace files
+- **For each technical standard (glTF, USD, VRM, OpenXR, etc.), identify all related content across the documentation**
+- Columns:
+  - Source file (implementation directory)
+  - Target file (namespace directory, e.g., `namespaces/gltf.md`, `namespaces/usd.md`, etc.)
+  - Unique content to preserve
+  - Implementation patterns to transfer
+  - Examples to migrate
+  - Best practices to incorporate
+  - **Linking examples that demonstrate the standard**
+  - **Embedding examples that demonstrate the standard**
 
-3. **Final Verification**
-   - [x] Build the documentation site locally
-   - [x] Check for build warnings or errors
-   - [x] Verify smooth navigation between sections
-   - [x] Test search functionality against key terms
-   - [x] Validate mobile responsiveness
+### Step 5: Integration Profile Analysis
+- Create table evaluating all current profiles:
+  - Profile name
+  - Purpose/use cases
+  - Required properties
+  - Optional properties
+  - Overlap with other profiles
+  - Completeness/maturity
+  - Usage frequency/importance
+  - **Technical standards referenced**
+  - Recommended action (keep, merge, deprecate)
 
-### Phase 9: Namespaces Enhancement and Embedding Consolidation
+### Step 6: Link and Reference Analysis
+- Document all internal links between files
+- Identify potential broken links after restructuring
+- Create mapping of old URLs to new URLs
+- Plan for redirects or updates to maintain link integrity
+- **Map references to technical standards across documentation**
 
-1. **Expand Namespaces Section With Standard-Specific Content** ✓
-   - [x] Create backup of current namespace files before enhancing
-   - [x] Each standard should have its own page
-   - [x] Enhance `docs/namespaces/3d-standards.md` to include dedicated subsections for each 3D standard
-   - [x] Enhance `docs/namespaces/geospatial-standards.md` with detailed subsections
-   - [x] Enhance `docs/namespaces/trust-provenance.md` with detailed subsections
-   - [x] Create `docs/namespaces/openxr.md` for XR-specific standards
+### Step 7: Validation Criteria Development
+- Develop checklist for content preservation
+- Create test cases for key user journeys
+- Define success criteria for the restructuring
+- **Create standards-specific validation criteria for each namespace**
+- Establish metrics for documentation quality and completeness
 
-2. **Remove Embedding Content from Other Sections** ✓
-   - [x] Create backup of files to be modified
-   - [x] Audit all files outside the namespaces directory for embedding-specific content
+## Phase 2: Implementation
 
-3. **Add Cross-References to Namespaces Section** ✓
-   - [x] Update all files that previously contained embedding details to point to the namespaces section
-   - [x] Add "Related Namespaces" sections at the end of implementation documents
-   - [x] Include links to relevant namespace pages from integration profiles
+### Step 1: Content Backup
+- Create complete backup of documentation directory
+- Set up version control branch for restructuring
+- Document baseline metrics for comparison
 
-4. **Create Practical Implementation Guides for Each Namespace** ✓
-   - [x] For each standard in the namespaces section, create a practical implementation guide:
-     - Step-by-step implementation instructions
-     - Common pitfalls and solutions
-     - Real-world example scenarios
-     - Integration with other standards
+### Step 2: Update Metadata Fundamentals in Concepts Section
+- **Enhance the metadata-fundamentals document in the concepts section to include:**
+  - Clear explanation of what namespaces are and how they work
+  - General principles for implementing namespaces in metadata
+  - How to reference different technical standards
+  - When to use different standards together
 
-5. **Update Navigation and Sidebar** ✓
-   - [x] Update `sidebars.ts` to reflect enhanced namespaces structure
-   - [x] Ensure proper ordering and hierarchy
-   - [x] Add any new namespace pages to the navigation
+### Step 3: Create Standard-Specific Namespace Files
+- **Create a dedicated namespace file for each technical standard:**
+  - `namespaces/gltf.md` (3D model representation)
+  - `namespaces/usd.md` (Complex scene composition)
+  - `namespaces/vrm.md` (Humanoid avatars)
+  - `namespaces/fbx.md` (Animation and rigging)
+  - `namespaces/collada.md` (Asset exchange)
+  - `namespaces/x3d.md` (Web-based 3D graphics)
+  - `namespaces/openxr.md` (VR/AR experiences)
+  - `namespaces/cityjson.md` (Urban environment modeling)
+  - `namespaces/3d-tiles.md` (Large-scale geospatial data)
+  - `namespaces/c2pa.md` (Content authentication)
+  - Additional standards as identified in Phase 1
 
-6. **Validate and Test** ✓
-   - [x] Verify all references to embedding are either removed or redirected to namespaces
-   - [x] Test navigation flow between implementation pages and relevant namespace pages
-   - [x] Ensure complete coverage of all standards mentioned in the documentation
-   - [x] Validate all examples in namespace pages
+- **For each standard-specific namespace file, include these consistent sections:**
+  1. **Standard Overview**: Brief description and key features
+  2. **Namespace Declaration**: How to declare and use the namespace in metadata
+  3. **Linking Implementation**: Complete examples of linking to external files with:
+     - URL references
+     - SHA256 hash for content verification
+     - Standard-specific metadata (e.g., transforms for 3D models)
+  4. **Embedding Implementation**: Examples showing how to embed data directly in JSON metadata
+  5. **Implementation Patterns**: Common usage patterns and best practices
+  6. **Integration with Other Standards**: How this standard works with others
 
-## Implementation Approach
+- **Add relevant content from implementation files**
+- **Move code examples to appropriate sections**
+- **Add "Best Practices" subsection**
+- **Update cross-references**
+- **Verify all unique content is preserved**
 
-To prevent losing context while implementing this plan, we will:
+### Step 4: Consolidate Integration Profiles
+- Execute profile mergers based on Phase 1 analysis:
+  - Merge wearable/equipable profiles
+  - Combine avatar/identity profiles
+  - Update example JSONs
+  - Ensure property documentation is comprehensive
+  - **Update profile documentation to reference the new standard-specific namespace files**
+  - **Ensure examples reference standards consistently with the new namespace approach**
+  - Verify no information is lost during consolidation
 
-1. Complete each phase before moving to the next
-2. Implement content changes in logical groups
-3. Make regular commits with descriptive messages
-4. Test the documentation site locally after each major change
-5. Keep a log of completed tasks and pending issues
-6. Use the docs_categorization.md file as the master reference for tracking progress
+### Step 5: Update Navigation Structure
+- Modify sidebar configuration to reflect the new structure
+- Update _category_.json files
+- **Organize namespaces section to group standards logically (e.g., by use case or related technology)**
+- Reorganize file structure to match new hierarchy
+- Verify navigation paths align with user journeys from Phase 1
+- **Ensure no redundant "namespace overview" document is created**
 
-## Success Criteria
+### Step 6: Clean Up Redundant Content
+- Remove redundant implementation files after content migration
+- Implement redirects for removed pages
+- Document all deleted files and their content disposition
+- Cross-check against content inventory to ensure nothing valuable is lost
+- **Verify all standard-specific implementation details have been moved to appropriate namespace files**
+- **Remove any documents that incorrectly treat general categories as namespaces**
 
-The restructuring will be considered successful when:
+### Step 7: Fix Internal References
+- Update all internal links to reflect new structure
+- Verify no broken links exist
+- Update cross-references between sections
+- Ensure consistency in terminology and references
+- **Update references to standards to point to dedicated namespace files**
 
-1. All documentation follows the new structure
-2. No redundant content exists
-3. Each concept is explained exactly once
-4. Examples are minimal but complete
-5. Navigation is intuitive and logical
-6. Build completes without warnings or errors
-7. Search functionality returns relevant results 
+### Step 8: User Journey Validation
+- Test all user journeys identified in Phase 1
+- Verify all critical paths are maintained
+- Check for gaps in content flow
+- Ensure logical progression from basic to advanced topics
+- **Validate standard-specific implementation paths for developers**
+
+### Step 9: Documentation Quality Verification
+- Review all modified files for consistency
+- Verify formatting and style consistency
+- Check for unintended content loss
+- Validate against criteria developed in Phase 1
+- **Ensure each standard's namespace file follows the consistent structure**
+- **Verify no redundant information exists between namespaces and concept sections**
+
+### Step 10: SEO and Discoverability Updates
+- Update meta descriptions
+- Ensure proper heading hierarchy
+- Check for appropriate keyword usage
+- **Add standard-specific keywords to improve findability**
+- Verify search functionality works with new structure
+
+### Step 11: Final Verification and Deployment
+- Conduct final review against Phase 1 content inventory
+- Verify all unique content is preserved
+- Test documentation site functionality
+- Deploy changes to production
+- Monitor user feedback and analytics post-deployment
+
+## Verification Checkpoints
+
+Throughout Phase 2, at each step, verify against Phase 1 data:
+- ✓ All unique content preserved
+- ✓ User journeys maintained or improved
+- ✓ No critical information lost
+- ✓ Navigation remains intuitive
+- ✓ Cross-references updated correctly
+- ✓ Examples remain accessible and relevant
+- ✓ **Each technical standard has a complete namespace file**
+- ✓ **Linking and embedding examples are comprehensive for each standard**
+- ✓ **Standard-specific implementation details are preserved and enhanced**
+- ✓ **No redundant information between namespaces and concepts sections**
+- ✓ **Metadata fundamentals properly explain namespace implementation**
+
+This structured approach ensures we maintain the integrity and comprehensiveness of the documentation while achieving the goals of reducing redundancy and improving clarity through standard-specific organization. 
