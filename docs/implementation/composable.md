@@ -345,3 +345,9 @@ Specify dependencies between components:
 - [Schema Parts](./composable/schema-parts.md): Component schema definitions
 - [Composable Concepts](./composable/concepts.md): Fundamental composable principles
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference management approaches
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for composable assets
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D components
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation for composable assets

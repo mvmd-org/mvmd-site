@@ -229,3 +229,9 @@ For detailed implementation patterns for 3D models, including glTF-specific prop
 - Review [Environment Profile](./scene.md) for spatial context
 - Check [Avatar Profile](./avatar.md) for character-specific properties
 - See [Validation Tools](../reference/validator.md) for testing
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for NFT metadata
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D NFT assets
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification for NFTs

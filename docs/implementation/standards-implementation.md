@@ -283,3 +283,11 @@ function processAssets(assets) {
 - [Integration Profiles](../integration-profiles/overview.md): Platform-specific integration guides
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Strategies for metadata references
 - [Types of Assets](../concepts/types-of-assets.md): Different asset types and their requirements 
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for standards integration
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D standards
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data standards
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification standards
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific standards integration 

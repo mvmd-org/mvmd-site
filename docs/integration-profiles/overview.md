@@ -77,3 +77,11 @@ The MVMD community welcomes contributions to existing profiles and proposals for
 - [Types of Assets](../concepts/types-of-assets.md): Core asset classifications
 - [Namespaces](../namespaces/overview.md): Standard-specific metadata properties
 - [Implementation Best Practices](../implementation/best-practices.md): General metadata guidance
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for integration profiles
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns

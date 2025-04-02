@@ -246,3 +246,11 @@ To ensure your customized profiles remain compatible:
 - [Types of Assets](../concepts/types-of-assets.md): Understanding different asset categories
 - [Integration Profiles](../integration-profiles/overview.md): Platform-specific integration guides
 - [Validation Tools](../reference/validator.md): Tools for validating profile compliance
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for metadata profiles
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data profiles
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification profiles
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation profiles

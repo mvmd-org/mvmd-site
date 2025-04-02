@@ -168,3 +168,11 @@ npm run validate-mvmd ./assets/metadata.json
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Understanding core metadata concepts
 - [Types of Assets](../concepts/types-of-assets.md): Different asset types and their requirements
 - [Validation Tools](../reference/validator.md): Tools for validating MVMD compliance
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for metadata structure
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns

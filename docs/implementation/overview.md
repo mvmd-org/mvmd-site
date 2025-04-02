@@ -66,3 +66,11 @@ Regardless of your specific use case, follow these principles:
 - [Types of Assets](../concepts/types-of-assets.md): Schema.org types to use
 - [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference patterns
 - [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for implementation
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
+- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
+- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns

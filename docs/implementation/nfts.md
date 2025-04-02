@@ -258,3 +258,9 @@ Specify creator royalties:
 - [Integration Profiles](../integration-profiles/overview.md): Predefined asset profiles
 - [NFT Concepts](./nft/concepts.md): Core concepts for NFT implementation
 - [NFT Examples](./nft/examples.md): Reference implementations and patterns
+
+## Related Namespaces
+
+- [Schema.org](../namespaces/schema-org.md): Core vocabulary for NFT metadata
+- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification for NFTs
+- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D NFT assets
