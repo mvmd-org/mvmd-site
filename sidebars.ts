@@ -33,13 +33,13 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/core-metadata-concepts',
-                    label: 'Core Metadata Concepts'
+                    id: 'concepts/metadata-fundamentals',
+                    label: 'Metadata Fundamentals'
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/types-of-things',
-                    label: 'Types of Things'
+                    id: 'concepts/types-of-assets',
+                    label: 'Types of Assets'
                 },
                 {
                     type: 'doc',
@@ -48,8 +48,8 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
-                    id: 'concepts/file-organization',
-                    label: 'File Organization'
+                    id: 'concepts/structural-organization',
+                    label: 'Structural Organization'
                 }
             ],
         },
