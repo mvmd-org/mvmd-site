@@ -4,11 +4,13 @@ sidebar_position: 1
 
 # Implementation Overview
 
-This section provides practical guidance for implementing MVMD in real-world applications. You'll find patterns, best practices, and examples for different implementation scenarios.
+This section provides practical guidance for implementing MVMD in real-world applications. You'll find patterns, best practices, and examples organized by use cases to help you implement metadata for different scenarios.
 
-## Implementation Approaches
+## Use Case-Based Implementation
 
-### Basic Asset Metadata
+We've organized implementation guides based on common use cases rather than specific standards, making it easier to find relevant guidance for your particular needs:
+
+### Basic Asset Implementation
 
 Every implementation starts with properly structured metadata for your digital assets:
 
@@ -18,6 +20,39 @@ Every implementation starts with properly structured metadata for your digital a
 - Set up proper relationships between components
 
 [Learn about Basic Asset Implementation](./assets.md)
+
+### Cross-Platform Assets
+
+When implementing assets that need to work across multiple platforms:
+
+- Provide format variations for different platform requirements
+- Define technical specifications for each platform
+- Implement fallback behaviors for unsupported features
+- Ensure visual and functional consistency
+
+[Explore Cross-Platform Implementation](./cross-platform-assets.md)
+
+### Interactive Assets
+
+For implementing assets that respond to user interaction:
+
+- Define interaction points and behaviors
+- Create state transitions based on user actions
+- Link interactions to animations and feedback
+- Establish connections between interactive components
+
+[Discover Interactive Asset Implementation](./interactive-assets.md)
+
+### Discovery and Search Optimization
+
+To make your assets easily discoverable:
+
+- Optimize core metadata for search visibility
+- Add rich media for visual discovery
+- Create semantic relationships with related content
+- Enhance marketplace presence with specialized properties
+
+[Learn about Discovery Optimization](./discovery-optimization.md)
 
 ### NFT Metadata
 
@@ -56,7 +91,7 @@ Regardless of your specific use case, follow these principles:
 ## Getting Started
 
 1. Start with the [Getting Started](./getting-started.md) guide
-2. Choose the appropriate pattern for your asset type
+2. Choose the appropriate use case for your implementation needs
 3. Use our [templates](../templates/) for consistent implementation
 4. Validate your implementation with our [tools](../reference/validator.md)
 
@@ -70,7 +105,6 @@ Regardless of your specific use case, follow these principles:
 ## Related Namespaces
 
 - [Schema.org](../namespaces/schema-org.md): Core vocabulary for implementation
-- [3D Standards](../namespaces/3d-standards.md): Implementation patterns for 3D assets
-- [Geospatial Standards](../namespaces/geospatial-standards.md): Location data patterns
-- [Trust & Provenance](../namespaces/trust-provenance.md): Authentication and verification
-- [OpenXR Standards](../namespaces/openxr.md): XR-specific implementation patterns
+- [glTF](../namespaces/gltf.md): Implementation patterns for glTF assets
+- [USD](../namespaces/usd.md): Implementation patterns for USD assets
+- [OpenXR](../namespaces/openxr.md): XR-specific implementation patterns
