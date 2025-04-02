@@ -220,9 +220,6 @@ It uses the hasPart attribute to define the individual parts of the model, so th
 }
 ```
 
-## Implementation Details
-
-For detailed implementation patterns for 3D models, including glTF-specific properties and extensions, refer to the [3D Standards](../namespaces/3d-standards.md) namespace documentation.
 
 ## Next Steps
 
