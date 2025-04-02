@@ -343,12 +343,12 @@ This document outlines a comprehensive step-by-step plan for restructuring the M
    - [x] Zip or archive all original content for reference
 
 2. **Remove Redundant Files**
-   - [ ] Verify all content has been migrated before removal (use the categorization spreadsheet as a checklist)
-   - [ ] Remove entire `/docs/embedding` directory
-   - [ ] Remove `/docs/examples` directory
-   - [ ] Remove duplicate implementation files (nft/*, composable/*)
-   - [ ] Delete any other redundant files identified in the content audit
-   - [ ] Remove `/docs/introduction/concepts.md` after content distribution
+   - [x] Verify all content has been migrated before removal (use the categorization spreadsheet as a checklist)
+   - [x] Remove entire `/docs/embedding` directory
+   - [x] Remove `/docs/examples` directory
+   - [x] Remove duplicate implementation files (nft/*, composable/*)
+   - [x] Delete any other redundant files identified in the content audit
+   - [x] Remove `/docs/introduction/concepts.md` after content distribution
 
 3. **Clean Up Repo**
    - [ ] Remove outdated files from Git tracking
