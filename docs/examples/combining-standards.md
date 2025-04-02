@@ -211,7 +211,7 @@ Combining Schema.org, glTF, USD, and C2PA:
 ## Next Steps
 
 - Review specific [Standards](/standards/overview.md) for detailed properties
-- See [Validation Tools](../tools/validation.md) for testing combined metadata
+- See [Validation Tools](../reference/validator.md) for testing combined metadata
 - Check [Best Practices](/implementation/best-practices.md) for implementation guidance
 
 Remember that not all standards need to be combined. Only include the standards that are necessary for your specific use case.

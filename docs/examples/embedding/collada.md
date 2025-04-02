@@ -318,4 +318,4 @@ For more detailed information, you can access the full COLLADA 1.5 specification
 
 - Review [Material Standards](../material-standards.md)
 - See [Scene Composition](../scene-composition.md)
-- Check [Validation](../../tools/validation.md)
+- Check [Validation](../../reference/validator.md)

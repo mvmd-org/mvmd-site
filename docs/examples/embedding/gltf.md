@@ -276,4 +276,4 @@ For more detailed information, you can refer to the official glTF 2.0 specificat
 
 - Review [USD Standard](./usd.md) for scene composition
 - See [3D Object Profile](/metadata-profiles/3d-object-profile.md) for complete profile
-- Check [Validation](../tools/validation.md) for testing metadata
+- Check [Validation](../reference/validator.md) for testing metadata

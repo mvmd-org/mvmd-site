@@ -225,4 +225,4 @@ It uses the hasPart attribute to define the individual parts of the model, so th
 
 - Review [Environment Profile](./environment-profile.md) for spatial context
 - Check [Avatar Profile](./avatar-profile.md) for character-specific properties
-- See [Validation Tools](../tools/validation.md) for testing
+- See [Validation Tools](../reference/validator.md) for testing

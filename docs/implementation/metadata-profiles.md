@@ -245,4 +245,4 @@ To ensure your customized profiles remain compatible:
 
 - [Types of Assets](../concepts/types-of-assets.md): Understanding different asset categories
 - [Integration Profiles](../integration-profiles/overview.md): Platform-specific integration guides
-- [Validation Tools](../tools/validation.md): Tools for validating profile compliance
+- [Validation Tools](../reference/validator.md): Tools for validating profile compliance

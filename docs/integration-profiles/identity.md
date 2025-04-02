@@ -380,4 +380,4 @@ The Identity Integration Profile defines metadata for digital identities that pe
 
 - Review [Avatar Profile](./avatar-profile.md) for representation integration
 - See [C2PA Standard](../embedding/trust/c2pa.md) for authentication and verification
-- Check [Validation Tools](../tools/validation.md) for testing 
+- Check [Validation Tools](../reference/validator.md) for testing 

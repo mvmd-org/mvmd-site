@@ -286,5 +286,5 @@ For detailed information, you can refer to the official C2PA Technical Specifica
 ## Next Steps
 
 - Review [Basic Profile](/implementation/metadata-profiles/basic-profile.md) for core metadata
-- See [Validation Tools](../tools/validation.md) for verification
+- See [Validation Tools](../reference/validator.md) for verification
 - Check [API Reference](../tools/api-reference.md) for programmatic access

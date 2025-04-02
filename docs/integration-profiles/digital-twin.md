@@ -359,4 +359,4 @@ The Digital Twin Integration Profile defines metadata for virtual representation
 
 - Review [Integration Patterns](../implementation/integration-patterns.md) for physical-digital synchronization
 - See [Data Storage Best Practices](../implementation/data-storage.md) for time-series data management
-- Check [Validation Tools](../tools/validation.md) for testing 
+- Check [Validation Tools](../reference/validator.md) for testing 

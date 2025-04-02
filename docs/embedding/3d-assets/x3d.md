@@ -367,4 +367,4 @@ For detailed information, you can refer to the official X3D specifications: [X3D
 
 - Review [Environment Profile](/implementation/metadata-profiles/environment-profile.md) for integration
 - See [glTF Standard](./gltf.md) for model optimization
-- Check [Validation Tools](../tools/validation.md) for testing
+- Check [Validation Tools](../reference/validator.md) for testing

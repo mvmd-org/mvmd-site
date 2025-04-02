@@ -334,4 +334,4 @@ For detailed information, you can refer to the official CityJSON website: [CityJ
 
 - Review [Environment Profile](/implementation/metadata-profiles/environment-profile.md) for integration
 - See [3D Tiles Standard](./3d-tiles.md) for large-scale environments
-- Check [Validation Tools](../tools/validation.md) for testing
+- Check [Validation Tools](../reference/validator.md) for testing

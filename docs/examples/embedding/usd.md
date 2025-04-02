@@ -294,4 +294,4 @@ For detailed information, you can refer to the official USD documentation: [Intr
 
 - Review [Environment Profile](/metadata-profiles/environment-profile.md)
 - See [Combining Standards](/combining-standards.md)
-- Check [Validation](../tools/validation.md)
+- Check [Validation](../reference/validator.md)

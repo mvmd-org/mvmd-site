@@ -134,7 +134,7 @@ Provide implementation guidance:
 
 - **Documentation**: [MVMD Documentation](../introduction)
 - **Examples**: [Implementation Examples](../implementation/examples)
-- **Tools**: [Validation Tools](../tools/validator)
+- **Tools**: [Validation Tools](../reference/validator)
 - **Community**: [Support Forum](https://github.com/mvmd-org/mvmd/discussions)
 
 For additional guidance or support, contact the MVMD team at [contact information]. 

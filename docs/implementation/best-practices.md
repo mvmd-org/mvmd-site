@@ -167,4 +167,4 @@ npm run validate-mvmd ./assets/metadata.json
 
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Understanding core metadata concepts
 - [Types of Assets](../concepts/types-of-assets.md): Different asset types and their requirements
-- [Validation Tools](../tools/validation.md): Tools for validating MVMD compliance
+- [Validation Tools](../reference/validator.md): Tools for validating MVMD compliance

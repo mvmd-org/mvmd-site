@@ -279,4 +279,4 @@ For detailed information, you can refer to the official OpenXR 1.0 specification
 
 - Review [Interaction Profiles](../interaction-profile.md)
 - See [VR Standards](./vr-standards.md)
-- Check [Validation](../../tools/validation.md)
+- Check [Validation](../../reference/validator.md)

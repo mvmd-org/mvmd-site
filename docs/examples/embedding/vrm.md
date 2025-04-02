@@ -259,4 +259,4 @@ For detailed information, you can refer to the official VRM documentation: [VRM 
 
 - Review [Avatar Profiles](../avatar-profile.md)
 - See [Animation Standards](./animation.md)
-- Check [Validation](../../tools/validation.md)
+- Check [Validation](../../reference/validator.md)

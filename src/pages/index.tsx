@@ -363,7 +363,7 @@ export default function Home(): JSX.Element {
                                         </div>
                                         <div>
                                             <p className="font-semibold dark:text-white">I need to validate:</p>
-                                            <Link to="/tools/validator" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                            <Link to="/reference/validator" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                                 Try the Validator →
                                             </Link>
                                         </div>

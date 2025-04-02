@@ -192,4 +192,4 @@ Methods for sharing metadata:
 After understanding these concepts, you can:
 1. Review specific [Standards](/standards/overview.md)
 2. Explore [Implementation Guides](/implementation/getting-started.md)
-3. Learn about [Validation Tools](../tools/validation.md)
+3. Learn about [Validation Tools](../reference/validator.md)
