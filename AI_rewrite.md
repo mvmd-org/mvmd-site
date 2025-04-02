@@ -229,6 +229,55 @@ These visualizations will help ensure our restructured documentation accommodate
   - Current status/completeness
   - Recommended action (keep, move, merge, delete)
 
+Sample content inventory (partial):
+
+| File Path | Content Type | Key Topics | Standards Referenced | Unique Information | Duplicated Information | Cross-References | Primary Audience | Status | Recommended Action |
+|-----------|--------------|------------|---------------------|-------------------|------------------------|------------------|-----------------|--------|-------------------|
+| namespaces/overview.md | Conceptual | Namespace principles, usage patterns | General | Namespace concept definition | Implementation patterns duplicated in implementation/ | concepts/linking-vs-embedding.md | All users | Complete | Keep, update to focus on general principles |
+| namespaces/3d-standards.md | Reference, Examples | 3D standards implementation, embedding patterns | glTF, USD, VRM, USDZ | Standard-specific namespaces, URLs | Implementation examples duplicate standards-implementation.md | implementation/standards-implementation.md | Developers | Complete | Split into individual namespace files |
+| namespaces/geospatial-standards.md | Reference, Examples | Geospatial data implementation | CityJSON, 3D-Tiles | Geospatial-specific properties | Some implementation patterns | implementation/standards-implementation.md | Developers | Complete | Split into individual namespace files |
+| namespaces/trust-provenance.md | Reference, Examples | Content verification, authentication | C2PA | Authentication workflows | Some implementation examples | implementation/standards-implementation.md | Developers | Complete | Split into individual namespace files |
+| namespaces/openxr.md | Reference, Examples | XR experiences, interactions | OpenXR, WebXR | XR-specific properties | Some implementation patterns | implementation/standards-implementation.md | Developers | Complete | Keep as individual file, reorganize |
+| implementation/overview.md | Conceptual | Implementation approaches, patterns | Multiple | High-level implementation guidance | Some namespace concepts | namespaces/overview.md | Developers | Complete | Keep, update to avoid duplication |
+| implementation/standards-implementation.md | Tutorial, Examples | Standards integration patterns | glTF, USD, WebXR, NFT standards | Implementation code examples | Many examples duplicate namespace files | namespaces/* | Developers | Complete | Distribute content to namespace files, then delete |
+| integration-profiles/wearable.md | Reference, Examples | Wearable item metadata | glTF, Schema.org | Wearable-specific properties | Attachment system duplicates equipable.md | integration-profiles/equipable.md | Developers, Content creators | Complete | Merge with equipable.md |
+| integration-profiles/equipable.md | Reference, Examples | Equipable item metadata | glTF, Schema.org | Equipment interactions | Attachment system duplicates wearable.md | integration-profiles/wearable.md | Developers, Content creators | Complete | Merge with wearable.md |
+| concepts/overview.md | Conceptual | Core metadata concepts | Schema.org, JSON-LD | Overview of fundamental concepts | Some overlap with namespaces/overview.md | All concepts/* files | New users | Complete | Keep, streamline |
+| concepts/metadata-fundamentals.md | Tutorial | Metadata basics | Schema.org, JSON-LD | *Empty file* | N/A | N/A | New users | Incomplete | Create content from namespace concepts |
+| concepts/linking-vs-embedding.md | Conceptual | Resource reference strategies | Multiple | Decision criteria, patterns | Implementation details duplicate namespace files | namespaces/* | All users | Complete | Keep, enhance with namespace updates |
+| concepts/types-of-assets.md | Reference | Asset type definitions | Schema.org | Asset categories and types | Minor overlap with implementation/assets.md | implementation/assets.md | All users | Complete | Keep, ensure alignment with implementation |
+| concepts/structural-organization.md | Conceptual | Metadata organization | Schema.org | Organization principles | Some overlap with implementation best practices | implementation/best-practices.md | Developers | Complete | Keep, ensure alignment with implementation |
+| introduction.md | Conceptual | Framework introduction | Multiple | High-level overview | Minor overlap with concepts/overview.md | Multiple cross-references | All users | Complete | Keep, may need updates for new structure |
+| quickstart.md | Tutorial | Getting started | Schema.org | Quick implementation guide | Some overlap with implementation/getting-started.md | implementation/getting-started.md | New users | Complete | Keep, ensure alignment with new structure |
+| for-standards-organizations.md | Conceptual | SDO integration | Multiple | Standards-specific guidance | Some overlap with concepts | community/sdo-integration-guide.md | Standards orgs | Complete | Keep, ensure alignment with new namespace approach |
+| integration-profiles/overview.md | Conceptual | Profile purpose and structure | Multiple | Profile listing, implementation approach | Some overlap with implementation/metadata-profiles.md | Multiple cross-references | All users | Complete | Keep, update profile status and descriptions |
+| implementation/metadata-profiles.md | Examples | Profile implementation examples | Schema.org, glTF | Implementation code examples | Significant overlap with individual profile pages | integration-profiles/* | Developers | Complete | Merge content into integration profiles or remove |
+| integration-profiles/avatar.md | Reference, Examples | Avatar metadata structure | Schema.org, VRM | Avatar-specific properties | Some overlap with identity.md | integration-profiles/identity.md | Developers, Content creators | Complete | Consider merging with identity.md |
+| integration-profiles/composable-3d-nft.md | Reference, Examples | Composable NFT metadata | Schema.org, ERC-721/1155 | NFT-specific composition properties | Some overlap with implementation/nfts.md | implementation/nfts.md | Developers | Complete | Keep, ensure references to standard-specific namespace files |
+| integration-profiles/basic.md | Reference, Examples | Core metadata structure | Schema.org | Basic metadata requirements | Some overlap with implementation/getting-started.md | implementation/getting-started.md | All users | Complete | Keep as foundation for other profiles |
+| integration-profiles/vehicle.md | Reference, Examples | Vehicle metadata structure | Schema.org | Vehicle-specific properties | None significant | None significant | Content creators | Complete | Keep, ensure references to standard-specific namespace files |
+| implementation/nfts.md | Tutorial, Examples | NFT metadata implementation | ERC-721/1155 | NFT-specific implementation patterns | Some overlap with composable-3d-nft.md | integration-profiles/composable-3d-nft.md | Developers | Complete | Extract ERC-721/1155 namespace content, keep implementation guidance |
+
+Content inventory analysis summary:
+- The metadata-fundamentals.md file is empty and needs to be created with content from namespace concepts
+- There's significant duplication between implementation/standards-implementation.md and the namespaces files
+- Integration profiles for wearable and equipable have substantial overlap and should be merged
+- Avatar and identity profiles have some overlap and could potentially be merged
+- Concept files generally remain valuable but need updates to align with the new namespace approach
+- Many files reference general categories like "3D standards" instead of specific technical standards
+- implementation/metadata-profiles.md duplicates content found in the integration profiles and should be consolidated
+- Several files in the implementation directory contain standard-specific information that should be moved to appropriate namespace files
+- Cross-references need to be updated throughout to point to new namespace structure
+
+Based on the content inventory, key actions needed:
+1. Create individual namespace files for each technical standard
+2. Populate metadata-fundamentals.md with content from namespace overview
+3. Merge wearable and equipable profiles
+4. Consider merging avatar and identity profiles
+5. Update all cross-references to reflect new structure
+6. Remove or consolidate duplicated content between implementation and namespaces
+7. Ensure all examples reference specific standards rather than general categories
+
 ### Step 3: User Journey Analysis
 - Document 3-5 primary user personas (new user, developer, standards organization, etc.)
 - Map typical user journeys through the documentation for each persona
