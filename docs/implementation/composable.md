@@ -1,196 +1,89 @@
-# Composable
+---
+sidebar_position: 5
+---
 
+# Composable Asset Implementation
 
-This guide covers practical implementation patterns for composable assets in the Metaverse, building on the concepts covered in previous sections.
+This guide provides implementation patterns for creating and managing composable assets using MVMD-compliant metadata structures.
 
-## Basic Composition Pattern
+## Core Composable Implementation Patterns
 
-The simplest form of composable assets uses transformation matrices to define how components relate to each other in space. This approach is powerful and flexible while requiring minimal complexity.
+### Basic Composable Asset
 
-### 3D Component Example
+A foundational composable asset that references its components:
+
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "3DModel",
-  "name": "Simple Composable Character",
+  "@type": "CreativeWork",
+  "name": "Modular Spacecraft",
+  "description": "A customizable spacecraft with interchangeable components",
+  "creator": {
+    "@type": "Organization",
+    "name": "Space Assets Ltd",
+    "url": "https://spaceassets.example.com"
+  },
   "hasPart": [
     {
       "@type": "3DModel",
-      "name": "Head",
-      "contentUrl": "head.glb",
-      "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0, 0, 1],
-        "translation": [0, 1.7, 0]
-      }
+      "name": "Spacecraft Hull",
+      "contentUrl": "https://assets.example.com/hull.glb"
     },
     {
       "@type": "3DModel",
-      "name": "Body",
-      "contentUrl": "body.glb",
-      "gltf:transform": {
-        "scale": [1.0, 1.0, 1.0],
-        "rotation": [0, 0, 0, 1.0],
-        "translation": [0, 0, 0]
-      }
-    }
-  ]
-}
-```
-
-### 2D Layer Example
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "ImageObject",
-  "name": "Layered Character",
-  "hasPart": [
-    {
-      "@type": "ImageObject",
-      "name": "Background",
-      "contentUrl": "background.png",
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "name": "Transformation",
-        "value": {
-          "scale": [1, 1],
-          "rotation": 0,
-          "translation": [0, 0],
-          "layer": 0
-        }
-      }
+      "name": "Engine Module",
+      "contentUrl": "https://assets.example.com/engine.glb"
     },
     {
-      "@type": "ImageObject",
-      "name": "Character",
-      "contentUrl": "character.png",
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "name": "Transformation",
-        "value": {
-          "scale": [1, 1],
-          "rotation": 0,
-          "translation": [100, 50],
-          "layer": 1
-        }
-      }
+      "@type": "3DModel", 
+      "name": "Navigation System",
+      "contentUrl": "https://assets.example.com/nav.glb"
     }
-  ]
-}
-```
-
-## Key Benefits
-
-### Interchangeability
-- Parts can be swapped without complex attachment logic
-- Transformations maintain spatial relationships
-- Components remain independent
-- Simple to validate and process
-
-### Platform Compatibility
-- Works across different rendering engines
-- Easy to implement
-- Standard mathematical transforms
-- Minimal processing required
-
-## Advanced Assembly Patterns
-
-For more complex use cases, additional assembly patterns can be implemented:
-
-
-### Linear Assembly
-For assets that require specific assembly sequences:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "3DModel",
-  "name": "Linear Assembly Example",
-  "assemblySequence": [
+  ],
+  "additionalProperty": [
     {
-      "step": 1,
-      "component": "#base",
-      "description": "Place base component"
-    },
-    {
-      "step": 2,
-      "component": "#middle",
-      "description": "Attach middle section"
-    }
-  ]
-}
-```
-
-### Socket-Based Assembly
-For modular components with defined connection points:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "attachmentSystem",
-    "value": {
-      "sockets": [
-        {
-          "id": "socket-1",
-          "type": "universal",
-          "position": [0, 0, 0],
-          "accepts": ["type-a", "type-b"]
-        }
-      ]
-    }
-  }
-}
-```
-
-### Constraint-Based Assembly
-For systems with specific combination rules:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "constraints",
-    "value": {
-      "physical": {
-        "maxWeight": 100,
-        "maxSize": [10, 10, 10]
-      },
-      "logical": {
-        "requiredTypes": ["base", "top"],
-        "incompatiblePairs": [
-          ["heavy", "small_base"],
-          ["tall", "unstable"]
+      "@type": "PropertyValue",
+      "propertyID": "assembly",
+      "name": "Assembly Instructions",
+      "value": {
+        "version": "1.0",
+        "parentTransform": "identity",
+        "componentAssembly": [
+          {
+            "id": "hull",
+            "componentRef": 0,
+            "position": [0, 0, 0],
+            "rotation": [0, 0, 0, 1],
+            "scale": [1, 1, 1]
+          },
+          {
+            "id": "engine",
+            "componentRef": 1,
+            "position": [0, -2, 0],
+            "rotation": [0, 0, 0, 1],
+            "scale": [1, 1, 1]
+          },
+          {
+            "id": "nav",
+            "componentRef": 2,
+            "position": [0, 1, 0],
+            "rotation": [0, 0, 0, 1],
+            "scale": [0.5, 0.5, 0.5]
+          }
         ]
       }
     }
-  }
+  ]
 }
 ```
 
-## Implementation Examples
+### Component Templates
 
-### Vehicle Assembly System
+Define a reusable component template with customization options:
+
 ```json
 {
   "@context": {
@@ -198,94 +91,257 @@ For systems with specific combination rules:
     "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
-  "name": "Modular Vehicle",
+  "name": "Engine Module Template",
+  "description": "Customizable engine module for spacecraft",
+  "contentUrl": "https://assets.example.com/engine-template.glb",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "customization",
+      "name": "Customization Options",
+      "value": {
+        "parameters": [
+          {
+            "name": "engineColor",
+            "type": "color",
+            "default": "#3366FF",
+            "options": ["#3366FF", "#FF3366", "#66FF33"]
+          },
+          {
+            "name": "engineSize",
+            "type": "vector3",
+            "default": [1, 1, 1],
+            "range": {
+              "min": [0.5, 0.5, 0.5],
+              "max": [2, 2, 2]
+            }
+          },
+          {
+            "name": "engineEfficiency",
+            "type": "number",
+            "default": 80,
+            "range": {
+              "min": 50,
+              "max": 100
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+### Nested Composables
+
+Create complex hierarchical structures with nested components:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "CreativeWork",
+  "name": "Space Station Complex",
   "hasPart": [
     {
-      "@type": "3DModel",
-      "@id": "#chassis",
-      "name": "Base Chassis",
-      "contentUrl": "chassis.glb",
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "propertyID": "mountPoints",
-        "value": ["engine", "wheels", "body"]
-      }
+      "@type": "CreativeWork",
+      "name": "Habitat Module",
+      "hasPart": [
+        {
+          "@type": "3DModel",
+          "name": "Habitat Shell",
+          "contentUrl": "https://assets.example.com/habitat-shell.glb"
+        },
+        {
+          "@type": "3DModel",
+          "name": "Living Quarters",
+          "contentUrl": "https://assets.example.com/quarters.glb"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "assembly",
+          "name": "Assembly Instructions",
+          "value": {
+            "componentAssembly": [
+              {
+                "id": "shell",
+                "componentRef": 0,
+                "position": [0, 0, 0],
+                "rotation": [0, 0, 0, 1]
+              },
+              {
+                "id": "quarters",
+                "componentRef": 1,
+                "position": [0, 0, 0],
+                "rotation": [0, 0, 0, 1]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Power Module",
+      "hasPart": [
+        {
+          "@type": "3DModel",
+          "name": "Solar Panels",
+          "contentUrl": "https://assets.example.com/solar.glb"
+        },
+        {
+          "@type": "3DModel",
+          "name": "Power Distribution",
+          "contentUrl": "https://assets.example.com/power-dist.glb"
+        }
+      ]
     }
   ],
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "assembly",
-    "value": {
-      "required": ["chassis", "wheels"],
-      "optional": ["accessories"],
-      "constraints": {
-        "maxAccessories": 5
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "assembly",
+      "name": "Assembly Instructions",
+      "value": {
+        "componentAssembly": [
+          {
+            "id": "habitat",
+            "componentRef": 0,
+            "position": [0, 0, 0],
+            "rotation": [0, 0, 0, 1]
+          },
+          {
+            "id": "power",
+            "componentRef": 1,
+            "position": [20, 0, 0],
+            "rotation": [0, 0, 0, 1]
+          }
+        ]
       }
     }
-  }
+  ]
 }
 ```
 
-### Character Equipment System
+## Extended Composable Properties
+
+### Runtime Behaviors
+
+Define interactive behaviors for composable assets:
+
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "3DModel",
-  "name": "Character Equipment",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "equipmentSlots",
-    "value": {
-      "head": {
-        "type": "helmet",
-        "position": [0, 1.8, 0],
-        "restrictions": ["size-m"]
-      },
-      "hands": {
-        "type": "weapon",
-        "position": [0.5, 1.0, 0],
-        "restrictions": ["weight-5"]
+  "@type": "CreativeWork",
+  "name": "Interactive Spacecraft",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "behaviors",
+      "name": "Interactive Behaviors",
+      "value": {
+        "interactions": [
+          {
+            "id": "engine-start",
+            "type": "animation",
+            "target": "engine",
+            "animation": "start-sequence",
+            "triggers": ["proximity", "click"],
+            "parameters": {
+              "sound": "engine-start.mp3",
+              "particleEffect": "engine-particles"
+            }
+          },
+          {
+            "id": "cockpit-open",
+            "type": "state-change",
+            "target": "cockpit",
+            "states": ["open", "closed"],
+            "defaultState": "closed",
+            "triggers": ["click"],
+            "transitionTime": 1.5
+          }
+        ]
       }
     }
-  }
+  ]
 }
 ```
 
-## Validation Requirements
+### Component Dependencies
 
-### Physical Validation
-- Component connections alignment
-- Weight and size limits
-- Balance verification
-- Collision detection
+Specify dependencies between components:
 
-### Logical Validation
-- Required component presence
-- Configuration validity
-- Compatibility rules
-- Version matching
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "CreativeWork",
+  "name": "Advanced Spacecraft System",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "dependencies",
+      "name": "Component Dependencies",
+      "value": {
+        "requirements": [
+          {
+            "component": "engine",
+            "requires": ["power-supply", "cooling-system"],
+            "compatibility": {
+              "powerSupply": {
+                "minPower": 1000,
+                "type": ["fusion", "antimatter"]
+              }
+            }
+          },
+          {
+            "component": "weapons-system",
+            "requires": ["power-supply", "targeting-computer"],
+            "incompatible": ["stealth-module"]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
-## Best Practices
+## Implementation Best Practices
 
-### Component Design
-- Use clear interface definitions
-- Implement version control
-- Define explicit constraints
-- Document dependencies
+### Assembly Management
+- Define clear parent-child relationships
+- Use consistent coordinate systems
+- Document attachment points and interfaces
+- Include fallback behaviors for missing components
+- Establish component version compatibility rules
 
-### Assembly Implementation
-- Validate connections
-- Handle errors gracefully
-- Support undo/redo
-- Cache common configurations
+### Performance Optimization
+- Implement progressive loading for complex compositions
+- Use level-of-detail variations for different distances
+- Optimize component reuse with instancing
+- Consider memory implications for deeply nested structures
+- Document performance characteristics for large assemblies
 
-### Performance
-- Optimize loading sequences
-- Implement efficient validation
-- Use appropriate LODs
-- Manage memory usage
+### Validation & Compatibility
+- Verify all component references are valid
+- Ensure transform values are within expected ranges
+- Test assembly with all possible component combinations
+- Provide graceful degradation for unsupported features
+- Maintain backward compatibility when updating components
 
-For detailed examples and additional patterns, refer to the Examples section of the documentation.
+## Related Concepts
+
+- [Assembly Patterns](./composable/assembly-patterns.md): Detailed assembly strategies
+- [Schema Parts](./composable/schema-parts.md): Component schema definitions
+- [Composable Concepts](./composable/concepts.md): Fundamental composable principles
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference management approaches

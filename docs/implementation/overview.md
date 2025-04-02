@@ -2,67 +2,67 @@
 sidebar_position: 1
 ---
 
-# Overview
+# Implementation Overview
 
-This section provides practical guidance for implementing metadata in Metaverse applications and platforms. Each subsection covers different aspects of implementation, from basic asset descriptions to complex composable systems.
+This section provides practical guidance for implementing MVMD in real-world applications. You'll find patterns, best practices, and examples for different implementation scenarios.
 
-## Core Topics
+## Implementation Approaches
 
-### Getting Started
-Learn the essential implementation steps, including:
-- Basic metadata structure
-- Required properties
-- Implementation patterns
-- Initial validation steps
+### Basic Asset Metadata
 
-Jump to the [Getting Started page](/implementation/getting-started.md).
+Every implementation starts with properly structured metadata for your digital assets:
 
-### Assets
-Understand how to implement metadata for different asset types:
-- Storage strategies
-- Cross-platform integration
-- Asset packaging
-- Implementation features
-- Portal implementation
-- Multi-platform considerations
+- Define clear type declarations with Schema.org vocabulary
+- Include required properties for discoverability
+- Add specialized properties for specific use cases
+- Set up proper relationships between components
 
-Jump to the [Assets page](/implementation/assets.md).
+[Learn about Basic Asset Implementation](./assets.md)
 
-### NFTs
-Learn how to implement metadata for NFT assets:
-- ERC-721 compatibility
-- Schema.org integration
-- Platform compatibility
-- Enhanced NFT capabilities
-- Multiple asset formats
-- Authentication and rights
+### NFT Metadata
 
-Jump to the [NFTs page](/implementation/nfts.md).
+For blockchain-connected assets, MVMD provides standards-compliant approaches:
 
-### Composable Assets
-Explore implementation patterns for composable assets:
-- Basic composition patterns
-- Advanced assembly systems
-- Component relationships
-- Constraint systems
-- Validation requirements
-- Performance considerations
+- Maintain compatibility with ERC-721/ERC-1155 standards
+- Enhance NFT metadata with rich structured data
+- Support multi-platform NFT discoverability
+- Enable verifiable authenticity and provenance
 
-Jump to the [Composable page](/implementation/composable.md).
+[Explore NFT Implementation](./nfts.md)
 
-### Best Practices
-Study recommended implementation approaches:
-- Metadata structure
-- Content quality
-- Asset relationships
-- Version management
-- Rights management
-- Technical specifications
+### Composable Systems
 
-Jump to the [Best Practices page](/implementation/best-practices.md).
+For complex, multi-component assets:
+
+- Implement structural relationships between components
+- Define assembly patterns and constraints
+- Create flexible, extensible component systems
+- Support cross-platform composition
+
+[Discover Composable Implementation](./composable.md)
+
+## Implementation Best Practices
+
+Regardless of your specific use case, follow these principles:
+
+- **Consistency**: Use standardized naming and structure patterns
+- **Precision**: Include only necessary data at the appropriate level
+- **Scalability**: Design for future expansion and additions
+- **Interoperability**: Ensure compatibility across platforms
+- **Validation**: Regularly validate against schema requirements
+
+[Review Implementation Best Practices](./best-practices.md)
 
 ## Getting Started
 
-Begin with the [Getting Started](./getting-started.md) section to establish implementation fundamentals, then progress through other topics based on your needs. Each implementation topic builds on the core concepts while providing practical examples and guidance for real-world usage.
+1. Start with the [Getting Started](./getting-started.md) guide
+2. Choose the appropriate pattern for your asset type
+3. Use our [templates](../templates/) for consistent implementation
+4. Validate your implementation with our [tools](../reference/validator.md)
 
-After reviewing the implementation basics, you can dive deeper into specific asset types or explore advanced topics like composability and NFT integration. The Best Practices section provides valuable guidelines for ensuring your implementation is robust and maintainable.
+## Related Concepts
+
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Core principles
+- [Types of Assets](../concepts/types-of-assets.md): Schema.org types to use
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md): Reference patterns
+- [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns

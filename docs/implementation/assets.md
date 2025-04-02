@@ -1,185 +1,216 @@
-# Assets
+---
+sidebar_position: 3
+---
 
-This guide covers fundamental implementation patterns for Metaverse assets, focusing on storage, portability, and open web integration. These patterns apply to general asset usage outside of NFTs and composable systems.
+# Basic Asset Implementation
 
-## Storage Strategies
+This guide covers fundamental implementation patterns for digital assets, focusing on proper metadata structure and integration approaches.
 
-### Centralized Storage
-Centralized storage solutions provide direct control over asset delivery and access. They typically use CDNs for efficient distribution and offer features like regional replication, caching, and access controls. This approach works well for platforms with predictable scaling needs and clear geographic distribution of users.
+## Core Implementation Patterns
 
-### Decentralized Storage
-Decentralized storage distributes assets across multiple nodes, improving reliability and reducing single points of failure. This approach often combines IPFS, Arweave, or similar protocols with traditional CDNs to balance availability with performance. Content addressing ensures asset integrity while distributed hosting improves resilience.
+### Complete Asset Metadata
 
-## Cross-Platform Integration
+A complete asset implementation includes essential information plus platform-specific details:
 
-### Portal Implementation
-Portals enable seamless transitions between different virtual spaces and platforms. Effective portal systems need to handle:
-- User state preservation during transfers
-- Asset preloading for destination spaces
-- Cross-platform identity verification
-- Network state synchronization
-- Platform-specific spawn point mapping
-
-### Multi-Platform Assets
-Assets that work across different platforms require careful consideration of:
-- Platform-specific technical limitations
-- Performance requirements and optimization
-- Feature parity and graceful degradation
-- Update synchronization
-- Resource scaling
-
-## Asset Packaging
-Asset packaging needs to consider:
-- Complete dependency bundling
-- Platform-specific optimizations
-- Efficient update delivery
-- Version control integration
-- Manifest generation
-
-## Implementation Features
-
-### Access Control
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "name": "Premium Asset",
-  "accessibilityControl": {
-    "@type": "PropertyValue",
-    "permissions": ["premium-tier"],
-    "restrictions": {
-      "regions": ["US", "EU"],
-      "minimumAge": 13,
-      "platformRequirements": ["physics-v2"]
-    }
-  }
+  "name": "Ergonomic Office Chair",
+  "description": "Modern office chair with adjustable height and lumbar support",
+  "creator": {
+    "@type": "Organization",
+    "name": "Virtual Furnishings Inc.",
+    "url": "https://virtualfurnishings.example.com"
+  },
+  "contentUrl": "https://assets.example.com/chair.glb",
+  "encodingFormat": "model/gltf-binary",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "image": "https://assets.example.com/chair-preview.jpg",
+  "dateCreated": "2024-03-15",
+  "version": "1.2.0"
 }
 ```
 
-### Analytics Integration
+### Storage Strategy Options
+
+Include information about how your asset is stored and accessed:
+
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "analytics",
-    "value": {
-      "interactions": ["views", "downloads", "usage-time"],
-      "performance": ["load-time", "fps", "memory"],
-      "events": ["spawn", "interact", "dispose"]
+  "name": "Ergonomic Office Chair",
+  "contentUrl": "https://assets.example.com/chair.glb",
+  "sameAs": [
+    "ipfs://QmXaXa1XaX...",
+    "ar://asset/chair123"
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "storagePolicy",
+      "name": "Storage Policy",
+      "value": {
+        "redundancy": "multi-regional",
+        "persistence": "permanent",
+        "cacheTTL": 86400
+      }
     }
-  }
+  ]
+}
+```
+
+### Cross-Platform Compatibility
+
+Define how your asset works across different platforms:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Ergonomic Office Chair",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "platformCompatibility",
+      "name": "Platform Compatibility",
+      "value": {
+        "supported": ["platform-a", "platform-b", "platform-c"],
+        "requirements": {
+          "minVersion": "2.0",
+          "features": ["advanced-materials", "physics"]
+        },
+        "optimization": {
+          "polycount": 12500,
+          "textureSize": 2048,
+          "animations": 5
+        }
+      }
+    }
+  ]
+}
+```
+
+## Extended Properties
+
+### Access Control
+
+Define access restrictions and requirements:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Premium Asset",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "accessControl",
+      "name": "Access Control",
+      "value": {
+        "permissions": ["premium-tier"],
+        "regions": ["US", "EU"],
+        "minimumAge": 13,
+        "platformRequirements": ["physics-v2"]
+      }
+    }
+  ]
 }
 ```
 
 ### Content Updates
-```json
-{
-  "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "updateControl",
-    "value": {
-      "version": "2.1.0",
-      "compatibility": "^2.0.0",
-      "updateUrl": "https://updates.example.com/asset/{version}",
-      "rollbackSupported": true
-    }
-  }
-}
-```
 
-### Social Features
+Include information about updates and versioning:
+
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "social",
-    "value": {
-      "sharing": "enabled",
-      "collaboration": ["view", "edit"],
-      "rating": {
-        "enabled": true,
-        "moderated": true
+  "name": "Ergonomic Office Chair",
+  "version": "2.1.0",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "updateControl",
+      "name": "Update Control",
+      "value": {
+        "compatibility": "^2.0.0",
+        "updateUrl": "https://updates.example.com/asset/{version}",
+        "rollbackSupported": true,
+        "releaseNotes": "https://docs.example.com/chair/changelog"
       }
     }
-  }
+  ]
 }
 ```
 
-### Asset Discovery
-```json
-{
-  "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "discovery",
-    "value": {
-      "tags": ["furniture", "modern", "interactive"],
-      "category": "home-decor",
-      "searchTerms": ["chair", "seating", "modern"],
-      "relatedAssets": ["table-set", "room-package"]
-    }
-  }
-}
-```
+### Discovery Enhancement
 
-### Quality Control
+Add properties to improve discoverability:
+
 ```json
 {
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "quality",
-    "value": {
-      "requirements": {
-        "polycount": "< 20000",
-        "textureSize": "<= 2048",
-        "formats": ["gltf", "usdz"]
-      },
-      "performance": {
-        "targetFPS": 60,
-        "maxLoadTime": 3000
+  "name": "Ergonomic Office Chair",
+  "keywords": ["furniture", "modern", "interactive", "office"],
+  "category": "Home/Office/Furniture",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "searchMetadata",
+      "name": "Search Metadata",
+      "value": {
+        "tags": ["seating", "ergonomic", "adjustable"],
+        "relatedAssets": ["desk-modern", "office-set"],
+        "featuredIn": ["virtual-office-demo", "productivity-space"]
       }
     }
-  }
+  ]
 }
 ```
 
-## Best Practices
+## Implementation Best Practices
 
-### Storage Management
-- Implement redundant storage systems
-- Use content-based addressing
-- Maintain clear versioning
-- Monitor storage health
-- Plan for scaling
+### Storage & Delivery
+- Use CDNs for fast global delivery
+- Implement content-addressed storage for integrity
+- Consider both centralized and decentralized options
+- Plan for appropriate caching strategies
 
 ### Cross-Platform Support
-- Define platform requirements
-- Document limitations
-- Provide fallback options
-- Test thoroughly
-- Monitor platform changes
+- Document platform-specific requirements clearly
+- Provide optimized assets for different performance tiers
+- Include fallback options for unsupported features
+- Test thoroughly across target platforms
 
-### Data Portability
-- Use standard formats
-- Include complete metadata
-- Validate transfers
-- Maintain integrity
-- Support versioning
+### Metadata Maintenance
+- Keep metadata up-to-date with asset changes
+- Maintain version history for tracking
+- Use consistent property naming conventions
+- Validate metadata regularly
 
-### Implementation Strategy
-- Start with basic functionality
-- Add features incrementally
-- Monitor usage patterns
-- Collect user feedback
-- Iterate based on data
+## Related Concepts
 
-## Next Steps
-- Review specific asset types
-- Explore storage options
-- Learn about cross-platform integration
-- Check validation tools
-
-_This page will be revised with more specific examples._
+- [Types of Assets](../concepts/types-of-assets.md): Schema.org types for different asset types
+- [Linking vs Embedding](../concepts/linking-vs-embedding.md): Strategies for references
+- [Integration Profiles](../integration-profiles/overview.md): Predefined asset profiles

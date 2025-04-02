@@ -1,321 +1,170 @@
 ---
-sidebar_position: 3
+sidebar_position: 6
 ---
 
-# Best Practices
+# Implementation Best Practices
 
-This guide outlines practical guidelines for implementing high-quality Metaverse metadata. Following these practices ensures your metadata is discoverable, maintainable, and interoperable.
+This guide provides essential best practices for implementing MVMD-compliant metadata in your projects to ensure interoperability, performance, and maintainability.
 
-## General
+## Metadata Structure & Design
 
-1. **Keep It Simple**
-   - Only use complex structures when necessary
-   - Prefer standard properties over custom ones
-   - Use clear, descriptive property names
+### Schema Organization
 
-2. **Maintain Consistency**
-   - Use consistent property patterns
-   - Maintain consistent value types
-   - Follow naming conventions
+- **Use Consistent Namespaces**: Always include proper context declarations for Schema.org and MVMD vocabularies
+- **Choose Appropriate Types**: Select the most specific Schema.org type for your asset
+- **Follow Type Hierarchy**: Respect parent-child relationships in Schema.org types
+- **Group Related Properties**: Organize properties logically for readability
 
-3. **Think About Scale**
-   - Plan for future extensions
-   - Consider performance implications
-   - Design for maintainability
-
-
-## Implementation Guidelines
-
-1. **Start Simple**
-   - Begin with basic Schema.org properties
-   - Add technical details gradually
-   - Validate at each step
-
-2. **Maintain Consistency**
-   - Use consistent property names
-   - Follow standard date formats
-   - Apply consistent naming conventions
-
-3. **Plan for Evolution**
-   - Design for extensibility
-   - Document changes clearly
-   - Maintain backwards compatibility
-
-4. **Optimize for Discovery**
-   - Use descriptive names
-   - Include relevant keywords
-   - Add proper categorization
-
-5. **Regular Validation**
-   - Check required properties
-   - Verify format compliance
-   - Test references
-
-
-## Metadata Structure
-
-### Use Clear Organization
-
-✅ **Do**: Group related properties logically
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  
-  "name": "Office Chair",
-  "description": "Ergonomic office chair with adjustable height",
-  
-  "creator": {
-    "@type": "Organization",
-    "name": "Virtual Furnishings Inc.",
-    "url": "https://example.com/virtual-furnishings"
-  },
-  
-  "contentUrl": "https://example.com/models/chair.glb",
-  "encodingFormat": "model/gltf-binary",
-  
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "dateCreated": "2024-03-15"
-}
-```
-
-❌ **Don't**: Mix unrelated properties randomly
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "contentUrl": "https://example.com/models/chair.glb",
-  "creator": {"@type": "Organization"},
-  "dateCreated": "2024-03-15",
-  "name": "Office Chair",
-  "encodingFormat": "model/gltf-binary"
-}
-```
-
-### Use Proper Namespacing
-
-✅ **Do**: Clearly separate different standards
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
-  "name": "Office Chair",
-  
-  "gltf:transform": {
-    "scale": [1.0, 1.0, 1.0],
-    "rotation": [0, 0, 0, 1],
-    "translation": [0, 0.45, 0]
-  }
+  "name": "Example Asset",
+  "description": "This is an example of proper schema organization"
 }
 ```
 
-❌ **Don't**: Mix standards without namespacing
+### Identity & Reference Management
+
+- **Provide Unique Identifiers**: Use consistent identification mechanisms
+- **Link Related Assets**: Use proper references between related assets
+- **Maintain Reference Integrity**: Ensure all references are valid and resolvable
+- **Support Multiple Reference Methods**: Include both URIs and content-addressed references when possible
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "name": "Office Chair",
-  "scale": [1.0, 1.0, 1.0],
-  "rotation": [0, 0, 0, 1]
+  "@id": "https://example.com/assets/model-123",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "assetId",
+    "value": "model-123"
+  },
+  "sameAs": [
+    "ipfs://QmXaXa1XaX...",
+    "ar://asset/model123"
+  ]
 }
 ```
 
-## Content Quality
+## Technical Implementation
 
-### Write Clear Descriptions
+### Performance Optimization
 
-✅ **Do**: Provide detailed, specific descriptions
+- **Minimize Metadata Size**: Include only necessary properties
+- **Use Appropriate Data Types**: Match data types to expected values
+- **Implement Progressive Loading**: Structure metadata to support incremental loading
+- **Balance Embedding vs. Linking**: Reference large or commonly reused components
+
+### Validation & Testing
+
+- **Validate Against Schemas**: Use MVMD validation tools for all metadata
+- **Test Cross-Platform Compatibility**: Verify metadata works across different systems
+- **Check Reference Integrity**: Ensure all linked resources are accessible
+- **Verify Required Properties**: Confirm all required properties exist and have valid values
+
+```bash
+# Example validation command
+npm run validate-mvmd ./assets/metadata.json
+```
+
+### Version Control
+
+- **Include Version Information**: Add version numbers to all metadata
+- **Document Version Compatibility**: Specify which versions work together
+- **Maintain Backward Compatibility**: Support older schema versions when possible
+- **Track Metadata Evolution**: Keep history of metadata changes alongside asset changes
+
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "name": "Ergonomic Office Chair",
-  "description": "High-backed office chair with adjustable height, tilt mechanism, and lumbar support. Suitable for professional office environments. Available in blue and black variants.",
+  "name": "Example Asset",
+  "version": "2.1.0",
   "additionalProperty": [
     {
       "@type": "PropertyValue",
-      "name": "seatHeight",
-      "value": "45-60cm",
-      "unitCode": "CMT"
+      "propertyID": "schemaVersion",
+      "name": "Schema Version",
+      "value": "1.2.0"
     }
   ]
 }
 ```
 
-❌ **Don't**: Use vague or minimal descriptions
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Chair",
-  "description": "An office chair"
-}
-```
+## Content & Metadata Management
 
-### Include Technical Details
+### Rights Management
 
-✅ **Do**: Specify precise technical information
+- **Specify Clear Licenses**: Include explicit license information
+- **Document Usage Rights**: Define how assets can be used
+- **Credit Contributors**: Include proper attribution for all creators
+- **Link to Terms**: Provide references to detailed license terms
+
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
+    "mvmd": "https://mvmd.org/v1/"
   },
   "@type": "3DModel",
-  "name": "Office Chair",
-  "contentSize": "2048576",
-  "encodingFormat": "model/gltf-binary",
-  "gltf:materials": [{
-    "name": "Fabric",
-    "pbrMetallicRoughness": {
-      "baseColorFactor": [0.2, 0.2, 0.8, 1.0],
-      "metallicFactor": 0.0,
-      "roughnessFactor": 0.8
-    }
-  }]
-}
-```
-
-❌ **Don't**: Omit or provide imprecise technical details
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "contentSize": "2MB",
-  "encodingFormat": "glb"
-}
-```
-
-## Asset Relationships
-
-### Define Clear Hierarchies
-
-✅ **Do**: Use explicit relationships
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "CreativeWork",
-  "name": "Office Furniture Set",
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "@id": "https://example.com/models/chair",
-      "name": "Office Chair"
-    },
-    {
-      "@type": "3DModel",
-      "@id": "https://example.com/models/desk",
-      "name": "Office Desk"
-    }
-  ]
-}
-```
-
-❌ **Don't**: Use ambiguous relationships
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "CreativeWork",
-  "name": "Office Set",
-  "related": [
-    "chair",
-    "desk"
-  ]
-}
-```
-
-### Reference Resources Properly
-
-✅ **Do**: Use full, resolvable URLs
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "contentUrl": "https://example.com/models/chair.glb",
-  "thumbnail": "https://example.com/thumbnails/chair.jpg",
-  "sameAs": [
-    "https://other-platform.com/models/chair-123",
-    "ipfs://QmXaXa1XaX..."
-  ]
-}
-```
-
-❌ **Don't**: Use relative or incomplete references
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "contentUrl": "/models/chair.glb",
-  "thumbnail": "chair.jpg"
-}
-```
-
-## Version Management
-
-### Track Changes Clearly
-
-✅ **Do**: Include version information
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "version": "2.1.0",
-  "dateModified": "2024-03-15",
-  "previousVersion": {
-    "@id": "https://example.com/models/chair/2.0.0",
-    "version": "2.0.0",
-    "dateModified": "2024-02-01"
+  "name": "Example Asset",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Person",
+    "name": "Asset Creator",
+    "url": "https://creator.example.com"
+  },
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Example Studio",
+    "url": "https://studio.example.com"
   }
 }
 ```
 
-❌ **Don't**: Omit version tracking
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "dateModified": "2024-03-15"
-}
-```
+### Documentation
 
-## Rights Management
+- **Include Comprehensive Metadata**: Document all relevant asset characteristics
+- **Add Implementation Notes**: Provide guidance for developers working with your assets
+- **Document Technical Requirements**: Specify system requirements and dependencies
+- **Maintain Technical Documentation**: Keep documentation in sync with metadata changes
 
-### Specify Clear Licensing
+### Storage & Distribution
 
-✅ **Do**: Include detailed rights information
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "acquireLicensePage": "https://example.com/license/chair",
-  "creditText": "Created by Virtual Furnishings Inc.",
-  "copyrightNotice": "© 2024 Virtual Furnishings Inc. All rights reserved.",
-  "usageTerms": "Attribution required. Commercial use allowed."
-}
-```
+- **Use Content-Addressed Storage**: Implement content-addressed storage for immutability
+- **Implement CDN Delivery**: Use content delivery networks for efficient distribution
+- **Configure Proper Caching**: Set appropriate cache control headers
+- **Plan for Redundancy**: Use multiple storage solutions for critical assets
 
-❌ **Don't**: Use vague licensing terms
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "license": "free for use"
-}
-```
+## Process & Workflow
 
-## Next Steps
+### Integration Pipeline
 
-- Review [Metadata Profiles](/metadata-profiles/basic-profile.md) for structure templates
-- Check [Validation Tools](../tools/validation.md) for compliance testing
-- Explore [Standards](/standards/overview.md) for advanced features
+- **Automate Metadata Generation**: Build automated tools to create and update metadata
+- **Implement Validation Checks**: Add validation to your CI/CD pipeline
+- **Document Generation Process**: Create clear documentation for metadata generation
+- **Review Generated Metadata**: Periodically review automated output for quality
+
+### Maintenance Strategy
+
+- **Establish Update Procedures**: Define processes for metadata updates
+- **Monitor Reference Health**: Regularly check that all references remain valid
+- **Plan for Schema Evolution**: Prepare for future schema changes
+- **Implement Deprecation Policies**: Create clear policies for obsolete assets and formats
+
+## Related Resources
+
+- [Metadata Fundamentals](../concepts/metadata-fundamentals.md): Understanding core metadata concepts
+- [Types of Assets](../concepts/types-of-assets.md): Different asset types and their requirements
+- [Validation Tools](../tools/validation.md): Tools for validating MVMD compliance

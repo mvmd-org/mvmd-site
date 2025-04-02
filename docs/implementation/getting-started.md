@@ -1,61 +1,44 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Getting Started with MVMD
+# Getting Started
 
-This guide provides practical steps for implementing Metaverse metadata for your first assets.
+This guide provides practical steps for implementing your first MVMD-compliant metadata.
 
-## Prerequisites
-
-Before starting, ensure you have:
-- Basic understanding of JSON
-- Your assets ready for metadata tagging
-- Access to the MVMD validation tool
-
-## Basic Implementation Steps
+## Implementation Workflow
 
 ### 1. Choose Your Asset Type
 
-Select the appropriate base type for your asset:
+Select the appropriate Schema.org type for your asset:
 
-**3D Model** (individual objects)
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
-  "name": "Office Chair",
-  "description": "Ergonomic office chair with adjustable height"
+  "name": "Office Chair"
 }
 ```
 
-**Avatar** (character models)
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "VirtualCharacter",
-  "name": "Default Avatar",
-  "description": "Standard humanoid avatar with basic animations"
-}
-```
-
-**Environment** (spaces and scenes)
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "Place",
-  "name": "Meeting Room",
-  "description": "Virtual conference room for team meetings"
-}
-```
+Different assets require different types:
+- **3DModel**: For individual 3D objects
+- **CreativeWork**: For collections or complex assets
+- **Place/VirtualLocation**: For environments and spaces
+- **MediaObject subtypes**: For specific media formats
 
 ### 2. Add Essential Properties
 
-Add required properties for your asset type:
+Include the required properties for your asset type:
 
 ```json
 {
-  "@context": "https://schema.org/",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
   "@type": "3DModel",
   "name": "Office Chair",
   "description": "Ergonomic office chair with adjustable height",
@@ -63,31 +46,27 @@ Add required properties for your asset type:
     "@type": "Organization",
     "name": "Virtual Furnishings Inc."
   },
-  "contentUrl": "https://example.com/models/chair.glb",
+  "contentUrl": "https://example.com/chair.glb",
   "encodingFormat": "model/gltf-binary",
-  "dateCreated": "2024-03-15",
   "license": "https://creativecommons.org/licenses/by/4.0/"
 }
 ```
 
-### 3. Add Technical Properties
+### 3. Add Standard-Specific Properties
 
-Include properties specific to your asset type:
+Include properties from relevant standards using namespaces:
 
-**3D Model Example**
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/",
     "gltf": "https://www.khronos.org/gltf/"
   },
   "@type": "3DModel",
   "name": "Office Chair",
-  "gltf:transform": {
-    "scale": [1.0, 1.0, 1.0],
-    "rotation": [0, 0, 0, 1],
-    "translation": [0, 0.45, 0]
-  },
+  "contentUrl": "https://example.com/chair.glb",
+  "encodingFormat": "model/gltf-binary",
   "gltf:materials": [{
     "name": "Fabric",
     "pbrMetallicRoughness": {
@@ -99,170 +78,102 @@ Include properties specific to your asset type:
 }
 ```
 
-**Environment Example**
+### 4. Define Relationships
+
+Establish clear relationships between components:
+
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "usd": "https://openusd.org/ns/"
+    "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "Place",
-  "name": "Meeting Room",
-  "maximumAttendeeCapacity": 20,
-  "usd:stage": {
-    "upAxis": "Y",
-    "metersPerUnit": 1.0
-  },
-  "usd:composition": {
-    "defaultPrim": "MeetingRoom",
-    "layers": [
-      {
-        "name": "base",
-        "path": "/Room/Base"
-      },
-      {
-        "name": "furniture",
-        "path": "/Room/Furniture"
-      }
-    ]
-  }
-}
-```
-
-## Common Implementation Patterns
-
-### Asset with Multiple Formats
-
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "encoding": [
-    {
-      "@type": "MediaObject",
-      "encodingFormat": "model/gltf-binary",
-      "contentUrl": "https://example.com/models/chair.glb"
-    },
-    {
-      "@type": "MediaObject",
-      "encodingFormat": "model/usd",
-      "contentUrl": "https://example.com/models/chair.usd"
-    }
-  ]
-}
-```
-
-### Asset with Variations
-
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "workExample": [
-    {
-      "@type": "3DModel",
-      "name": "Office Chair - Blue",
-      "contentUrl": "https://example.com/models/chair-blue.glb"
-    },
-    {
-      "@type": "3DModel",
-      "name": "Office Chair - Red",
-      "contentUrl": "https://example.com/models/chair-red.glb"
-    }
-  ]
-}
-```
-
-### Asset Collection
-
-```json
-{
-  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Office Furniture Set",
   "hasPart": [
     {
       "@type": "3DModel",
       "name": "Office Chair",
-      "contentUrl": "https://example.com/models/chair.glb"
+      "contentUrl": "https://example.com/chair.glb"
     },
     {
       "@type": "3DModel",
       "name": "Office Desk",
-      "contentUrl": "https://example.com/models/desk.glb"
+      "contentUrl": "https://example.com/desk.glb"
     }
   ]
 }
 ```
 
-## Implementation Checklist
+### 5. Validate Your Metadata
 
-### Essential Steps
-1. ✓ Choose appropriate base type
-2. ✓ Add required properties
-3. ✓ Include technical metadata
-4. ✓ Add licensing information
-5. ✓ Validate metadata
+Once you've created your metadata:
+1. Use the [MVMD Validator](../reference/validator.md)
+2. Check Schema.org property usage
+3. Verify standard-specific properties
+4. Test integration with target platforms
 
-### Quality Checks
-1. ✓ Descriptive name and description
-2. ✓ Accurate technical properties
-3. ✓ Valid content URLs
-4. ✓ Complete creator information
-5. ✓ Clear licensing terms
+## Common Implementation Patterns
+
+### Multiple Asset Formats
+
+Provide multiple file formats for the same asset:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Office Chair",
+  "encoding": [
+    {
+      "@type": "MediaObject",
+      "encodingFormat": "model/gltf-binary",
+      "contentUrl": "https://example.com/chair.glb"
+    },
+    {
+      "@type": "MediaObject",
+      "encodingFormat": "model/usd",
+      "contentUrl": "https://example.com/chair.usd"
+    }
+  ]
+}
+```
+
+### Asset Variations
+
+Define different versions of the same asset:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "3DModel",
+  "name": "Office Chair",
+  "workExample": [
+    {
+      "@type": "3DModel",
+      "name": "Office Chair - Blue",
+      "contentUrl": "https://example.com/chair-blue.glb"
+    },
+    {
+      "@type": "3DModel",
+      "name": "Office Chair - Red",
+      "contentUrl": "https://example.com/chair-red.glb"
+    }
+  ]
+}
+```
 
 ## Next Steps
 
-After implementing basic metadata:
+After implementing your first metadata:
 
-1. **Add Advanced Properties**
-    - Review [Metadata Profiles](/metadata-profiles/basic-profile.md)
-    - Add standard-specific properties
-    - Include additional descriptive metadata
-
-2. **Validate Your Implementation**
-    - Use the [Validation Tools](../tools/validation.md)
-    - Check for required properties
-    - Verify standard compliance
-
-3. **Consider Advanced Features**
-    - Add authentication data
-    - Include provenance information
-    - Define relationships between assets
-
-## Common Issues and Solutions
-
-### Missing Required Properties
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair"
-  // Missing required description and contentUrl
-}
-```
-Solution: Always include name, description, and contentUrl.
-
-### Invalid Format Specifications
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "encodingFormat": "glb"  // Incorrect format specification
-}
-```
-Solution: Use proper MIME types (e.g., "model/gltf-binary").
-
-### Incorrect Property Types
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Office Chair",
-  "dateCreated": "March 15, 2024"  // Incorrect date format
-}
-```
-Solution: Use ISO 8601 date format (e.g., "2024-03-15").
+1. Explore the [Integration Profiles](../integration-profiles/overview.md) for your specific asset type
+2. Review [Implementation Best Practices](./best-practices.md) for optimization tips
+3. Learn about [Namespaces](../namespaces/overview.md) for integrating specialized standards
+4. Consider [Composable Assets](./composable.md) for complex, multi-component objects

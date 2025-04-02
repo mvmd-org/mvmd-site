@@ -1,81 +1,16 @@
-# NFTs
+---
+sidebar_position: 4
+---
 
-NFTs can leverage Schema.org metadata to enhance their functionality while maintaining compatibility with existing blockchain standards. This guide shows how to extend standard NFT metadata formats with rich Schema.org descriptions.
+# NFT Implementation
 
-## Modern NFT Capabilities
+This guide covers implementation patterns for NFTs using MVMD-compliant metadata structures across different blockchain ecosystems.
 
-Modern NFTs can support:
-- Multiple file formats per token
-- Different quality levels of assets
-- Supporting materials and documentation
-- Platform-specific implementations
-- Interactive behaviors
-- Dynamic properties
-- Cross-platform compatibility
+## Core NFT Implementation Patterns
 
-## ERC-721 Metadata Standard
+### Basic NFT Metadata
 
-The [ERC-721 standard](https://eips.ethereum.org/EIPS/eip-721) defines a basic metadata structure that most NFT platforms expect:
-
-```json
-{
-  "name": "Asset Name",
-  "description": "Asset Description",
-  "image": "https://example.com/image.jpg",
-  "attributes": [
-    {
-      "trait_type": "Property Name",
-      "value": "Property Value"
-    }
-  ]
-}
-```
-
-Required fields:
-- `name`: Token name
-- `description`: Token description
-- `image`: URL to token image
-- `attributes`: Array of trait objects (optional but common)
-
-This basic structure is widely supported but limited in its ability to describe complex digital assets.
-
-## Integration Approaches
-
-### 1. Root Data Attribute
-This approach preserves the original ERC-721 structure while adding Schema.org metadata:
-
-```json
-{
-  "name": "Example NFT",
-  "description": "Platform-compatible NFT description",
-  "image": "https://example.com/preview.jpg",
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    }
-  ],
-  "data": {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "mvmd": "https://mvmd.org/v1/"
-    },
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/preview.jpg",
-    "encodingFormat": "image/jpeg",
-    "associatedMedia": [
-      {
-        "@type": "3DModel",
-        "contentUrl": "https://example.com/model.glb",
-        "encodingFormat": "model/gltf-binary"
-      }
-    ]
-  }
-}
-```
-
-### 2. Direct Integration
-This approach merges Schema.org properties with the NFT metadata:
+A comprehensive NFT implementation includes blockchain details, asset references, and creator information:
 
 ```json
 {
@@ -83,72 +18,243 @@ This approach merges Schema.org properties with the NFT metadata:
     "@vocab": "https://schema.org/",
     "mvmd": "https://mvmd.org/v1/"
   },
-  "@type": "ImageObject",
-  "name": "Example NFT",
-  "description": "Enhanced NFT description",
-  "contentUrl": "https://example.com/preview.jpg",
-  "encodingFormat": "image/jpeg",
-  "attributes": [
+  "@type": "DigitalDocument",
+  "name": "Cosmic Voyager #42",
+  "description": "A unique spacecraft design from the Cosmic Voyagers collection",
+  "creator": {
+    "@type": "Person",
+    "name": "Digital Artisan",
+    "url": "https://artist.example.com"
+  },
+  "image": "https://ipfs.io/ipfs/QmXAXB...",
+  "contentUrl": "https://ipfs.io/ipfs/QmZXYZ...",
+  "encodingFormat": "model/gltf-binary",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "blockchain",
+    "name": "Token ID",
+    "value": "42"
+  },
+  "additionalProperty": [
     {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    }
-  ],
-  "associatedMedia": [
-    {
-      "@type": "3DModel",
-      "contentUrl": "https://example.com/model.glb",
-      "encodingFormat": "model/gltf-binary"
+      "@type": "PropertyValue",
+      "propertyID": "blockchain",
+      "name": "Blockchain Details",
+      "value": {
+        "network": "ethereum",
+        "contract": "0x1234567890abcdef1234567890abcdef12345678",
+        "standard": "ERC-721",
+        "tokenId": "42"
+      }
     }
   ]
 }
 ```
 
-## When to Use Each Approach
+### Cross-Chain NFTs
 
-### Use Root Data Attribute
-- Working with established NFT marketplaces
-- Maximum compatibility is required
-- Existing metadata processing must be maintained
-- Platform may not understand Schema.org
+For NFTs that exist on multiple chains or have been bridged:
 
-### Use Direct Integration
-- Building new platforms or marketplaces
-- Full control over metadata processing
-- Schema.org compatibility is primary concern
-- Metadata redundancy should be minimized
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Cosmic Voyager #42",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "blockchain",
+      "name": "Blockchain Details",
+      "value": {
+        "primaryNetwork": "ethereum",
+        "primaryContract": "0x1234567890abcdef1234567890abcdef12345678",
+        "primaryTokenId": "42",
+        "bridgedInstances": [
+          {
+            "network": "polygon",
+            "contract": "0xabcdef1234567890abcdef1234567890abcdef12",
+            "tokenId": "42",
+            "bridgeContract": "0x0987654321fedcba0987654321fedcba09876543",
+            "bridgedDate": "2023-11-15T14:30:00Z"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
-## Best Practices
+### NFT Collections
 
+Representing collection metadata for related NFTs:
 
-### Compatibility
-- Maintain required ERC-721 fields
-- Ensure valid URLs
-- Test with target platforms
-- Handle missing data gracefully
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "Collection",
+  "name": "Cosmic Voyagers",
+  "description": "A collection of 1,000 unique spacecraft designs",
+  "creator": {
+    "@type": "Person",
+    "name": "Digital Artisan",
+    "url": "https://artist.example.com"
+  },
+  "image": "https://ipfs.io/ipfs/QmCOLLECTION...",
+  "url": "https://cosmicvoyagers.io",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "blockchain",
+      "name": "Collection Details",
+      "value": {
+        "network": "ethereum",
+        "contract": "0x1234567890abcdef1234567890abcdef12345678",
+        "standard": "ERC-721",
+        "size": 1000,
+        "mintDate": "2023-10-01T00:00:00Z"
+      }
+    }
+  ]
+}
+```
 
-### Schema.org Implementation
-- Use proper context declarations
-- Choose appropriate types
-- Maintain consistent naming
-- Document custom properties
+## Extended NFT Properties
 
-### Data Quality
-- Avoid duplicate information
-- Use appropriate data types
-- Include required properties
-- Validate all URLs
+### On-Chain History
 
-### Note to Platform/App Developers
-When implementing NFT metadata support in your platform or application, ensure you can handle both integration approaches (root data attribute and direct integration) to maintain compatibility and future-proofing. Your platform should:
+Track provenance and transaction history:
 
-- Check for Schema.org properties at both the root level and in the data attribute
-- Process whichever format is present without breaking standard ERC-721 compatibility
-- Document which approach your platform prefers while supporting both
-- Gracefully handle cases where metadata exists in both locations
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Cosmic Voyager #42",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "provenance",
+      "name": "Provenance",
+      "value": {
+        "mintDate": "2023-10-01T12:34:56Z",
+        "mintTransaction": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+        "originalOwner": "0x0987654321fedcba0987654321fedcba09876543",
+        "transfers": [
+          {
+            "date": "2023-11-15T08:21:43Z",
+            "transaction": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+            "from": "0x0987654321fedcba0987654321fedcba09876543",
+            "to": "0xfedcba0987654321fedcba0987654321fedcba09"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
-Supporting both approaches ensures your platform works with current NFT standards while being ready for enhanced metadata capabilities.
+### Utility & Access Rights
 
+Define what ownership of the NFT enables:
 
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Cosmic Voyager #42",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "utility",
+      "name": "Utility & Rights",
+      "value": {
+        "access": {
+          "platforms": ["world-a", "world-b"],
+          "events": ["annual-gala", "creator-meetups"],
+          "services": ["premium-support", "early-access"]
+        },
+        "restrictions": {
+          "commercial": "limited",
+          "transfer": "unrestricted",
+          "derivativeWorks": "allowed"
+        },
+        "expiration": "none"
+      }
+    }
+  ]
+}
+```
 
-_Note: For detailed examples of NFT metadata implementation, including complex scenarios with multiple assets, character metadata, and interactive elements, please refer to the Examples section of the documentation. (Coming soon)_
+### Royalty Information
+
+Specify creator royalties:
+
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "mvmd": "https://mvmd.org/v1/"
+  },
+  "@type": "DigitalDocument",
+  "name": "Cosmic Voyager #42",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "royalties",
+      "name": "Royalty Information",
+      "value": {
+        "standard": "EIP-2981",
+        "percentage": 5.0,
+        "recipients": [
+          {
+            "address": "0x0987654321fedcba0987654321fedcba09876543",
+            "share": 80
+          },
+          {
+            "address": "0xfedcba0987654321fedcba0987654321fedcba09",
+            "share": 20
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+## Implementation Best Practices
+
+### Metadata Security
+- Store immutable metadata using content-addressed systems
+- Include cryptographic signatures for authenticity verification
+- Consider using both on-chain and off-chain metadata with consistent references
+- Implement metadata update mechanisms if needed
+
+### Interoperability
+- Support multiple metadata standards (e.g., ERC-721 Metadata, OpenSea)
+- Include backward compatibility with existing systems
+- Document any extensions or custom fields
+- Provide clear mapping between standards
+
+### Governance & Updates
+- Document who can modify metadata and under what conditions
+- Specify update validation processes
+- Consider decentralized governance for collection-wide changes
+- Keep complete version history for transparency
+
+## Related Concepts
+
+- [Types of Assets](../concepts/types-of-assets.md): Schema.org types for different asset types
+- [Integration Profiles](../integration-profiles/overview.md): Predefined asset profiles
+- [NFT Concepts](./nft/concepts.md): Core concepts for NFT implementation
+- [NFT Examples](./nft/examples.md): Reference implementations and patterns
