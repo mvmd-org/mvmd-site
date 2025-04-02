@@ -42,10 +42,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'namespaces/overview',
         'namespaces/schema-org',
-        // Category redirects
-        'namespaces/redirects/3d-standards-redirect',
-        'namespaces/redirects/geospatial-standards-redirect',
-        'namespaces/redirects/trust-provenance-redirect',
         // Individual namespace pages
         'namespaces/gltf',
         'namespaces/usd',
