@@ -2,50 +2,60 @@
 sidebar_position: 1
 ---
 
-# Overview
-This section introduces the fundamental concepts needed to understand and implement metadata for Metaverse assets. Each subsection builds upon the previous ones to provide a comprehensive understanding of how metadata works in the Metaverse context.
+# Core Concepts
 
-## Core Topics
+This section introduces the fundamental principles needed to understand and implement MVMD. These concepts form the foundation for all metadata integration patterns and profiles.
 
-### Core Metadata Concepts
-Learn the essential building blocks of Metaverse metadata, including:
-- Schema.org foundations
-- JSON-LD structure
-- Required contexts
-- Basic metadata patterns
-- Value handling
+## Essential Concepts
 
-Jump to the [Core Metadata Concepts page](./core-metadata-concepts.md).
+### JSON-LD and Schema.org
 
-### Types of Things
-Understand the different Schema.org types used in MVMD:
-- Core types for digital assets
-- Media object types
-- Virtual and physical locations
-- Applications and documents
+MVMD builds on JSON-LD and Schema.org to create a flexible, interoperable metadata framework:
 
-Jump to the [Types of Things page](./types-of-things.md).
+- **JSON-LD** provides the syntax structure with support for namespaces and linked data
+- **Schema.org** provides the core vocabulary that's widely understood and adopted
 
-### Linking vs Embedding Strategy
-Understand when to reference external content versus embedding it directly:
-- Strategy comparison
-- Reference types
-- Embedding patterns
-- Asset relationships
-- Loading strategies
-- Best practices
+All MVMD metadata requires:
+- A proper `@context` with Schema.org vocabulary
+- Appropriate `@type` declarations
+- Clear property relationships
 
-Jump to the [Linking vs Embedding Strategy page](./linking-vs-embedding.md).
+[Learn more about Metadata Fundamentals](./metadata-fundamentals.md)
 
-### File Organization
-Learn how to structure your metadata files:
-- File formats
-- Directory structures
-- Naming conventions
-- Management strategies
+### Types of Assets
 
-Jump to the [File Organization page](./file-organization.md).
+MVMD supports various Schema.org types to describe different kinds of assets:
+
+- **CreativeWork**: The most versatile base type for complex assets
+- **MediaObject**: For specific media types (3DModel, ImageObject, etc.)
+- **Place/VirtualLocation**: For physical and virtual locations
+- **Event**: For timed experiences and activities
+
+[Learn about Types of Assets](./types-of-assets.md)
+
+### Linking vs. Embedding
+
+A key decision in metadata architecture is whether to:
+
+- **Link to external resources** using URLs (ideal for large, shared components)
+- **Embed data directly** in the metadata (ideal for essential, asset-specific data)
+
+[Understand Linking vs Embedding](./linking-vs-embedding.md)
+
+### Structural Organization
+
+Proper organization of metadata ensures:
+
+- Clear relationships between components
+- Efficient loading strategies
+- Consistent property naming
+- Effective use of namespaces
+
+[Learn about Structural Organization](./structural-organization.md)
 
 ## Getting Started
 
-Begin with the [Core Metadata Concepts](./core-metadata-concepts.md) section to establish a solid foundation, then progress through the other topics in order. Each concept builds upon previous ones to create a complete understanding of Metaverse metadata implementation.
+1. Start with [Metadata Fundamentals](./metadata-fundamentals.md) to understand the core JSON-LD approach
+2. Learn about [Types of Assets](./types-of-assets.md) to choose the right type for your content
+3. Understand [Linking vs Embedding](./linking-vs-embedding.md) to make proper architectural decisions
+4. Review [Structural Organization](./structural-organization.md) for best practices in metadata structure
