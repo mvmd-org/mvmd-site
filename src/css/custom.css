@@ -39,3 +39,9 @@ main a:not(.button):hover {
   color: inherit; /* Keep the original text color */
   text-decoration: none; /* Remove underline */
 }
+
+/* Remove text color change and underline on button hover */
+main a[class*="bg-"]:hover {
+  color: inherit !important; /* Ensure override */
+  text-decoration: none !important; /* Ensure override */
+}
