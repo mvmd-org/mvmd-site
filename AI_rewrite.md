@@ -73,7 +73,7 @@ Add these findings to the 'Documentation Issues Log' for use in later validation
 - docs/integration-profiles/composable-3d-nft.md (contains verbose examples)
 - docs/integration-profiles/vehicle.md (examples with excessive detail)
 
-#### Step 3: Standardize Terminology
+#### Step 3: Standardize Terminology [NEXT]
 **Prompt**: "Standardize terminology across all standards documents and reference/schemas.md by consistently using 'standard' instead of 'namespace' when referring to technical standards. Ensure all technical terms align with the terminology specified in the style guide.
 
 After standardizing terminology, create a list of:
