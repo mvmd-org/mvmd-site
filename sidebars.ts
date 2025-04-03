@@ -318,15 +318,9 @@ const sidebars: SidebarsConfig = {
           id: 'reference/glossary',
           label: 'Glossary',
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tools',
-      items: [
         {
           type: 'doc',
-          id: 'tools/validator',
+          id: 'reference/validator',
           label: 'Validator',
         },
       ],
