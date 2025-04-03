@@ -113,12 +113,12 @@ export default function Home(): JSX.Element {
                 {/* Problem Statement Section */}
                 <div className="py-20 bg-white dark:bg-gray-900">
                     <div className="container mx-auto px-6">
+                        <h2 className="text-4xl font-bold mb-6 dark:text-white text-center">The Metaverse Standards Challenge</h2>
+                        <p className="text-gray-700 text-2xl dark:text-gray-300 mb-12 text-center md:text-left">
+                            Today's metaverse ecosystem relies on numerous excellent standards working in different domains:
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <h2 className="text-3xl font-bold mb-6 dark:text-white">The Metaverse Standards Challenge</h2>
-                                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                                    Today's metaverse ecosystem relies on numerous excellent standards working in different domains:
-                                </p>
                                 <ul className="list-disc pl-6 mb-6 text-gray-700 dark:text-gray-300 space-y-2">
                                     <li><strong><a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">glTF</a></strong> handles 3D model representation</li>
                                     <li><strong><a href="https://graphics.pixar.com/usd/docs/index.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">USD</a></strong> enables complex scene composition</li>
@@ -169,8 +169,8 @@ export default function Home(): JSX.Element {
                 {/* Solution Overview Section */}
                 <div className="py-20 bg-gray-50 dark:bg-gray-800">
                     <div className="container mx-auto px-6">
-                        <h2 className="text-3xl font-bold mb-6 dark:text-white text-center md:text-left">The MVMD Approach</h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-12 text-center md:text-left">
+                        <h2 className="text-4xl font-bold mb-6 dark:text-white text-center ">The MVMD Approach</h2>
+                        <p className="text-gray-700 text-2xl dark:text-gray-300 mb-12 text-center md:text-left">
                             MVMD establishes formal integration pathways between established metadata standards through a structured architecture.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
