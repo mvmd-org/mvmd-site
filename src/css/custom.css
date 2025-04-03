@@ -48,10 +48,10 @@ main a[class*="bg-"]:hover { /* Target links that have a background class */
 
 /* --- Custom Button Hover States (These override the inherit rule above) --- */
 
-/* "Get Started" button (white bg, blue text) - Increased specificity */
-main a.bg-white.text-blue-600.px-6.py-3.font-semibold:hover {
+/* "Get Started" button (using dedicated class) */
+main a.cta-get-started:hover {
   color: #2563eb !important; /* Tailwind blue-600 */
-  text-decoration: none !important; /* Ensure no underline */
+  text-decoration: none !important;
 }
 
 /* "Learn More" button (blue bg, white text) */

@@ -88,7 +88,7 @@ function HomepageHeader() {
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Link
-                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition"
+                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition cta-get-started"
                                     to="/docs/introduction">
                                     Get Started
                                 </Link>
