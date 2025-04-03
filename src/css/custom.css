@@ -40,45 +40,44 @@ main a:not(.button):hover {
   text-decoration: none; /* Remove underline */
 }
 
-/* Remove text color change and underline on button hover (REMOVED - Handled by Tailwind classes) */
-/* main a[class*="bg-"]:hover {
-  color: inherit !important; 
-  text-decoration: none !important; 
-} */
-
-/* --- Custom Button Hover States --- */
-
-/* General button hover - no underline */
-main a.px-6.py-3:hover, /* Covers main CTA buttons */
-main a.px-4.py-2:hover  /* Covers standard link buttons */
-{
-  text-decoration: none !important;
+/* Override default link hover color if it's not a standard text link */
+main a[class*="bg-"]:hover { /* Target links that have a background class */
+  color: inherit !important; /* Try inheriting original color first */
+  text-decoration: none !important; /* Ensure no underline */
 }
 
-/* "Get Started" button (white bg, blue text) */
-main a.bg-white.text-blue-600:hover {
+/* --- Custom Button Hover States (These override the inherit rule above) --- */
+
+/* "Get Started" button (white bg, blue text) - Increased specificity */
+main a.bg-white.text-blue-600.px-6.py-3.font-semibold:hover {
   color: #2563eb !important; /* Tailwind blue-600 */
+  text-decoration: none !important; /* Ensure no underline */
 }
 
 /* "Learn More" button (blue bg, white text) */
-main a.bg-blue-600.text-white:hover {
+main a.bg-blue-600.text-white.px-6.py-3:hover { /* Added size classes for specificity */
   color: white !important;
+  text-decoration: none !important;
 }
 
 /* Standard link buttons (white bg, blue text) */
-main a.bg-white.text-blue-600.border:hover {
+main a.bg-white.text-blue-600.border.px-4.py-2:hover { /* Added size classes for specificity */
   color: #2563eb !important; /* Tailwind blue-600 */
+  text-decoration: none !important;
 }
-[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-blue-400.border:hover {
+[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-blue-400.border.px-4.py-2:hover { /* Added size classes for specificity */
   color: #60a5fa !important; /* Tailwind blue-400 */
+  text-decoration: none !important;
 }
 
 /* "View All Profiles" button (gray bg, gray/white text) */
-main a.bg-gray-200.text-gray-800:hover {
+main a.bg-gray-200.text-gray-800.px-6.py-3:hover { /* Added size classes for specificity */
   color: #1f2937 !important; /* Tailwind gray-800 */
+  text-decoration: none !important;
 }
-[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-white:hover {
+[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-white.px-6.py-3:hover { /* Added size classes for specificity */
   color: white !important;
+  text-decoration: none !important;
 }
 
 /* --- End Custom Button Hover States --- */
