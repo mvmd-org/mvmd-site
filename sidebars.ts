@@ -25,11 +25,6 @@ const sidebars: SidebarsConfig = {
           id: 'introduction',
           label: 'Overview',
         },
-        {
-          type: 'doc',
-          id: 'for-standards-organizations',
-          label: 'For Standards Organizations',
-        },
       ],
     },
     {
@@ -327,7 +322,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'community/standards-organizations',
+          id: 'community/for-standards-organizations',
           label: 'Standards Organizations',
         },
         {

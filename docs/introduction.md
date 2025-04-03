@@ -54,7 +54,7 @@ MVMD uses Schema.org and JSON-LD as its foundation because:
 3. Adopt [Integration Profiles](./integration-profiles/overview.md) for your platform
 
 ### For Standards Organizations
-1. Read [For Standards Organizations](./for-standards-organizations.md) for specific guidance
+1. Read [For Standards Organizations](./community/for-standards-organizations.md) for specific guidance
 2. Explore how your standard can be integrated in the [Namespaces]../standards/overview.md) section
 
 ## Documentation Structure
