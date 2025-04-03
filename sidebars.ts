@@ -216,11 +216,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'implementation/metadata-profiles',
-          label: 'Metadata Profiles',
-        },
-        {
-          type: 'doc',
           id: 'implementation/standards-implementation',
           label: 'Standards Implementation',
         },
