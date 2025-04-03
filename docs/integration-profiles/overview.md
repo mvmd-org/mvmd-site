@@ -52,8 +52,8 @@ Each integration profile follows a consistent structure:
 
 Each profile has a corresponding JSON Schema validation file that can be used to validate your metadata:
 
-- [Schema Validation Documentation](../validation/schema-validation.md)
-- [Available Schema Files](../validation/schema-validation.md#available-schema-files)
+- [Schema Validation Documentation](../tools/validator.md)
+- [Available Schema Files](../schemas/)
 
 ## Implementation Approach
 
@@ -89,7 +89,7 @@ For practical implementation guidance, see these related resources:
 - Identify the profiles most relevant to your assets
 - Implement the minimum required properties
 - Extend with optional properties as needed
-- Validate your implementation using the [Schema Validation Tools](../validation/schema-validation.md)
+- Validate your implementation using the [Schema Validation Tools](../tools/validator.md)
 
 ## Related Standards
 
@@ -116,6 +116,9 @@ The MVMD community welcomes contributions to existing profiles and proposals for
 - [Types of Assets](../concepts/types-of-assets.md): Core asset classifications
 - [Namespaces](../standards/overview.md): Standard-specific metadata properties
 - [Implementation Best Practices](../implementation/best-practices.md): General metadata guidance
+- [Profile Specifications (JSON Schema)](/schemas)
+- [Schema Validation Documentation](../tools/validator.md)
+- [Available Schema Files](../schemas/)
 
 ## Related Namespaces
 

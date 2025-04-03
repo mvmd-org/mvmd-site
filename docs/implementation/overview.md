@@ -116,7 +116,7 @@ Regardless of your specific use case, follow these principles:
 1. Start with the [Getting Started](./getting-started.md) guide
 2. Choose the appropriate use case for your implementation needs
 3. Use our [templates](../templates/) for consistent implementation
-4. Validate your implementation with our [schema validation tools](../validation/schema-validation.md)
+4. Validate your implementation with our [schema validation tools](../tools/validator.md)
 
 ## Related Resources
 
@@ -136,4 +136,4 @@ Regardless of your specific use case, follow these principles:
 - [USD](../standards/usd.md): Implementation patterns for USD assets
 
 ### Validation
-- [Schema Validation](../validation/schema-validation.md): Validating your implementation
+- [Schema Validation](../tools/validator.md): Validating your implementation

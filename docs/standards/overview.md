@@ -95,12 +95,17 @@ For practical implementation guidance, see these related resources:
 - [Interactive Assets Implementation](../implementation/interactive-assets.md)
 - [Discovery Optimization](../implementation/discovery-optimization.md)
 
-## Validation Resources
+## Related Resources
 
-To validate your standard integration:
+- [Schema.org Standard](./schema-org.md)
+- [Schema Validation](../tools/validator.md)
+- [Integration Profiles](../integration-profiles/overview.md)
 
-- [Schema Validation](../validation/schema-validation.md)
-- [MVMD Validator Tool](../tools/validator.md)
+## Getting Started
+
+1. Review the standard-specific documentation for your implementation
+2. Integrate relevant properties using the appropriate namespace
+3. Validate your metadata using our [validation tools](../tools/validator.md)
 
 ## Next Steps
 
@@ -108,4 +113,4 @@ After reviewing the standards documentation:
 
 1. Examine the [integration profiles](../integration-profiles/overview.md) that apply to your assets
 2. Follow the [implementation guides](../implementation/overview.md) for your use case
-3. Validate your metadata using our [validation tools](../validation/schema-validation.md) 
+3. Validate your metadata using our [validation tools](../tools/validator.md) 

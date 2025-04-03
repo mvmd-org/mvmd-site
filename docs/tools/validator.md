@@ -1,210 +1,81 @@
 # Validator
 
-MVMD provides two ways to validate your metadata:
+Validating your metadata is crucial for ensuring your assets work reliably across different platforms, are easily discoverable, and integrate correctly with MVMD standards. Proper validation helps prevent errors and maintains consistency.
 
-1. **MVMD Schema Validator** - Our integrated validator that provides a user-friendly interface for validating your metadata directly on the MVMD site.
-2. **Schema.org Validator** - The official Schema.org validator for comprehensive validation against the Schema.org specification.
+## Why Validate?
 
-## Using the MVMD Schema Validator
+* **Interoperability**: Ensures your metadata works correctly across different platforms and tools.
+* **Error Prevention**: Catches mistakes before they cause problems in production.
+* **Discoverability**: Helps search engines and platforms correctly index your assets.
+* **Consistency**: Maintains a uniform standard across all your assets.
 
-The MVMD Schema Validator is the recommended way to validate your metadata. It provides:
+## How to Validate
 
-- A clean, user-friendly interface
-- Real-time validation feedback
-- Detailed error and warning messages
-- Support for all Schema.org types and properties
+There are two main ways to validate your MVMD metadata:
 
-### How to Use
+### 1. Using the Online Validator Tool
 
-1. Visit the [MVMD Schema Validator](/validator)
-2. Paste your JSON-LD metadata into the input field
-3. Click "Validate Schema"
-4. Review the validation results
+This is the simplest way to quickly check your metadata.
 
-The validator will show:
-- ✅ Success message if your schema is valid
-- ❌ Error messages with specific issues if validation fails
-- ⚠️ Warnings for potential improvements
+* **MVMD Validator**: Paste your JSON-LD metadata directly into the [MVMD Schema Validator Tool](/validator). It checks against Schema.org definitions and MVMD profiles, providing real-time feedback and error messages.
+* **Official Schema.org Validator**: You can also use the official [Schema.org Validator](https://validator.schema.org/) for general Schema.org compliance checks. Select JSON-LD and paste your code.
 
-## Using the Schema.org Validator
+**Using the Tool:**
+1.  Go to the validator tool link.
+2.  Paste your complete JSON-LD metadata.
+3.  Run the validation.
+4.  Review the results for errors or warnings.
 
-The Schema.org Validator ([https://validator.schema.org/](https://validator.schema.org/)) is the official validation tool. This guide explains how to use it effectively with MVMD metadata.
+### 2. Using Schema Files (for Developers)
 
-Note: In the future, MVMD will provide dedicated validation tools that handle namespaced properties, file attachments, and cross-references between files. This guide will be updated when those tools become available.
+For automated checks or integration into your workflow, you can use MVMD's provided JSON Schema files.
 
-## Using the Schema.org Validator
+* **What they do**: These files define the required structure and properties for different [Integration Profiles](../integration-profiles/overview.md).
+* **Where to find them**: Schema files for profiles like Basic, Avatar, and Attachable are available in the `/schemas/` directory.
+* **How to use**: You can use standard JSON Schema validation libraries in your code (like Ajv for JavaScript or jsonschema for Python) to check your metadata against these schemas during development or in CI/CD pipelines.
 
-### Step 1: Prepare Your Metadata
+**Example (Conceptual JavaScript):**
+```javascript
+// Simplified concept: Load schema, load metadata, validate
+const Ajv = require('ajv');
+// Function to load the correct schema file (e.g., basic.schema.json)
+const schema = loadSchemaForProfile('basic'); 
+const metadata = yourAssetMetadata; // Your JSON-LD object
 
-Before validation, ensure your metadata:
-- Has a properly defined `@context`
-- Uses valid Schema.org types
-- Includes all required properties
-- Uses proper JSON-LD formatting
+const ajv = new Ajv();
+const validate = ajv.compile(schema);
+const isValid = validate(metadata);
 
-Example of properly formatted metadata:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "ImageObject",
-  "name": "Asset Preview",
-  "description": "Preview image of 3D asset",
-  "contentUrl": "https://example.com/preview.jpg",
-  "encodingFormat": "image/jpeg"
+if (!isValid) {
+  console.log("Validation Errors:", validate.errors);
+} else {
+  console.log("Metadata is valid!");
 }
-```
 
-You can validate this example using either:
-- The [MVMD Schema Validator](/validator) - Click "Validate Schema" to check against Schema.org standards
-- The [Schema.org Validator](https://validator.schema.org/) - Click "Validate" to use the official validator
-
-### Step 2: Choose Your Validator
-
-#### Option 1: MVMD Schema Validator
-1. Go to the [MVMD Schema Validator](/validator)
-2. Paste your metadata into the input field
-3. Click "Validate Schema"
-4. Review the results
-
-#### Option 2: Schema.org Validator
-1. Go to [https://validator.schema.org/](https://validator.schema.org/)
-2. Choose the "Validate" tab
-3. Select JSON-LD as the format
-4. Paste your metadata
-5. Click "Validate"
-6. Review the results
+For detailed code examples, refer to specific library documentation.
 
 ## Common Validation Issues
 
-### 1. Missing Required Properties
+Watch out for these common mistakes:
 
-Error:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "ImageObject"
-}
-```
+* **Missing Required Properties**: Ensure all properties required by the Schema.org type and the specific MVMD profile are present (e.g., name, description, contentUrl).
 
-Fix:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "ImageObject",
-  "name": "Asset Name",
-  "contentUrl": "https://example.com/image.jpg"
-}
-```
+* **Incorrect Types**: Property values must match the expected data type (e.g., providing a number where a string URL is expected for contentUrl).
 
-### 2. Invalid Type Values
+* **Invalid Formatting**: Ensure values like dates (ISO 8601) or URLs are correctly formatted.
 
-Error:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DAsset",
-  "name": "Example Asset"
-}
-```
+* **Missing @context or @type**: These fundamental JSON-LD properties must always be present.
 
-Fix:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "3DModel",
-  "name": "Example Asset"
-}
-```
+* **Incorrect Enum Values**: If a property has predefined allowed values (like encodingFormat), make sure you use one of them.
 
-### 3. Incorrect Property Types
+* **Invalid JSON-LD Syntax**: Ensure your JSON structure is valid (correct commas, brackets, braces).
 
-Error:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "ImageObject",
-  "name": "Asset Name",
-  "contentUrl": 12345
-}
-```
+## Validation Workflow Recommendation
 
-Fix:
-```json
-{
-  "@context": "https://schema.org/",
-  "@type": "ImageObject",
-  "name": "Asset Name",
-  "contentUrl": "https://example.com/image.jpg"
-}
-```
+* Validate metadata during development.
 
-## Handling Namespaced Properties
+* Run full validation checks before deploying assets.
 
-The Schema.org validator will ignore properties from other namespaces. For example:
+* Periodically re-validate existing assets against the latest schemas.
 
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gltf": "https://www.khronos.org/gltf/"
-  },
-  "@type": "3DModel",
-  "name": "Example Model",
-  "gltf:asset": {
-    "version": "2.0"
-  }
-}
-```
-
-The `gltf:asset` property will be ignored during validation. This is expected behavior until MVMD's dedicated validation tools are available.
-
-## Best Practices
-
-1. **Validate Core Properties First**
-   - Start with basic Schema.org properties
-   - Ensure all required fields are present
-   - Use correct property types
-   - Fix any validation errors
-
-2. **Document Namespaced Properties**
-   - Keep track of non-Schema.org properties
-   - Document their requirements
-   - Plan for future validation
-   - Follow standard specifications
-
-3. **Regular Validation**
-   - Validate during development
-   - Check after updates
-   - Monitor for changes
-   - Keep documentation current
-
-## Future MVMD Validation
-
-The upcoming MVMD validation tools will provide:
-
-1. **Complete Validation**
-   - Schema.org compliance
-   - Namespace validation
-   - File attachment verification
-   - Cross-reference checking
-
-2. **Extended Features**
-   - Profile-specific validation
-   - Custom rule sets
-   - Batch validation
-   - Automated testing
-
-3. **Integration Support**
-   - API access
-   - CI/CD integration
-   - Development tools
-   - Validation reports
-
-## Next Steps
-
-1. Review [Metadata Fundamentals](/implementation/metadata-fundamentals.md)
-2. Check [Best Practices](/implementation/best-practices.md)
-3. Explore [Profile Requirements](/integration-profiles/basic.md)
+This consolidated page provides the essential information needed to understand and perform validation without getting lost in excessive technical details, aligning with the "less is more" approach.

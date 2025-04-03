@@ -285,22 +285,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Validation',
-      items: [
-        {
-          type: 'doc',
-          id: 'validation/overview',
-          label: 'Overview',
-        },
-        {
-          type: 'doc',
-          id: 'validation/schema-validation',
-          label: 'Schema Validation',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Reference',
       items: [
         {

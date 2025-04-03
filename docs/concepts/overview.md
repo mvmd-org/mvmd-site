@@ -73,20 +73,20 @@ Based on your role and goals, we recommend different paths through the documenta
 2. Review [Types of Assets](./types-of-assets.md)
 3. Explore [Basic Implementation](../implementation/assets.md)
 4. Learn about [Basic Profile](../integration-profiles/basic.md)
-5. Review [Validation](../validation/overview.md)
+5. Review [Validation](../tools/validator.md)
 
 ### For 3D Content Creators
 1. Start with [Integration Profiles Overview](../integration-profiles/overview.md)
 2. Review the [Attachable Profile](../integration-profiles/attachable.md) for wearables/equipment
 3. Explore [Avatar Profile](../integration-profiles/avatar.md) for character assets
 4. Learn about [glTF Standard Integration](../standards/gltf.md)
-5. Use [Schema Validation](../validation/schema-validation.md) to verify metadata
+5. Use [Schema Validation](../tools/validator.md) to verify metadata
 
 ### For Platform Developers
 1. Start with [Implementation Overview](../implementation/overview.md)
 2. Review [Cross-Platform Assets](../implementation/cross-platform-assets.md)
 3. Explore [Standards Overview](../standards/overview.md)
-4. Learn about [Schema Validation](../validation/schema-validation.md)
+4. Learn about [Schema Validation](../tools/validator.md)
 5. Implement [Best Practices](../implementation/best-practices.md)
 
 ## Related Resources
@@ -94,5 +94,5 @@ Based on your role and goals, we recommend different paths through the documenta
 - [Implementation Guides](../implementation/overview.md): Practical how-to guidance
 - [Integration Profiles](../integration-profiles/overview.md): Ready-to-use patterns
 - [Technical Standards](../standards/overview.md): Standard-specific integration
-- [Validation](../validation/overview.md): Ensuring compliance and quality
+- [Validation](../tools/validator.md): Ensuring compliance and quality
 - [Quickstart](../quickstart.md): Fast implementation guide
