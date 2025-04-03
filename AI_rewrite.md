@@ -1,330 +1,218 @@
-# MVMD Documentation Restructuring Plan
+## Succinct Documentation Review
 
-This document outlines the plan to restructure the MVMD documentation to make it more user-friendly, consistent, and maintainable.
+**Developer Journey Issues:**
+- Implementation guides contain redundant explanations across multiple sections
+- Code examples in gltf.md and cross-platform-assets.md are unnecessarily verbose
+- Navigation between related implementation steps is unclear
 
-## Purpose
+**Standards Registry Issues:**
+- Technical terminology inconsistency (namespace vs. standard) throughout standards documentation
+- Schema references lack clear purpose statements
+- Integration patterns described with excessive text rather than clear examples
 
-The purpose of this restructuring is to streamline the MVMD documentation by reducing redundancy and improving clarity while preserving all essential content. The current structure has significant content overlap between implementation, standards, and integration profiles sections.
+**Platform Developer Issues:**
+- Profile requirements described with narrative text instead of precise specifications
+- Validation requirements spread across multiple sections causing redundancy
+- Implementation steps contain unnecessary context explanation
 
-## High-Level Restructuring Plan
+**Content Creator Issues:**
+- Technical details mixed with creator guidance creating confusion
+- Examples contain excessive implementation details irrelevant to creators
+- Validation steps described with unnecessary technical background
 
-The restructuring will consolidate implementation details into standard files, with each technical standard (like glTF, USD, VRM, OpenXR) having its own dedicated standard document. This approach will:
+## Direct Improvements:
 
-1. Reduce duplication between implementation and standard-specific content
-2. Create clearer pathways for different user types
-3. Ensure comprehensive coverage of each standard
-4. Simplify maintenance by centralizing standard-specific information
+1. **Remove redundant explanations** in implementation guides - particularly in cross-platform-assets.md which repeats concepts already covered elsewhere
 
-## Important Notes
+2. **Simplify code examples** - reduce example verbosity by 30-50% while maintaining complete functionality
 
-- Only specific technical standards will be represented as standards (e.g., glTF, USD, VRM, OpenXR)
-- General categories (like 3D, Geospatial, etc.) will not have dedicated standard files
-- Implementation guides will be reorganized around use cases rather than standards
-- Integration profiles will be consolidated where there is significant overlap
+3. **Standardize terminology** - consistently use either "standard" or "namespace" throughout all documentation
 
-## Key User Journeys
+4. **Convert narrative text to specifications** - replace paragraphs of explanation with concise requirement lists in profile documentation
 
-### New Users (Developer with no prior knowledge)
-- **Needs**: Understanding of basic concepts, quickstart guide, simple examples
-- **Entry Point**: concepts/overview.md
-- **Path**:
-  - Read basic concepts (metadata-fundamentals.md)
-  - Browse implementation guides for relevant use case
-  - Follow step-by-step implementation examples
-  - Examine integration profile for specific asset type
-  - Reference standard documentation as needed
+5. **Separate technical from usage guidance** - clearly delineate creator-focused vs developer-focused content within each document
 
-### Developers (Some familiarity with metadata)
-- **Needs**: Specific implementation details, standard integration, advanced features
-- **Entry Point**: implementation/overview.md or profile-specific page
-- **Path**:
-  - Review integration profile for specific asset type
-  - Follow implementation guide for specific use case
-  - Reference standard documentation for technical details
-  - Validate implementation against requirements
+These changes focus on making existing content more succinct and usable for all user types without adding new material.
 
-### Standards Organizations (Looking to integrate)
-- **Needs**: Understanding how to integrate new standards, reference existing patterns
-- **Entry Point**: standards/overview.md
-- **Path**:
-  - Review existing standard implementations
-  - Examine standard namespace integration patterns
-  - Explore validation requirements
-  - Create standard integration proposal
+## Implementation Plan
 
-### Content Creators (Asset Creation)
-- **Needs**: Profile requirements, validation tools, best practices
-- **Entry Point**: profiles/overview.md
-- **Path**:
-  - Identify relevant profile for asset type
-  - Review required and optional properties
-  - Check specific standard requirements if applicable
-  - Validate asset metadata against requirements
+### Phase 1: Content Reduction & Standardization
 
-## Content Inventory Analysis
+#### Step 1: Remove Redundant Explanations
+**Prompt**: "Review the implementation guides, especially cross-platform-assets.md, interactive-assets.md, and discovery-optimization.md. Remove all redundant explanations that repeat concepts already explained in other sections or documents. Maintain all unique information. Focus on removing paragraph-level duplications while preserving essential information. 
 
-| File | Content Type | Key Topics | Duplication | Recommendation |
-|------|--------------|------------|-------------|----------------|
-| concepts/overview.md | Concept | Core concepts | Minimal | Update to reflect new structure |
-| concepts/metadata-fundamentals.md | Concept | Empty | N/A | Create content |
-| concepts/linked-data.md | Concept | Linked data principles | Minimal | Keep with minor updates |
-| implementation/overview.md | Implementation | Implementation approach | Moderate | Update to focus on use cases |
-| implementation/standards-implementation.md | Implementation | Standard integration | High | Merge with standard files |
-| implementation/assets.md | Implementation | Asset metadata | Moderate | Update as implementation guide |
-| implementation/profiles.md | Implementation | Profile overview | High | Merge with profile documents |
-| standards/overview.md | Technical Standard | Standard integration | High | Update to reflect technical standards |
-| standards/gltf.md | Technical Standard | glTF integration | Moderate | Expand with implementation details |
-| standards/usd.md | Technical Standard | USD integration | Moderate | Expand with implementation details |
-| standards/3d-standards.md | Category | 3D standards | High | Eliminate and create individual standard files |
-| standards/geospatial-standards.md | Category | Geospatial | High | Eliminate and create individual standard files |
-| profiles/overview.md | Profile | Profile usage | Minimal | Update to reflect merged profiles |
-| profiles/wearable.md | Profile | Wearable items | High | Merge with equipable.md |
-| profiles/equipable.md | Profile | Equipable items | High | Merge with wearable.md |
-| profiles/avatar.md | Profile | Avatar representation | Moderate | Potential merge with identity.md |
+After reviewing each document, create a summary of:
+1. What specific redundancies were removed
+2. Any concepts that appear in multiple documents that might benefit from centralization
+3. Any inconsistencies found between repeated explanations
 
-## User Journey Analysis
+Add this summary to a new section called 'Documentation Issues Log' at the end of this document for reference in later steps."
 
-### Primary User Personas
+**Files requiring review**:
+- docs/implementation/cross-platform-assets.md (priority - contains verbose examples and redundant concepts)
+- docs/implementation/interactive-assets.md (lengthy with repeated concepts)
+- docs/implementation/discovery-optimization.md (contains redundant explanations)
+- docs/implementation/nfts.md (check for overlapping content with other guides)
+- docs/implementation/composable.md (check for overlap with cross-platform content)
 
-1. **New Developer**: First-time implementer of metaverse metadata
-   - **Pain Points**: Confusion over where to start, overwhelmed by options
-   - **Current Path**: Often starts at concepts but gets lost between implementation and standards
-   - **Ideal Path**: Clear progression from concepts to implementation guides to specific standards as needed
+#### Step 2: Simplify Code Examples
+**Prompt**: "Simplify code examples in standards/gltf.md, implementation/cross-platform-assets.md, and all integration profile documents. Reduce example verbosity by 30-50% while maintaining complete functionality. Remove unnecessary properties and comments while ensuring each example clearly demonstrates its intended concept.
 
-2. **Experienced Developer**: Looking for specific implementation details
-   - **Pain Points**: Fragmentation between implementation and standard-specific content
-   - **Current Path**: Often bounces between implementation guides and standard documents
-   - **Ideal Path**: Direct access to use case-based guides with integrated standard information
+For each simplified example, document:
+1. What properties were removed and why they were deemed unnecessary
+2. Whether the example still demonstrates all key concepts
+3. Any patterns found across examples that could be standardized
 
-3. **Standards Organization**: Looking to integrate a new standard
-   - **Pain Points**: Lack of clear guidelines for standard integration patterns
-   - **Current Path**: Reviews existing standard documents but finds inconsistent patterns
-   - **Ideal Path**: Clear template for standard integration with consistent examples
+Add these findings to the 'Documentation Issues Log' for use in later validation steps."
 
-4. **Content Creator**: Creating assets with proper metadata
-   - **Pain Points**: Difficulty determining which profiles and standards apply
-   - **Current Path**: Starts with profiles but struggles to find standard-specific requirements
-   - **Ideal Path**: Profile-centric view with clear references to applicable standards
+**Files requiring review**:
+- docs/standards/gltf.md (verbose examples with too many properties)
+- docs/implementation/cross-platform-assets.md (contains unnecessarily complex JSON examples)
+- docs/integration-profiles/avatar.md (complex examples with redundant properties)
+- docs/integration-profiles/attachable.md (examples can be simplified)
+- docs/integration-profiles/composable-3d-nft.md (contains verbose examples)
+- docs/integration-profiles/vehicle.md (examples with excessive detail)
 
-## Action Plan Based on Analysis
+#### Step 3: Standardize Terminology
+**Prompt**: "Standardize terminology across all standards documents and reference/schemas.md by consistently using 'standard' instead of 'namespace' when referring to technical standards. Ensure all technical terms align with the terminology specified in the style guide.
 
-1. **Create dedicated paths for each user type**:
-   - Entry points optimized for each persona
-   - Clear navigation paths through documentation
-   - Contextual next steps at each stage
+After standardizing terminology, create a list of:
+1. All instances where terminology was changed
+2. Any additional inconsistent terms found beyond 'namespace/standard'
+3. Recommended updates to the terminology section of the style guide based on findings
 
-2. **Consolidate duplicate content**:
-   - Move implementation details into standard documents
-   - Merge overlapping profiles
-   - Eliminate category pages in favor of specific standard pages
+Add this list to the 'Documentation Issues Log' to inform the final consistency check phase."
 
-3. **Create missing content**:
-   - Develop fundamentals content for concepts section
-   - Create individual standard files for each technical standard
-   - Build comprehensive validation documentation
+**Files requiring review**:
+- docs/standards/overview.md (uses 'namespace' extensively)
+- docs/standards/gltf.md (inconsistent terminology)
+- docs/standards/usd.md (uses 'namespace' when referring to standards)
+- docs/standards/vrm.md (inconsistent terminology)
+- docs/standards/collada.md (uses 'namespace' throughout)
+- docs/standards/3d-tiles.md (inconsistent term usage)
+- docs/reference/schemas.md (may use inconsistent terminology)
+- docs/reference/glossary.md (ensure terminology definitions are consistent)
 
-4. **Improve cross-references**:
-   - Add contextual links between related documents
-   - Create "see also" sections in each document
-   - Implement consistent linking patterns
+### Phase 2: Content Restructuring
 
-## Phased Implementation
+#### Step 4: Convert Narrative to Specifications
+**Prompt**: "Transform narrative text descriptions in all integration profile documents and validation/schema-validation.md into concise, structured specification lists. Convert explanatory paragraphs into bullet points or tables with clear 'Required' and 'Optional' designations. Reformat existing information without adding new content.
 
-## Phase 1: Structure and Planning [COMPLETED] ✓
+After restructuring each document, document:
+1. Sections where narrative was converted to structured content
+2. Any requirements that were clarified during conversion
+3. Any inconsistencies found between requirements in different documents
 
-### Step 1: Define New Structure and Navigation [COMPLETED] ✓
-- Created clear information architecture separating:
-  - Core concepts (fundamental understanding)
-  - Profiles (asset type requirements)
-  - Standards (technical standard integration)
-  - Implementation guides (practical how-to)
-- Designed user journey maps for different user types:
-  - New developers (entry through concepts)
-  - Experienced developers (entry through implementation)
-  - Standards organizations (entry through standards)
-  - Content creators (entry through profiles)
-- Mapped content relationships and dependencies:
-  - Created hierarchy of concepts building on each other
-  - Identified relationships between profiles and standards
-  - Mapped implementations to profiles and standards
-- Developed navigation structure based on user needs:
-  - Primary navigation centered on content types
-  - Secondary navigation based on relationships
-  - Progressive disclosure of complexity
+Update the 'Documentation Issues Log' with these findings to inform cross-reference improvements in Phase 3."
 
-### Step 2: Create Content Inventory and Audit [COMPLETED] ✓
-- Analyzed all existing documentation:
-  - Identified content overlap and duplication
-  - Assessed completeness and accuracy
-  - Evaluated structure and organization
-- Developed validation criteria for content quality:
-  - Technical accuracy checks
-  - Consistent terminology usage
-  - Example correctness and validity
-  - Cross-reference accuracy
-- Created content gap analysis:
-  - Missing fundamental concepts
-  - Incomplete standard coverage
-  - Profile inconsistencies
-  - Implementation gaps
-- Developed migration strategy for existing content:
-  - Content to preserve as-is
-  - Content to restructure
-  - Content to merge
-  - Content to create new
+**Files requiring review**:
+- docs/integration-profiles/avatar.md (contains narrative descriptions of requirements)
+- docs/integration-profiles/attachable.md (narrative explanations of specs)
+- docs/integration-profiles/basic.md (needs more structured requirements)
+- docs/integration-profiles/digital-twin.md (lengthy narrative explanations)
+- docs/integration-profiles/scene.md (narrative style explanations)
+- docs/validation/schema-validation.md (contains paragraph explanations that should be lists)
 
-## Phase 2: Content Development and Migration [IN PROGRESS]
+#### Step 5: Separate Technical and Usage Guidance
+**Prompt**: "Restructure implementation/overview.md, standards/gltf.md, standards/usd.md, and validation/overview.md to clearly separate technical implementation details from usage guidance. Create distinct sections with appropriate headers for different audience types while maintaining all existing content.
 
-### Step 1: Create Standard-Specific Standard Files with Schema Validation [COMPLETED] ✓
-- Created dedicated standard files for key standards:
-  - glTF standard file with complete documentation
-  - USD standard file with complete documentation
-- Developed JSON Schema validation files for each standard:
-  - gltf.schema.json for validating glTF standard usage
-  - usd.schema.json for validating USD standard usage
-- Created JSON-LD context files for semantic mapping:
-  - gltf.context.jsonld for glTF standard
-  - usd.context.jsonld for USD standard
-- Updated 3d-standards.md overview to reference individual standard files
-- Applied consistent documentation structure across standards
+After separating content for each document, create a summary of:
+1. The specific sections created for different audience types
+2. Any content that was difficult to categorize
+3. Common patterns in how technical vs. usage content is structured
 
-### Step 2: Implement Redirects and Navigation Updates [COMPLETED] ✓
-- Updated sidebar navigation with new structure:
-  - Reorganized sidebar.ts to reflect new architecture
-  - Added implementation guides section with use case focus
-  - Added documentation validation tools
-- Implemented redirects for content reorganization:
-  - Added @docusaurus/plugin-client-redirects to handle redirects
-  - Configured redirects in docusaurus.config.ts file
-- Updated sidebar navigation structure to include new standard files
-- Added explicit notes about moved content with links:
-  - Added content notices to 3d-standards.md 
-  - Added redirects from category pages to specific standards
-- Updated cross-references across all documentation
+Add these findings to the 'Documentation Issues Log' to inform template improvements for future documentation."
 
-### Step 3: Apply Documentation Templates for Consistency [COMPLETED] ✓
-- Applied standard templates to key documentation types:
-  - Applied concept template to metadata-fundamentals.md
-  - Applied profile template to wearable.md
-  - Applied implementation template to assets.md
-- Ensured consistent structure across document types:
-  - Standardized headings and sections
-  - Implemented proper front matter
-  - Added cross-references between related documents
-- Created comprehensive content following template guidelines:
-  - Added clear explanations 
-  - Included practical implementation examples
-  - Added troubleshooting guidance
-  - Listed related documents and next steps
-- Preserved all existing content while improving organization
+**Files requiring review**:
+- docs/implementation/overview.md (mixes technical and usage content)
+- docs/standards/gltf.md (needs clearer separation between developer and creator guidance)
+- docs/standards/usd.md (similar mixing of technical and usage details)
+- docs/validation/overview.md (combines technical details with basic guidance)
+- docs/standards/schema-org.md (contains mixed audience content)
 
-### Step 4: Restructure Implementation Guides Based on Use Cases [COMPLETED] ✓
-- Reorganized implementation guides based on use cases:
-  - Reviewed existing cross-platform-assets.md implementation guide
-  - Reviewed existing interactive-assets.md implementation guide
-  - Reviewed existing discovery-optimization.md implementation guide
-- Created implementation guide template for consistency:
-  - Created templates/implementation-guide-template.md
-  - Documented standard sections for implementation guides
-- Updated implementation/overview.md to use consistent terminology:
-  - Changed "Related Namespaces" section to "Related Standards"
-  - Ensured consistent navigation between guides
-- Verified all implementation guides follow consistent structure:
-  - Each guide covers specific use cases 
-  - Each guide provides step-by-step implementation workflow
-  - Each guide includes complete examples and variations
-  - Each guide links to related standards and concepts
+### Phase 3: Navigation & Consistency Improvements
 
-### Step 5: Update Profile Templates and Documentation [COMPLETED] ✓
-- Applied consistent template across all profiles:
-  - Created templates/profile-template.md with standardized structure
-  - Established consistent sections: Purpose, Required Properties, Optional Properties, Examples, etc.
-  - Ensured all profiles follow the same documentation pattern
-- Merged overlapping profiles:
-  - Combined wearable.md and equipable.md into new attachable.md profile
-  - Consolidated attachment points, interaction capabilities, and technical specifications
-  - Created unified examples that demonstrate both wearable and equipable use cases
-- Updated cross-references and terminology:
-  - Ensured consistent use of "Standards" instead of "Namespaces"
-  - Added proper relationships between profiles
-- Created validation criteria for profile implementations:
-  - Added clear validation steps for each profile
-  - Documented common issues and troubleshooting guidance
+#### Step 6: Enhance Cross-References
+**Prompt**: "Add precise cross-references to all implementation guides and profile documents. Insert links to directly related documents using relative paths. Only reference existing documents that contain information supporting the current topic.
 
-### Step 6: Develop Schema Validation Files [COMPLETED] ✓
-- Created JSON Schema validation files for each profile:
-  - Created schemas/attachable.schema.json with validation rules for the merged attachable profile
-  - Created schemas/avatar.schema.json with comprehensive validation for avatar properties
-  - Ensured schema files validate all required and optional properties
-  - Added proper type checking and constraints for all properties
-- Implemented validation examples and documentation:
-  - Created docs/validation/schema-validation.md with detailed guidance
-  - Added validation code snippets for JavaScript/Node.js and Python
-  - Documented common validation issues and their resolutions
-  - Provided examples for extending schemas with custom properties
-- Created comprehensive validation workflow documentation:
-  - Explained online validation tools
-  - Detailed programmatic validation approaches
-  - Added CI/CD pipeline integration examples
-  - Documented best practices for validation
+Use the 'Documentation Issues Log' from previous steps to identify key relationships between documents. After enhancing cross-references, document:
+1. All added cross-references by document
+2. Any missing documents that should exist but don't
+3. Circular reference chains or dependency issues discovered
 
-### Step 7: Finalize Documentation Structure [COMPLETED] ✓
-- Updated sidebar navigation to reflect new structure:
-  - Modified sidebars.ts to update organization of documentation
-  - Added new validation section to the sidebar
-  - Removed redundant profile entries (wearable.md and equipable.md)
-  - Reorganized tools and reference sections for clarity
-- Created comprehensive landing pages for each section:
-  - Updated standards/overview.md with improved organization and cross-references
-  - Enhanced integration-profiles/overview.md with profile selection guidance
-  - Updated implementation/overview.md with workflow and asset-type guidance
-  - Created validation/overview.md as a central hub for validation resources
-  - Improved concepts/overview.md with user journey maps
-- Implemented cross-references between related documents:
-  - Added related resources sections to all overview pages
-  - Created consistent cross-referencing between standards and profiles
-  - Linked implementation guides to relevant profiles and standards
-  - Added validation references throughout documentation
-- Added search optimization for key terms:
-  - Enhanced document titles and headings for better discoverability
-  - Updated document descriptions with key terms
-  - Added semantic structure to improve search indexing
-  - Ensured consistent terminology across documentation
-- Created visual navigation guides:
-  - Added user journey maps based on different persona types
-  - Created implementation workflow guidance
-  - Added asset type implementation tables
-  - Enhanced section navigation with contextual guides
+Update the 'Documentation Issues Log' with these findings to inform the final quality assurance phase."
 
-## Phase 3: Testing and Refinement [IN PROGRESS]
+**Files requiring review**:
+- All implementation guides (docs/implementation/*.md)
+- All profile documents (docs/integration-profiles/*.md)
+- Key concept documents (docs/concepts/*.md)
+- Priority focus on:
+  - docs/implementation/cross-platform-assets.md
+  - docs/implementation/interactive-assets.md
+  - docs/integration-profiles/avatar.md
+  - docs/integration-profiles/composable-3d-nft.md
 
-### Step 1: Validate All Documents Against Style Guide [IN PROGRESS]
-- Created documentation style guide for MVMD:
-  - Added docs/contributing/style-guide.md with comprehensive guidelines
-  - Defined document naming conventions for files and page titles
-  - Established section structure requirements for different document types
-  - Created terminology consistency rules and preferred terms
-  - Specified example format standards for JSON-LD and code blocks
-  - Added guidelines for links, tables, lists, and visual elements
-  - Provided SEO and accessibility guidelines
-- Created validation script to check documentation:
-  - Added scripts/validate-docs.js with automated validation
-  - Implemented checks for file naming conventions
-  - Added front matter validation
-  - Created heading structure validation logic
-  - Implemented terminology consistency checking
-  - Added code block and JSON validation
-  - Created link validation for internal and external links
-  - Added overall reporting and issue tracking
-- Next tasks:
-  - Run validation against all documentation
-  - Generate comprehensive style compliance report
-  - Identify common issues and prioritize fixes
-  - Begin correcting style inconsistencies
+#### Step 7: Standardize Document Structure
+**Prompt**: "Identify all documents that don't match their appropriate templates (run validate-docs.js to find them). Restructure each non-compliant document to match its document type template exactly, moving existing content into correct sections without adding new material.
 
-### Step 2: Review and Update Content for Consistency [PLANNED]
-- Apply consistent terminology across all documents
-- Update examples to follow standard formats
-- Ensure all links are working correctly
-- Verify front matter in all documents
-- Format all examples according to style guide
+Refer to the 'Documentation Issues Log' for any structural issues identified in earlier phases. After standardizing document structures, document:
+1. All documents modified and what template was applied
+2. Any sections that had to be added or removed
+3. Any content that didn't fit cleanly into the template structure
+
+Add these findings to the 'Documentation Issues Log' to inform the final consistency check."
+
+**Files potentially requiring review (based on inconsistencies):**
+- docs/standards/openxr.md (section structure different from other standards)
+- docs/integration-profiles/interactable.md (incomplete document structure)
+- docs/integration-profiles/future.md (non-standard format)
+- Any files flagged by validation tools
+
+### Phase 4: Quality Assurance
+
+#### Step 8: Run Validation & Fix Issues
+**Prompt**: "Run the validation script (scripts/validate-docs.js) and fix all identified issues across the documentation. Address each error category (front matter, heading structure, terminology, links, code blocks) with minimal changes to correct specific validation errors.
+
+Reference the 'Documentation Issues Log' for known issues from previous phases. After validation, document:
+1. A summary of all validation errors by category
+2. Which errors were fixed and which require further attention
+3. Any patterns in validation errors that suggest systematic issues
+
+Update the 'Documentation Issues Log' with these findings for the final consistency check."
+
+**Files to validate**: All documentation files, with special attention to:
+- Newly modified files from previous steps
+- Files with complex structures or examples
+- Files that may have missed earlier template updates
+
+#### Step 9: Final Consistency Check
+**Prompt**: "Perform a final review of all modified documents for consistency with the style guide. Focus specifically on terminology, heading structure, and code formatting, making only necessary corrections to ensure compliance.
+
+Use the complete 'Documentation Issues Log' from all previous phases as a checklist. After the final review, create a summary report that includes:
+1. All issues addressed throughout the improvement process
+2. Any remaining minor inconsistencies that were deemed acceptable
+3. Recommendations for further documentation improvements
+
+This will serve as the final documentation of the improvement process."
+
+**Files to check:**
+- All modified documents from previous phases
+- Key landing pages and overview documents
+- Documentation that crosses multiple user journeys
+
+## Documentation Issues Log
+
+This section will be populated during the implementation process with findings from each step. It will track:
+
+1. Redundancies and duplications
+2. Inconsistent terminology
+3. Structural problems
+4. Cross-reference gaps
+5. Validation errors
+6. Style guide compliance issues
+
+Each entry should include:
+- File name
+- Issue description
+- Recommended or applied solution
+- Impact on other documents

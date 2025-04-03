@@ -18,4 +18,4 @@ When executing tasks from the restructuring plan, prioritize maintaining all uni
 
 Please be sure the docs you prepare are being saved somewhere, either in the AI_rewrite.md doc, or in an external doc. Always refer to the doc in the AI_rewrite.md file so each step can find and use it where it's needed.
 
-Now, I want you to continue the work with PHASE 2, STEP 4
+Now, I want you to continue the work with PHASE 2, STEP 7
