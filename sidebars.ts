@@ -330,7 +330,7 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
-          id: 'community/overview',
+          id: 'contributors/overview',
           label: 'Overview',
         },
         {
@@ -339,7 +339,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'community/standards-organizations/overview',
+              id: 'contributors/standards-organizations/overview',
               label: 'Overview',
             },
           ]
@@ -350,7 +350,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'community/content-creators/overview',
+              id: 'contributors/content-creators/overview',
               label: 'Overview',
             },
           ]
@@ -361,17 +361,17 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'community/developers/overview',
+              id: 'contributors/developers/overview',
               label: 'Overview',
             },
             {
               type: 'doc',
-              id: 'community/developers/nftr-pro',
+              id: 'contributors/developers/nftr-pro',
               label: 'NFTR Pro',
             },
             {
               type: 'doc',
-              id: 'community/developers/sumset-tech',
+              id: 'contributors/developers/sumset-tech',
               label: 'Sumset Tech',
             },
           ],
