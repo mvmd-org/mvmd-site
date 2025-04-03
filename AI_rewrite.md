@@ -127,7 +127,7 @@ Update the 'Documentation Issues Log' with these findings to inform cross-refere
 - docs/integration-profiles/scene.md (narrative style explanations)
 - docs/validation/schema-validation.md (contains paragraph explanations that should be lists)
 
-#### Step 5: Separate Technical and Usage Guidance
+#### Step 5: Separate Technical and Usage Guidance [NEXT]
 **Prompt**: "Restructure implementation/overview.md, standards/gltf.md, standards/usd.md, and validation/overview.md to clearly separate technical implementation details from usage guidance. Create distinct sections with appropriate headers for different audience types while maintaining all existing content.
 
 After separating content for each document, create a summary of:
