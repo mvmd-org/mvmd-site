@@ -89,7 +89,7 @@ function HomepageHeader() {
                             <div className="flex gap-4">
                                 <Link
                                     className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50"
-                                    to="/quickstart">
+                                    to="/docs/introduction">
                                     Get Started
                                 </Link>
                             </div>
@@ -240,21 +240,21 @@ export default function Home(): JSX.Element {
                                 title="Developers"
                                 description="Implement multiple standards without conflicts, follow ready-to-use integration patterns, validate implementations with clear tools, and future-proof your development."
                                 linkText="Developer Guide"
-                                linkUrl="/docs/guides/developers"
+                                linkUrl="/docs/contributors/developers/overview"
                             />
                             <BenefitCard
                                 icon={<Boxes className="w-8 h-8 text-green-600 dark:text-green-400"/>}
                                 title="Platform Owners"
                                 description="Enable cross-platform asset compatibility, improve discovery and filtering, support rich metadata across your platform, and reduce creator onboarding friction."
                                 linkText="Platform Guide"
-                                linkUrl="/docs/guides/platforms"
+                                linkUrl="/docs/implementation/overview"
                             />
                             <BenefitCard
-                                icon={<LayoutList className="w-8 h-8 text-purple-600 dark:text-purple-400"/>}
+                                icon={<Network className="w-8 h-8 text-purple-600 dark:text-purple-400"/>}
                                 title="Standards Organizations"
-                                description="Increase adoption through practical integration, see how your standard works with others, gather real-world implementation feedback, and extend your standard's reach."
-                                linkText="Standards Organization Guide"
-                                linkUrl="/docs/for-standards-organizations"
+                                description="Increase adoption for your standard, improve implementation quality, collaborate on integration patterns, and gain real-world feedback."
+                                linkText="SDO Guide"
+                                linkUrl="/docs/contributors/standards-organizations/overview"
                             />
                         </div>
                     </div>
