@@ -4,9 +4,9 @@ sidebar_label: Overview
 sidebar_position: 2
 ---
 
-# Standards Organization Overview
+# Overview
 
-## Introduction
+## Introduction for Standards Organizations
 
 The Metaverse Metadata Directory (MVMD) is designed as a collaborative integration framework that enhances and promotes existing metadata standards rather than competing with them. For standards organizations (SDOs), MVMD offers a unique opportunity to increase adoption, improve implementation quality, and discover synergies with complementary standards.
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Content Creator Overview
+# Guide for Content Creators
 
 This guide provides essential information for content creators working with MVMD to ensure their digital assets are properly described, discoverable, and protected.
 

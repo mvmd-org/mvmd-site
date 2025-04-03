@@ -5,6 +5,7 @@ sidebar_label: NFTr.pro
 
 # NFTr.pro
 
+![NFTr.pro](https://nftr.pro/wp-content/uploads/2024/02/nftr-logo.png)
 
 [NFTr.pro](https://nftr.pro) is a pioneering platform dedicated to providing comprehensive tools for minting, trading, and interacting with NFTs on the Chia blockchain.
 
@@ -63,5 +64,6 @@ NFTr.pro's experience in handling various digital asset types and metadata manag
 
 ---
 
-**Website**: [https://nftr.pro](https://nftr.pro)    
+**Website**: [https://nftr.pro](https://nftr.pro)  
+**Platform**: [https://mintr.pro](https://mintr.pro)  
 **Tagline**: NFT tools for creators, by creators
