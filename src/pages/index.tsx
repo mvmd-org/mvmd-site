@@ -88,7 +88,7 @@ function HomepageHeader() {
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Link
-                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50"
+                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition"
                                     to="/docs/introduction">
                                     Get Started
                                 </Link>
@@ -290,8 +290,8 @@ export default function Home(): JSX.Element {
                         </div>
                         <div className="text-center">
                             <Link
-                                to="/concepts/overview"
-                                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">
+                                to="/docs/concepts/overview"
+                                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
                                 Learn More About the Process
                             </Link>
                         </div>
@@ -316,8 +316,8 @@ export default function Home(): JSX.Element {
                         </div>
                         <div className="text-center">
                             <Link
-                                to="/integration-profiles/overview"
-                                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 inline-block">
+                                to="/docs/integration-profiles/overview"
+                                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
                                 View All Integration Profiles
                             </Link>
                         </div>
