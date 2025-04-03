@@ -73,7 +73,7 @@ Add these findings to the 'Documentation Issues Log' for use in later validation
 - docs/integration-profiles/composable-3d-nft.md (contains verbose examples)
 - docs/integration-profiles/vehicle.md (examples with excessive detail)
 
-#### Step 3: Standardize Terminology [NEXT]
+#### Step 3: Standardize Terminology [COMPLETED] - 2024-04-10
 **Prompt**: "Standardize terminology across all standards documents and reference/schemas.md by consistently using 'standard' instead of 'namespace' when referring to technical standards. Ensure all technical terms align with the terminology specified in the style guide.
 
 After standardizing terminology, create a list of:
@@ -340,3 +340,39 @@ Could be simplified to:
 - Remove non-essential technical details that don't affect the concept being demonstrated
 - Create a "Basic Example" and "Complete Example" structure with clear progression of complexity
 - Use comments strategically only for conceptually important points
+
+#### Step 3: Standardize Terminology [COMPLETED] - 2024-04-10
+
+After examining the standards documents and reference materials, these terminology inconsistencies were identified:
+
+1. **Standard vs. Namespace Confusion**:
+   - The glossary defines "Namespace" as "A container for a set of identifiers or properties that helps prevent naming conflicts. In MVMD, different standards (like Schema.org, glTF, etc.) have their own namespaces."
+   - However, in standards documents, "namespace" and "standard" are used interchangeably:
+     - "This page covers how to integrate [FORMAT] into your metadata through namespaces" appears in multiple documents
+     - Sections titled both "Implementing the [FORMAT] Standard" and "Namespace Declaration" appear in the same documents
+     - "Standards as Namespaces" section appears in overview.md
+
+2. **Instances Where Terminology Should Be Changed**:
+   - docs/standards/overview.md: Uses "technical standards as namespaces" (line 10) 
+   - docs/standards/overview.md: Has a section titled "Standards as Namespaces" (line 17)
+   - All individual standard documents have sections titled "Namespace Declaration" that should be standardized to "Standard Declaration" or "Standard Reference"
+   - All standard documents have phrases like "For validating [FORMAT] namespace references" that should be changed to "standard references"
+
+3. **Additional Inconsistent Terms Found**:
+   - "Integration" vs. "Implementation" vs. "Incorporation" are used inconsistently when describing how to use standards
+   - "Schema validation" vs. "Standard validation" vs. "Validation rules" used interchangeably
+   - "JSON-LD context" vs. "@context" vs. "context object" used inconsistently
+   - Different terms used for the same concept: "3D format," "3D standard," and "3D file format"
+
+4. **Terminology Section Updates Needed**:
+   - Need clear distinction between "standard" (the specification itself) and "namespace" (the technical implementation method in JSON-LD)
+   - Clarify that namespaces are the mechanism for incorporating standards in MVMD metadata
+   - Create consistent terminology for validation concepts
+   - Standardize terms for referring to implementation methods
+
+**Recommended Approach**:
+- Use "standard" when referring to specifications like glTF, USD, etc.
+- Use "namespace" only when specifically discussing the JSON-LD implementation mechanism
+- Update overview.md to clarify this distinction ("MVMD implements technical standards through JSON-LD namespaces")
+- Consistently use "standard reference" for sections currently titled "namespace declaration"
+- Create a style guide entry specifically addressing this distinction
