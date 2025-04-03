@@ -88,7 +88,7 @@ function HomepageHeader() {
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Link
-                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition"
+                                    className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition hover:text-blue-600"
                                     to="/docs/introduction">
                                     Get Started
                                 </Link>
@@ -151,10 +151,10 @@ export default function Home(): JSX.Element {
                                                 // Generate link path (lowercase, replace space with hyphen)
                                                 const linkPath = `/standards/${standard.toLowerCase().replace(/ /g, '-')}`;
                                                 return (
-                                                    <Link 
-                                                        to={linkPath} 
-                                                        key={index} 
-                                                        className="block px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow-md text-blue-600 dark:text-blue-400 font-medium border border-gray-200 dark:border-gray-600 hover:scale-105 transition">
+                                                    <Link
+                                                        to={linkPath}
+                                                        key={index}
+                                                        className="block px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow-md text-blue-600 dark:text-blue-400 font-medium border border-gray-200 dark:border-gray-600 hover:scale-105 transition hover:text-blue-600 dark:hover:text-blue-400">
                                                         {standard}
                                                     </Link>
                                                 );
@@ -291,7 +291,7 @@ export default function Home(): JSX.Element {
                         <div className="text-center">
                             <Link
                                 to="/docs/concepts/overview"
-                                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
+                                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block hover:text-white">
                                 Learn More About the Process
                             </Link>
                         </div>
@@ -317,7 +317,7 @@ export default function Home(): JSX.Element {
                         <div className="text-center">
                             <Link
                                 to="/docs/integration-profiles/overview"
-                                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
+                                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block hover:text-gray-800 dark:hover:text-white">
                                 View All Integration Profiles
                             </Link>
                         </div>

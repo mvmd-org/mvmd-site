@@ -40,8 +40,8 @@ main a:not(.button):hover {
   text-decoration: none; /* Remove underline */
 }
 
-/* Remove text color change and underline on button hover */
-main a[class*="bg-"]:hover {
-  color: inherit !important; /* Ensure override */
-  text-decoration: none !important; /* Ensure override */
-}
+/* Remove text color change and underline on button hover (REMOVED - Handled by Tailwind classes) */
+/* main a[class*="bg-"]:hover {
+  color: inherit !important; 
+  text-decoration: none !important; 
+} */
