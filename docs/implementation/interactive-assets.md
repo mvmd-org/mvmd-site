@@ -609,5 +609,6 @@ Each platform handles interactions differently:
 - [Basic Asset Implementation](./assets.md)
 - [Cross-Platform Asset Implementation](./cross-platform-assets.md)
 - [Composable Asset Implementation](./composable.md)
-- [glTF Standard](../standards/gltf.md)
+- [glTF](../standards/gltf.md)
+- [OpenXR](../standards/openxr.md)
 - [Integration Profiles: Interactable](../integration-profiles/interactable.md) 

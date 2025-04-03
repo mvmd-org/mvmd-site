@@ -438,7 +438,7 @@ A comprehensive cross-platform asset implementation:
 ## Related Documentation
 
 - [Basic Asset Implementation](./assets.md)
-- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
-- [glTF Standard](../standards/gltf.md)
-- [USD Standard](../standards/usd.md)
+- [Interactive Asset Implementation](./interactive-assets.md)
+- [glTF](../standards/gltf.md)
+- [USD](../standards/usd.md)
 - [Validation Tools](../tools/validator.md) 

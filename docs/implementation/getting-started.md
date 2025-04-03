@@ -171,17 +171,14 @@ Define different versions of the same asset:
 
 ## Next Steps
 
-After implementing your first metadata:
-
-1. Explore the [Integration Profiles](../integration-profiles/overview.md) for your specific asset type
-2. Review [Implementation Best Practices](./best-practices.md) for optimization tips
+1. Explore [Integration Profiles](../integration-profiles/overview.md) for your asset type
+2. Review [Implementation Use Cases](./overview.md) for your specific needs
 3. Learn about [Standards](../standards/overview.md) for integrating specialized standards
-4. Consider [Composable Assets](./composable.md) for complex, multi-component objects
 
-## Related Namespaces
+## Related Documentation
 
 - [Schema.org](../standards/schema-org.md): Core vocabulary for getting started
-- [3D Standards](../standards/overview.md): Implementation patterns for 3D assets
-- [Geospatial Standards](../standards/overview.md): Location data patterns
+- [3D Standards Overview](../standards/overview.md): Implementation patterns for 3D assets
+- [Geospatial Standards Overview](../standards/overview.md): Location data patterns
 - [Trust & Provenance](../standards/overview.md): Authentication and verification
-- [OpenXR Standards](../standards/openxr.md): XR-specific implementation patterns
+- [OpenXR](../standards/openxr.md): XR-specific implementation patterns

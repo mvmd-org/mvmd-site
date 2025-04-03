@@ -252,6 +252,12 @@ Specify creator royalties:
 - Consider decentralized governance for collection-wide changes
 - Keep complete version history for transparency
 
+## Related Documentation
+
+- [Schema.org](../standards/schema-org.md): Core vocabulary for NFT metadata
+- [Trust & Provenance](../standards/overview.md): Authentication and verification for NFTs
+- [3D Standards Overview](../standards/overview.md): Implementation patterns for 3D NFT assets
+
 ## Related Concepts
 
 - [Types of Assets](../concepts/types-of-assets.md): Schema.org types for different asset types

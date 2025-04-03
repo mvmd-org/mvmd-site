@@ -241,6 +241,14 @@ To ensure your customized profiles remain compatible:
 - **Include version information** for your custom extensions
 - **Test across platforms** that support the base profile
 
+## Related Documentation
+
+- [Schema.org](../standards/schema-org.md): Core vocabulary for metadata profiles
+- [3D Standards Overview](../standards/overview.md): Implementation patterns for 3D assets
+- [Geospatial Standards Overview](../standards/overview.md): Location data profiles
+- [Trust & Provenance](../standards/overview.md): Authentication and verification profiles
+- [OpenXR](../standards/openxr.md): XR-specific implementation profiles
+
 ## Related Resources
 
 - [Types of Assets](../concepts/types-of-assets.md): Understanding different asset categories

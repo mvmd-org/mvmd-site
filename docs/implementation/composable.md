@@ -339,6 +339,14 @@ Specify dependencies between components:
 - Provide graceful degradation for unsupported features
 - Maintain backward compatibility when updating components
 
+## Related Documentation
+
+- [Basic Asset Implementation](./assets.md)
+- [Interactive Asset Implementation](./interactive-assets.md)
+- [Schema.org](../standards/schema-org.md): Core vocabulary for composable assets
+- [3D Standards Overview](../standards/overview.md): Implementation patterns for 3D components
+- [OpenXR](../standards/openxr.md): XR-specific implementation for composable assets
+
 ## Related Concepts
 
 - [Assembly Patterns](./composable/assembly-patterns.md): Detailed assembly strategies

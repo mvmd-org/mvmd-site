@@ -7,9 +7,9 @@ sidebar_position: 8
 :::info Content Reorganization
 As part of our documentation restructuring, the content from this page has been reorganized:
 
-- **Standard-specific implementation details** have been moved to dedicated namespace pages:
-  - [glTF Standard](/do../standards/gltf) - For all glTF-specific implementation details and schema
-  - [USD Standard](/do../standards/usd) - For all USD-specific implementation details and schema
+- **Standard-specific implementation details** have been moved to dedicated standard pages:
+  - [glTF](../standards/gltf.md) - For all glTF-specific implementation details and schema
+  - [USD](../standards/usd.md) - For all USD-specific implementation details and schema
   
 - **Implementation patterns** have been reorganized into use case-focused guides:
   - [Cross-Platform Asset Implementation](./cross-platform-assets.md) - For implementing assets across multiple platforms
@@ -21,11 +21,11 @@ This reorganization provides more targeted guidance based on specific implementa
 
 ## Implementation Approaches by Standard
 
-For standard-specific implementation details, please refer to the appropriate namespace documentation:
+For standard-specific implementation details, please refer to the appropriate standard documentation:
 
-- [glTF Standard](/do../standards/gltf) - For glTF 3D models
-- [USD Standard](/do../standards/usd) - For Universal Scene Description assets
-- [OpenXR Standard](/do../standards/openxr) - For XR experiences
+- [glTF](../standards/gltf.md) - For glTF 3D models
+- [USD](../standards/usd.md) - For Universal Scene Description assets
+- [OpenXR](../standards/openxr.md) - For XR experiences
 
 ## Implementation Approaches by Use Case
 

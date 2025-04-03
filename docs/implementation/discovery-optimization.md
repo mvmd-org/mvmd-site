@@ -480,6 +480,6 @@ Different platforms prioritize different search signals:
 
 - [Basic Asset Implementation](./assets.md)
 - [Cross-Platform Asset Implementation](./cross-platform-assets.md)
-- [Schema.org Standard](../standards/schema-org.md)
+- [Schema.org](../standards/schema-org.md)
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
 - [Types of Assets](../concepts/types-of-assets.md) 

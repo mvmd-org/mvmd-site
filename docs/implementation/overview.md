@@ -85,7 +85,7 @@ The general workflow for implementing MVMD metadata follows these steps:
 3. **Incorporate Technical Standards**: Add necessary [standard-specific properties](../standards/overview.md)
 4. **Implement Required Properties**: Ensure all required properties are included
 5. **Add Optional Properties**: Enhance with optional properties as needed
-6. **Validate Your Metadata**: Use our [schema validation tools](../validation/schema-validation.md)
+6. **Validate Your Metadata**: Use our [validation tools](../tools/validator.md)
 7. **Test Cross-Platform**: Verify functionality across target platforms
 
 ## Implementation Examples by Asset Type
