@@ -89,7 +89,7 @@ function HomepageHeader() {
                             <div className="flex gap-4 justify-center">
                                 <Link
                                     className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition cta-get-started"
-                                    to="/docs/introduction">
+                                    to="/introduction">
                                     Get Started
                                 </Link>
                             </div>
@@ -290,7 +290,7 @@ export default function Home(): JSX.Element {
                         </div>
                         <div className="text-center">
                             <Link
-                                to="/docs/concepts/overview"
+                                to="/concepts/overview"
                                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
                                 Learn More About the Process
                             </Link>
@@ -316,7 +316,7 @@ export default function Home(): JSX.Element {
                         </div>
                         <div className="text-center">
                             <Link
-                                to="/docs/integration-profiles/overview"
+                                to="/integration-profiles/overview"
                                 className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition inline-block">
                                 View All Integration Profiles
                             </Link>
