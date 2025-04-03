@@ -214,11 +214,6 @@ const sidebars: SidebarsConfig = {
           id: 'implementation/best-practices',
           label: 'Best Practices',
         },
-        {
-          type: 'doc',
-          id: 'implementation/standards-implementation',
-          label: 'Standards Implementation',
-        },
       ],
     },
     {
