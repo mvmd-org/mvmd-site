@@ -54,12 +54,6 @@ Additional profiles under consideration:
 
 ## Contributing
 
-We welcome contributions to these planned profiles. If you're interested in helping develop any of these profiles:
+If you have ideas for new profiles or want to contribute to existing ones, please let us know!
 
-1. Join our community discussions
-2. Review existing standards
-3. Share implementation experience
-4. Propose technical specifications
-5. Test draft implementations
-
-See our [Contribution Guide](../community/contributing.md) for more details on how to get involved.
+See our [Contribution Guide](../contributors/overview.md) for more details on how to get involved.
