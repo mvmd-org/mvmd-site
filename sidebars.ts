@@ -335,7 +335,7 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
-          id: 'community/contributing',
+          id: 'community/overview',
           label: 'Overview',
         },
         {
