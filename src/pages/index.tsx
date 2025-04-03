@@ -395,8 +395,8 @@ export default function Home(): JSX.Element {
                                 <div>
                                     <p className="font-semibold mb-3 dark:text-white">Supporting Organizations:</p>
                                     <div className="flex flex-wrap gap-4">
-                                        <img src="/img/nftr-logo.png" alt="NFTr.pro" className="h-10 object-contain" />
                                         <img src="/img/sumset-tech-logo.png" alt="SumSet.Tech" className="h-10 object-contain" />
+                                        <img src="/img/nftr-logo.png" alt="NFTr.pro" className="h-10 object-contain" />
                                     </div>
                                 </div>
                             </div>
