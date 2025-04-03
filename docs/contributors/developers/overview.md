@@ -4,7 +4,7 @@ sidebar_label: Overview
 sidebar_position: 1
 ---
 
-# Overview
+# Developers Overview
 
 The Metaverse Metadata Directory (MVMD) is supported by organizations committed to building an interoperable Metaverse through standardized metadata. These organizations contribute their expertise and resources to help shape and maintain metadata standards that work for real-world applications.
 

@@ -3,7 +3,7 @@ title: Overview
 sidebar_label: Overview
 ---
 
-# Overview
+# Contributors Overview
 
 ## Overview
 

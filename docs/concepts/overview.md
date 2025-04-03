@@ -22,7 +22,7 @@ All MVMD metadata requires:
 
 [Learn more about Metadata Fundamentals](./metadata-fundamentals.md)
 
-### Types of Assets
+### Asset Types
 
 MVMD supports various Schema.org types to describe different kinds of assets:
 
@@ -31,7 +31,7 @@ MVMD supports various Schema.org types to describe different kinds of assets:
 - **Place/VirtualLocation**: For physical and virtual locations
 - **Event**: For timed experiences and activities
 
-[Learn about Types of Assets](./types-of-assets.md)
+[Learn about Asset Types](./metadata/types-of-assets.md)
 
 ### Linking vs. Embedding
 

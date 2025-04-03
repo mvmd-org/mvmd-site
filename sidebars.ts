@@ -49,13 +49,14 @@ const sidebars: SidebarsConfig = {
               id: 'concepts/metadata/schema-org',
               label: 'Schema.org',
             },
+            {
+              type: 'doc',
+              id: 'concepts/metadata/types-of-assets',
+              label: 'Asset Types',
+            },
           ],
         },
-        {
-          type: 'doc',
-          id: 'concepts/types-of-assets',
-          label: 'Asset Types',
-        },
+        
         {
           type: 'doc',
           id: 'concepts/linking-vs-embedding',
@@ -303,24 +304,8 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'reference/api',
-          label: 'API',
-        },
-        {
-          type: 'doc',
           id: 'reference/glossary',
           label: 'Glossary',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tools',
-      items: [
-        {
-          type: 'doc',
-          id: 'tools/validator',
-          label: 'Validator',
         },
       ],
     },
@@ -332,28 +317,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'contributors/overview',
           label: 'Overview',
-        },
-        {
-          type: 'category',
-          label: 'Standards Organizations',
-          items: [
-            {
-              type: 'doc',
-              id: 'contributors/standards-organizations/overview',
-              label: 'Overview',
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Content Creators',
-          items: [
-            {
-              type: 'doc',
-              id: 'contributors/content-creators/overview',
-              label: 'Overview',
-            },
-          ]
         },
         {
           type: 'category',
@@ -375,6 +338,39 @@ const sidebars: SidebarsConfig = {
               label: 'Sumset Tech',
             },
           ],
+        },
+        {
+          type: 'category',
+          label: 'Content Creators',
+          items: [
+            {
+              type: 'doc',
+              id: 'contributors/content-creators/overview',
+              label: 'Overview',
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Standards Organizations',
+          items: [
+            {
+              type: 'doc',
+              id: 'contributors/standards-organizations/overview',
+              label: 'Overview',
+            },
+          ]
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Tools',
+      items: [
+        {
+          type: 'doc',
+          id: 'tools/validator',
+          label: 'Validator',
         },
       ],
     },

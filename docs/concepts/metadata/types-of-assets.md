@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Types of Assets
+# Asset Types
 
 MVMD uses Schema.org types to describe different kinds of metaverse assets. This guide covers the most important types and when to use them.
 
