@@ -5,8 +5,6 @@ sidebar_label: Sumset Tech
 
 # Sumset Tech
 
-![Sumset Tech](https://sumset.tech/wp-content/uploads/2024/01/sumset-tech-logo-2000px-black.png)
-
 [Sumset Tech](https://sumset.tech) is a technology company specializing in creating bespoke turnkey solutions by leveraging blockchain, web3, and spatial computing technologies.
 
 ## About

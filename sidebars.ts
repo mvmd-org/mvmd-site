@@ -303,11 +303,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'reference/api',
-          label: 'API',
-        },
-        {
-          type: 'doc',
           id: 'reference/glossary',
           label: 'Glossary',
         },

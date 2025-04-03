@@ -3,9 +3,8 @@ title: Overview
 sidebar_label: Overview
 ---
 
-# Overview
+# Contributors Overview
 
-## Overview
 
 The Metaverse Metadata Directory (MVMD) is an open, collaborative project. We welcome contributions from individuals, organizations, and standards bodies to help improve the framework, documentation, and tools.
 

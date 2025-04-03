@@ -4,7 +4,7 @@ sidebar_label: Overview
 sidebar_position: 1
 ---
 
-# Overview
+# Developer Overview
 
 The Metaverse Metadata Directory (MVMD) is supported by organizations committed to building an interoperable Metaverse through standardized metadata. These organizations contribute their expertise and resources to help shape and maintain metadata standards that work for real-world applications.
 
@@ -17,7 +17,7 @@ Supporting MVMD offers significant benefits:
 * **Technical Advantages**: Get early access to new features/profiles, priority review for standard integration, and access to implementation resources.
 * **Community Engagement**: Network with key stakeholders, participate in workshops, and share expertise.
 
-## Current Supporters
+## Developers
 
 ### [Sumset Tech](./sumset-tech)
 
