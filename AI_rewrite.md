@@ -166,15 +166,21 @@ Update the 'Documentation Issues Log' with these findings to inform the final qu
   - docs/integration-profiles/avatar.md
   - docs/integration-profiles/composable-3d-nft.md
 
-#### Step 7: Standardize Document Structure
-**Prompt**: "Identify all documents that don't match their appropriate templates (run validate-docs.js to find them). Restructure each non-compliant document to match its document type template exactly, moving existing content into correct sections without adding new material.
+#### Step 7: Standardize Document Structure [IN PROGRESS] [NEXT]
+**Prompt**: "Create a consistent structure across all documentation types. Develop standard templates for:
+1. Implementation Guides 
+2. Integration Profiles
+3. Standards Documents
+4. Validation Documents
 
-Refer to the 'Documentation Issues Log' for any structural issues identified in earlier phases. After standardizing document structures, document:
-1. All documents modified and what template was applied
-2. Any sections that had to be added or removed
-3. Any content that didn't fit cleanly into the template structure
+Each template should include standard sections like Overview, Requirements, Examples, and Related Resources. Ensure headings use consistent levels and language across all documents. Document structure should follow a clear hierarchy from most important information to supporting details.
 
-Add these findings to the 'Documentation Issues Log' to inform the final consistency check."
+For each document type, identify:
+1. Required sections that must be included
+2. Optional sections based on content needs
+3. Standard naming conventions for sections
+4. Heading level hierarchy rules
+5. Placement guidelines for examples and references"
 
 **Files potentially requiring review (based on inconsistencies):**
 - docs/standards/openxr.md (section structure different from other standards)
