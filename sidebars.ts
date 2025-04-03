@@ -27,11 +27,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'quickstart',
-          label: 'Quick Start',
-        },
-        {
-          type: 'doc',
           id: 'for-standards-organizations',
           label: 'For Standards Organizations',
         },
