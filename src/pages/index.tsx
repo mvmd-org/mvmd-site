@@ -170,7 +170,7 @@ export default function Home(): JSX.Element {
                 <div className="py-20 bg-gray-50 dark:bg-gray-800">
                     <div className="container mx-auto px-6">
                         <h2 className="text-4xl font-bold mb-6 dark:text-white text-center ">The MVMD Approach</h2>
-                        <p className="text-gray-700 text-2xl dark:text-gray-300 mb-12 text-center md:text-left">
+                        <p className="text-gray-700 text-3xl dark:text-gray-300 mb-12 md:text-left">
                             MVMD establishes formal integration pathways between established metadata standards through a structured architecture.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
