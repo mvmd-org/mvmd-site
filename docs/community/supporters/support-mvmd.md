@@ -1,6 +1,7 @@
 ---
 title: Support MVMD
 sidebar_label: Support MVMD
+sidebar_position: 1
 ---
 
 # Support MVMD
@@ -18,15 +19,15 @@ Supporting MVMD offers significant benefits:
 
 ## Current Supporters
 
-### [Sumset Tech](../community/supporters/sumset-tech)
+### [Sumset Tech](./sumset-tech)
 
 * **Tagline**: Building the tech behind your experiences
-* **Contribution**: Specializes in blockchain, web3, and spatial computing solutions. Founding supporter and key collaborator. [Learn more →](../community/supporters/sumset-tech)
+* **Contribution**: Specializes in blockchain, web3, and spatial computing solutions. Founding supporter and key collaborator. [Learn more →](./sumset-tech)
 
-### [NFTr.pro](../community/supporters/nftr-pro)
+### [NFTr.pro](./nftr-pro)
 
 * **Tagline**: NFT tools for creators, by creators
-* **Contribution**: Provides tools for minting and managing NFTs on the Chia blockchain, offering valuable insights into real-world NFT metadata needs. [Learn more →](../community/supporters/nftr-pro)
+* **Contribution**: Provides tools for minting and managing NFTs on the Chia blockchain, offering valuable insights into real-world NFT metadata needs. [Learn more →](./nftr-pro)
 
 *(Note: Metaverse Standards Forum mentioned previously but lacks a dedicated page - could be added here or as a separate page if details are available)*
 

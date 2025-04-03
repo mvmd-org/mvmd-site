@@ -317,17 +317,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Supporters',
-      items: [
-        {
-          type: 'doc',
-          id: 'Supporters/Support MVMD',
-          label: 'Support MVMD',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Community',
       items: [
         {
@@ -355,6 +344,11 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Supporters',
           items: [
+            {
+              type: 'doc',
+              id: 'community/supporters/support-mvmd',
+              label: 'Support MVMD',
+            },
             {
               type: 'doc',
               id: 'community/supporters/nftr-pro',
