@@ -344,15 +344,9 @@ const sidebars: SidebarsConfig = {
           label: 'Standards Organizations',
         },
         {
-          type: 'category',
-          label: 'Guides',
-          items: [
-            {
-              type: 'doc',
-              id: 'community/guides/content-creators',
-              label: 'For Content Creators',
-            },
-          ],
+          type: 'doc',
+          id: 'community/content-creators',
+          label: 'Content Creators',
         },
         {
           type: 'category',

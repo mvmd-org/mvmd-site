@@ -1,10 +1,10 @@
 ---
-title: Guide for Standards Organizations
-sidebar_label: For Standards Organizations
+title: Standards Organizations
+sidebar_label: Standards Organizations
 sidebar_position: 2
 ---
 
-# MVMD Guide for Standards Organizations
+# Guide for Standards Organizations
 
 ## Introduction for Standards Organizations
 
