@@ -78,15 +78,15 @@ function HomepageHeader() {
                             className="h-full w-full object-contain"
                         />
                     </div>
-                    <div className="flex-1 px-6 py-24">
+                    <div className="flex-1 px-6 py-24 text-center">
                         <div className="max-w-3xl">
-                            <h1 className="text-5xl font-bold mb-6">
+                            <h1 className="text-6xl font-bold mb-6">
                                 <strong>Metaverse Metadata Directory</strong>
                             </h1>
                             <p className="text-xl mb-8">
                                 {siteConfig.tagline}
                             </p>
-                            <div className="flex gap-4">
+                            <div className="flex gap-4 justify-center">
                                 <Link
                                     className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50"
                                     to="/docs/introduction">
