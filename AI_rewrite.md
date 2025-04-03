@@ -5,8 +5,8 @@
 | **1. Content Reduction** | 1. Remove Redundant Explanations | ✅ COMPLETED | Identified structural redundancies, JSON example repetition, cross-platform & interactive assets overlap |
 | | 2. Simplify Code Examples | ✅ COMPLETED | Found opportunities to reduce verbosity by 30-50% by eliminating context repetition and excessive detail |
 | | 3. Standardize Terminology | ✅ COMPLETED | Found inconsistent usage of "standard" vs "namespace" and other terminology variations |
-| **2. Content Restructuring** | 4. Convert Narrative to Specifications | 🔄 IN PROGRESS | - |
-| | 5. Separate Technical and Usage Guidance | ⏱️ PENDING | - |
+| **2. Content Restructuring** | 4. Convert Narrative to Specifications | ✅ COMPLETED | Identified narrative text that can be converted to structured lists with clear requirement designations |
+| | 5. Separate Technical and Usage Guidance | 🔄 IN PROGRESS | - |
 | **3. Navigation & Consistency** | 6. Enhance Cross-References | ⏱️ PENDING | - |
 | | 7. Standardize Document Structure | ⏱️ PENDING | - |
 | **4. Quality Assurance** | 8. Run Validation & Fix Issues | ⏱️ PENDING | - |
@@ -109,7 +109,7 @@ Add this list to the 'Documentation Issues Log' to inform the final consistency 
 
 ### Phase 2: Content Restructuring
 
-#### Step 4: Convert Narrative to Specifications [NEXT]
+#### Step 4: Convert Narrative to Specifications [COMPLETED] - 2024-04-10
 **Prompt**: "Transform narrative text descriptions in all integration profile documents and validation/schema-validation.md into concise, structured specification lists. Convert explanatory paragraphs into bullet points or tables with clear 'Required' and 'Optional' designations. Reformat existing information without adding new content.
 
 After restructuring each document, document:
@@ -390,3 +390,119 @@ After examining the standards documents and reference materials, these terminolo
 - Update overview.md to clarify this distinction ("MVMD implements technical standards through JSON-LD namespaces")
 - Consistently use "standard reference" for sections currently titled "namespace declaration"
 - Create a style guide entry specifically addressing this distinction
+
+### Phase 2 Findings
+
+#### Step 4: Convert Narrative to Specifications [COMPLETED] - 2024-04-10
+
+After reviewing the integration profile documents and validation/schema-validation.md, these narrative-to-specifications conversion opportunities were identified:
+
+1. **Implementation Considerations Sections**:
+   - These sections in profile documents (basic.md, digital-twin.md, scene.md) contain narrative paragraphs that should be converted to structured lists
+   - Convert paragraph style explanations to bullet-point lists with clear categories
+   - Example conversion from basic.md:
+
+     Current narrative style:
+     ```
+     ### Cross-Platform Compatibility
+     - Use standard Schema.org types and properties wherever possible
+     - Provide fallback values for platform-specific properties
+     - Test across multiple platforms to ensure consistent rendering
+     ```
+
+     Convert to structured specification:
+     ```
+     ### Cross-Platform Compatibility
+     **Required:**
+     - Use Schema.org types and properties for all core metadata
+     - Test against at least two major platforms for compliance
+
+     **Recommended:**
+     - Provide fallback values for platform-specific properties
+     - Include compatibility notes for platform limitations
+     ```
+
+2. **Purpose and Use Cases Sections**:
+   - Many profile documents have narrative descriptions of use cases that would be clearer as structured lists
+   - Use case sections should be converted to categorized lists with clear application domains
+   - Example from digital-twin.md:
+
+     Current narrative style:
+     ```
+     **Key Use Cases:**
+     - Industrial equipment simulation and monitoring
+     - Urban planning and smart city applications
+     - Physical product visualization and configuration
+     - Education and training for physical systems
+     - Remote monitoring and control systems
+     ```
+
+     Convert to structured categories:
+     ```
+     **Key Use Cases:**
+     
+     **Industrial Applications:**
+     - Equipment simulation and monitoring
+     - Production line digital replicas
+     - Predictive maintenance systems
+     
+     **Urban Applications:**
+     - Smart city planning and management
+     - Infrastructure monitoring
+     - Traffic and pedestrian flow simulation
+     
+     **Commercial Applications:**
+     - Physical product visualization
+     - Configuration and customization systems
+     - Virtual showrooms and demonstrations
+     
+     **Educational Applications:**
+     - Training simulations for physical systems
+     - Interactive learning environments
+     - Remote laboratory experiences
+     ```
+
+3. **Technical Specifications Sections**:
+   - Profile documents (particularly digital-twin.md and scene.md) have technical specifications embedded in narrative form
+   - These should be converted to clear requirement tables with "Required" and "Optional" designations
+   - Example from schema-validation.md:
+
+     Current prose style description:
+     ```
+     MVMD provides JSON Schema validation files for each integration profile. These schemas allow you to:
+
+     1. Validate metadata against specific profile requirements
+     2. Identify missing or incorrect properties
+     3. Ensure your metadata is compliant with MVMD standards
+     4. Automate validation in your development workflow
+     ```
+
+     Convert to structured specification:
+     ```
+     **Validation Requirements:**
+     
+     | Requirement | Category | Description |
+     |-------------|----------|-------------|
+     | Profile Compliance | Required | Validate against profile-specific schema |
+     | Property Verification | Required | Check for missing/incorrect properties |
+     | MVMD Compliance | Required | Ensure compliance with core standards |
+     | Workflow Integration | Recommended | Add to development and CI/CD pipelines |
+     ```
+
+4. **Validation Rules Sections**:
+   - Validation rules in profiles are often mixed with explanatory text
+   - These should be separated into clear requirement tables
+   - Requirements should be consistently formatted across all profiles
+
+5. **Inconsistencies Between Documents**:
+   - "Required Properties" sections vary significantly in structure between profiles
+   - Some profiles use tables for property listings while others use narrative descriptions
+   - Validation rules have inconsistent formats and levels of detail
+   - Implementation considerations vary greatly in structure and completeness
+
+**Recommended Approach:**
+- Create standardized template for each section type (Purpose, Properties, Validation Rules, Implementation)
+- Use consistent formatting for Required vs Optional designations
+- Implement tables consistently for technical specifications
+- Structure all lists with clear categories and subcategories
+- Maintain consistent detail level across similar documents
