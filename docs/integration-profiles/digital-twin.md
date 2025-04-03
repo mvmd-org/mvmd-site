@@ -339,4 +339,4 @@ The Digital Twin profile defines metadata for digital representations of physica
 
 - Review [Integration Patterns](../implementation/integration-patterns.md) for physical-digital synchronization
 - See [Data Storage Best Practices](../implementation/data-storage.md) for time-series data management
-- Check [Validation Tools](../reference/validator.md) for testing 
+- Check [Validation Tools](../tools/validator.md) for testing 

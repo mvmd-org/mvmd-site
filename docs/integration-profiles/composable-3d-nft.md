@@ -228,7 +228,7 @@ For detailed implementation patterns for 3D models, including glTF-specific prop
 
 - Review [Environment Profile](./scene.md) for spatial context
 - Check [Avatar Profile](./avatar.md) for character-specific properties
-- See [Validation Tools](../reference/validator.md) for testing
+- See [Validation Tools](../tools/validator.md) for testing
 
 ## Related Namespaces
 

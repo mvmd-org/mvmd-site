@@ -51,4 +51,4 @@ Maximize the visibility of your assets:
 - Review our [Quickstart Guide](../../quickstart.md) for basic implementation
 - Explore [Asset Types](../../concepts/types-of-assets.md) to understand different metadata requirements
 - Check out [Implementation Examples](../../implementation/overview.md) for practical guidance
-- Learn about [Validation Tools](../../reference/validator.md) to ensure compliance 
+- Learn about [Validation Tools](../../tools/validator.md) to ensure compliance 

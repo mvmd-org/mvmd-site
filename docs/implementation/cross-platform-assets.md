@@ -441,4 +441,4 @@ A comprehensive cross-platform asset implementation:
 - [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
 - [glTF Standard](../standards/gltf.md)
 - [USD Standard](../standards/usd.md)
-- [Validation Tools](../reference/validator.md) 
+- [Validation Tools](../tools/validator.md) 

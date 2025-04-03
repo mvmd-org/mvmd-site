@@ -34,10 +34,9 @@ MVMD provides multiple validation resources to help ensure your metadata is corr
 
 The [MVMD Validator Tool](../tools/validator.md) provides an online interface for validating your metadata:
 
-- **Interactive Validation**: Paste your JSON-LD to validate instantly
-- **Multiple Profiles**: Select which profile to validate against
-- **Detailed Feedback**: Get specific error messages and suggestions
-- **Example Correction**: See corrected examples of common issues
+- Paste your JSON-LD directly into the editor
+- Validate against Schema.org definitions
+- Get detailed error reports and suggestions
 
 [Use the Validator Tool →](../tools/validator.md)
 

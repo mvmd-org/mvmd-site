@@ -108,7 +108,7 @@ Establish clear relationships between components:
 ### 5. Validate Your Metadata
 
 Once you've created your metadata:
-1. Use the [MVMD Validator](../reference/validator.md)
+1. Use the [MVMD Validator](../tools/validator.md)
 2. Check Schema.org property usage
 3. Verify standard-specific properties
 4. Test integration with target platforms

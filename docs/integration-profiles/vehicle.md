@@ -593,4 +593,4 @@ The Vehicle Integration Profile extends the Basic Profile with properties specif
 
 - Review [Avatar Profile](./avatar.md) for passenger integration
 - See [glTF Standard](../standards/overview.md) for model specifications
-- Check [Validation Tools](../reference/validator.md) for testing 
+- Check [Validation Tools](../tools/validator.md) for testing 

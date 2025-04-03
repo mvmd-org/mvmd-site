@@ -105,4 +105,4 @@ A basic metadata example showing fundamental structure:
 
 - [Getting Started](../implementation/getting-started.md): Implementing your first metadata
 - [Schema.org Standard](../standards/schema-org.md): Core vocabulary implementation
-- [Validation Tools](../reference/validator.md): Tools for validating your metadata 
+- [Validation Tools](../tools/validator.md): Tools for validating your metadata 

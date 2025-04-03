@@ -40,7 +40,7 @@ MVMD uses Schema.org and JSON-LD as its foundation because:
 ### For Content Creators
 1. Start with [Core Concepts](./concepts/overview.md) to understand the basics
 2. Use [Integration Profiles](./integration-profiles/basic.md) for your first implementation
-3. Validate your metadata using our [tools](./reference/validator.md)
+3. Validate your metadata using our [tools](./tools/validator.md)
 
 ### For Developers
 1. Begin with [Core Concepts](./concepts/overview.md) for fundamentals
@@ -65,7 +65,7 @@ Our documentation is organized to help you find information quickly:
 - **[Namespaces]../standards/overview.md)**: Standards integration and embedding 
 - **[Implementation](./implementation/overview.md)**: Practical implementation guidance
 - **[Integration Profiles](./integration-profiles/overview.md)**: Ready-to-use templates
-- **[Reference](./reference/validator.md)**: Technical details and tools
+- **[Reference](./tools/validator.md)**: Technical details and tools
 
 ## Next Steps
 
@@ -74,5 +74,5 @@ Choose the path that matches your needs:
 1. **Understanding the Basics**: Start with [Core Concepts](./concepts/overview.md)
 2. **Implementing Quickly**: Jump to [Integration Profiles](./integration-profiles/overview.md)
 3. **Integrating Standards**: Explore [Namespaces]../standards/overview.md)
-4. **Validating Metadata**: Use our [Validator](./reference/validator.md)
+4. **Validating Metadata**: Use our [Validator](./tools/validator.md)
 
