@@ -169,15 +169,15 @@ export default function Home(): JSX.Element {
                 {/* Solution Overview Section */}
                 <div className="py-20 bg-gray-50 dark:bg-gray-800">
                     <div className="container mx-auto px-6">
+                        <h2 className="text-3xl font-bold mb-6 dark:text-white text-center md:text-left">The MVMD Approach</h2>
+                        <p className="text-gray-700 dark:text-gray-300 mb-12 text-center md:text-left">
+                            MVMD establishes formal integration pathways between established metadata standards through a structured architecture.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="order-2 md:order-1 flex justify-center">
                                 <MetaverseSchematic />
                             </div>
                             <div className="order-1 md:order-2">
-                                <h2 className="text-3xl font-bold mb-6 dark:text-white">The MVMD Approach</h2>
-                                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                                    MVMD establishes formal integration pathways between established metadata standards through a structured architecture.
-                                </p>
                                 <ul className="space-y-4">
                                     <li className="flex items-start">
                                         <div className="mr-4 mt-1 flex-shrink-0">
