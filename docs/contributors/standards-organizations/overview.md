@@ -1,10 +1,10 @@
 ---
-title: Standards Organizations
-sidebar_label: Standards Organizations
+title: Overview
+sidebar_label: Overview
 sidebar_position: 2
 ---
 
-# Guide for Standards Organizations
+# Overview
 
 ## Introduction for Standards Organizations
 

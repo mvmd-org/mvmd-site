@@ -1,9 +1,9 @@
 ---
-title: Contributing to MVMD
-sidebar_label: Contributing
+title: Overview
+sidebar_label: Overview
 ---
 
-# Contributing to MVMD
+# Overview
 
 ## Overview
 
