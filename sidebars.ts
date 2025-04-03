@@ -322,8 +322,8 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'community/for-standards-organizations',
-          label: 'Standards Organizations',
+          id: 'community/standards-organizations',
+          label: 'For Standards Organizations',
         },
         {
           type: 'category',
