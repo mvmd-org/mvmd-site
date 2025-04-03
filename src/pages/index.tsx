@@ -131,9 +131,6 @@ export default function Home(): JSX.Element {
                                     <li><strong><a href="https://cesium.com/ion/3d-tiles" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">3D Tiles</a></strong> manages large-scale geospatial data</li>
                                     <li><strong><a href="https://c2pa.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">C2PA</a></strong> handles content authentication</li>
                                 </ul>
-                                <p className="text-gray-700 dark:text-gray-300">
-                                    These standards excel in their domains but achieving interoperability between them requires additional integration work.
-                                </p>
                             </div>
                             <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg flex justify-center">
                                 <div className="relative w-full max-w-md">
@@ -163,6 +160,9 @@ export default function Home(): JSX.Element {
                                 </div>
                             </div>
                         </div>
+                        <p className="text-gray-700 dark:text-gray-300 mt-12 text-center">
+                            These standards excel in their domains but achieving interoperability between them requires additional integration work.
+                        </p>
                     </div>
                 </div>
 
