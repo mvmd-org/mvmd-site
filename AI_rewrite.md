@@ -95,7 +95,7 @@ Add this list to the 'Documentation Issues Log' to inform the final consistency 
 
 ### Phase 2: Content Restructuring
 
-#### Step 4: Convert Narrative to Specifications
+#### Step 4: Convert Narrative to Specifications [NEXT]
 **Prompt**: "Transform narrative text descriptions in all integration profile documents and validation/schema-validation.md into concise, structured specification lists. Convert explanatory paragraphs into bullet points or tables with clear 'Required' and 'Optional' designations. Reformat existing information without adding new content.
 
 After restructuring each document, document:
