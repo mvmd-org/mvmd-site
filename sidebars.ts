@@ -72,61 +72,90 @@ const sidebars: SidebarsConfig = {
           id: 'standards/overview',
           label: 'Overview',
         },
-        // Individual standard pages
         {
-          type: 'doc',
-          id: 'standards/gltf',
-          label: 'glTF',
+          type: 'category',
+          label: '3D Asset Formats',
+          items: [
+            {
+              type: 'doc',
+              id: 'standards/gltf',
+              label: 'glTF',
+            },
+            {
+              type: 'doc',
+              id: 'standards/vrm',
+              label: 'VRM',
+            },
+            {
+              type: 'doc',
+              id: 'standards/fbx',
+              label: 'FBX',
+            },
+            {
+              type: 'doc',
+              id: 'standards/collada',
+              label: 'COLLADA',
+            },
+            {
+              type: 'doc',
+              id: 'standards/x3d',
+              label: 'X3D',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'standards/usd',
-          label: 'USD',
+          type: 'category',
+          label: 'Scene Description',
+          items: [
+            {
+              type: 'doc',
+              id: 'standards/usd',
+              label: 'USD',
+            },
+            {
+              type: 'doc',
+              id: 'standards/usdz',
+              label: 'USDZ',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'standards/usdz',
-          label: 'USDZ',
+          type: 'category',
+          label: 'Geospatial',
+          items: [
+            {
+              type: 'doc',
+              id: 'standards/cityjson',
+              label: 'CityJSON',
+            },
+            {
+              type: 'doc',
+              id: 'standards/3d-tiles',
+              label: '3D Tiles',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'standards/vrm',
-          label: 'VRM',
+          type: 'category',
+          label: 'Trust & Provenance',
+          items: [
+            {
+              type: 'doc',
+              id: 'standards/c2pa',
+              label: 'C2PA',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'standards/fbx',
-          label: 'FBX',
-        },
-        {
-          type: 'doc',
-          id: 'standards/collada',
-          label: 'COLLADA',
-        },
-        {
-          type: 'doc',
-          id: 'standards/x3d',
-          label: 'X3D',
-        },
-        {
-          type: 'doc',
-          id: 'standards/openxr',
-          label: 'OpenXR',
-        },
-        {
-          type: 'doc',
-          id: 'standards/cityjson',
-          label: 'CityJSON',
-        },
-        {
-          type: 'doc',
-          id: 'standards/3d-tiles',
-          label: '3D Tiles',
-        },
-        {
-          type: 'doc',
-          id: 'standards/c2pa',
-          label: 'C2PA',
+          type: 'category',
+          label: 'Extended Reality',
+          items: [
+            {
+              type: 'doc',
+              id: 'standards/openxr',
+              label: 'OpenXR',
+            },
+          ],
         },
       ],
     },
