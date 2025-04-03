@@ -8,8 +8,8 @@
 | **2. Content Restructuring** | 4. Convert Narrative to Specifications | ✅ COMPLETED | Identified narrative text that can be converted to structured lists with clear requirement designations | Will make technical requirements more accessible to readers |
 | | 5. Separate Technical and Usage Guidance | ✅ COMPLETED | Found content mixing technical implementation with usage guidance that needs clear separation for different audiences | Will better serve both technical and non-technical users |
 | **3. Navigation & Consistency** | 6. Enhance Cross-References | ✅ COMPLETED | Identified inconsistent cross-referencing patterns and missing connections between related documents | Will improve navigation and content discoverability |
-| | 7. Standardize Document Structure | 🔄 IN PROGRESS | - | - |
-| **4. Quality Assurance** | 8. Run Validation & Fix Issues | ⏱️ PENDING | - | - |
+| | 7. Standardize Document Structure | ✅ COMPLETED | Developed standardized templates for different document types with consistent sections, heading levels, and naming conventions | Will ensure all documentation follows consistent structure and organization |
+| **4. Quality Assurance** | 8. Run Validation & Fix Issues | 🔄 IN PROGRESS | - | - |
 | | 9. Final Consistency Check | ⏱️ PENDING | - | - |
 
 ## Succinct Documentation Review
@@ -166,31 +166,401 @@ Update the 'Documentation Issues Log' with these findings to inform the final qu
   - docs/integration-profiles/avatar.md
   - docs/integration-profiles/composable-3d-nft.md
 
-#### Step 7: Standardize Document Structure [IN PROGRESS] [NEXT]
-**Prompt**: "Create a consistent structure across all documentation types. Develop standard templates for:
-1. Implementation Guides 
-2. Integration Profiles
-3. Standards Documents
-4. Validation Documents
+#### Step 7: Standardize Document Structure [COMPLETED] - 2024-04-10
 
-Each template should include standard sections like Overview, Requirements, Examples, and Related Resources. Ensure headings use consistent levels and language across all documents. Document structure should follow a clear hierarchy from most important information to supporting details.
+After analyzing the existing document types in the documentation, I've identified patterns and created standardized templates for each major document category:
 
-For each document type, identify:
-1. Required sections that must be included
-2. Optional sections based on content needs
-3. Standard naming conventions for sections
-4. Heading level hierarchy rules
-5. Placement guidelines for examples and references"
+1. **Document Structure Analysis Findings**:
 
-**Files potentially requiring review (based on inconsistencies):**
-- docs/standards/openxr.md (section structure different from other standards)
-- docs/integration-profiles/interactable.md (incomplete document structure)
-- docs/integration-profiles/future.md (non-standard format)
-- Any files flagged by validation tools
+   **Inconsistencies Between Document Types**:
+   - Heading levels vary between similar documents (some use `##` for major sections, others use `###`)
+   - Section ordering differs even within the same document type
+   - Required and optional properties sections use inconsistent formatting (tables vs. code blocks vs. lists)
+   - "Related Resources" sections appear in different locations with varying levels of detail
+   - Some documents have clear audience targeting, while others mix technical and usage content
+
+   **Common Structural Elements**:
+   - Most documents include a brief introduction/overview
+   - Most include code examples (basic and/or complete)
+   - Most include some form of "Related Resources" section
+   - Most organize content from general concepts to specific details
+
+2. **Standardized Document Templates**:
+
+   ## Implementation Guide Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Title]
+
+   [Brief introduction paragraph - 2-3 sentences]
+
+   ## Purpose and Use Cases
+
+   [1-2 paragraphs explaining the purpose of this implementation guide]
+
+   **Key Use Cases:**
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ## Prerequisites
+
+   Before implementing [topic], ensure you have:
+
+   - Familiarity with [prerequisite 1]
+   - Understanding of [prerequisite 2]
+   - [Other prerequisites as needed]
+
+   ## Implementation Steps
+
+   ### 1. [First Step]
+
+   [Concise explanation - 1-2 paragraphs]
+
+   ```json
+   [Code example for first step]
+   ```
+
+   ### 2. [Second Step]
+
+   [Concise explanation - 1-2 paragraphs]
+
+   ```json
+   [Code example for second step]
+   ```
+
+   [Additional steps as needed...]
+
+   ## Complete Example
+
+   ```json
+   [Complete example JSON]
+   ```
+
+   ## Implementation Considerations
+
+   ### Platform-Specific Challenges
+
+   **Required:**
+   - [Required consideration 1]
+   - [Required consideration 2]
+
+   **Recommended:**
+   - [Recommended consideration 1]
+   - [Recommended consideration 2]
+
+   ### Best Practices
+
+   - [Best practice 1]
+   - [Best practice 2]
+   - [Best practice 3]
+
+   ## Related Resources
+
+   ### Concepts
+   - [Link to related concept 1]
+   - [Link to related concept 2]
+
+   ### Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+   ```
+
+   ## Integration Profile Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Profile Name] Profile
+
+   ## Purpose and Use Cases
+
+   [Brief introduction paragraph about this profile's purpose]
+
+   **Key Use Cases:**
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ## Required Properties
+
+   The [Profile Name] Profile inherits all required properties from the [Parent Profile] and adds the following specific properties:
+
+   ```json
+   [Example JSON with required properties]
+   ```
+
+   | Property | Description | Type | Notes |
+   |----------|-------------|------|-------|
+   | `property1` | [Description] | [Type] | [Notes] |
+   | `property2` | [Description] | [Type] | [Notes] |
+   | `property3` | [Description] | [Type] | [Notes] |
+
+   ## Optional Properties
+
+   The [Profile Name] Profile includes the following optional properties to enhance functionality:
+
+   ```json
+   [Example JSON with optional properties]
+   ```
+
+   | Property | Description | Type | Notes |
+   |----------|-------------|------|-------|
+   | `property1` | [Description] | [Type] | [Notes] |
+   | `property2` | [Description] | [Type] | [Notes] |
+   | `property3` | [Description] | [Type] | [Notes] |
+
+   ## Complete Example
+
+   ```json
+   [Complete example JSON]
+   ```
+
+   ## Validation
+
+   Validate [Profile Name] Profile metadata using:
+
+   - [JSON Schema URL for this profile]
+   - [Link to validation tool]
+
+   **Common Validation Issues:**
+   - [Common issue 1]
+   - [Common issue 2]
+
+   ## Related Resources
+
+   ### Implementation Guides
+   - [Link to implementation guide 1]
+   - [Link to implementation guide 2]
+
+   ### Related Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+   ```
+
+   ## Standards Document Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Standard Name] Standard
+
+   ## About [Standard Name]
+
+   [Brief introduction to the standard - 2-3 sentences]
+
+   [Additional context paragraph about the standard's importance]
+
+   ## Core [Standard Name] Concepts
+
+   Key concepts in [Standard Name] that are relevant to metadata integration:
+
+   - **[Concept 1]**: [Brief explanation]
+   - **[Concept 2]**: [Brief explanation]
+   - **[Concept 3]**: [Brief explanation]
+   - **[Concept 4]**: [Brief explanation]
+
+   ## Technical Implementation
+
+   ### Standard Reference
+
+   ```json
+   [JSON-LD context example showing standard reference]
+   ```
+
+   ### Basic Implementation Example
+
+   ```json
+   [Basic example using this standard]
+   ```
+
+   ### Advanced Implementation Example
+
+   ```json
+   [More complex example using this standard]
+   ```
+
+   ## For Developers
+
+   [Technical implementation details for developers]
+
+   ### Integration with Schema.org
+
+   ```json
+   [Example showing integration with Schema.org]
+   ```
+
+   ### JSON Schema Validation
+
+   ```json
+   [Example schema validation snippet]
+   ```
+
+   ## For Content Creators
+
+   [Usage guidance for content creators]
+
+   ### Common Use Cases
+
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ### Best Practices
+
+   - [Best practice 1]
+   - [Best practice 2]
+   - [Best practice 3]
+
+   ## Related Resources
+
+   ### Implementation Guides
+   - [Link to implementation guide 1]
+   - [Link to implementation guide 2]
+
+   ### Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+
+   ### External Resources
+   - [Link to official standard documentation]
+   - [Link to tools/utilities]
+   ```
+
+   ## Validation Document Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Validation Topic]
+
+   [Brief introduction to this validation aspect]
+
+   ## Purpose
+
+   [Explanation of why this validation is important - 1-2 paragraphs]
+
+   ## Validation Requirements
+
+   | Requirement | Category | Description |
+   |-------------|----------|-------------|
+   | [Requirement 1] | [Required/Recommended] | [Description] |
+   | [Requirement 2] | [Required/Recommended] | [Description] |
+   | [Requirement 3] | [Required/Recommended] | [Description] |
+
+   ## Validation Process
+
+   ### For Developers
+
+   1. [Developer validation step 1]
+   2. [Developer validation step 2]
+   3. [Developer validation step 3]
+
+   ```bash
+   [Example validation command or code]
+   ```
+
+   ### For Content Creators
+
+   1. [Content creator validation step 1]
+   2. [Content creator validation step 2]
+   3. [Content creator validation step 3]
+
+   ## Common Validation Issues
+
+   ### [Issue Category 1]
+
+   **Problem**: [Description of the problem]
+   
+   **Solution**: [How to fix it]
+
+   ```json
+   [Example of correct implementation]
+   ```
+
+   ### [Issue Category 2]
+
+   **Problem**: [Description of the problem]
+   
+   **Solution**: [How to fix it]
+
+   ```json
+   [Example of correct implementation]
+   ```
+
+   ## Related Resources
+
+   - [Link to related resource 1]
+   - [Link to related resource 2]
+   - [Link to related resource 3]
+   ```
+
+3. **Document Template Requirements**:
+
+   **Implementation Guide Requirements**:
+   - **Required Sections**: Purpose and Use Cases, Implementation Steps, Complete Example, Related Resources
+   - **Optional Sections**: Prerequisites, Implementation Considerations, Platform-Specific Challenges, Best Practices
+   - **Standard Naming**: Use "Implementation Steps" (not "Workflow" or "Process")
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Place one basic example per implementation step, complete example after steps
+
+   **Integration Profile Requirements**:
+   - **Required Sections**: Purpose and Use Cases, Required Properties, Complete Example, Related Resources
+   - **Optional Sections**: Optional Properties, Validation, Implementation Considerations
+   - **Standard Naming**: Use "Required Properties" and "Optional Properties" (not "Specifications" or "Requirements")
+   - **Heading Levels**: Title (H1), Main Sections (H2), no subsections except in special cases
+   - **Examples**: Place property examples immediately after property introductions, complete example after all properties
+
+   **Standards Document Requirements**:
+   - **Required Sections**: About, Core Concepts, Technical Implementation, Related Resources
+   - **Optional Sections**: For Developers, For Content Creators, JSON Schema Validation
+   - **Standard Naming**: Use "Technical Implementation" (not "Namespace" or "Standard Integration")
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Place one basic and one advanced example in Technical Implementation, additional examples in audience-specific sections
+
+   **Validation Document Requirements**:
+   - **Required Sections**: Purpose, Validation Requirements, Validation Process, Related Resources
+   - **Optional Sections**: Common Validation Issues, audience-specific sections
+   - **Standard Naming**: Use "Validation Requirements" and "Validation Process"
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Include example code for validation commands and correct implementations
+
+4. **Template Implementation Guidelines**:
+
+   - Maintain consistent section ordering across all documents of the same type
+   - Use similar formatting for similar content (tables for properties, code blocks for examples)
+   - Implement clear audience targeting in all documents
+   - Provide consistent level of detail in all sections
+   - Standardize "Related Resources" sections with consistent categories
+   - Use the same heading levels for equivalent sections across document types
+
+These templates will serve as the foundation for standardizing all documentation, ensuring consistent structure, terminology, and organization across the entire documentation set.
 
 ### Phase 4: Quality Assurance
 
-#### Step 8: Run Validation & Fix Issues
+#### Step 8: Run Validation & Fix Issues [IN PROGRESS] [NEXT]
 **Prompt**: "Run the validation script (scripts/validate-docs.js) and fix all identified issues across the documentation. Address each error category (front matter, heading structure, terminology, links, code blocks) with minimal changes to correct specific validation errors.
 
 Reference the 'Documentation Issues Log' for known issues from previous phases. After validation, document:
@@ -660,3 +1030,395 @@ After analyzing the cross-references in implementation guides and profile docume
 - Create any missing documents that are frequently referenced
 - Add brief context descriptions for each reference to explain relevance
 - Ensure all reference paths are valid and up-to-date
+
+#### Step 7: Standardize Document Structure [COMPLETED] - 2024-04-10
+
+After analyzing the existing document types in the documentation, I've identified patterns and created standardized templates for each major document category:
+
+1. **Document Structure Analysis Findings**:
+
+   **Inconsistencies Between Document Types**:
+   - Heading levels vary between similar documents (some use `##` for major sections, others use `###`)
+   - Section ordering differs even within the same document type
+   - Required and optional properties sections use inconsistent formatting (tables vs. code blocks vs. lists)
+   - "Related Resources" sections appear in different locations with varying levels of detail
+   - Some documents have clear audience targeting, while others mix technical and usage content
+
+   **Common Structural Elements**:
+   - Most documents include a brief introduction/overview
+   - Most include code examples (basic and/or complete)
+   - Most include some form of "Related Resources" section
+   - Most organize content from general concepts to specific details
+
+2. **Standardized Document Templates**:
+
+   ## Implementation Guide Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Title]
+
+   [Brief introduction paragraph - 2-3 sentences]
+
+   ## Purpose and Use Cases
+
+   [1-2 paragraphs explaining the purpose of this implementation guide]
+
+   **Key Use Cases:**
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ## Prerequisites
+
+   Before implementing [topic], ensure you have:
+
+   - Familiarity with [prerequisite 1]
+   - Understanding of [prerequisite 2]
+   - [Other prerequisites as needed]
+
+   ## Implementation Steps
+
+   ### 1. [First Step]
+
+   [Concise explanation - 1-2 paragraphs]
+
+   ```json
+   [Code example for first step]
+   ```
+
+   ### 2. [Second Step]
+
+   [Concise explanation - 1-2 paragraphs]
+
+   ```json
+   [Code example for second step]
+   ```
+
+   [Additional steps as needed...]
+
+   ## Complete Example
+
+   ```json
+   [Complete example JSON]
+   ```
+
+   ## Implementation Considerations
+
+   ### Platform-Specific Challenges
+
+   **Required:**
+   - [Required consideration 1]
+   - [Required consideration 2]
+
+   **Recommended:**
+   - [Recommended consideration 1]
+   - [Recommended consideration 2]
+
+   ### Best Practices
+
+   - [Best practice 1]
+   - [Best practice 2]
+   - [Best practice 3]
+
+   ## Related Resources
+
+   ### Concepts
+   - [Link to related concept 1]
+   - [Link to related concept 2]
+
+   ### Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+   ```
+
+   ## Integration Profile Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Profile Name] Profile
+
+   ## Purpose and Use Cases
+
+   [Brief introduction paragraph about this profile's purpose]
+
+   **Key Use Cases:**
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ## Required Properties
+
+   The [Profile Name] Profile inherits all required properties from the [Parent Profile] and adds the following specific properties:
+
+   ```json
+   [Example JSON with required properties]
+   ```
+
+   | Property | Description | Type | Notes |
+   |----------|-------------|------|-------|
+   | `property1` | [Description] | [Type] | [Notes] |
+   | `property2` | [Description] | [Type] | [Notes] |
+   | `property3` | [Description] | [Type] | [Notes] |
+
+   ## Optional Properties
+
+   The [Profile Name] Profile includes the following optional properties to enhance functionality:
+
+   ```json
+   [Example JSON with optional properties]
+   ```
+
+   | Property | Description | Type | Notes |
+   |----------|-------------|------|-------|
+   | `property1` | [Description] | [Type] | [Notes] |
+   | `property2` | [Description] | [Type] | [Notes] |
+   | `property3` | [Description] | [Type] | [Notes] |
+
+   ## Complete Example
+
+   ```json
+   [Complete example JSON]
+   ```
+
+   ## Validation
+
+   Validate [Profile Name] Profile metadata using:
+
+   - [JSON Schema URL for this profile]
+   - [Link to validation tool]
+
+   **Common Validation Issues:**
+   - [Common issue 1]
+   - [Common issue 2]
+
+   ## Related Resources
+
+   ### Implementation Guides
+   - [Link to implementation guide 1]
+   - [Link to implementation guide 2]
+
+   ### Related Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+   ```
+
+   ## Standards Document Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Standard Name] Standard
+
+   ## About [Standard Name]
+
+   [Brief introduction to the standard - 2-3 sentences]
+
+   [Additional context paragraph about the standard's importance]
+
+   ## Core [Standard Name] Concepts
+
+   Key concepts in [Standard Name] that are relevant to metadata integration:
+
+   - **[Concept 1]**: [Brief explanation]
+   - **[Concept 2]**: [Brief explanation]
+   - **[Concept 3]**: [Brief explanation]
+   - **[Concept 4]**: [Brief explanation]
+
+   ## Technical Implementation
+
+   ### Standard Reference
+
+   ```json
+   [JSON-LD context example showing standard reference]
+   ```
+
+   ### Basic Implementation Example
+
+   ```json
+   [Basic example using this standard]
+   ```
+
+   ### Advanced Implementation Example
+
+   ```json
+   [More complex example using this standard]
+   ```
+
+   ## For Developers
+
+   [Technical implementation details for developers]
+
+   ### Integration with Schema.org
+
+   ```json
+   [Example showing integration with Schema.org]
+   ```
+
+   ### JSON Schema Validation
+
+   ```json
+   [Example schema validation snippet]
+   ```
+
+   ## For Content Creators
+
+   [Usage guidance for content creators]
+
+   ### Common Use Cases
+
+   - [Use case 1]
+   - [Use case 2]
+   - [Use case 3]
+
+   ### Best Practices
+
+   - [Best practice 1]
+   - [Best practice 2]
+   - [Best practice 3]
+
+   ## Related Resources
+
+   ### Implementation Guides
+   - [Link to implementation guide 1]
+   - [Link to implementation guide 2]
+
+   ### Profiles
+   - [Link to related profile 1]
+   - [Link to related profile 2]
+
+   ### Standards
+   - [Link to related standard 1]
+   - [Link to related standard 2]
+
+   ### External Resources
+   - [Link to official standard documentation]
+   - [Link to tools/utilities]
+   ```
+
+   ## Validation Document Template
+
+   ```markdown
+   ---
+   sidebar_position: [position]
+   ---
+
+   # [Validation Topic]
+
+   [Brief introduction to this validation aspect]
+
+   ## Purpose
+
+   [Explanation of why this validation is important - 1-2 paragraphs]
+
+   ## Validation Requirements
+
+   | Requirement | Category | Description |
+   |-------------|----------|-------------|
+   | [Requirement 1] | [Required/Recommended] | [Description] |
+   | [Requirement 2] | [Required/Recommended] | [Description] |
+   | [Requirement 3] | [Required/Recommended] | [Description] |
+
+   ## Validation Process
+
+   ### For Developers
+
+   1. [Developer validation step 1]
+   2. [Developer validation step 2]
+   3. [Developer validation step 3]
+
+   ```bash
+   [Example validation command or code]
+   ```
+
+   ### For Content Creators
+
+   1. [Content creator validation step 1]
+   2. [Content creator validation step 2]
+   3. [Content creator validation step 3]
+
+   ## Common Validation Issues
+
+   ### [Issue Category 1]
+
+   **Problem**: [Description of the problem]
+   
+   **Solution**: [How to fix it]
+
+   ```json
+   [Example of correct implementation]
+   ```
+
+   ### [Issue Category 2]
+
+   **Problem**: [Description of the problem]
+   
+   **Solution**: [How to fix it]
+
+   ```json
+   [Example of correct implementation]
+   ```
+
+   ## Related Resources
+
+   - [Link to related resource 1]
+   - [Link to related resource 2]
+   - [Link to related resource 3]
+   ```
+
+3. **Document Template Requirements**:
+
+   **Implementation Guide Requirements**:
+   - **Required Sections**: Purpose and Use Cases, Implementation Steps, Complete Example, Related Resources
+   - **Optional Sections**: Prerequisites, Implementation Considerations, Platform-Specific Challenges, Best Practices
+   - **Standard Naming**: Use "Implementation Steps" (not "Workflow" or "Process")
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Place one basic example per implementation step, complete example after steps
+
+   **Integration Profile Requirements**:
+   - **Required Sections**: Purpose and Use Cases, Required Properties, Complete Example, Related Resources
+   - **Optional Sections**: Optional Properties, Validation, Implementation Considerations
+   - **Standard Naming**: Use "Required Properties" and "Optional Properties" (not "Specifications" or "Requirements")
+   - **Heading Levels**: Title (H1), Main Sections (H2), no subsections except in special cases
+   - **Examples**: Place property examples immediately after property introductions, complete example after all properties
+
+   **Standards Document Requirements**:
+   - **Required Sections**: About, Core Concepts, Technical Implementation, Related Resources
+   - **Optional Sections**: For Developers, For Content Creators, JSON Schema Validation
+   - **Standard Naming**: Use "Technical Implementation" (not "Namespace" or "Standard Integration")
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Place one basic and one advanced example in Technical Implementation, additional examples in audience-specific sections
+
+   **Validation Document Requirements**:
+   - **Required Sections**: Purpose, Validation Requirements, Validation Process, Related Resources
+   - **Optional Sections**: Common Validation Issues, audience-specific sections
+   - **Standard Naming**: Use "Validation Requirements" and "Validation Process"
+   - **Heading Levels**: Title (H1), Main Sections (H2), Subsections (H3)
+   - **Examples**: Include example code for validation commands and correct implementations
+
+4. **Template Implementation Guidelines**:
+
+   - Maintain consistent section ordering across all documents of the same type
+   - Use similar formatting for similar content (tables for properties, code blocks for examples)
+   - Implement clear audience targeting in all documents
+   - Provide consistent level of detail in all sections
+   - Standardize "Related Resources" sections with consistent categories
+   - Use the same heading levels for equivalent sections across document types
+
+These templates will serve as the foundation for standardizing all documentation, ensuring consistent structure, terminology, and organization across the entire documentation set.
