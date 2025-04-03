@@ -344,7 +344,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'community/standards-organizations',
+              id: 'community/standards-organizations/overview',
               label: 'Overview',
             },
           ]
@@ -366,17 +366,17 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'community/supporters/support-mvmd',
+              id: 'community/developers/overview',
               label: 'Overview',
             },
             {
               type: 'doc',
-              id: 'community/supporters/nftr-pro',
+              id: 'community/developers/nftr-pro',
               label: 'NFTR Pro',
             },
             {
               type: 'doc',
-              id: 'community/supporters/sumset-tech',
+              id: 'community/developers/sumset-tech',
               label: 'Sumset Tech',
             },
           ],
