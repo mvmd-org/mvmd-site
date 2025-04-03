@@ -317,13 +317,19 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Community',
+      label: 'Supporters',
       items: [
         {
           type: 'doc',
-          id: 'community/supporters',
-          label: 'Supporters',
+          id: 'Supporters/Support MVMD',
+          label: 'Support MVMD',
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Community',
+      items: [
         {
           type: 'doc',
           id: 'community/contributing',
@@ -331,8 +337,8 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'community/sdo-integration-guide',
-          label: 'SDO Integration Guide',
+          id: 'community/standards-organizations',
+          label: 'Standards Organizations',
         },
         {
           type: 'category',

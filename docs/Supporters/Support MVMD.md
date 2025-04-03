@@ -1,9 +1,9 @@
 ---
-title: Supporting Organizations & How to Join
-sidebar_label: Supporters
+title: Support MVMD
+sidebar_label: Support MVMD
 ---
 
-# Supporting Organizations & How to Join
+# Support MVMD
 
 The Metaverse Metadata Directory (MVMD) is supported by organizations committed to building an interoperable Metaverse through standardized metadata. These organizations contribute their expertise and resources to help shape and maintain metadata standards that work for real-world applications.
 
@@ -18,15 +18,15 @@ Supporting MVMD offers significant benefits:
 
 ## Current Supporters
 
-### [SumSetTech](./supporters/sumset-tech)
+### [Sumset Tech](../community/supporters/sumset-tech)
 
 * **Tagline**: Building the tech behind your experiences
-* **Contribution**: Specializes in blockchain, web3, and spatial computing solutions. Founding supporter and key collaborator. [Learn more →](./supporters/sumset-tech)
+* **Contribution**: Specializes in blockchain, web3, and spatial computing solutions. Founding supporter and key collaborator. [Learn more →](../community/supporters/sumset-tech)
 
-### [NFTr.pro](./supporters/nftr-pro)
+### [NFTr.pro](../community/supporters/nftr-pro)
 
 * **Tagline**: NFT tools for creators, by creators
-* **Contribution**: Provides tools for minting and managing NFTs on the Chia blockchain, offering valuable insights into real-world NFT metadata needs. [Learn more →](./supporters/nftr-pro)
+* **Contribution**: Provides tools for minting and managing NFTs on the Chia blockchain, offering valuable insights into real-world NFT metadata needs. [Learn more →](../community/supporters/nftr-pro)
 
 *(Note: Metaverse Standards Forum mentioned previously but lacks a dedicated page - could be added here or as a separate page if details are available)*
 
@@ -56,4 +56,4 @@ Interested in joining these organizations and supporting the MVMD initiative?
 3.  **Formal Application**: If applicable, submit a formal application detailing proposed contributions.
 4.  **Review & Onboarding**: The application is reviewed, terms are agreed upon, and onboarding resources are provided.
 
-We welcome organizations that share our commitment to an open and interoperable metaverse.
+We welcome organizations that share our commitment to an open and interoperable metaverse. 

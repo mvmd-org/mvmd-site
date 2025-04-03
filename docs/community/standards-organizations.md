@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Standards Organizations
+sidebar_label: Standards Organizations
 ---
 
-# Standards Integration Guide for SDOs
+# Standards Organizations
 
 ## Introduction
 
