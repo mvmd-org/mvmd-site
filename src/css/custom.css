@@ -49,7 +49,7 @@ main a[class*="bg-"]:hover { /* Target links that have a background class */
 /* --- Custom Button Hover States (These override the inherit rule above) --- */
 
 /* "Get Started" button (using dedicated class) */
-main a.cta-get-started:hover {
+a.cta-get-started:hover {
   color: #2563eb !important; /* Tailwind blue-600 */
   text-decoration: none !important;
 }
