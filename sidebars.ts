@@ -350,9 +350,15 @@ const sidebars: SidebarsConfig = {
           ]
         },
         {
-          type: 'doc',
-          id: 'community/content-creators',
+          type: 'category',
           label: 'Content Creators',
+          items: [
+            {
+              type: 'doc',
+              id: 'community/content-creators/overview',
+              label: 'Overview',
+            },
+          ]
         },
         {
           type: 'category',
