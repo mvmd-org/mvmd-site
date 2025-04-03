@@ -114,6 +114,7 @@ const sidebars: SidebarsConfig = {
         'reference/schemas',
         'reference/api',
         'reference/glossary',
+        'reference/validator',
       ],
     },
     {
@@ -121,6 +122,14 @@ const sidebars: SidebarsConfig = {
       label: 'Tools',
       items: [
         'tools/validator',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Contributing',
+      items: [
+        'contributing/style-guide',
+        'contributing/style-corrections',
       ],
     },
     {
