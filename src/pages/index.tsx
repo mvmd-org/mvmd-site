@@ -149,9 +149,12 @@ export default function Home(): JSX.Element {
                                                 "C2PA"
                                             ].map((standard, index) => {
                                                 // Generate link path (lowercase, replace space with hyphen)
-                                                const linkPath = `/docs/standards/${standard.toLowerCase().replace(/ /g, '-')}`;
+                                                const linkPath = `/standards/${standard.toLowerCase().replace(/ /g, '-')}`;
                                                 return (
-                                                    <Link to={linkPath} key={index} className="block px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow-md text-blue-600 dark:text-blue-400 font-medium border border-gray-200 dark:border-gray-600 hover:shadow-lg hover:border-blue-400 dark:hover:border-blue-500 transition">
+                                                    <Link 
+                                                        to={linkPath} 
+                                                        key={index} 
+                                                        className="block px-4 py-2 bg-white dark:bg-gray-700 rounded-lg shadow-md text-blue-600 dark:text-blue-400 font-medium border border-gray-200 dark:border-gray-600 hover:scale-105 transition">
                                                         {standard}
                                                     </Link>
                                                 );
