@@ -87,6 +87,8 @@ const sidebars: SidebarsConfig = {
         'integration-profiles/basic',
         'integration-profiles/attachable',
         'integration-profiles/avatar',
+        'integration-profiles/wearable',
+        'integration-profiles/equipable',
         'integration-profiles/composable-3d-nft',
         'integration-profiles/digital-twin',
         'integration-profiles/vehicle',
