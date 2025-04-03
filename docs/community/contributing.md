@@ -1,121 +1,123 @@
 ---
-sidebar_position: 2
+title: Contributing to MVMD
+sidebar_label: Contributing
 ---
 
 # Contributing to MVMD
 
 ## Overview
 
-The Metaverse Metadata Directory (MVMD) is an open, collaborative project that welcomes contributions from individuals, organizations, and standards bodies. This guide outlines how you can contribute to MVMD's development and evolution.
+The Metaverse Metadata Directory (MVMD) is an open, collaborative project. We welcome contributions from individuals, organizations, and standards bodies to help improve the framework, documentation, and tools.
 
-## Authors and Contributors
-
-The initial Metaverse Metadata Directory concept and versions were authored by Grig Bilham from [SumSetTech](https://sumset.tech). You can reach Grig on Discord (grig#8276), [X](https://x.com/SpiritBits), and [BlueSky](https://bsky.app/profile/spiritbits.bsky.social).
+*The initial MVMD concept and versions were authored by Grig Bilham from [SumSetTech](./supporters/sumset-tech).*
 
 ## Ways to Contribute
 
-### 1. Documentation Improvements
+You can contribute in various ways:
 
-- Suggest clarifications or improvements to existing documentation
-- Add examples or use cases
-- Fix typos or technical errors
-- Translate documentation to other languages
-- Create new documentation sections
-
-### 2. Integration Profiles
-
-- Propose new Integration Profiles for specific use cases
-- Enhance existing profiles with additional examples
-- Identify gaps in current profile coverage
-- Suggest improvements to profile structure or organization
-
-### 3. Technical Contributions
-
-- Develop or improve validation tools
-- Create example implementations
-- Fix bugs or issues
-- Add new features to the framework
-- Improve test coverage
-
-### 4. Community Engagement
-
-- Participate in discussions and forums
-- Share implementation experiences
-- Help others with MVMD adoption
-- Organize or participate in workshops
-- Write blog posts or articles about MVMD
+* **Documentation**: Improve clarity, add examples, fix errors, translate content, or suggest new sections.
+* **Integration Profiles**: Propose new profiles, enhance existing ones, or identify gaps.
+* **Technical Contributions**: Develop validation tools, create examples, fix bugs, add features, or improve tests.
+* **Community Engagement**: Participate in discussions, share experiences, help others, organize workshops, or write articles.
 
 ## Contribution Process
 
-1. **Identify Your Contribution Type**
-   - Review the categories above to determine the best fit
-   - Check existing issues or discussions to avoid duplication
-
-2. **Prepare Your Contribution**
-   - For documentation: Create a pull request with your changes
-   - For code: Follow our coding standards and create a pull request
-   - For new profiles: Create a detailed proposal following our profile template
-   - For community content: Share through appropriate channels
-
-3. **Submit Your Contribution**
-   - Use GitHub issues for bug reports and feature requests
-   - Create pull requests for code and documentation changes
-   - Post in our community forums for discussions
-   - Contact us directly for larger initiatives
-
-4. **Review and Feedback**
-   - Our team will review your contribution
-   - We may request changes or clarifications
-   - Once approved, your contribution will be merged
+1.  **Identify Contribution**: Check existing issues or discussions on GitHub to avoid duplication.
+2.  **Prepare**:
+    * *Code/Docs*: Fork the repository, create a branch, make changes following guidelines below.
+    * *New Profiles/Ideas*: Create a detailed proposal or GitHub issue first.
+3.  **Submit**:
+    * Use GitHub Issues for bug reports and feature requests.
+    * Use Pull Requests for code and documentation changes.
+    * Use community forums/Discord for discussion.
+4.  **Review**: The team will review your submission and provide feedback. Approved contributions will be merged.
 
 ## Development Guidelines
 
-### Code Standards
+* **Code**: Follow existing style, include tests, update relevant docs, keep commits focused.
+* **Profiles**: Start with a clear use case, define relationships/rules, provide examples.
 
-- Follow existing code style and patterns
-- Include tests for new features
-- Update documentation as needed
-- Keep commits focused and well-documented
+## Documentation Style Guide
 
-### Documentation Standards
+Adhering to this style guide ensures consistency and clarity.
 
-- Use clear, concise language
-- Include practical examples
-- Follow our style guide
-- Keep technical accuracy in mind
+### Document Naming & Structure
 
-### Profile Development
+* **Files**: Use `kebab-case-with-hyphens.md`. No spaces or special characters.
+* **Titles**: Use Title Case (e.g., "Integration Profiles Overview").
+* **Front Matter**: All pages need `sidebar_position`.
+    ```md
+    ---
+    sidebar_position: 1
+    ---
+    ```
+* **Headings**: Single H1 (`#`) per page matching title. Use `##` (H2), `###` (H3), `####` (H4) sequentially. Don't skip levels.
+* **Standard Sections**: Follow consistent section orders for Concepts, Standards, Profiles, and Implementation Guides (refer to original `style-guide.md` for specific orders if needed).
 
-- Start with a clear use case
-- Identify required standards
-- Define clear relationships
-- Include validation rules
-- Provide implementation examples
+### Writing Style
 
-## Getting Started
+* **Voice/Tone**: Use clear, direct language (active voice, present tense, address reader as "you"). Neutral, instructional tone.
+* **Terminology**: Be consistent. Key terms:
+    * Use "**standard**" when referring to technical standards (like glTF, USD). Avoid "namespace" in this context.
+    * Use "**profile**" for MVMD's asset templates. Avoid "recipe", "pattern".
+    * Capitalize correctly: **Schema.org**, **JSON-LD**, **glTF**, **USD**, **VRM**, **C2PA**, **WebXR**.
+    * Use "**3D**" (not "3d" or "3-D").
+    * Use "**metadata**" (not "meta-data").
+* **Acronyms**: Define on first use (e.g., "Universal Scene Description (USD)").
 
-1. **Set Up Your Environment**
-   - Fork the MVMD repository
-   - Clone your fork locally
-   - Set up development tools
+### Code Examples
 
-2. **Choose Your First Contribution**
-   - Start with documentation improvements
-   - Fix a simple bug
-   - Add a small feature
-   - Create a basic example
+* **Format**: Use triple backticks with language identifier (e.g., ```json, ```javascript). Use single backticks for inline code (`likeThis`).
+* **JSON-LD**: Format with 2-space indentation. Include `@context`. Add comments `// like this` for clarity where needed.
+    ```json
+    {
+      "@context": {
+        "@vocab": "https://schema.org/",
+        "mvmd": "https://mvmd.org/v1/" // MVMD namespace
+      },
+      "@type": "3DModel", // Asset type
+      "name": "Example Model"
+      // Required properties...
+    }
+    ```
+* **Structure**: For complex topics, consider Basic, Standard, and Complete examples.
 
-3. **Join the Community**
-   - Participate in discussions
-   - Ask questions
-   - Share your progress
-   - Get feedback
+### References and Links
+
+* **Internal**: Use relative paths (e.g., `../concepts/overview.md`). Use descriptive link text: `[Core Concepts](../concepts/overview.md)` NOT `[click here](../concepts/overview.md)`. Check links work.
+* **External**: Use full URLs. Indicate third-party sites if appropriate.
+
+### Visual Elements (Tables, Lists)
+
+* Use Markdown tables for structured data (with headers).
+* Use bulleted (`*`, `-`) or numbered (`1.`) lists appropriately. Keep list items parallel.
+
+### Common Style Corrections
+
+* **Standard vs. Namespace**: Replace `namespace` with `standard` when talking about glTF, USD, etc.
+* **Capitalization**: Fix `schema.org` -> `Schema.org`, `gltf` -> `glTF`, `3d` -> `3D`.
+* **Code Blocks**: Ensure language identifiers (e.g., ```json`) are present.
+* **JSON Validity**: Check for missing commas, incorrect brackets/braces.
+* **Headings**: Ensure single H1, no skipped levels (H2 -> H4).
+* **Links**: Use descriptive text, fix broken relative paths.
+
+### Validation & Other
+
+* **Checklist**: Before submitting, check links, example validity, terminology, front matter, headings, spelling/grammar.
+* **SEO**: Use key terms in titles/headings.
+* **Accessibility**: Use proper headings, consider alt text for images (if any).
+
+## Getting Started Contributing
+
+1.  **Setup**: Fork/clone the MVMD repository.
+2.  **First Task**: Pick a small task (fix typo, improve docs, add example).
+3.  **Engage**: Join community discussions (GitHub, Discord) to ask questions and get feedback.
 
 ## Support and Resources
 
-- GitHub Issues: For bug reports and feature requests
-- Community Forums: For discussions and questions
-- Documentation: For guides and references
-- Email: For direct communication
+* **GitHub Issues**: For bug reports and feature requests.
+* **Community Forums/Discord**: For discussions and questions.
+* **Documentation**: For guides and references.
+* **Email**: For direct communication.
 
-We look forward to your contributions to making MVMD better for everyone in the metaverse ecosystem. 
+We appreciate your help in making MVMD a robust standard for the metaverse! 

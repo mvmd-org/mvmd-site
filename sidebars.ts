@@ -317,33 +317,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Contributing',
-      items: [
-        {
-          type: 'doc',
-          id: 'contributing/style-guide',
-          label: 'Style Guide',
-        },
-        {
-          type: 'doc',
-          id: 'contributing/style-corrections',
-          label: 'Style Corrections',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Community',
       items: [
         {
           type: 'doc',
           id: 'community/supporters',
           label: 'Supporters',
-        },
-        {
-          type: 'doc',
-          id: 'community/become-supporter',
-          label: 'Become a Supporter',
         },
         {
           type: 'doc',

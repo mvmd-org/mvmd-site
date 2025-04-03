@@ -1,133 +1,59 @@
 ---
-title: Supporting Organizations
+title: Supporting Organizations & How to Join
 sidebar_label: Supporters
 ---
 
-# Supporting Organizations
+# Supporting Organizations & How to Join
 
 The Metaverse Metadata Directory (MVMD) is supported by organizations committed to building an interoperable Metaverse through standardized metadata. These organizations contribute their expertise and resources to help shape and maintain metadata standards that work for real-world applications.
 
+## Why Support MVMD?
+
+Supporting MVMD offers significant benefits:
+
+* **Strategic Influence**: Participate in technical steering, shape the roadmap, influence profiles, and guide validation approaches.
+* **Industry Recognition**: Gain visibility in the metaverse ecosystem, display the MVMD Supporter logo, and be listed on our site.
+* **Technical Advantages**: Get early access to new features/profiles, priority review for standard integration, and access to implementation resources.
+* **Community Engagement**: Network with key stakeholders, participate in workshops, and share expertise.
+
 ## Current Supporters
 
-### [SumSetTech](/community/supporters/sumset-tech)
+### [SumSetTech](./supporters/sumset-tech)
 
-#### Building the tech behind your experiences
+* **Tagline**: Building the tech behind your experiences
+* **Contribution**: Specializes in blockchain, web3, and spatial computing solutions. Founding supporter and key collaborator. [Learn more →](./supporters/sumset-tech)
 
-SumSetTech specializes in creating bespoke turnkey solutions leveraging blockchain, web3, and spatial computing technologies. [Learn more →](/community/supporters/sumset-tech)
+### [NFTr.pro](./supporters/nftr-pro)
 
-### [NFTr.pro](/community/supporters/nftr-pro)
+* **Tagline**: NFT tools for creators, by creators
+* **Contribution**: Provides tools for minting and managing NFTs on the Chia blockchain, offering valuable insights into real-world NFT metadata needs. [Learn more →](./supporters/nftr-pro)
 
-#### NFT tools for creators, by creators
+*(Note: Metaverse Standards Forum mentioned previously but lacks a dedicated page - could be added here or as a separate page if details are available)*
 
-NFTr.pro provides comprehensive tools for minting, trading, and interacting with NFTs on the Chia blockchain. [Learn more →](/community/supporters/nftr-pro)
+## Support Levels & Requirements
 
-### Metaverse Standards Forum
+MVMD offers different levels of support, each with associated benefits and commitment expectations. Generally, supporting organizations are expected to:
 
-Founding supporter and key collaborator in developing MVMD's integration framework and standards approach.
+* Dedicate resources (technical representatives) for participation.
+* Engage in technical reviews and provide feedback.
+* Contribute to documentation, examples, or validation efforts.
+* Promote MVMD adoption and share implementation experiences.
 
-## Benefits of Becoming a Supporting Organization
+*Note: Specific details on Platinum/Gold/Silver levels from the original supporters.md could be elaborated here if desired, or kept more general*
 
-### 1. Strategic Influence
+* **Core/Platinum/Gold Supporters**: Typically involve higher resource commitment, potential Technical Steering Committee participation, and greater influence on direction.
+* **Contributing/Silver Supporters**: Involve providing implementation feedback, participating in working groups, and engaging with the community.
 
-- Participate in the Technical Steering Committee
-- Help shape MVMD's roadmap and priorities
-- Influence integration patterns and profiles
-- Guide validation and implementation approaches
+## How to Become a Supporter
 
-### 2. Industry Recognition
+Interested in joining these organizations and supporting the MVMD initiative?
 
-- Display the MVMD Supporting Organization logo
-- Be listed on our website and documentation
-- Receive acknowledgment in press releases
-- Build credibility in the metaverse ecosystem
+1.  **Contact Us**: Reach out to express your interest. Provide details about your organization and how you envision contributing.
+    * **Email**: `support@mvmd.org` *(Placeholder, replace with actual email)*
+    * **GitHub**: [Create Support Issue](https://github.com/mvmd-org/mvmd-site/issues/new?labels=support&template=support.md) *(Verify link/template)*
+    * **Discord**: [Join Community](https://discord.gg/mvmd) *(Placeholder, replace with actual invite)*
+2.  **Discussion**: We'll schedule a meeting to discuss alignment, expectations, and technical capabilities.
+3.  **Formal Application**: If applicable, submit a formal application detailing proposed contributions.
+4.  **Review & Onboarding**: The application is reviewed, terms are agreed upon, and onboarding resources are provided.
 
-### 3. Technical Advantages
-
-- Early access to new features and profiles
-- Priority review of your standard's integration
-- Direct input on validation tools
-- Access to implementation resources
-
-### 4. Community Engagement
-
-- Network with other supporting organizations
-- Participate in exclusive workshops
-- Share your expertise with the community
-- Build relationships with key stakeholders
-
-## Requirements
-
-### 1. Organizational Commitment
-
-- Dedicate resources to MVMD participation
-- Assign technical representatives
-- Participate in regular meetings
-- Contribute to documentation and guidance
-
-### 2. Technical Involvement
-
-- Review and provide feedback on profiles
-- Contribute to implementation examples
-- Help validate integration patterns
-- Share technical expertise
-
-### 3. Community Support
-
-- Promote MVMD within your organization
-- Share implementation experiences
-- Help others adopt MVMD
-- Participate in community events
-
-## Application Process
-
-1. **Initial Contact**
-   - Email us expressing interest
-   - Provide organization details
-   - Outline your goals and capabilities
-
-2. **Review and Discussion**
-   - We'll schedule a meeting
-   - Discuss alignment and expectations
-   - Review technical capabilities
-   - Address any questions
-
-3. **Formal Application**
-   - Submit detailed application
-   - Include organization profile
-   - Outline proposed contributions
-   - Specify technical representatives
-
-4. **Approval and Onboarding**
-   - Technical Steering Committee review
-   - Agreement on terms and conditions
-   - Welcome package and resources
-   - Integration into MVMD processes
-
-## Commitment Levels
-
-### Platinum Level
-- Significant resource commitment
-- Full Technical Steering Committee participation
-- Priority input on all major decisions
-- Exclusive workshop access
-
-### Gold Level
-- Regular resource commitment
-- Technical Steering Committee observer status
-- Input on key decisions
-- Workshop participation
-
-### Silver Level
-- Basic resource commitment
-- Working group participation
-- Regular updates and feedback
-- Community event access
-
-## Become a Supporter
-
-Join these organizations in supporting the MVMD initiative. As a supporter, you can:
-- Contribute to the development of Metaverse metadata standards
-- Participate in the technical steering committee
-- Help shape the future of digital asset interoperability
-
-Interested in becoming a supporter? [Contact us](https://github.com/mvmd-org/mvmd-site/issues/new?labels=support&template=support.md) to learn more.
+We welcome organizations that share our commitment to an open and interoperable metaverse.
