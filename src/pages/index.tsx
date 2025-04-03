@@ -184,7 +184,7 @@ export default function Home(): JSX.Element {
                                             <div className="w-6 h-6 bg-blue-600 dark:bg-blue-500 text-white font-bold rounded-full flex items-center justify-center">1</div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold dark:text-white">Metaverse Asset Standards</p>
+                                            <p className="font-semibold dark:text-white mb-0">Metaverse Asset Standards</p>
                                             <p className="text-gray-700 dark:text-gray-300">Leveraging established standards like glTF, USD, VRM, and C2PA which provide specialized capabilities for different aspects of metaverse assets.</p>
                                         </div>
                                     </li>
@@ -193,7 +193,7 @@ export default function Home(): JSX.Element {
                                             <div className="w-6 h-6 bg-blue-600 dark:bg-blue-500 text-white font-bold rounded-full flex items-center justify-center">2</div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold dark:text-white">Schema.org & JSON-LD</p>
+                                            <p className="font-semibold dark:text-white mb-0">Schema.org & JSON-LD</p>
                                             <p className="text-gray-700 dark:text-gray-300">Using Schema.org vocabulary with JSON-LD to create a standardized metadata foundation.</p>
                                         </div>
                                     </li>
@@ -202,7 +202,7 @@ export default function Home(): JSX.Element {
                                             <div className="w-6 h-6 bg-blue-600 dark:bg-blue-500 text-white font-bold rounded-full flex items-center justify-center">3</div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold dark:text-white">MVMD Integration Profiles</p>
+                                            <p className="font-semibold dark:text-white mb-0">MVMD Integration Profiles</p>
                                             <p className="text-gray-700 dark:text-gray-300">Specific profiles that define precise integration patterns for various metaverse use cases.</p>
                                         </div>
                                     </li>
@@ -211,7 +211,7 @@ export default function Home(): JSX.Element {
                                             <div className="w-6 h-6 bg-blue-600 dark:bg-blue-500 text-white font-bold rounded-full flex items-center justify-center">4</div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold dark:text-white">Digital Assets Implementation</p>
+                                            <p className="font-semibold dark:text-white mb-0">Digital Assets Implementation</p>
                                             <p className="text-gray-700 dark:text-gray-300">Enabling NFTs, digital assets, and data with consistent metadata handling.</p>
                                         </div>
                                     </li>
@@ -220,7 +220,7 @@ export default function Home(): JSX.Element {
                                             <div className="w-6 h-6 bg-blue-600 dark:bg-blue-500 text-white font-bold rounded-full flex items-center justify-center">5</div>
                                         </div>
                                         <div>
-                                            <p className="font-semibold dark:text-white">Interoperable Ecosystem</p>
+                                            <p className="font-semibold dark:text-white mb-0">Interoperable Ecosystem</p>
                                             <p className="text-gray-700 dark:text-gray-300">Creating a seamless experience across metaverse platforms, digital asset stores, and Web3 explorers.</p>
                                         </div>
                                     </li>
@@ -237,24 +237,24 @@ export default function Home(): JSX.Element {
                         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                             <BenefitCard
                                 icon={<Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400"/>}
-                                title="Developers"
+                                title="Content Creators"
                                 description="Implement multiple standards without conflicts, follow ready-to-use integration patterns, validate implementations with clear tools, and future-proof your development."
-                                linkText="Developer Guide"
-                                linkUrl="/docs/contributors/developers/overview"
+                                linkText="Content Creators"
+                                linkUrl="/contributors/content-creators/overview"
                             />
                             <BenefitCard
                                 icon={<Boxes className="w-8 h-8 text-green-600 dark:text-green-400"/>}
-                                title="Platform Owners"
+                                title="Developers"
                                 description="Enable cross-platform asset compatibility, improve discovery and filtering, support rich metadata across your platform, and reduce creator onboarding friction."
-                                linkText="Platform Guide"
-                                linkUrl="/docs/implementation/overview"
+                                linkText="Developers"
+                                linkUrl="/contributors/developers/overview"
                             />
                             <BenefitCard
                                 icon={<Network className="w-8 h-8 text-purple-600 dark:text-purple-400"/>}
                                 title="Standards Organizations"
                                 description="Increase adoption for your standard, improve implementation quality, collaborate on integration patterns, and gain real-world feedback."
-                                linkText="SDO Guide"
-                                linkUrl="/docs/contributors/standards-organizations/overview"
+                                linkText="Standards Organizations"
+                                linkUrl="/contributors/standards-organizations/overview"
                             />
                         </div>
                     </div>
@@ -330,7 +330,7 @@ export default function Home(): JSX.Element {
                                         </div>
                                         <div>
                                             <p className="font-semibold dark:text-white">I'm new to metadata:</p>
-                                            <Link to="/quickstart" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                            <Link to="/concepts/metadata/fundamentals" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                                 Quickstart Guide →
                                             </Link>
                                         </div>
@@ -363,7 +363,7 @@ export default function Home(): JSX.Element {
                                         </div>
                                         <div>
                                             <p className="font-semibold dark:text-white">I need to validate:</p>
-                                            <Link to="/reference/validator" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                            <Link to="/validator" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                                 Try the Validator →
                                             </Link>
                                         </div>
@@ -376,11 +376,11 @@ export default function Home(): JSX.Element {
                                     MVMD is a collaborative effort supported by industry partners committed to metaverse interoperability.
                                 </p>
                                 <div className="space-y-4 mb-8">
-                                    <Link to="/community/contribute" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                    <Link to="/contributors/overview" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                         <Users className="w-5 h-5 mr-2" />
                                         Learn how to contribute
                                     </Link>
-                                    <Link to="/community/become-supporter" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+                                    <Link to="/contributors/standards-organizations/overview" className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                                         <Zap className="w-5 h-5 mr-2" />
                                         Become a supporting organization
                                     </Link>
