@@ -114,7 +114,6 @@ const sidebars: SidebarsConfig = {
         'reference/schemas',
         'reference/api',
         'reference/glossary',
-        'reference/validator',
       ],
     },
     {
