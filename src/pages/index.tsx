@@ -160,7 +160,7 @@ export default function Home(): JSX.Element {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300 mt-12 text-center">
+                        <p className="text-gray-700 dark:text-gray-300 mt-2 text-center text-lg">
                             These standards excel in their domains but achieving interoperability between them requires additional integration work.
                         </p>
                     </div>
