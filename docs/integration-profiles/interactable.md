@@ -1,6 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 9
 ---
+
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
 # Interactables
 

@@ -2,6 +2,8 @@
 sidebar_position: 6
 ---
 
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+
 # Equipable
 
 The Equipable Recipe extends the Basic Recipe with properties specific to items that can be equipped and used by avatars, such as tools, weapons, and interactive objects.

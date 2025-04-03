@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+
 # Attachable Profile
 
 Digital items that can be attached to or equipped by avatars across metaverse platforms with consistent behavior, appearance, and interaction capabilities.

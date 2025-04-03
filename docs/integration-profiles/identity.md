@@ -1,10 +1,12 @@
 ---
-sidebar_position: 5
+sidebar_position: 8
 ---
 
 > **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
 # Identity Integration Profile
+
+## Purpose and Use Cases
 
 The Identity Integration Profile defines metadata for digital identities that persist across metaverse platforms and applications. This profile enables consistent identity representation, reputation management, achievement tracking, and social connections while maintaining privacy and security controls.
 

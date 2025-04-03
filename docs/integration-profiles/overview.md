@@ -21,17 +21,19 @@ MVMD includes the following integration profiles:
 
 | Profile | Purpose | Status |
 |---------|---------|--------|
-| [Basic](./basic.md) | Core metadata for all assets | Stable |
-| [Avatar](./avatar.md) | Virtual character metadata | Stable |
-| [Attachable](./attachable.md) | Items that can be attached to avatars (wearables, equipment) | Stable |
-| [Scene](./scene.md) | Virtual environment metadata | Stable |
-| [Vehicle](./vehicle.md) | Vehicle asset metadata | Proposed |
+| [Attachable](./attachable.md) | Items that can be attached to avatars (wearables, equipment) | Proposed |
+| [Avatar](./avatar.md) | Virtual character metadata | Proposed |
+| [Basic](./basic.md) | Core metadata for all assets | Proposed |
 | [Composable 3D NFT](./composable-3d-nft.md) | Composable NFT metadata | Proposed |
 | [Digital Twin](./digital-twin.md) | Physical-digital representation | Proposed |
+| [Equipable](./equipable.md) | Equipment system metadata | Proposed |
+| [Future Profiles](./future.md) | Planned developments | In planning |
 | [Identity](./identity.md) | Identity information | Proposed |
 | [Interactable](./interactable.md) | Interactive object metadata | Proposed |
 | [Royalty](./royalty.md) | Revenue and rights metadata | Proposed |
-| [Future Profiles](./future.md) | Planned developments | In planning |
+| [Scene](./scene.md) | Virtual environment metadata | Proposed |
+| [Vehicle](./vehicle.md) | Vehicle asset metadata | Proposed |
+| [Wearable](./wearable.md) | Wearable item metadata | Proposed |
 
 ## Profile Structure
 

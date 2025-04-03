@@ -1,10 +1,12 @@
 ---
-sidebar_position: 4
+sidebar_position: 12
 ---
 
 > **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
 # Vehicle Integration Profile
+
+## Purpose and Use Cases
 
 The Vehicle Integration Profile extends the Basic Profile with properties specific to vehicles, mounts, and other transportation elements in virtual environments. This profile combines physical simulation, interaction capabilities, and customization options to create rich vehicle experiences.
 

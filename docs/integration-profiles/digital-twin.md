@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Digital Twin Integration Profile
-
 > **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
+
+# Digital Twin Integration Profile
 
 ## Purpose and Use Cases
 

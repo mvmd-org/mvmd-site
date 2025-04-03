@@ -1,6 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 13
 ---
+
+> **PROPOSED STATE**: This integration profile is currently in a proposed state and is under community review. The specification may change based on feedback and implementation experience.
 
 # Wearable Integration Profile
 

@@ -232,11 +232,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'integration-profiles/basic',
-          label: 'Basic',
-        },
-        {
-          type: 'doc',
           id: 'integration-profiles/attachable',
           label: 'Attachable',
         },
@@ -247,13 +242,8 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'integration-profiles/wearable',
-          label: 'Wearable',
-        },
-        {
-          type: 'doc',
-          id: 'integration-profiles/equipable',
-          label: 'Equipable',
+          id: 'integration-profiles/basic',
+          label: 'Basic',
         },
         {
           type: 'doc',
@@ -267,13 +257,23 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'integration-profiles/vehicle',
-          label: 'Vehicle',
+          id: 'integration-profiles/equipable',
+          label: 'Equipable',
+        },
+        {
+          type: 'doc',
+          id: 'integration-profiles/future',
+          label: 'Future',
         },
         {
           type: 'doc',
           id: 'integration-profiles/identity',
           label: 'Identity',
+        },
+        {
+          type: 'doc',
+          id: 'integration-profiles/interactable',
+          label: 'Interactable',
         },
         {
           type: 'doc',
@@ -287,13 +287,13 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'integration-profiles/interactable',
-          label: 'Interactable',
+          id: 'integration-profiles/vehicle',
+          label: 'Vehicle',
         },
         {
           type: 'doc',
-          id: 'integration-profiles/future',
-          label: 'Future',
+          id: 'integration-profiles/wearable',
+          label: 'Wearable',
         },
       ],
     },
