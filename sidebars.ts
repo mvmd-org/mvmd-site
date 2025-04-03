@@ -47,19 +47,30 @@ const sidebars: SidebarsConfig = {
           label: 'Overview',
         },
         {
-          type: 'doc',
-          id: 'concepts/metadata-fundamentals',
-          label: 'Metadata Fundamentals',
+          type: 'category',
+          label: 'Metadata',
+          items: [
+            {
+              type: 'doc',
+              id: 'concepts/metadata/fundamentals',
+              label: 'Fundamentals',
+            },
+            {
+              type: 'doc',
+              id: 'concepts/metadata/structure',
+              label: 'Structure',
+            },
+            {
+              type: 'doc',
+              id: 'concepts/metadata/schema-org',
+              label: 'Schema.org',
+            },
+          ],
         },
         {
           type: 'doc',
           id: 'concepts/types-of-assets',
           label: 'Asset Types',
-        },
-        {
-          type: 'doc',
-          id: 'concepts/structural-organization',
-          label: 'Structural Organization',
         },
         {
           type: 'doc',
@@ -76,11 +87,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'standards/overview',
           label: 'Overview',
-        },
-        {
-          type: 'doc',
-          id: 'standards/schema-org',
-          label: 'Schema.org',
         },
         // Individual standard pages
         {

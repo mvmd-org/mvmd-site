@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Metadata Fundamentals
@@ -97,12 +97,12 @@ A basic metadata example showing fundamental structure:
 
 ## Related Concepts
 
-- [Types of Assets](./types-of-assets.md): Understanding different asset types and their specific requirements
-- [Linking vs Embedding](./linking-vs-embedding.md): Strategies for referencing related assets
-- [Structural Organization](./structural-organization.md): Principles for organizing complex metadata
+- [Types of Assets](../types-of-assets.md): Understanding different asset types and their specific requirements
+- [Linking vs Embedding](../linking-vs-embedding.md): Strategies for referencing related assets
+- [Structure](./structure.md): Principles for organizing complex metadata
 
 ## Implementation References
 
-- [Getting Started](../implementation/getting-started.md): Implementing your first metadata
-- [Schema.org Standard](../standards/schema-org.md): Core vocabulary implementation
-- [Validation Tools](../tools/validator.md): Tools for validating your metadata 
+- [Getting Started](../../implementation/getting-started.md): Implementing your first metadata
+- [Schema.org](./schema-org.md): Core vocabulary implementation
+- [Validation Tools](../../tools/validator.md): Tools for validating your metadata 

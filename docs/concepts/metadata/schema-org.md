@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Schema.org
@@ -26,7 +26,7 @@ For metaverse assets, the most important Schema.org types are:
 - **Event**: For timed experiences
 - **Person/Organization**: For creators and owners
 
-For detailed information on these types, see [Types of Assets](../concepts/types-of-assets.md).
+For detailed information on these types, see [Types of Assets](../types-of-assets.md).
 
 ## Implementing the Schema.org Standard
 
@@ -103,9 +103,9 @@ Using Schema.org's structured data capabilities:
 
 ## Related Concepts
 
-- [Metadata Fundamentals](../concepts/metadata-fundamentals.md)
-- [Types of Assets](../concepts/types-of-assets.md)
-- [Linking vs Embedding](../concepts/linking-vs-embedding.md) 
+- [Fundamentals](./fundamentals.md)
+- [Types of Assets](../types-of-assets.md)
+- [Linking vs Embedding](../linking-vs-embedding.md) 
 
 ## Practical Implementation Guide
 
@@ -250,245 +250,48 @@ Use PropertyValue for custom data:
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "renderEngine",
-      "name": "Render Engine",
-      "value": "Unreal Engine 5"
+      "propertyID": "textureResolution",
+      "name": "Texture Resolution",
+      "value": "2048x2048"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "animationCount",
+      "name": "Number of Animations",
+      "value": 3
     }
   ]
 }
 ```
 
-### Step 5: Establishing Relationships
+### Step 5: Integration with Other Standards
 
-Connect related assets:
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
-  },
-  "@type": "3DModel",
-  "name": "My First Asset",
-  "description": "A detailed description of the asset",
-  "dateCreated": "2024-04-02",
-  "creator": {
-    "@type": "Person",
-    "name": "Asset Creator",
-    "url": "https://creator.example.com"
-  },
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "contentUrl": "https://example.com/asset.glb",
-  "encodingFormat": "model/gltf-binary",
-  "thumbnail": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/thumbnail.jpg",
-    "encodingFormat": "image/jpeg"
-  },
-  "associatedMedia": [
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/preview1.jpg",
-      "encodingFormat": "image/jpeg",
-      "caption": "Front view"
-    },
-    {
-      "@type": "VideoObject",
-      "contentUrl": "https://example.com/demo.mp4",
-      "encodingFormat": "video/mp4",
-      "description": "Product demonstration"
-    }
-  ],
-  "isPartOf": {
-    "@type": "CreativeWork",
-    "name": "Asset Collection",
-    "@id": "https://example.com/collections/main"
-  },
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Component 1",
-      "contentUrl": "https://example.com/component1.glb"
-    }
-  ],
-  "sameAs": [
-    "ipfs://QmXaXa1XaX...",
-    "ar://asset/123"
-  ]
-}
-```
-
-### Step 6: Adding Metadata for Discovery
-
-Enhance discoverability with additional properties:
+When integrating with other standards, maintain schema.org as the foundation:
 
 ```json
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/"
+    "mvmd": "https://mvmd.org/v1/",
+    "gltf": "https://www.khronos.org/gltf/"
   },
   "@type": "3DModel",
   "name": "My First Asset",
   "description": "A detailed description of the asset",
-  "dateCreated": "2024-04-02",
-  "creator": {
-    "@type": "Person",
-    "name": "Asset Creator",
-    "url": "https://creator.example.com"
-  },
-  "license": "https://creativecommons.org/licenses/by/4.0/",
   "contentUrl": "https://example.com/asset.glb",
   "encodingFormat": "model/gltf-binary",
-  "thumbnail": {
-    "@type": "ImageObject",
-    "contentUrl": "https://example.com/thumbnail.jpg",
-    "encodingFormat": "image/jpeg"
-  },
-  "associatedMedia": [
-    {
-      "@type": "ImageObject",
-      "contentUrl": "https://example.com/preview1.jpg",
-      "encodingFormat": "image/jpeg",
-      "caption": "Front view"
-    },
-    {
-      "@type": "VideoObject",
-      "contentUrl": "https://example.com/demo.mp4",
-      "encodingFormat": "video/mp4",
-      "description": "Product demonstration"
-    }
-  ],
-  "isPartOf": {
-    "@type": "CreativeWork",
-    "name": "Asset Collection",
-    "@id": "https://example.com/collections/main"
-  },
-  "hasPart": [
-    {
-      "@type": "3DModel",
-      "name": "Component 1",
-      "contentUrl": "https://example.com/component1.glb"
-    }
-  ],
-  "sameAs": [
-    "ipfs://QmXaXa1XaX...",
-    "ar://asset/123"
-  ],
-  "keywords": ["3D", "furniture", "modern", "interactive"],
-  "category": "Furniture",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Designers"
-  },
-  "inLanguage": "en",
-  "version": "1.0.0"
-}
-```
-
-### Best Practices
-
-1. **Type Selection**:
-   - Always use the most specific type available
-   - Consider the primary purpose of your asset
-   - Check Schema.org documentation for type hierarchies
-
-2. **Property Usage**:
-   - Include all required properties for your type
-   - Use consistent property names
-   - Validate property values match expected types
-   - Keep descriptions concise but informative
-
-3. **Structured Data**:
-   - Use nested objects for complex properties
-   - Include proper type declarations for nested objects
-   - Maintain consistent indentation and formatting
-   - Use arrays for multiple values of the same type
-
-4. **Identifiers**:
-   - Use unique, persistent identifiers
-   - Include multiple identifier systems when available
-   - Use proper identifier properties (@id, identifier, sameAs)
-
-5. **Validation**:
-   - Test your JSON-LD syntax
-   - Validate against Schema.org specifications
-   - Check property value formats
-   - Verify all URLs are accessible
-
-### Common Patterns
-
-1. **Basic Asset**:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "CreativeWork",
-  "name": "Asset Name",
-  "description": "Asset description",
-  "creator": {
-    "@type": "Person",
-    "name": "Creator Name"
+  "gltf:asset": {
+    "version": "2.0",
+    "generator": "ExampleStudio 2.0"
   }
 }
 ```
 
-2. **Media Asset**:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "MediaObject",
-  "name": "Media Name",
-  "contentUrl": "https://example.com/media.file",
-  "encodingFormat": "media/type",
-  "contentSize": "1.5 MB"
-}
-```
+## Schema.org Implementation Checklist
 
-3. **Collection**:
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "Collection",
-  "name": "Collection Name",
-  "hasPart": [
-    {
-      "@type": "CreativeWork",
-      "name": "Item 1"
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "Item 2"
-    }
-  ]
-}
-```
-
-### Troubleshooting
-
-Common issues and solutions:
-
-1. **Invalid Type**:
-   - Check Schema.org documentation for correct type names
-   - Ensure proper capitalization
-   - Verify type exists in Schema.org vocabulary
-
-2. **Property Errors**:
-   - Verify property names match Schema.org specifications
-   - Check expected value types
-   - Use PropertyValue for custom properties
-
-3. **Context Issues**:
-   - Include complete @context declaration
-   - Verify namespace URLs
-   - Check for conflicting vocabulary terms
-
-4. **Validation Failures**:
-   - Use JSON-LD validators
-   - Check Schema.org validation tools
-   - Verify required properties are present 
+- [ ] Appropriate `@type` selected
+- [ ] All required properties included
+- [ ] Properly nested objects with types
+- [ ] Accurate media information
+- [ ] Custom properties properly structured
+- [ ] Clean, valid JSON-LD syntax 

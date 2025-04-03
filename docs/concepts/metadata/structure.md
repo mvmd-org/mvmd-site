@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
-# Structural Organization
+# Metadata Structure
 
 Proper organization of metadata ensures clear relationships, efficient loading, and consistent naming patterns. This guide covers key principles for structuring your metadata.
 
@@ -178,6 +178,6 @@ When combining multiple standards, maintain clear organization:
 
 ## Related Concepts
 
-- [Metadata Fundamentals](./metadata-fundamentals.md): Core principles of metadata structure
-- [Types of Assets](./types-of-assets.md): Schema.org types for different assets
-- [Linking vs Embedding](./linking-vs-embedding.md): Strategies for referencing content 
+- [Fundamentals](./fundamentals.md): Core principles of metadata structure
+- [Types of Assets](../types-of-assets.md): Schema.org types for different assets
+- [Linking vs Embedding](../linking-vs-embedding.md): Strategies for referencing content 
