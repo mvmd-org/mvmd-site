@@ -45,3 +45,40 @@ main a:not(.button):hover {
   color: inherit !important; 
   text-decoration: none !important; 
 } */
+
+/* --- Custom Button Hover States --- */
+
+/* General button hover - no underline */
+main a.px-6.py-3:hover, /* Covers main CTA buttons */
+main a.px-4.py-2:hover  /* Covers standard link buttons */
+{
+  text-decoration: none !important;
+}
+
+/* "Get Started" button (white bg, blue text) */
+main a.bg-white.text-blue-600:hover {
+  color: #2563eb !important; /* Tailwind blue-600 */
+}
+
+/* "Learn More" button (blue bg, white text) */
+main a.bg-blue-600.text-white:hover {
+  color: white !important;
+}
+
+/* Standard link buttons (white bg, blue text) */
+main a.bg-white.text-blue-600.border:hover {
+  color: #2563eb !important; /* Tailwind blue-600 */
+}
+[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-blue-400.border:hover {
+  color: #60a5fa !important; /* Tailwind blue-400 */
+}
+
+/* "View All Profiles" button (gray bg, gray/white text) */
+main a.bg-gray-200.text-gray-800:hover {
+  color: #1f2937 !important; /* Tailwind gray-800 */
+}
+[data-theme='dark'] main a.dark\:bg-gray-700.dark\:text-white:hover {
+  color: white !important;
+}
+
+/* --- End Custom Button Hover States --- */
