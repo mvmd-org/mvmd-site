@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# FBX Standard
+# FBX
 
 This page covers how to integrate FBX into your metadata through namespaces.
 

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# glTF Standard
+# glTF
 
 This page covers how to integrate glTF into your metadata through namespaces.
 

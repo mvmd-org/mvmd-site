@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# COLLADA Standard
+# COLLADA
 
 This page covers how to integrate COLLADA into your metadata through namespaces.
 

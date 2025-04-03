@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# USD (Universal Scene Description)
+# USD
 
 ## Overview
 

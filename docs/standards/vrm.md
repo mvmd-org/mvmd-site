@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# VRM Standard
+# VRM
 
 This page covers how to integrate VRM into your metadata through namespaces.
 

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Schema.org Standard
+# Schema.org
 
 This page covers how to use Schema.org and JSON-LD as the foundation for your metadata.
 

@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# CityJSON Standard
+# CityJSON
 
 This page covers how to integrate CityJSON into your metadata through namespaces.
 

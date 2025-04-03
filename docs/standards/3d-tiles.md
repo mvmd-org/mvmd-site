@@ -2,7 +2,7 @@
 sidebar_position: 11
 ---
 
-# 3D Tiles Standard
+# 3D Tiles
 
 This page covers how to integrate 3D Tiles into your metadata through namespaces.
 

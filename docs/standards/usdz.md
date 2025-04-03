@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# USDZ Standard
+# USDZ
 
 This page covers how to integrate USDZ into your metadata through namespaces.
 

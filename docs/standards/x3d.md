@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# X3D Standard
+# X3D
 
 This page covers how to integrate X3D into your metadata through namespaces.
 

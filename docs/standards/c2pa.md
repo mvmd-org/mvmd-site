@@ -2,7 +2,7 @@
 sidebar_position: 12
 ---
 
-# C2PA Standard
+# C2PA
 
 This page covers how to integrate C2PA (Coalition for Content Provenance and Authenticity) into your metadata through namespaces.
 

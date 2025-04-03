@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Standards Overview
+# Overview
 
 This section covers the technical standards that integrate with MVMD through namespaces. Each standard has dedicated documentation on how to properly incorporate it into your metadata.
 

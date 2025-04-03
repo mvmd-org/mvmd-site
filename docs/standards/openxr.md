@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# OpenXR Standards
+# OpenXR
 
 This page covers how to integrate OpenXR standards into your metadata through namespaces.
 
