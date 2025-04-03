@@ -146,7 +146,7 @@ Add these findings to the 'Documentation Issues Log' to inform template improvem
 
 ### Phase 3: Navigation & Consistency Improvements
 
-#### Step 6: Enhance Cross-References
+#### Step 6: Enhance Cross-References [NEXT]
 **Prompt**: "Add precise cross-references to all implementation guides and profile documents. Insert links to directly related documents using relative paths. Only reference existing documents that contain information supporting the current topic.
 
 Use the 'Documentation Issues Log' from previous steps to identify key relationships between documents. After enhancing cross-references, document:
