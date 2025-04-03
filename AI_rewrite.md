@@ -55,7 +55,7 @@ Add this summary to a new section called 'Documentation Issues Log' at the end o
 - docs/implementation/nfts.md (check for overlapping content with other guides)
 - docs/implementation/composable.md (check for overlap with cross-platform content)
 
-#### Step 2: Simplify Code Examples
+#### Step 2: Simplify Code Examples [NEXT]
 **Prompt**: "Simplify code examples in standards/gltf.md, implementation/cross-platform-assets.md, and all integration profile documents. Reduce example verbosity by 30-50% while maintaining complete functionality. Remove unnecessary properties and comments while ensuring each example clearly demonstrates its intended concept.
 
 For each simplified example, document:
