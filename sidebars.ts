@@ -331,17 +331,23 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Community',
+      label: 'Contributors',
       items: [
         {
           type: 'doc',
           id: 'community/contributing',
-          label: 'Contributing',
+          label: 'Overview',
         },
         {
-          type: 'doc',
-          id: 'community/standards-organizations',
+          type: 'category',
           label: 'Standards Organizations',
+          items: [
+            {
+              type: 'doc',
+              id: 'community/standards-organizations',
+              label: 'Overview',
+            },
+          ]
         },
         {
           type: 'doc',
@@ -350,12 +356,12 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Supporters',
+          label: 'Developers',
           items: [
             {
               type: 'doc',
               id: 'community/supporters/support-mvmd',
-              label: 'Support MVMD',
+              label: 'Overview',
             },
             {
               type: 'doc',
