@@ -83,6 +83,11 @@ There are several ways SDOs can participate:
     *   Share MVMD resources with your developer community.
     *   Gather feedback from implementers using your standard within MVMD.
 
+4.  **GitHub Discussions**:
+    *   Propose new standards in the [Ideas](https://github.com/mvmd-org/mvmd-standards/discussions/categories/ideas) discussion category.
+    *   Ask implementation questions in the [Q&A](https://github.com/mvmd-org/mvmd-standards/discussions/categories/q-a) discussion category.
+    *   Engage with the community on standards-related topics.
+
 We actively review feedback and contributions from SDOs and have processes in place to incorporate suggested improvements into the MVMD framework and Integration Profiles.
 
 ## Standard Integration Process
@@ -92,7 +97,7 @@ To formally integrate your standard with the MVMD framework, follow these steps:
 1.  **Standard Registration**:
     *   **Define Namespace**: Choose a consistent prefix (e.g., `yourStandardPrefix`).
     *   **Document URI**: Establish the canonical URI for your standard's vocabulary (e.g., `https://your-standard.org/v1/`).
-    *   **Submit Request**: Contact the MVMD team ([contact information placeholder]) with details about your standard.
+    *   **Submit Request**: Contact the MVMD team by opening a new issue in our [Standards Integration](https://github.com/mvmd-org/mvmd-standards/issues/new?template=standards-integration.md) repository with details about your standard.
 
 2.  **Schema Integration**:
     *   **Map Properties**: Identify how core properties of your standard map to or complement Schema.org.
@@ -131,28 +136,6 @@ To formally integrate your standard with the MVMD framework, follow these steps:
 }
 ```
 
-### Complex Integration (Placeholder)
-
-*(This section can be expanded with a more complex example showing interaction between multiple standards)*
-
-```json
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "mvmd": "https://mvmd.org/v1/",
-    "yourStandardPrefix": "https://your-standard.org/v1/",
-    "anotherStandard": "https://another-standard.org/v1/"
-  },
-  "@type": "Thing",
-  "name": "Complex Asset Example",
-  "yourStandardPrefix:complexProperty": {
-    "nested": "value",
-    "array": ["item1", "item2"]
-  },
-  "anotherStandard:relatedProperty": "relatedValue"
-}
-```
-
 ## Best Practices for SDOs
 
 When integrating your standard, consider these best practices:
@@ -165,15 +148,19 @@ When integrating your standard, consider these best practices:
 ## Next Steps for Standards Organizations
 
 1.  **Review Current Representation**: See how your standard (or similar ones) might already be mentioned or used within the existing documentation.
-2.  **Provide Feedback**: Suggest improvements or corrections via [GitHub Issues/Discussions Link Placeholder].
-3.  **Consider Supporting**: Explore becoming an official supporting organization.
-4.  **Contact Us**: Reach out to [contact information placeholder] to discuss collaboration.
+2.  **Propose a Standard**: Submit your standard for consideration in our [Ideas discussion category](https://github.com/mvmd-org/mvmd-standards/discussions/categories/ideas).
+3.  **Ask Implementation Questions**: Get help with technical implementation in our [Q&A discussion category](https://github.com/mvmd-org/mvmd-standards/discussions/categories/q-a).
+4.  **Submit a Formal Request**: When ready, open an issue using our [Standards Integration template](https://github.com/mvmd-org/mvmd-standards/issues/new?template=standards-integration.md).
+5.  **Consider Supporting**: Explore becoming an official supporting organization by reaching out through the channels above.
 
 ## Support and Resources
 
 *   **MVMD Documentation**: [Start Here](../introduction)
 *   **Implementation Examples**: See [Implementation Section](../implementation/overview)
 *   **Validation Tools**: [Validator](../tools/validator)
-*   **Community Forum**: [GitHub Discussions Link Placeholder]
+*   **Discussion Categories**:
+    *   [Standards Proposals (Ideas)](https://github.com/mvmd-org/mvmd-standards/discussions/categories/ideas)
+    *   [Implementation Questions (Q&A)](https://github.com/mvmd-org/mvmd-standards/discussions/categories/q-a)
+*   **Issue Templates**: [Standards Integration](https://github.com/mvmd-org/mvmd-standards/issues/new?template=standards-integration.md)
 
 We're committed to working with standards organizations to ensure accurate, effective representation and implementation of your standards within the MVMD framework. 
