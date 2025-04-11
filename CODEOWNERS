@@ -1,0 +1,14 @@
+# Standards-related files
+/docs/contributors/standards-organizations/ @GrigB
+/docs/standards/ @GrigB
+/.github/ISSUE_TEMPLATE/standards-integration.md @GrigB
+
+# Documentation
+/docs/ @GrigB
+README.md @GrigB
+CONTRIBUTING.md @GrigB
+
+# Configuration files
+.github/ @GrigB
+package.json @GrigB
+tsconfig.json @GrigB 

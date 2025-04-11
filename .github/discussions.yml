@@ -1,0 +1,76 @@
+categories:
+  - name: Standards Integration
+    description: Discussions about integrating new standards into MVMD
+    emoji: 📚
+    color: "#0366d6"
+  - name: Implementation Feedback
+    description: Feedback and discussions about standard implementations
+    emoji: 💬
+    color: "#28a745"
+  - name: General Questions
+    description: General questions about MVMD standards
+    emoji: ❓
+    color: "#6f42c1"
+  - name: Announcements
+    description: Important announcements about standards and MVMD
+    emoji: 📢
+    color: "#f66a0a"
+
+templates:
+  - name: Standards Proposal
+    about: Propose a new standard for integration
+    title: "[PROPOSAL] [Standard Name] Integration"
+    labels: ["standards-discussion"]
+    body: |
+      ## Standard Information
+      - **Name**:
+      - **Organization**:
+      - **Version**:
+      - **Status**:
+
+      ## Integration Goals
+      - What problem does this standard solve?
+      - How does it complement existing standards?
+      - What are the key benefits?
+
+      ## Technical Details
+      - **Namespace URI**:
+      - **Schema Format**:
+      - **Validation Requirements**:
+
+      ## Supporting Materials
+      (Attach relevant documentation)
+
+  - name: Implementation Feedback
+    about: Provide feedback about standard implementations
+    title: "[FEEDBACK] [Standard Name] Implementation"
+    labels: ["implementation-feedback"]
+    body: |
+      ## Implementation Details
+      - **Standard**:
+      - **Version**:
+      - **Environment**:
+
+      ## Feedback
+      - **Type**: [Bug/Enhancement/Documentation]
+      - **Priority**: [High/Medium/Low]
+      - **Description**:
+
+      ## Supporting Information
+      (Attach relevant files or screenshots)
+
+  - name: General Question
+    about: Ask a general question about MVMD standards
+    title: "[QUESTION] [Brief Description]"
+    labels: ["question"]
+    body: |
+      ## Context
+      What are you trying to accomplish?
+
+      ## Question
+      Please provide a clear and concise description of your question.
+
+      ## Related Information
+      - Relevant documentation
+      - Previous attempts
+      - Environment details 

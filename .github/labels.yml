@@ -1,0 +1,37 @@
+labels:
+  - name: standard-integration
+    color: "0366d6"
+    description: "Issues related to standards integration"
+  - name: standards-review
+    color: "f9c513"
+    description: "Standards under technical review"
+  - name: implementation
+    color: "28a745"
+    description: "Standards being implemented"
+  - name: testing
+    color: "f66a0a"
+    description: "Standards undergoing validation"
+  - name: documentation
+    color: "6f42c1"
+    description: "Documentation updates needed"
+  - name: standards-discussion
+    color: "0366d6"
+    description: "Discussion about standards integration"
+  - name: implementation-feedback
+    color: "28a745"
+    description: "Feedback about standard implementations"
+  - name: question
+    color: "6f42c1"
+    description: "General questions about standards"
+  - name: bug
+    color: "d73a4a"
+    description: "Something isn't working"
+  - name: enhancement
+    color: "a2eeef"
+    description: "New feature or request"
+  - name: help wanted
+    color: "008672"
+    description: "Extra attention is needed"
+  - name: good first issue
+    color: "7057ff"
+    description: "Good for newcomers" 

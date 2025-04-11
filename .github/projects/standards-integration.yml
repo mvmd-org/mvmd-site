@@ -1,0 +1,44 @@
+name: Standards Integration
+body: |
+  # Standards Integration Project
+  
+  This project tracks the progress of standards integration efforts in MVMD.
+  
+  ## Columns
+  
+  - **New**: New standards integration requests
+  - **In Review**: Standards under technical review
+  - **Implementation**: Standards being implemented
+  - **Testing**: Standards undergoing validation
+  - **Documentation**: Standards being documented
+  - **Done**: Completed standards integrations
+
+columns:
+  - name: New
+    purpose: New standards integration requests
+  - name: In Review
+    purpose: Standards under technical review
+  - name: Implementation
+    purpose: Standards being implemented
+  - name: Testing
+    purpose: Standards undergoing validation
+  - name: Documentation
+    purpose: Standards being documented
+  - name: Done
+    purpose: Completed standards integrations
+
+workflows:
+  - name: Standards Integration
+    rules:
+      - when: issue.created
+        then: move_to_column(New)
+      - when: issue.labeled("standards-review")
+        then: move_to_column(In Review)
+      - when: issue.labeled("implementation")
+        then: move_to_column(Implementation)
+      - when: issue.labeled("testing")
+        then: move_to_column(Testing)
+      - when: issue.labeled("documentation")
+        then: move_to_column(Documentation)
+      - when: issue.closed
+        then: move_to_column(Done) 
